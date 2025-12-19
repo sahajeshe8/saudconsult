@@ -1,0 +1,130 @@
+// 404 Error Page Styles
+.error_404_section {
+	background: #fff;
+	width: 100%;
+	min-height: 60vh;
+	display: flex;
+	align-items: center;
+}
+
+.error_404_content {
+	max-width: 800px;
+	margin: 0 auto;
+	width: 100%;
+
+	.error_404_number {
+		margin-bottom: 40px;
+
+		.error_404_title {
+			font-size: 150px;
+			font-weight: 700;
+			color: #173B87;
+			line-height: 1;
+			margin: 0;
+
+			@media screen and (max-width: 768px) {
+				font-size: 100px;
+			}
+
+			@media screen and (max-width: 480px) {
+				font-size: 80px;
+			}
+		}
+	}
+
+	.error_404_message {
+		margin-bottom: 40px;
+
+		.error_404_description {
+			font-size: 18px;
+			line-height: 1.6;
+			color: #666;
+			margin-top: 20px;
+			max-width: 600px;
+			margin-left: auto;
+			margin-right: auto;
+
+			@media screen and (max-width: 768px) {
+				font-size: 16px;
+			}
+		}
+	}
+
+	.error_404_actions {
+		margin-bottom: 50px;
+
+		.btn_style {
+			margin: 0 auto;
+		}
+	}
+
+	.error_404_search {
+		margin-top: 50px;
+		padding-top: 50px;
+		border-top: 1px solid rgba(0, 0, 0, 0.1);
+
+		h4 {
+			font-size: 20px;
+			font-weight: 600;
+			color: #000;
+			margin: 0 0 20px 0;
+		}
+
+		.search-form {
+			max-width: 500px;
+			margin: 0 auto;
+			display: flex;
+			gap: 10px;
+
+			.search-field {
+				flex: 1;
+				padding: 12px 20px;
+				border: 1px solid #dadada;
+				font-size: 16px;
+				outline: none;
+
+				&:focus {
+					border-color: #173B87;
+				}
+			}
+
+			.search-submit {
+				padding: 12px 30px;
+				background: #173B87;
+				color: #fff;
+				border: 1px solid #173B87;
+				cursor: pointer;
+				font-size: 16px;
+				transition: all 0.3s ease;
+
+				&:hover {
+					background: #1a4ba0;
+					border-color: #1a4ba0;
+				}
+			}
+		}
+	}
+}
+
+// Responsive styles
+@media screen and (max-width: 768px) {
+	.error_404_section {
+		padding-top: 40px;
+		padding-bottom: 40px;
+		min-height: auto;
+	}
+
+	.error_404_content {
+		.error_404_search {
+			.search-form {
+				flex-direction: column;
+
+				.search-field,
+				.search-submit {
+					width: 100%;
+				}
+			}
+		}
+	}
+}
+

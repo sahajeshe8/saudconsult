@@ -1,0 +1,19 @@
+// Main SCSS file
+// Import variables first
+@import 'fonts';
+@import 'variable';
+// Import mixins
+@import 'mixins';
+// Import header styles
+@import 'header';
+// Your custom styles go here
+@import 'comon';
+@import 'base';
+@import 'banner';
+@import 'about';
+@import 'services';
+@import 'projects';
+@import 'leadership';
+@import 'partners';
+@import 'ready-to-partner';
+@import 'footer';

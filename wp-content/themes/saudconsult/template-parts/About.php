@@ -1,0 +1,93 @@
+<?php
+/**
+ * About Section Component Template
+ *
+ * @package tasheel
+ */
+
+// Get about section settings from theme mods or defaults
+$about_title = get_theme_mod( 'about_title', 'About Saud Consult' );
+$about_subtitle = get_theme_mod( 'about_subtitle', 'Engineering Excellence Since 1975' );
+$about_description = get_theme_mod( 'about_description', 'For over five decades, Saud Consult has stood as the Kingdom\'s foremost multidisciplinary engineering and architectural consultancy, delivering innovative solutions that shape the future of Saudi Arabia.' );
+$about_image = get_theme_mod( 'about_image', get_template_directory_uri() . '/assets/images/about-img.jpg' );
+$about_button_text = get_theme_mod( 'about_button_text', 'Learn More' );
+$about_button_link = get_theme_mod( 'about_button_link', '#' );
+
+?>
+
+<section class="about_section pt_80 pb_80">
+	<div class="wrap">
+	  <div class="about_section_01">
+		 <div class="about_sectioncl_01">
+
+		 <span class="lable_text"> <img src="<?php echo get_template_directory_uri(); ?>/assets/images/banner-dot.svg" alt="About Us"> About Us</span>
+			 <h1>
+			 The Kingdom's Pioneer in Engineering. <span>A Legacy of Trust Since 1965.</span>
+</h1>
+		 </div>
+		 <div class="about_sectioncl_02">
+			 <h5>Established in 1965 as the first Saudi Engineering Consulting Firm, </h5>
+			 <p>Saud Consult has been integral to shaping the nation's built environment. Our foundation is built on deep local understanding, navigating the complexities of the Saudi landscape, coupled with advanced international technical expertise.</p>
+		 
+			 <a class="btn_style btn_transparent" href="<?php echo esc_url( home_url( '/contact' ) ); ?>">
+Explore Our Expertise <span><img src="<?php echo get_template_directory_uri(); ?>/assets/images/buttion-arrow.svg" alt="Explore Our Expertise"></span>        
+                    </a>
+			
+			</div>
+	  </div>
+
+
+<ul class="about_4_cl_blocks"> 
+	<li>
+		<div class="about_4_cl_blocks_item_01">
+			<div class="w_100 text_cl_01">
+			<h3>50+ Years</h3>
+			<p>Pioneering Excellence</p>
+</div>
+<div class="about_4_cl_blocks_item_02">
+<p>
+Decades of navigating the market, establishing trust, and delivering landmark projects across the Kingdom.
+</p></div>
+		</div>
+	</li>
+	<li>
+		<div class="about_4_cl_blocks_item_01">
+			<div class="w_100 text_cl_01">
+			<h3>2000+ </h3>
+			<p>Professionals</p>
+</div>
+<div class="about_4_cl_blocks_item_02">
+<p>
+Decades of navigating the market, establishing trust, and delivering landmark projects across the Kingdom.
+</p></div>
+		</div>
+	</li>
+	<li>
+		<div class="about_4_cl_blocks_item_01">
+			<div class="w_100 text_cl_01">
+			<h3>9 Core</h3>
+			<p>Sectors</p>
+</div>
+<div class="about_4_cl_blocks_item_02">
+<p>
+Decades of navigating the market, establishing trust, and delivering landmark projects across the Kingdom.
+</p></div>
+		</div>
+	</li>
+	<li>
+		<div class="about_4_cl_blocks_item_01">
+			<div class="w_100 text_cl_01">
+			<h3>2,600+</h3>
+			<p>Projects Completed</p>
+</div>
+<div class="about_4_cl_blocks_item_02">
+<p>
+Decades of navigating the market, establishing trust, and delivering landmark projects across the Kingdom.
+</p></div>
+		</div>
+	</li>
+</ul>
+
+	</div>
+</section>
+

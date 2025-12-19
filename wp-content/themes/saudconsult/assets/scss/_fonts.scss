@@ -1,0 +1,36 @@
+@font-face {
+   font-family: 'RB';
+   src: url('../fonts/rb-regular.woff2') format('woff2'),
+       url('../fonts/rb-regular.woff') format('woff');
+   font-weight: normal;
+   font-style: normal;
+   font-display: swap;
+}
+
+@font-face {
+   font-family: 'RB';
+   src: url('../fonts/rb-light.woff2') format('woff2'),
+       url('../fonts/rb-light.woff') format('woff');
+   font-weight: 300;
+   font-style: normal;
+   font-display: swap;
+}
+
+@font-face {
+   font-family: 'RB';
+   src: url('../fonts/rb-bold.woff2') format('woff2'),
+       url('../fonts/rb-bold.woff') format('woff');
+   font-weight: bold;
+   font-style: normal;
+   font-display: swap;
+}
+
+@font-face {
+   font-family: 'BankGothic';
+   src: url('../fonts/bankGothicBold.woff2') format('woff2'),
+       url('../fonts/bankGothicBold.woff') format('woff');
+   font-weight: bold;
+   font-style: normal;
+   font-display: swap;
+}
+

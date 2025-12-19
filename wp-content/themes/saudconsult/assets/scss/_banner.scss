@@ -1,0 +1,37 @@
+ 
+
+
+
+.bannerContainer{  height: 100vh; width: 100%;    position: relative; background-size: cover; background-position: center; background-repeat: no-repeat; }
+.banner_slide{ height: 100vh; background-size: cover !important; background-position: center bottom !important; display: flex; flex-wrap: wrap; align-items: flex-end;
+  .banner_slide_content_01{ display: flex; flex-wrap: wrap; align-items: center;  gap: 10px;  padding-bottom: 200px;
+  h5{ color: #fff; font-size: 18px; font-weight: 400; font-family: 'RB'; margin: 0; line-height: 100%; }
+  }
+
+  .banner_slide_content_02{ display: flex; flex-wrap: wrap;  align-items: flex-end; justify-content: space-between; padding-bottom: 100px;
+     h2{ @include px-rem(60); font-weight:600;  color: #A8D05A;    margin: 0; line-height: 100%; font-family: 'RB';
+   
+            span { color: #fff; display: block; font-weight: 200;   }}
+  
+     .banner_slide_content_02_cl_01{ width: 81%; }
+     .banner_slide_content_02_cl_02{ width: 19%;              }
+     h5{ color: #fff; font-size: 20px;margin: 0; margin-top:10px; font-weight: 300; font-family: 'RB';  line-height: 130%; max-width: 60%; }
+  
+   }
+
+   .wrap{ position: relative; z-index: 10;}
+
+
+   &::after{ content: ""; display: block; width: 100%; height: 100%;   position: absolute; top: 0; left: 0; z-index: 1; 
+   /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#a2c856+0,a2c856+0,a2c856+100&0+0,0+27,0.65+99 */
+background: linear-gradient(to bottom,  rgba(162,200,86,0) 0%,rgba(162,200,86,0) 27%,rgba(50, 61, 26, 0.65) 99%,rgba(162,200,86,0.65) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+opacity: 0.5;
+   
+   
+   }
+}
+
+
+
+
+

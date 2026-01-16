@@ -8,7 +8,7 @@
     'use strict';
 
     /**
-     * Snazzy Maps style - Light Grey Minimalist Theme (matching screenshot)
+     * Snazzy Maps style - Dark/Black Theme (matching contact page design)
      */
     const mapStyle = [
         {
@@ -16,7 +16,7 @@
             "elementType": "geometry",
             "stylers": [
                 {
-                    "color": "#f5f5f5"
+                    "color": "#1a1a1a"
                 }
             ]
         },
@@ -25,7 +25,7 @@
             "elementType": "labels.text.fill",
             "stylers": [
                 {
-                    "color": "#333333"
+                    "color": "#999999"
                 },
                 {
                     "visibility": "on"
@@ -37,7 +37,10 @@
             "elementType": "labels.text.stroke",
             "stylers": [
                 {
-                    "visibility": "off"
+                    "color": "#1a1a1a"
+                },
+                {
+                    "visibility": "on"
                 }
             ]
         },
@@ -55,7 +58,7 @@
             "elementType": "geometry.fill",
             "stylers": [
                 {
-                    "color": "#f5f5f5"
+                    "color": "#2a2a2a"
                 }
             ]
         },
@@ -64,7 +67,7 @@
             "elementType": "geometry.stroke",
             "stylers": [
                 {
-                    "color": "#e0e0e0"
+                    "color": "#1a1a1a"
                 }
             ]
         },
@@ -82,7 +85,7 @@
             "elementType": "geometry.fill",
             "stylers": [
                 {
-                    "color": "#ffffff"
+                    "color": "#2a2a2a"
                 }
             ]
         },
@@ -91,7 +94,7 @@
             "elementType": "geometry.stroke",
             "stylers": [
                 {
-                    "color": "#e0e0e0"
+                    "color": "#1a1a1a"
                 },
                 {
                     "weight": 0.5
@@ -103,7 +106,7 @@
             "elementType": "geometry.fill",
             "stylers": [
                 {
-                    "color": "#ffffff"
+                    "color": "#3a3a3a"
                 }
             ]
         },
@@ -112,7 +115,7 @@
             "elementType": "geometry.stroke",
             "stylers": [
                 {
-                    "color": "#d0d0d0"
+                    "color": "#1a1a1a"
                 },
                 {
                     "weight": 1
@@ -124,7 +127,7 @@
             "elementType": "geometry.fill",
             "stylers": [
                 {
-                    "color": "#ffffff"
+                    "color": "#2a2a2a"
                 }
             ]
         },
@@ -133,7 +136,7 @@
             "elementType": "geometry.fill",
             "stylers": [
                 {
-                    "color": "#ffffff"
+                    "color": "#2a2a2a"
                 }
             ]
         },
@@ -151,7 +154,7 @@
             "elementType": "geometry.fill",
             "stylers": [
                 {
-                    "color": "#e8e8e8"
+                    "color": "#1a1a1a"
                 }
             ]
         },
@@ -160,7 +163,7 @@
             "elementType": "geometry.stroke",
             "stylers": [
                 {
-                    "color": "#d0d0d0"
+                    "color": "#1a1a1a"
                 }
             ]
         }
@@ -345,24 +348,36 @@
      * Initialize when DOM is ready and config is available
      */
     const init = function () {
+        let attempts = 0;
+        const maxAttempts = 50; // Try for up to 5 seconds (50 * 100ms)
+        
         const tryInit = function () {
+            attempts++;
+            
             // Check if config is available
             if (window.contactMapConfig) {
+                console.log('ContactMap: Config found, initializing map...');
                 initContactMap();
-            } else {
+            } else if (attempts < maxAttempts) {
                 // Config not ready yet, try again
-                setTimeout(tryInit, 50);
+                setTimeout(tryInit, 100);
+            } else {
+                console.error('ContactMap: Configuration not found after', maxAttempts, 'attempts. Make sure ContactMap.php template is loaded.');
+                const mapContainer = document.getElementById('contactMap');
+                if (mapContainer) {
+                    mapContainer.innerHTML = '<div style="padding: 40px; text-align: center; color: #fff; font-family: sans-serif; background: #000;">Map configuration not found. Please check the template.</div>';
+                }
             }
         };
 
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', function () {
                 // Wait a bit for config script to execute
-                setTimeout(tryInit, 100);
+                setTimeout(tryInit, 200);
             });
         } else {
             // DOM already loaded, wait for config
-            setTimeout(tryInit, 100);
+            setTimeout(tryInit, 200);
         }
     };
 

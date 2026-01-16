@@ -148,8 +148,18 @@
                             </a>
                         </li>
 						<li class="nav-item">
-                            <a class="nav-link" href="<?php echo esc_url( home_url( '/media-center' ) ); ?>">
+                            <a class="nav-link" href="<?php echo esc_url( home_url( '/careers' ) ); ?>">
 							Careers
+                            </a>
+                        </li>
+
+
+
+
+
+						<li class="nav-item">
+                            <a class="nav-link" href="<?php echo esc_url( home_url( '/media-center' ) ); ?>">
+							Vendor Registration
                             </a>
                         </li>
  
@@ -158,9 +168,9 @@
                     <div class="menu_right_block">
 
 
-                    <!-- <a class="language_button button_link" href="">
-                    العربية
-                    </a> -->
+                    <a class="language_button button_link" href="">
+					عربي
+                    </a>
                     <a class="btn_style btn_transparent" href="<?php echo esc_url( home_url( '/contact' ) ); ?>">
                         Contact
                     </a>

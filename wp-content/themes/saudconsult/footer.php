@@ -7,82 +7,145 @@
 ?>
 
 <footer id="colophon" class="site-footer footer">
-
 	<div class="wrap">
-		 <ul class="footer_list">
-			<li class="footer_list_item_01">
-				<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-					<img src="<?php echo get_template_directory_uri(); ?>/assets/images/footer-logo.png" alt="Footer Logo">
-				</a>
-			</li>
-			<li class="footer_list_item_02">
-				<h3>Stay updated with UB Emirates latest insights and service updates.</h3>
-				 <div class="subscribe_form">
-					 <div class="subscribe_input">
-						 <input type="email" placeholder="Email Address">
-					 </div>
-					 <div class="subscribe_form_button">
-					 <button type="submit">
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/subscribe-icn.svg" alt="Send">
-					 </button>
-				 </div>	
-				 </div>	
-				  				
-			</li>
-			<li class="footer_list_item_03">
-				<h3 class="footer_title_h3">Explore</h3>
+		<div class="footer_main">
+			<div class="footer_left">
+				<img
+					src="<?php echo get_template_directory_uri(); ?>/assets/images/footer-logo.svg"
+					alt="Footer Logo"
+				>
+			</div>
 
-				<ul class="footer_list_ul">
-					<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Home</a></li>
-					<li><a href="<?php echo esc_url( home_url( '/projects' ) ); ?>">Projects</a></li>
-					<li><a href="<?php echo esc_url( home_url( '/about-us' ) ); ?>">About Us</a></li>
-					<li><a href="<?php echo esc_url( home_url( '/careers' ) ); ?>">Careers</a></li>
-					<li><a href="<?php echo esc_url( home_url( '/brands' ) ); ?>">Brands</a></li>
-					<li><a href="<?php echo esc_url( home_url( '/media-center' ) ); ?>">Media Center</a></li>
-					<li><a href="<?php echo esc_url( home_url( '/products' ) ); ?>">Products</a></li>
-					<li><a href="<?php echo esc_url( home_url( '/contact-us' ) ); ?>">Contact</a></li>
-					<li><a href="<?php echo esc_url( home_url( '/industries' ) ); ?>">Industries We Serve</a></li>
-				</ul>
-			</li>
-			<li class="footer_list_item_04">
-			<h3 class="footer_title_h3">Social Media</h3>
-			<ul class="footer_social_list_ul">
+			<div class="footer_right">
+				<div class="footer_row_01">
+					<ul class="footer_social_ul">
+						<li>
+							<a href="#">
+								<img
+									src="<?php echo get_template_directory_uri(); ?>/assets/images/in-f.svg"
+									alt="Footer Icon"
+								>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<img
+									src="<?php echo get_template_directory_uri(); ?>/assets/images/x-f.svg"
+									alt="Footer Icon"
+								>
+							</a>
+						</li>
+					</ul>
+
+					<div class="footer_row_02">
+						<div class="footer_row_02_left">
+							<h3>
+								Stay updated with <br>
+								SAUD CONSULT
+								<span>
+									latest <br>
+									insights and service updates.
+								</span>
+							</h3>
+						</div>
+
+						<div class="footer_row_02_right">
+							<div class="subscribe_form">
+								<input
+									class="footer_email_input"
+									type="text"
+									placeholder="Email address"
+								>
+
+								<a class="btn_style btn_green" href="#">
+									Subscribe
+									<span>
+										<img
+											src="<?php echo get_template_directory_uri(); ?>/assets/images/buttion-arrow.svg"
+											alt="Explore More"
+										>
+									</span>
+								</a>
+							</div>
+						</div>
+					</div> <!-- footer_row_02 -->
+
+<div class="footer_row_03">
+	 <ul class="footer_row_03_ul">
+		<li>
+			<h3>Quick Links</h3>
+			<ul class="footer_link_ul">
 				<li>
-					<a href="<?php echo esc_url( get_theme_mod( 'footer_linkedin_url', '#' ) ); ?>" target="_blank" rel="noopener noreferrer">
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/footer-in.svg" alt="LinkedIn">
-					</a>
+					<a href="#">Company</a>
 				</li>
 				<li>
-					<a href="<?php echo esc_url( get_theme_mod( 'footer_instagram_url', '#' ) ); ?>" target="_blank" rel="noopener noreferrer">
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/footer_insta.svg" alt="Instagram">
-					</a>
+					<a href="#">Projects</a>
 				</li>
 				<li>
-					<a href="<?php echo esc_url( get_theme_mod( 'footer_twitter_url', '#' ) ); ?>" target="_blank" rel="noopener noreferrer">
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/footer-x.svg" alt="X (Twitter)">
-					</a>
+					<a href="#">Clients</a>
+				</li>
+				<li>
+					<a href="#">Media Center</a>
+				</li>
+				<li>
+					<a href="#">Careers</a>
 				</li>
 			</ul>
-			</li>
+		</li>
+		<li>
+		<h3>Services</h3>
+
+		<ul class="footer_link_ul">
+				<li>
+					<a href="#">Engineering Design</a>
+				</li>
+				<li>
+					<a href="#">Construction Supervision</a>
+				</li>
+				<li>
+					<a href="#">Specialized Studies</a>
+				</li>
+				<li>
+					<a href="#">Project Management</a>
+				</li>
+				 
+			</ul>
+
+
+		</li>
+		<li>
+		<h3>Contact us</h3>
+		<h4>Email:</h4>
+		 <p><a href="mailto:scc@saudconsult.com">scc@saudconsult.com</a></p>
+
+		 <h4>Phone:</h4>
+		 <p><a href="tel:+966114659975">+966 1146 59975</a></p>
+		</li>
+
 	 
-		 </ul>
+	 </ul>
+</div>
 
 
-		 <div class="footer_bottom">
-		 <p>© 2025 UB Emirates LLC. All Rights Reserved</p> 
+ <div class="footer_row_04">
 
-		 <ul class="footer_bottom_list">
-			<li><a href="<?php echo esc_url( home_url( '/terms-conditions' ) ); ?>">Terms & Conditions</a></li>
-			<li><a href="<?php echo esc_url( home_url( '/privacy-policy' ) ); ?>">Privacy Policy</a></li>
- 
-		 </ul>
+ <div class="footer_row_04_left">
+	 <p>© 2025, Saud Consult   |   All Rights Reserved</p>
+</div>
+
+<div class="footer_row_04_right">
+	 <ul>
+		<li><a href="#">Terms and Conditions</a></li>
+		<li><a href="#">Privacy Policy</a></li>
+	 </ul>
+</div>
 	</div>
-	</div>
 
-
-
+				</div> <!-- footer_row_01 -->
+			</div> <!-- footer_right -->
+		</div> <!-- footer_main -->
+	</div> <!-- wrap -->
 </footer>
-</div><!-- #page -->
 
 <?php wp_footer(); ?>
 

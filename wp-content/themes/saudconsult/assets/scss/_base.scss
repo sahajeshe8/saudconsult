@@ -2021,3 +2021,12 @@ a,
   padding-left: unset;
   padding-right: 7%;
 }
+
+
+.pt_40IM{ padding-top: 40px !important;
+
+  @media #{$media-600} {
+    padding-top: 10px !important;
+  }
+}
+.projects_list_section{  background: #F5F9EE;}

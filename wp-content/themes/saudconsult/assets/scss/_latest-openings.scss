@@ -1,0 +1,179 @@
+.latest_openings_section {
+	width: 100%;
+	position: relative;
+ 
+
+	.latest_openings_section_inner {
+		width: 100%;
+
+		.latest_openings_list {
+			margin: 0;
+			padding: 0;
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 30px;
+			list-style: none;
+
+			@media screen and (max-width: 768px) {
+				grid-template-columns: 1fr;
+			}
+
+			li {
+				list-style: none;
+				width: 100%;
+			}
+		}
+	}
+
+	.opening_block {
+		width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: flex-end;
+		padding: 6%;
+		border: solid 1px #D2D2D2;
+		transition: all 0.3s ease;
+		position: relative;
+
+		.opening_icon {
+            position: absolute;
+			 width: 24px;
+            right: 31px;
+            top:40px;
+			margin-bottom: 20px;
+			display: flex;
+			align-items: center;
+
+			img {
+				width: auto;
+				 
+				object-fit: contain;
+			}
+
+			@media screen and (max-width: 768px) {
+				margin-bottom: 15px;
+
+				img {
+					height: 40px;
+				}
+			}
+		}
+
+		.opening_content {
+			flex: 1;
+			display: flex;
+			flex-direction: column;
+		 
+
+			h3 {
+				margin: 0;
+				margin-bottom: 8px;
+				font-size: 20px;
+				font-weight: 500;
+				color: #000000;
+                margin: 0 0 8px 0;
+                font-size: 30px;
+				font-family: 'RB';
+                line-height: 100%;
+               
+                margin:  0;
+                margin-bottom: 8px;
+
+                @media screen and (max-width: 768px) {
+                    font-size: 20px;
+                }
+                @media screen and (max-width: 700px) {
+                    font-size: 20px;
+                }
+			}
+p{ margin: 0; 
+    @media screen and (max-width: 768px) {
+        font-size: 14px;
+    }
+}
+			.opening_posted {
+				font-size: 16px;
+				color:#353535;
+				font-family: 'RB';
+				margin-bottom: 10px;
+                @media screen and (max-width: 768px) {
+                    font-size: 14px;
+                }
+                font-weight:400;
+                @media screen and (max-width: 700px) {
+                    font-size: 14px;
+                }
+			}
+
+			.opening_location,
+			.opening_id {
+				display: flex;
+				align-items: center;
+				gap: 8px;
+				font-size: 16px;
+				color: #353535;
+                font-weight: 400;
+				font-family: 'RB';
+                @media screen and (max-width: 768px) {
+                    font-size: 14px;
+                }
+                @media screen and (max-width: 700px) {
+                    font-size: 13px;
+                }
+				img {
+					width: 19px;
+					height: auto;
+					display: block;
+					object-fit: contain;
+				}
+
+				span {
+					display: inline-block;
+				}
+			}
+		}
+
+       
+
+		.opening_action {
+			@media screen and (min-width: 768px) {
+				margin-left: 20px;
+			}
+		}
+
+		@media screen and (max-width: 767px) {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 15px;
+
+			.opening_action {
+				width: 100%;
+
+				.job_details_btn {
+					width: 100%;
+					justify-content: space-between;
+				}
+			}
+		}
+	}
+
+	.load_more_container {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		margin-top: 40px;
+		padding-top: 40px;
+
+		.load_more_btn {
+			&.loading {
+				opacity: 0.7;
+				cursor: not-allowed;
+				pointer-events: none;
+			}
+		}
+	}
+}
+
+
+
+.opening_location,  .opening_id{  margin-bottom:5px; }

@@ -6,7 +6,10 @@
 
 .leadership_section_inner_left_list{ margin: 0; margin-left: -0.5%; margin-right: -0.5%; padding: 0; display: flex; flex-wrap: wrap;  
 
-    li{ list-style: none; width: 33.3% ; padding-left: 0.5%; padding-right: 0.5%;}
+    li{ list-style: none; width: 33.3% ; padding-left: 0.5%; padding-right: 0.5%; margin-bottom: 20px;
+    
+        @media screen and (max-width:700px) { width: 100%; padding-left:1%; padding-right:1%; }
+    }
 }
 
 .leadership_block{ width: 100%;
@@ -38,4 +41,12 @@
     }
 
     .leadership_content_bottom{ display: flex; flex-wrap: wrap; align-items: center;  justify-content: space-between;}
+}
+
+.custom-leadership-list{
+justify-content: space-between;
+	li{ width: 48%; margin-bottom:80px; 
+	
+		@media screen and (max-width:700px) { width: 100%; padding-left:1%; padding-right:1%; margin-bottom: 20px; }
+	}
 }

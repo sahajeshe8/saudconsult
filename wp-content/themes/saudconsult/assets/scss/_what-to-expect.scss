@@ -1,0 +1,156 @@
+.what_to_expect_section {
+	width: 100%;
+	position: relative;
+	background: #fff;
+
+	.wrap {
+		width: 100%;
+	}
+
+	.what_to_expect_header {
+		width: 100%;
+		 
+		 
+		margin-bottom: 0;
+
+		@media screen and (max-width: 1024px) {
+			padding: 50px 60px;
+		}
+
+		@media screen and (max-width: 768px) {
+			padding: 40px 30px;
+		}
+
+		.what_to_expect_title {
+			margin: 0;
+			margin-bottom: 20px;
+			font-size: 48px;
+			font-weight: 700;
+			color: #A2C856;
+			font-family: 'RB';
+			line-height: 1.2;
+
+			span {
+				display: inline-block;
+			}
+
+			@media screen and (max-width: 768px) {
+				font-size: 36px;
+				margin-bottom: 15px;
+			}
+		}
+
+		.what_to_expect_description {
+			margin: 0;
+			font-size: 18px;
+			line-height: 1.6;
+			color: #000;
+			font-family: 'RB';
+
+			@media screen and (max-width: 768px) {
+				font-size: 16px;
+			}
+		}
+	}
+
+	.what_to_expect_content {
+		width: 100%;
+		margin: 0;
+        gap: 20px;
+		padding: 0;
+		list-style: none;
+        margin-top: 20px;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		 
+
+		@media screen and (max-width: 1024px) {
+			grid-template-columns: 1fr;
+		}
+
+		.what_to_expect_item {
+			margin: 0;
+			padding: 6%;
+			position: relative;
+			background: #fff;
+			list-style: none;
+ 
+
+			@media screen and (max-width: 1024px) {
+				padding: 50px 60px;
+				border-bottom: 1px solid #000;
+
+				&:last-child {
+					border-bottom: none;
+				}
+			}
+
+			@media screen and (max-width: 768px) {
+				padding: 40px 30px;
+			}
+
+			.what_to_expect_icon {
+				margin-bottom: 30px;
+				width: auto;
+				height: 60px;
+				display: flex;
+				align-items: center;
+
+				img {
+					width: auto;
+					height: 100%;
+					object-fit: contain;
+					filter: brightness(0) saturate(100%) invert(27%) sepia(95%) saturate(1352%) hue-rotate(106deg) brightness(95%) contrast(88%);
+				}
+
+				@media screen and (max-width: 768px) {
+					height: 50px;
+					margin-bottom: 24px !important;
+				}
+			}
+
+			.what_to_expect_item_title {
+				margin: 0;
+				margin-bottom: 20px;
+				font-size: 28px;
+				font-weight: 700;
+				color: #0D6A37;
+				font-family: 'RB';
+				line-height: 1.3;
+
+				@media screen and (max-width: 768px) {
+					font-size: 24px;
+					margin-bottom: 16px;
+				}
+
+
+				span{ display: block; color: #000; font-weight:400;}
+
+
+				@media screen and (max-width: 768px) {
+					margin-bottom: 5px !important;
+				}
+			}
+
+			.what_to_expect_item_content {
+				margin: 0;
+				font-size: 16px;
+				line-height: 1.7;
+				color: #333;
+				font-family: 'RB';
+
+				@media screen and (max-width: 768px) {
+					font-size: 14px;
+				}
+			}
+
+
+			&.box-style-01{
+				.what_to_expect_icon{ margin-bottom: 80px; margin-top: 10px;
+					img{  height: auto !important; }
+				}
+			}
+		}
+	}
+}
+

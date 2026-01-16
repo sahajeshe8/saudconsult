@@ -382,8 +382,16 @@ function tasheel_scripts()
 		}
 	}
 
+	// Project Details page - Enqueue Fancybox
+	if (is_page_template('page-template-project-details.php')) {
+		// Enqueue Fancybox CSS
+		wp_enqueue_style('fancybox-css', 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css', array(), '5.0.0');
+		// Enqueue Fancybox JS
+		wp_enqueue_script('fancybox-js', 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js', array(), '5.0.0', true);
+	}
+
 	// Contact page specific scripts
-	if (is_page_template('page-contact.php') || is_page_template('page-contact-us.php')) {
+	if (is_page_template('page-contact.php') || is_page_template('page-contact-us.php') || is_page_template('page-template-contact-us.php')) {
 		// Load ContactMap script in footer, after other scripts
 		$contact_map_js_path = get_template_directory() . '/assets/js/ContactMap.js';
 		if (file_exists($contact_map_js_path)) {

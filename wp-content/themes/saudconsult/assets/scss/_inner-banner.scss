@@ -1,0 +1,181 @@
+.inner_banner_section {
+	width: 100%;
+	position: relative;
+	min-height: 538px;
+	display: flex;
+	align-items: center;
+	overflow: hidden;
+
+	.inner_banner_image {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-size: cover;
+		background-position: center center;
+		background-repeat: no-repeat;
+		z-index: 1;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			display: block;
+		}
+	}
+
+	.inner_banner_overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(
+			to bottom,
+			rgba(162, 200, 86, 0) 0%,
+			rgba(162, 200, 86, 0) 27%,
+			rgba(50, 61, 26, 0.65) 99%,
+			rgba(162, 200, 86, 0.65) 100%
+		);
+		opacity: 0.7;
+		z-index: 2;
+	}
+
+	.wrap {
+		position: relative;
+		z-index: 10;
+		width: 100%;
+	}
+
+	.inner_banner_content {
+		padding:180px 0 20px;
+		text-align: left;
+
+		.inner_banner_label {
+			display: inline-flex;
+			align-items: center;
+			gap: 8px;
+			color: #A8D05A;
+			font-size: 16px;
+			font-weight: 400;
+			font-family: 'RB';
+			margin-bottom: 20px;
+
+			img {
+				width: auto;
+				height: auto;
+			}
+		}
+
+		.inner_banner_title {
+			color: #fff;
+		 
+			font-weight: 600;
+			font-family: 'RB';
+			line-height: 120%;
+			margin: 0 0 30px 0;
+			@include px-rem(50);
+
+			span {
+				color: #A8D05A;
+				display: block;
+				font-weight: 200;
+			}
+		}
+
+		.inner_banner_breadcrumbs {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+			font-size: 16px;
+			font-family: 'RB';
+			color: #fff;
+
+			a {
+				color: #A8D05A;
+				text-decoration: none;
+				transition: color 0.3s ease;
+
+				&:hover {
+					color: #fff;
+				}
+			}
+
+			.breadcrumb_separator {
+				color: rgba(255, 255, 255, 0.5);
+			}
+
+			.breadcrumb_current {
+				color: rgba(255, 255, 255, 0.8);
+			}
+		}
+
+        h1{
+            @include px-rem(50);
+        }
+	}
+
+	// Responsive styles
+	@include max(1024) {
+		min-height: 350px;
+
+		.inner_banner_content {
+			padding: 80px 0 50px;
+
+			.inner_banner_title {
+				@include px-rem(45);
+			}
+		}
+	}
+
+	@include max(768) {
+		min-height: 300px;
+
+		.inner_banner_content {
+			padding: 60px 0 40px;
+
+			.inner_banner_title {
+				@include px-rem(55);
+				margin-bottom: 20px;
+			}
+
+			.inner_banner_label {
+				font-size: 14px;
+				margin-bottom: 15px;
+			}
+
+			.inner_banner_breadcrumbs {
+				font-size: 14px;
+			}
+		}
+	}
+
+	@include max(480) {
+		min-height: 250px;
+
+		.inner_banner_content {
+			padding: 50px 0 30px;
+
+			.inner_banner_title {
+				@include px-rem(85);
+			}
+		}
+	}
+
+
+
+	&.banner-type-02{
+		
+		align-items: flex-end;
+
+		@media screen and (min-width: 1024px) {
+			min-height: 771px;
+		}
+
+		@media screen and (mac-width: 700px) {
+			min-height: 320px;
+		}
+	}
+}
+

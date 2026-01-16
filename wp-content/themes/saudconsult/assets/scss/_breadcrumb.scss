@@ -1,0 +1,130 @@
+// Breadcrumb Template Part
+.breadcrumb_section {
+	width: 100%;
+ padding-top: 25px;
+	position: relative;
+
+	@media screen and (max-width: 768px) {
+		padding: 15px 0;
+	}
+}
+
+.breadcrumb_list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 5px;
+
+	@media screen and (max-width: 480px) {
+		gap: 5px;
+	}
+}
+
+.breadcrumb_item {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+
+	@media screen and (max-width: 480px) {
+		gap: 5px;
+	}
+
+	.breadcrumb_home_icon {
+		width: 16px;
+		height: 16px;
+		display: inline-block;
+		vertical-align: middle;
+		margin-right: 4px;
+		object-fit: contain;
+
+		@media screen and (max-width: 480px) {
+			width: 14px;
+			height: 14px;
+		}
+	}
+
+	.breadcrumb_link {
+		color: #666;
+		text-decoration: none;
+		font-size: 16px;
+		font-weight: 400;
+		transition: color 0.3s ease;
+		display: inline-flex;
+		align-items: center;
+		gap: 4px;
+
+		&:hover {
+			color: #999;
+		}
+
+		@media screen and (max-width: 768px) {
+			font-size: 14px;
+		}
+
+		@media screen and (max-width: 480px) {
+			font-size: 12px;
+		}
+	}
+
+	.breadcrumb_text {
+		color: #47A01A;
+		font-size: 16px;
+		font-weight:500;
+		display: inline-flex;
+		align-items: center;
+		gap: 4px;
+
+		@media screen and (max-width: 768px) {
+			font-size: 14px;
+		}
+
+		@media screen and (max-width: 480px) {
+			font-size: 12px;
+		}
+	}
+
+	.breadcrumb_separator {
+		margin-left: 8px;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+
+		.breadcrumb_separator_icon {
+			width: 16px;
+			height: 10px;
+			display: block;
+			object-fit: contain;
+		}
+
+		@media screen and (max-width: 768px) {
+			margin-left: 5px;
+
+			.breadcrumb_separator_icon {
+				width: 14px;
+				height: 14px;
+			}
+		}
+
+		@media screen and (max-width: 480px) {
+			margin-left: 4px;
+
+			.breadcrumb_separator_icon {
+				width: 12px;
+				height: 12px;
+			}
+		}
+	}
+
+	// &.active {
+	// 	.breadcrumb_text {
+	// 		color: #A2C856;
+	// 	}
+	// }
+}
+

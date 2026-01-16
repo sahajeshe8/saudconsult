@@ -83,8 +83,8 @@
 
 
 
-<diov class="leadership_section_inner_right  ">
-    <div class="wrap">
+<div class="leadership_section_inner_right  ">
+  
     <h4 class="h4_title_35 pb_20">
     Our Executive <span>Team</span>
 				</h4>
@@ -126,8 +126,8 @@
              </a>
          </div>
        
-        </div>
-     </diuv>
+        
+     </div>
  </li>
  <li>
      <div class="leadership_block">

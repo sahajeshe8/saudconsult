@@ -1,0 +1,77 @@
+.page_tabs_section {
+background: #F5F9EE;
+padding-top: 15px;
+padding-bottom: 15px;
+ 
+	width: 100%;
+	position: relative;
+ 
+
+	.page_tabs_container {
+		width: 100%;
+
+		.page_tabs_nav {
+			display: flex;
+			flex-wrap: wrap;
+			padding: 0;
+            justify-content: center;
+            margin: 0;
+		 
+			.page_tabs_item {
+				margin: 0;
+				padding: 0;
+                margin-left: 10px;
+                margin-right: 10px;
+                border-radius: 10px;
+				margin-top: 3px;
+				margin-bottom: 3px;
+
+				.page_tabs_link {
+					display: inline-flex;
+                    
+					padding: 10px;
+                    color: #000;
+					font-size: 16px;
+					font-weight: 400;
+					font-family: 'RB';
+					text-decoration: none;
+					border-bottom: 3px solid transparent;
+					transition: all 0.3s ease;
+                    line-height: 100%;
+					position: relative;
+					background: transparent;
+                    border-radius: 10px;
+
+
+                    &:hover{
+                        background: #A8D05A;
+                        color: #fff;
+                        
+                    }
+
+					@media screen and (max-width: 700px) {
+						font-size: 13px; background: #eef1e8; padding: 7px; border-radius: 6px;
+					}
+				 
+				}
+
+				&.active {
+				
+                    a{
+                        color: #fff;
+                        background: #A8D05A; 
+                        
+
+                        
+                    }
+
+				}
+			}
+		}
+ 
+	}
+
+ 
+	 
+}
+ 

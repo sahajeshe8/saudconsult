@@ -1,0 +1,110 @@
+.executive_team_section {
+	width: 100%;
+	position: relative;
+	background: #fff;
+
+	.executive_team_section_inner {
+		width: 100%;
+
+		.executive_team_list {
+			margin: 0;
+			margin-left: -0.5%;
+			margin-right: -0.5%;
+			padding: 0;
+			display: flex;
+			flex-wrap: wrap;
+			list-style: none;
+
+			li {
+				list-style: none;
+				width: 33.3%;
+				padding-left: 0.5%;
+				padding-right: 0.5%;
+                margin-bottom: 15px;
+
+				@media screen and (max-width: 1024px) {
+					width: 50%;
+				}
+
+				@media screen and (max-width: 700px) {
+					width: 100%;
+					padding-left: 1%;
+					padding-right: 1%;
+					margin-bottom: 20px;
+				}
+			}
+		}
+	}
+
+	.leadership_block {
+		width: 100%;
+
+		.leadership_img {
+			width: 100%;
+			overflow: hidden;
+			position: relative;
+
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				display: block;
+				transition: transform 0.5s ease;
+				transform: scale(1);
+			}
+		}
+
+		&:hover {
+			.leadership_img {
+				img {
+					transform: scale(1.1);
+				}
+			}
+		}
+
+		.leadership_content {
+			padding: 4% 6%;
+			width: 100%;
+			background: #f6f6f6 url('../images/leadershiop_bg_01.png') no-repeat center center;
+			background-size: contain;
+
+			h4 {
+				margin: 0;
+				font-size: 22px;
+				font-weight: 400;
+				color: #101922;
+				font-family: 'RB';
+			}
+
+			p {
+				margin: 0;
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+				gap: 10px;
+				font-size: 16px;
+				color: #666;
+				font-family: 'RB';
+			}
+		}
+
+		.leadership_content_bottom {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			justify-content: space-between;
+			margin-top: 10px;
+
+			a {
+				display: inline-flex;
+				align-items: center;
+				transition: transform 0.3s ease;
+
+				&:hover {
+					transform: translateX(5px);
+				}
+			}
+		}
+	}
+}
+

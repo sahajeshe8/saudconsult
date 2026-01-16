@@ -228,3 +228,730 @@ var swiper = new Swiper(".mySwiper-partners", {
 		},
 	},
 });
+
+var swiper = new Swiper(".mySwiper-clients", {
+	slidesPerView: 2,
+	 
+	loop: true,
+	autoplay: {
+		delay: 3000,
+		disableOnInteraction: false,
+	},
+ 
+	breakpoints: {
+		640: {
+			slidesPerView: 3,
+			 
+		},
+		768: {
+			slidesPerView: 4,
+			 
+		},
+		1024: {
+			slidesPerView: 5,
+			 
+		},
+		1280: {
+			slidesPerView: 6,
+			 
+		},
+	},
+});
+
+// Insights Swiper initialization
+(function() {
+	const initInsightsSwiper = function() {
+		if (typeof Swiper === 'undefined') {
+			console.warn('Insights: Swiper library is not loaded');
+			return;
+		}
+		const swiperElement = document.querySelector(".mySwiper-insights");
+		if (!swiperElement) {
+			return;
+		}
+		if (swiperElement.swiper) {
+			return;
+		}
+
+		// Find navigation buttons
+		const nextButton = document.querySelector(".news_but_next");
+		const prevButton = document.querySelector(".news_but_prev");
+
+		if (!nextButton || !prevButton) {
+			console.warn('Insights: Navigation buttons not found');
+			return;
+		}
+
+		try {
+			new Swiper(swiperElement, {
+				slidesPerView: 1,
+				spaceBetween: 30,
+				loop: true,
+				navigation: {
+					nextEl: nextButton,
+					prevEl: prevButton,
+				},
+				// pagination: {
+				// 	el: ".swiper-pagination",
+				// 	clickable: true,
+				// },
+				breakpoints: {
+					480: {
+						slidesPerView: 1,
+						spaceBetween: 20,
+					},
+					768: {
+						slidesPerView: 2,
+						spaceBetween: 25,
+					},
+					1024: {
+						slidesPerView: 3,
+						spaceBetween: 30,
+					},
+					1280: {
+						slidesPerView: 4,
+						spaceBetween: 30,
+					},
+				},
+			});
+			console.log('Insights: Swiper initialized successfully');
+		} catch (error) {
+			console.error('Insights: Error initializing Swiper', error);
+		}
+	};
+
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', function() {
+			setTimeout(initInsightsSwiper, 100);
+		});
+	} else {
+		setTimeout(initInsightsSwiper, 100);
+	}
+})();
+
+// Page Tabs functionality
+(function() {
+	const initPageTabs = function() {
+		const tabsContainer = document.querySelector('[data-page-tabs]');
+		if (!tabsContainer) {
+			return;
+		}
+
+		const tabLinks = tabsContainer.querySelectorAll('.page_tabs_link');
+		const tabPanels = tabsContainer.querySelectorAll('.page_tabs_panel');
+
+		tabLinks.forEach(link => {
+			link.addEventListener('click', function(e) {
+				const href = this.getAttribute('href');
+				
+				// If href is a full URL or page link (not starting with #), allow normal navigation
+				if (href && !href.startsWith('#')) {
+					// Allow normal link navigation - don't prevent default
+					// Navigate to the page
+					window.location.href = href;
+					return;
+				}
+				
+				// Otherwise, prevent default and handle tab switching for hash links
+				e.preventDefault();
+				
+				const targetTab = this.getAttribute('data-tab');
+				const targetPanel = tabsContainer.querySelector('#' + targetTab);
+				
+				if (!targetPanel) {
+					return;
+				}
+
+				// Remove active class from all tabs and panels
+				tabLinks.forEach(l => {
+					l.closest('.page_tabs_item').classList.remove('active');
+				});
+				tabPanels.forEach(panel => {
+					panel.classList.remove('active');
+				});
+
+				// Add active class to clicked tab and corresponding panel
+				this.closest('.page_tabs_item').classList.add('active');
+				targetPanel.classList.add('active');
+
+				// Update URL hash
+				if (history.pushState) {
+					history.pushState(null, null, '#' + targetTab);
+				}
+			});
+		});
+
+		// Handle initial hash in URL
+		if (window.location.hash) {
+			const hash = window.location.hash.substring(1);
+			const targetLink = tabsContainer.querySelector('[data-tab="' + hash + '"]');
+			if (targetLink) {
+				targetLink.click();
+			}
+		}
+	};
+
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', function() {
+			setTimeout(initPageTabs, 100);
+		});
+	} else {
+		setTimeout(initPageTabs, 100);
+	}
+})();
+
+// Timeline Scroll Animations and Infinite Scroll with AOS
+(function() {
+	const initTimelineAnimations = function() {
+		const timelineSection = document.querySelector('.timeline_section');
+		if (!timelineSection) {
+			return;
+		}
+
+		const timelineItems = timelineSection.querySelectorAll('.tileline_ul > li');
+		const loadMoreBtn = timelineSection.querySelector('.timeline-load-more');
+		let isLoading = false;
+		let currentPage = 1;
+		const itemsPerPage = 3; // Number of items to load each time
+
+		// Initialize AOS for timeline if not already initialized
+		if (typeof AOS !== 'undefined') {
+			// Refresh AOS to detect new elements
+			setTimeout(function() {
+				AOS.refresh();
+			}, 100);
+
+			// Add active class to li when timeline item appears
+			document.addEventListener('aos:in', function(e) {
+				const animatedElement = e.detail;
+				// Check if the animated element is part of timeline
+				if (animatedElement && animatedElement.closest && animatedElement.closest('.timeline_section')) {
+					const timelineItem = animatedElement.closest('.tileline_ul > li');
+					if (timelineItem) {
+						// Add active class when the first child (image) starts animating
+						if (animatedElement.classList.contains('timeline_item_img')) {
+							timelineItem.classList.add('active');
+						}
+					}
+				}
+			});
+		}
+
+		// Infinite scroll functionality
+		const loadMoreItems = function() {
+			if (isLoading) {
+				return;
+			}
+
+			isLoading = true;
+			if (loadMoreBtn) {
+				loadMoreBtn.classList.add('loading');
+				loadMoreBtn.textContent = 'Loading...';
+			}
+
+			// Simulate loading delay (replace with actual AJAX call)
+			setTimeout(function() {
+				// Get all items (including hidden ones if you have them)
+				const allItems = Array.from(timelineItems);
+				const totalItems = allItems.length;
+				const startIndex = currentPage * itemsPerPage;
+				const endIndex = Math.min(startIndex + itemsPerPage, totalItems);
+
+				// Show next batch of items
+				for (let i = startIndex; i < endIndex; i++) {
+					if (allItems[i]) {
+						allItems[i].style.display = 'flex';
+						
+						// Add AOS attributes to newly loaded items
+						const imgBlock = allItems[i].querySelector('.timeline_item_img');
+						const contentBlock = allItems[i].querySelector('.timeline_item_content');
+						
+						if (imgBlock && !imgBlock.hasAttribute('data-aos')) {
+							imgBlock.setAttribute('data-aos', 'fade-up');
+							imgBlock.setAttribute('data-aos-delay', '0');
+						}
+						
+						if (contentBlock && !contentBlock.hasAttribute('data-aos')) {
+							contentBlock.setAttribute('data-aos', 'fade-up');
+							contentBlock.setAttribute('data-aos-delay', '100');
+						}
+					}
+				}
+
+				currentPage++;
+
+				// Refresh AOS to animate newly loaded items
+				if (typeof AOS !== 'undefined') {
+					setTimeout(function() {
+						AOS.refresh();
+					}, 100);
+				}
+
+				// Hide load more button if all items are loaded
+				if (endIndex >= totalItems && loadMoreBtn) {
+					loadMoreBtn.classList.add('hidden');
+				}
+
+				isLoading = false;
+				if (loadMoreBtn) {
+					loadMoreBtn.classList.remove('loading');
+					loadMoreBtn.textContent = 'Load More';
+				}
+			}, 800);
+		};
+
+		// Load more on button click
+		if (loadMoreBtn) {
+			loadMoreBtn.addEventListener('click', loadMoreItems);
+		}
+
+		// Infinite scroll on reaching load-more element
+		const loadMoreObserver = new IntersectionObserver(function(entries) {
+			entries.forEach(function(entry) {
+				if (entry.isIntersecting && !isLoading) {
+					loadMoreItems();
+				}
+			});
+		}, {
+			root: null,
+			rootMargin: '100px',
+			threshold: 0.1
+		});
+
+		if (loadMoreBtn) {
+			loadMoreObserver.observe(loadMoreBtn);
+		}
+
+		// Initially hide items beyond first batch (optional)
+		timelineItems.forEach(function(item, index) {
+			if (index >= itemsPerPage) {
+				item.style.display = 'none';
+			}
+		});
+	};
+
+	// Initialize when DOM is ready
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', function() {
+			setTimeout(initTimelineAnimations, 100);
+		});
+	} else {
+		setTimeout(initTimelineAnimations, 100);
+	}
+})();
+
+// Latest Openings Load More functionality
+(function() {
+	const initLatestOpeningsLoadMore = function() {
+		const openingsSection = document.querySelector('.latest_openings_section');
+		if (!openingsSection) {
+			return;
+		}
+
+		const openingsList = openingsSection.querySelector('[data-openings-list]');
+		const loadMoreBtn = openingsSection.querySelector('.load_more_btn');
+		
+		if (!openingsList || !loadMoreBtn) {
+			return;
+		}
+
+		const allItems = Array.from(openingsList.querySelectorAll('li'));
+		const totalItems = allItems.length;
+		let currentPage = 1;
+		const itemsPerPage = 8; // Number of items to show initially and load per click
+		let isLoading = false;
+
+		// Initially hide items beyond first batch
+		allItems.forEach(function(item, index) {
+			if (index >= itemsPerPage) {
+				item.style.display = 'none';
+			}
+		});
+
+		// Hide load more button if all items are already visible
+		if (totalItems <= itemsPerPage) {
+			loadMoreBtn.closest('.load_more_container').style.display = 'none';
+			return;
+		}
+
+		// Load more functionality
+		const loadMoreItems = function() {
+			if (isLoading) {
+				return;
+			}
+
+			isLoading = true;
+			loadMoreBtn.classList.add('loading');
+			loadMoreBtn.textContent = 'Loading...';
+
+			// Simulate loading delay (replace with actual AJAX call if needed)
+			setTimeout(function() {
+				const startIndex = currentPage * itemsPerPage;
+				const endIndex = Math.min(startIndex + itemsPerPage, totalItems);
+
+				// Show next batch of items
+				for (let i = startIndex; i < endIndex; i++) {
+					if (allItems[i]) {
+						allItems[i].style.display = '';
+					}
+				}
+
+				currentPage++;
+
+				// Hide load more button if all items are loaded
+				if (endIndex >= totalItems) {
+					loadMoreBtn.closest('.load_more_container').style.display = 'none';
+				}
+
+				isLoading = false;
+				loadMoreBtn.classList.remove('loading');
+				loadMoreBtn.textContent = 'Load more';
+			}, 500);
+		};
+
+		// Load more on button click
+		loadMoreBtn.addEventListener('click', loadMoreItems);
+	};
+
+	// Initialize when DOM is ready
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', function() {
+			setTimeout(initLatestOpeningsLoadMore, 100);
+		});
+	} else {
+		setTimeout(initLatestOpeningsLoadMore, 100);
+	}
+})();
+
+// Engineering Expertise Interactive Content
+(function() {
+	function initEngineeringExpertise() {
+		const container = document.querySelector('[data-expertise-container]');
+		if (!container) {
+			return; // Element not found, might not be on this page
+		}
+
+		const listItems = container.querySelectorAll('.expertise_list_ul .expertise_list_item');
+		const image1 = container.querySelector('.expertise_image_1');
+		const image2 = container.querySelector('.expertise_image_2');
+		const activeTitle = container.querySelector('.expertise_active_title');
+		const activeDescription = container.querySelector('.expertise_active_description');
+		const activeButton = container.querySelector('.expertise_active_button');
+		const buttonImg = activeButton ? activeButton.querySelector('span img') : null;
+		const arrowImgSrc = buttonImg ? buttonImg.src : '';
+
+		if (!listItems.length || !image1 || !image2) {
+			return;
+		}
+
+		let currentImage = 1; // Track which image is currently visible
+
+		listItems.forEach(function(item) {
+			item.addEventListener('click', function(e) {
+				e.preventDefault();
+				
+				// Remove active class from all items
+				listItems.forEach(function(li) {
+					li.classList.remove('active');
+				});
+
+				// Add active class to clicked item
+				this.classList.add('active');
+
+				// Get data from clicked item
+				const newImage = this.getAttribute('data-image');
+				const newTitle = this.getAttribute('data-title');
+				const newDescription = this.getAttribute('data-description');
+				const newButtonText = this.getAttribute('data-button-text');
+				const newButtonLink = this.getAttribute('data-button-link');
+
+				// Determine which images to use for cross-fade
+				const fadeOutImage = currentImage === 1 ? image1 : image2;
+				const fadeInImage = currentImage === 1 ? image2 : image1;
+
+				// Update the fade-in image source first (before it becomes visible)
+				if (fadeInImage && newImage) {
+					fadeInImage.src = newImage;
+					fadeInImage.alt = newTitle || '';
+				}
+
+				// Update text content immediately (no fade needed for text)
+				if (activeTitle && newTitle) {
+					activeTitle.textContent = newTitle;
+				}
+
+				if (activeDescription && newDescription) {
+					activeDescription.innerHTML = newDescription;
+				}
+
+				// Update button without flashing - preserve the span structure
+				if (activeButton) {
+					if (newButtonText && newButtonLink) {
+						// Update href first
+						activeButton.href = newButtonLink;
+						
+						// Find and update text node
+						let textUpdated = false;
+						for (let i = 0; i < activeButton.childNodes.length; i++) {
+							const node = activeButton.childNodes[i];
+							if (node.nodeType === 3) { // Text node
+								node.textContent = newButtonText + ' ';
+								textUpdated = true;
+								break;
+							}
+						}
+						
+						// If no text node found, update the first child or create structure
+						if (!textUpdated) {
+							// Preserve the span with arrow image
+							const existingSpan = activeButton.querySelector('span');
+							if (existingSpan) {
+								activeButton.innerHTML = newButtonText + ' ';
+								activeButton.appendChild(existingSpan);
+							} else {
+								// Create new structure
+								const newSpan = document.createElement('span');
+								newSpan.innerHTML = '<img src="' + arrowImgSrc + '" alt="' + newButtonText + '">';
+								activeButton.innerHTML = newButtonText + ' ';
+								activeButton.appendChild(newSpan);
+							}
+						}
+						
+						activeButton.style.display = '';
+					} else {
+						activeButton.style.display = 'none';
+					}
+				}
+
+				// Cross-fade images
+				fadeOutImage.style.transition = 'opacity 0.5s ease';
+				fadeInImage.style.transition = 'opacity 0.5s ease';
+				
+				// Start cross-fade
+				fadeOutImage.style.opacity = '0';
+				fadeInImage.style.opacity = '1';
+
+				// Switch current image reference
+				currentImage = currentImage === 1 ? 2 : 1;
+			});
+		});
+	}
+
+	// Initialize when DOM is ready
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', function() {
+			setTimeout(initEngineeringExpertise, 100);
+		});
+	} else {
+		setTimeout(initEngineeringExpertise, 100);
+	}
+})();
+
+// Load More Projects Functionality
+(function() {
+	const initLoadMoreProjects = function() {
+		const loadMoreBtn = document.getElementById('load-more-projects');
+		const projectsGrid = document.getElementById('projects-grid');
+		
+		if (!loadMoreBtn || !projectsGrid) {
+			return; // Elements not found, might not be on this page
+		}
+
+		// Get all project cards
+		const allProjects = Array.from(projectsGrid.querySelectorAll('.project_card'));
+		const initialVisible = 12; // Initially showing 12 items
+		const itemsPerLoad = 8; // Load 8 items each time
+		let currentVisible = initialVisible; // Initially showing 12 items
+
+		// Hide button if all items are already visible
+		if (allProjects.length <= initialVisible) {
+			loadMoreBtn.style.display = 'none';
+			return;
+		}
+
+		loadMoreBtn.addEventListener('click', function() {
+			// Calculate how many items to show (8 items per click)
+			const itemsToShow = Math.min(itemsPerLoad, allProjects.length - currentVisible);
+			
+			// Show next batch of items
+			for (let i = currentVisible; i < currentVisible + itemsToShow; i++) {
+				if (allProjects[i]) {
+					allProjects[i].classList.remove('project_card_hidden');
+					allProjects[i].style.opacity = '0';
+					allProjects[i].style.transform = 'translateY(20px)';
+					
+					// Trigger animation
+					setTimeout(function() {
+						allProjects[i].style.transition = 'opacity 0.6s ease-in-out, transform 0.6s ease-in-out';
+						allProjects[i].style.opacity = '1';
+						allProjects[i].style.transform = 'translateY(0)';
+					}, 10);
+				}
+			}
+
+			// Update current visible count
+			currentVisible += itemsToShow;
+
+			// Check if all items are now visible
+			if (currentVisible >= allProjects.length) {
+				loadMoreBtn.style.display = 'none';
+			}
+		});
+	};
+
+	// Initialize when DOM is ready
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', function() {
+			setTimeout(initLoadMoreProjects, 100);
+		});
+	} else {
+		setTimeout(initLoadMoreProjects, 100);
+	}
+})();
+
+// Project Gallery Swiper Functionality
+(function() {
+	const initProjectGallerySwiper = function() {
+		const swiperElement = document.querySelector('.project_gallery_swiper');
+		
+		if (!swiperElement) {
+			return; // Element not found, might not be on this page
+		}
+
+		// Check if Swiper is loaded
+		if (typeof Swiper === 'undefined') {
+			console.warn('ProjectGallery: Swiper library is not loaded');
+			return;
+		}
+
+		// Check if already initialized
+		if (swiperElement.swiper) {
+			return; // Already initialized
+		}
+
+		// Find navigation buttons
+		const section = swiperElement.closest('.project_gallery_slider_wrapper');
+		const nextButton = section ? section.querySelector('.project_gallery_next') : null;
+		const prevButton = section ? section.querySelector('.project_gallery_prev') : null;
+
+		if (!nextButton || !prevButton) {
+			console.warn('ProjectGallery: Navigation buttons not found');
+			return;
+		}
+
+		try {
+			new Swiper(swiperElement, {
+				slidesPerView: 1,
+				spaceBetween: 0,
+				loop: true,
+				speed: 1000,
+				effect: 'slide',
+				watchOverflow: true,
+				resistance: true,
+				resistanceRatio: 0.85,
+				slideToClickedSlide: false,
+				preventClicks: true,
+				preventClicksPropagation: true,
+				grabCursor: true,
+				navigation: {
+					nextEl: nextButton,
+					prevEl: prevButton,
+				},
+				breakpoints: {
+					640: {
+						slidesPerView: 2,
+						spaceBetween:4,
+					},
+					768: {
+						slidesPerView: 3,
+						spaceBetween: 4,
+					},
+						1024: {
+							slidesPerView: 4,
+							spaceBetween: 4,
+						},	
+						1600: {
+							slidesPerView: 5,
+							spaceBetween: 4,
+						},
+				},
+			});
+			console.log('ProjectGallery: Swiper initialized successfully');
+		} catch (error) {
+			console.error('ProjectGallery: Error initializing Swiper', error);
+		}
+	};
+
+	// Initialize when DOM is ready
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', function() {
+			setTimeout(initProjectGallerySwiper, 100);
+		});
+	} else {
+		setTimeout(initProjectGallerySwiper, 100);
+	}
+})();
+
+// Project Gallery Fancybox Initialization
+(function() {
+	const initProjectGalleryFancybox = function() {
+		// Check if Fancybox is loaded
+		if (typeof Fancybox === 'undefined') {
+			console.warn('ProjectGallery: Fancybox library is not loaded');
+			return;
+		}
+
+		// Get all gallery links (images and videos) with data-fancybox attribute
+		const galleryLinks = document.querySelectorAll('[data-fancybox="project-gallery"]');
+		
+		if (galleryLinks.length === 0) {
+			return; // No gallery items found
+		}
+
+		// Initialize Fancybox for both images and videos in the same gallery
+		Fancybox.bind('[data-fancybox="project-gallery"]', {
+			Toolbar: {
+				display: {
+					left: ['infobar'],
+					middle: [],
+					right: ['slideshow', 'download', 'thumbs', 'close'],
+				},
+			},
+			Thumbs: {
+				autoStart: false,
+			},
+			Image: {
+				zoom: true,
+			},
+			Video: {
+				autoplay: true,
+				tpl: '<video class="fancybox__html5video" playsinline controls controlsList="nodownload" poster="{{poster}}">' +
+					'<source src="{{src}}" type="{{format}}" />' +
+					'Sorry, your browser doesn\'t support embedded videos.</video>',
+			},
+			// YouTube and Vimeo support
+			Youtube: {
+				noCookie: false,
+				rel: 0,
+				showinfo: 0,
+			},
+			Vimeo: {
+				byline: false,
+				portrait: false,
+				title: false,
+				transparent: false,
+			},
+		});
+
+		console.log('ProjectGallery: Fancybox initialized successfully');
+	};
+
+	// Initialize when DOM is ready
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', function() {
+			setTimeout(initProjectGalleryFancybox, 100);
+		});
+	} else {
+		setTimeout(initProjectGalleryFancybox, 100);
+	}
+})();

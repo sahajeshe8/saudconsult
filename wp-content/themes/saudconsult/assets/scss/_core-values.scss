@@ -1,0 +1,76 @@
+.core_values_section {
+	background: #f7f9fb;
+}
+
+.core_values_header {
+	 width: 100%;
+     max-width: 95%;
+
+	.h3_title_50 {
+		margin-bottom: 12px;
+	}
+
+	.core_values_desc {
+		margin: 0;
+		color: #5b6773;
+		line-height: 1.7;
+	}
+}
+
+.core_values_list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 10px;
+
+	@media screen and (max-width: 1200px) {
+		grid-template-columns: repeat(3, 1fr);
+	}
+	@media screen and (max-width: 900px) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	@media screen and (max-width: 640px) {
+		grid-template-columns: 1fr;
+	}
+}
+
+.core_values_card {
+	background: #0D6A37 url(../images/value-bg.svg) no-repeat center right;
+	background-size: contain;
+	padding: 8%;
+ 
+	transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+    h4{ color: #fff;
+	span{ color: #fff; font-weight: 300; display: block; margin-bottom: 10px;}
+		 
+	}
+
+	p{ color: #fff;}
+}
+
+.core_values_icon {
+ 
+	margin-bottom: 16px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+
+	 
+}
+
+.core_values_title {
+	margin: 0 0 10px;
+	font-size: 20px;
+	font-weight: 600;
+	color: #101922;
+}
+
+.core_values_text {
+	margin: 0;
+	color: #5b6773;
+	line-height: 1.6;
+}
+

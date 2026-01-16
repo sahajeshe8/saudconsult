@@ -1,0 +1,243 @@
+// Design Scope Template Part Styles
+
+.design_scope_section {
+	padding: 80px 0;
+	background: #F5F9EE;
+
+	@media screen and (max-width: 768px) {
+		padding: 60px 0;
+	}
+
+	@media screen and (max-width: 480px) {
+		padding: 40px 0;
+	}
+}
+
+.design_scope_container {
+	width: 100%;
+}
+
+.design_scope_title_wrapper {
+	margin-bottom: 40px;
+
+	@media screen and (max-width: 768px) {
+		margin-bottom: 30px;
+	}
+
+	@media screen and (max-width: 480px) {
+		margin-bottom: 25px;
+	}
+}
+
+.design_scope_title {
+	font-size: 48px;
+	font-weight: 400;
+	line-height: 1.2;
+	margin: 0;
+	color: #000;
+
+	@media screen and (max-width: 1024px) {
+		font-size: 40px;
+	}
+
+	@media screen and (max-width: 768px) {
+		font-size: 32px;
+	}
+
+	@media screen and (max-width: 480px) {
+		font-size: 24px;
+	}
+}
+
+.design_scope_title_bold {
+	font-weight: 700;
+	color: #0D6A37;
+}
+
+.design_scope_title_regular {
+	font-weight: 400;
+	color: #000;
+}
+
+.design_scope_image_wrapper {
+	width: 100%;
+	position: relative;
+	margin-bottom:30px;
+	 position: relative;
+	overflow: hidden;
+
+	@media screen and (max-width: 768px) {
+		margin-bottom: 40px;
+		border-radius: 8px;
+	}
+
+	@media screen and (max-width: 480px) {
+		margin-bottom: 30px;
+	}
+
+    &:after{
+        display: block;
+        content: '';
+        position: absolute;
+        top: 0;
+        z-index: 1;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            241.46deg,
+            rgba(162, 200, 86, 0.4) 0%,
+            rgba(105, 154, 71, 0.4) 48.000770807266235%,
+            rgba(19, 107, 55, 0.4) 77.33049988746643%
+          );
+    }
+}
+
+.design_scope_image {
+	width: 100%;
+	height: auto;
+	display: block;
+	object-fit: cover;
+}
+
+.design_scope_play_button {
+	position: absolute;
+	top: 50%;
+    z-index: 10;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	cursor: pointer;
+	transition: transform 0.3s ease;
+
+	&:hover {
+		transform: translate(-50%, -50%) scale(1.1);
+	}
+
+	svg {
+		display: block;
+		width: 64px;
+		height: 64px;
+
+		@media screen and (max-width: 768px) {
+			width: 60px;
+			height: 60px;
+		}
+
+		@media screen and (max-width: 480px) {
+			width: 50px;
+			height: 50px;
+		}
+	}
+}
+
+.design_scope_items_grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 0;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	position: relative;
+
+	@media screen and (max-width: 1024px) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	@media screen and (max-width: 768px) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	@media screen and (max-width: 480px) {
+		grid-template-columns: 1fr;
+	}
+}
+
+.design_scope_item {
+	display: flex;
+	flex-direction: column;
+	list-style: none;
+	margin: 0;
+	padding: 0px 0px 0 0;
+	position: relative;
+	 margin-left: 15px;
+     margin-right: 15px;
+
+	// Remove right border for last item in row (4 columns)
+	&:nth-child(4n) {
+		border-right: none;
+		padding-right: 0;
+
+		@media screen and (max-width: 1024px) {
+			border-right: 1px solid #0D6A37;
+			padding-right: 20px;
+		}
+	}
+
+	// Remove right border for last item in row (2 columns on tablet)
+	@media screen and (max-width: 1024px) {
+		&:nth-child(2n) {
+			border-right: none;
+			padding-right: 0;
+		}
+	}
+
+	// Remove right border and adjust padding on mobile
+	@media screen and (max-width: 480px) {
+		padding: 15px 0 0 0;
+		border-right: none;
+	}
+
+	@media screen and (max-width: 480px) {
+		padding-top: 15px;
+	}
+
+    h4{ 
+    
+        @media screen and (min-width: 1024px) { min-height: 80px;}
+    }
+}
+
+.design_scope_item_icon {
+ border-top: solid 2px #0D6A37;
+ padding-top: 40px;
+ margin-top: 25px;
+	margin-bottom: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+
+	@media screen and (max-width: 768px) {
+	 
+		margin-bottom: 15px;
+	}
+
+	@media screen and (max-width: 480px) {
+	 
+		margin-bottom: 12px;
+	}
+
+	img {
+		 
+		object-fit: contain;
+		display: block;
+	}
+}
+
+// Using h4_title_35 class from _comon.scss for titles
+// No custom styles needed here
+
+.design_scope_item_description {
+	font-size: 16px;
+	line-height: 1.6;
+	color: #000;
+	margin: 0;
+
+	@media screen and (max-width: 768px) {
+		font-size: 15px;
+	}
+
+	@media screen and (max-width: 480px) {
+		font-size: 14px;
+	}
+}
+

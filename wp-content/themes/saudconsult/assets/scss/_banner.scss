@@ -11,12 +11,42 @@
   .banner_slide_content_02{ display: flex; flex-wrap: wrap;  align-items: flex-end; justify-content: space-between; padding-bottom: 100px;
      h2{ @include px-rem(60); font-weight:600;  color: #A8D05A;    margin: 0; line-height: 100%; font-family: 'RB';
    
-            span { color: #fff; display: block; font-weight: 200;   }}
+            span { color: #fff; display: block; font-weight: 200;   }
+         
+         
+         
+         
+         @media screen and (max-width: 700px) {
+          @include px-rem(100);
+         }
+         
+         
+         
+         }
   
-     .banner_slide_content_02_cl_01{ width: 81%; }
-     .banner_slide_content_02_cl_02{ width: 19%;              }
-     h5{ color: #fff; font-size: 20px;margin: 0; margin-top:10px; font-weight: 300; font-family: 'RB';  line-height: 130%; max-width: 60%; }
+     .banner_slide_content_02_cl_01{ width: 81%; 
+   
+      @media screen and (max-width: 1300px) {
+         width: 100%; margin-bottom: 25px;
+        }
+   }
+     .banner_slide_content_02_cl_02{ width: 19%;      
+   
+      @media screen and (max-width: 1300px) {
+         width: 100%; margin-bottom: 25px;
+        }
+   }
+     h5{ color: #fff; font-size: 20px;margin: 0; margin-top:10px; font-weight: 300; font-family: 'RB';  line-height: 130%; max-width: 60%; 
+   
+      @media screen and (max-width: 700px) {
+         max-width: 100%;
+      }
+   
+   
+   }
   
+
+    
    }
 
    .wrap{ position: relative; z-index: 10;}

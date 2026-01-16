@@ -1,12 +1,29 @@
 .about_section_01{ width: 100%; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;  
 
-    .about_sectioncl_01{ width: 50%; }
+    .about_sectioncl_01{ width: 50%;
+    
+        @media screen and (max-width:700px) {
+            width: 100%;
+        }
+    
+    }
     .about_sectioncl_02{ width: 34%;
     
     h5{   font-size: 20px; font-weight: 500;  color: #fff; line-height: 130%;  max-width: 85%; margin: 0; margin-bottom:15px; font-family: 'RB';  }
     p{  font-size: 16px; color: #fff; line-height: 130%; font-weight: 300; font-family: 'RB'; margin: 0; }   
     
 .btn_transparent{ margin-top:35px;}
+
+
+        @media screen and (max-width: 800px) {
+            width: 48%; 
+        }
+
+
+        @media screen and (max-width:700px) {
+            width: 100%;
+        }
+
 }
 }
 
@@ -43,6 +60,11 @@
     h1{
         @include px-rem(50); color: #fff; line-height: 120%;
         span{ font-weight: 200;}
+
+
+        @media screen and (max-width:700px) {
+            @include px-rem(70);
+        }
     }
 }
 
@@ -66,6 +88,10 @@
           background-clip: text;
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
+
+          @media screen and (max-width:700px) {
+            @include px-rem(90);
+          }
     }
 
     p{ margin: 0; padding: 0;   background: linear-gradient(
@@ -76,7 +102,19 @@
       );
       background-clip: text;
       -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;  }
+      -webkit-text-fill-color: transparent;
+    
+    
+      @media screen and (max-width:700px) {
+        @include px-rem(50);
+      }
+    
+    }
+
+
+        @media screen and (max-width: 800px) {
+            margin-bottom: 40px;
+        }
 
 
     }
@@ -87,5 +125,21 @@
             .about_4_cl_blocks_item_02{
                 p{ font-size: 16px; color: #000; line-height: 130%; font-weight: 300; font-family: 'RB'; margin: 0; }
             }
+
+
+
+            @media screen and (max-width: 800px) {
+
+                width: 50%; margin-top:10px;
+            }
+
+            @media screen and (max-width:700px) {
+
+                width: 100%; margin-top:10px;
+            }
     }
+
+    
+
+
 }

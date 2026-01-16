@@ -1,0 +1,135 @@
+// Project Info Block Template Part Styles
+
+.project_info_block_section {
+	 
+	padding: 80px 0;
+
+	@media screen and (max-width: 768px) {
+		padding:20px 0;
+	}
+
+	@media screen and (max-width: 480px) {
+		padding: 20px 0;
+	}
+}
+
+.project_info_block_container {
+	width: 100%;
+}
+
+.project_info_description {
+	margin-bottom: 50px;
+
+	@media screen and (max-width: 768px) {
+		margin-bottom: 40px;
+	}
+
+	@media screen and (max-width: 480px) {
+		margin-bottom: 30px;
+	}
+
+	p {
+		font-size: 25px;
+		line-height: 1.4;
+		color: #444444;
+		margin: 0;
+
+		@media screen and (max-width: 1024px) {
+			font-size: 16px;
+		}
+
+		@media screen and (max-width: 768px) {
+			font-size: 15px;
+			line-height: 1.6;
+		}
+
+		@media screen and (max-width: 480px) {
+			font-size: 14px;
+		}
+
+		// Style for highlighted keywords (using <strong> or <b> tags)
+		strong,
+		b {
+			color: #0d6a37;
+			font-weight: 600;
+		}
+	}
+}
+
+.project_info_grid {
+	display: grid;
+	grid-template-columns: repeat(5, calc(20% - 32px));
+	gap: 40px;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+	@media screen and (max-width: 1024px) {
+		grid-template-columns: repeat(3, calc(33.333% - 23.33px));
+		gap: 35px;
+	}
+
+	@media screen and (max-width: 768px) {
+		grid-template-columns: repeat(2, calc(50% - 15px));
+		gap: 30px;
+	}
+
+	@media screen and (max-width: 480px) {
+		grid-template-columns: 100%;
+		gap: 10px;
+	}
+}
+
+.project_info_item {
+	display: flex;
+	flex-direction: column;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
+.project_info_label {
+	font-size: 16px;
+	font-weight: 600;
+	color: #0d6a37;
+	margin: 0 0 12px 0;
+	padding-top: 10px;
+	border-top: 1px solid #8dc540;
+	line-height: 1.2;
+
+	@media screen and (max-width: 768px) {
+		font-size: 15px;
+		padding-bottom: 8px;
+		margin-bottom: 10px;
+	}
+
+	@media screen and (max-width: 480px) {
+		font-size: 14px;
+		padding-bottom: 0px;
+		margin-bottom: 3px;
+	}
+}
+
+.project_info_value {
+	font-size: 16px;
+	line-height: 1.6;
+	color: #999;
+	margin: 0;
+
+	@media screen and (max-width: 768px) {
+		font-size: 15px;
+	}
+
+	@media screen and (max-width: 480px) {
+		font-size: 14px;
+	}
+
+	// Handle multi-line values
+	br {
+		display: block;
+		margin: 4px 0;
+	}
+}
+

@@ -122,7 +122,29 @@ get_header();
 	<?php 
 	$faq_data = array(
 		'section_wrapper_class' => array( 'pt_80', 'pb_80' ),
-		'section_class' => ''
+		'section_class' => '',
+		'faq_items' => array(
+			array(
+				'question' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit,',
+				'answer' => 'Engineering Design is the cornerstone of project success. We transform ambitious visions into detailed, optimized, and buildable plans. Our multidisciplinary team ensures every element—architectural, structural, mechanical, electrical, and utility—is integrated flawlessly, adhering to local regulations and international standards.',
+				'is_open' => true
+			),
+			array(
+				'question' => 'Lorem ipsum dolor sit amet,',
+				'answer' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.',
+				'is_open' => false
+			),
+			array(
+				'question' => 'Lorem ipsum dolor sit amet, consectetur adipiscing',
+				'answer' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.',
+				'is_open' => false
+			),
+			array(
+				'question' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit,',
+				'answer' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.',
+				'is_open' => false
+			),
+		)
 	);
 	get_template_part( 'template-parts/FAQ', null, $faq_data ); 
 	?>

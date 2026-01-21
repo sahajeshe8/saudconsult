@@ -1,0 +1,75 @@
+// Events Page Styles
+
+.events_page_section {
+	width: 100%;
+	position: relative;
+}
+
+.events_list_content {
+	margin-top: 0;
+}
+
+.events_list_container {
+	width: 100%;
+}
+
+.events_list_ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0;
+
+	li {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		width: 25%;
+
+		@media screen and (max-width: 1024px) {
+			width: 33.333%;
+		}
+
+		@media screen and (max-width: 768px) {
+			width: 50%;
+		}
+
+		@media screen and (max-width: 480px) {
+			width: 100%;
+		}
+	}
+
+	a {
+		display: block;
+		width: 100%;
+		text-decoration: none;
+		color: inherit;
+	}
+}
+
+.events_item_hidden {
+	display: none;
+}
+
+.load_more_container {
+	width: 100%;
+	margin-top: 40px;
+	text-align: center;
+
+	@media screen and (max-width: 768px) {
+		margin-top: 30px;
+	}
+
+	@media screen and (max-width: 480px) {
+		margin-top: 20px;
+	}
+
+	.load_more_btn {
+		&.loading {
+			opacity: 0.7;
+			pointer-events: none;
+		}
+	}
+}
+

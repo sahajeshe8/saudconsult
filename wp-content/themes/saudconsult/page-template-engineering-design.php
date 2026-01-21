@@ -67,7 +67,7 @@ get_header();
 	$engineering_expertise_data = array(
 		'title' => 'Our Engineering',
 		'title_span' => 'Expertise',
- 		 
+		 
 	);
 	get_template_part( 'template-parts/Engineering-Expertise', null, $engineering_expertise_data ); 
 	?>

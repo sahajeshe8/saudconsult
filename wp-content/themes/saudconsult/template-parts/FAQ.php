@@ -24,12 +24,44 @@ if ( $section_wrapper_class ) {
 	}
 }
 $wrapper_class_string = implode( ' ', array_map( 'esc_attr', $wrapper_classes ) );
+
+// FAQ items - each item should have: question, answer
+$faq_items = isset( $args['faq_items'] ) ? $args['faq_items'] : array();
 ?>
 
 <section class="<?php echo $wrapper_class_string; ?> <?php echo esc_attr( $section_class ); ?>">
 	<div class="wrap">
 		<div class="faq_wrapper">
-			<!-- FAQ content will be added here -->
+			<?php if ( !empty( $faq_items ) ) : ?>
+				<h3 class="h3_title_50">
+					 Frequently 
+					<span  >Asked Questions</span>
+				</h3>
+				
+				<ul class="faq_list pt_80">
+					<?php foreach ( $faq_items as $index => $item ) : 
+						$question = isset( $item['question'] ) ? $item['question'] : '';
+						$answer = isset( $item['answer'] ) ? $item['answer'] : '';
+						$is_open = isset( $item['is_open'] ) && $item['is_open'] ? true : ( $index === 0 ? true : false );
+						$faq_id = 'faq-' . $index;
+					?>
+						<li class="faq_item <?php echo $is_open ? 'faq_item_open' : ''; ?>">
+							<button class="faq_question" type="button" aria-expanded="<?php echo $is_open ? 'true' : 'false'; ?>" aria-controls="<?php echo esc_attr( $faq_id ); ?>">
+								<span class="faq_question_text"><?php echo esc_html( $question ); ?></span>
+								<span class="faq_icon">
+									<span class="faq_icon_plus">+</span>
+									<span class="faq_icon_minus">−</span>
+								</span>
+							</button>
+							<div class="faq_answer" id="<?php echo esc_attr( $faq_id ); ?>">
+								<p>
+								<?php echo wp_kses_post( $answer ); ?>
+					</p>
+							</div>
+						</li>
+					<?php endforeach; ?>
+				</ul>
+			<?php endif; ?>
 		</div>
 	</div>
 </section>

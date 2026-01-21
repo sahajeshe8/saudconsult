@@ -5,20 +5,32 @@
  * @package tasheel
  */
 
+// Extract data from args array passed from get_template_part()
+$args = isset( $args ) ? $args : array();
+
+// Set default values or use passed values
+$label = isset( $args['label'] ) ? $args['label'] : 'Insights & Resources';
+$title = isset( $args['title'] ) ? $args['title'] : 'Elevate Your';
+$title_span = isset( $args['title_span'] ) ? $args['title_span'] : 'Understanding';
+$title_break = isset( $args['title_break'] ) ? $args['title_break'] : true; // Whether to add <br> before span
+$section_class = isset( $args['section_class'] ) ? $args['section_class'] : '';
+
 ?>
 
-<section class="insights_resources_section pt_80 pb_80">
+<section class="insights_resources_section pt_80 pb_80 <?php echo esc_attr( $section_class ); ?>">
 	<div class="wrap">
-		<span class="lable_text green_text">
-			<img src="<?php echo get_template_directory_uri(); ?>/assets/images/dot-02.svg" alt="Insights & Resources">
-			Insights & Resources
-		</span>
+		<?php if ( ! empty( $label ) ) : ?>
+			<span class="lable_text green_text">
+				<img src="<?php echo get_template_directory_uri(); ?>/assets/images/dot-02.svg" alt="<?php echo esc_attr( $label ); ?>">
+				<?php echo esc_html( $label ); ?>
+			</span>
+		<?php endif; ?>
 
 		<div class="insights_section_header ">
 			<div class="insights_section_header_left">
             <h3 class="h3_title_50">
 					 
-            Elevate Your  <br><span>Understanding</span>
+            <?php echo esc_html( $title ); ?><?php if ( $title_break ) : ?><br><?php endif; ?><?php if ( $title_span ) : ?><span><?php echo esc_html( $title_span ); ?></span><?php endif; ?>
                      </h3> 
 			</div>
 			 

@@ -623,6 +623,190 @@ var swiper = new Swiper(".mySwiper-clients", {
 	}
 })();
 
+// News Page Load More functionality
+(function() {
+	const initNewsPageLoadMore = function() {
+		const newsSection = document.querySelector('.news_page_section');
+		if (!newsSection) {
+			return;
+		}
+
+		const newsList = document.getElementById('news-list');
+		const loadMoreBtn = document.getElementById('load-more-news');
+		
+		if (!newsList || !loadMoreBtn) {
+			return;
+		}
+
+		const allItems = Array.from(newsList.querySelectorAll('li'));
+		const totalItems = allItems.length;
+		let currentPage = 1;
+		const itemsPerPage = 16; // Number of items to show initially (4 rows × 4 columns)
+		const itemsPerLoad = 8; // Number of items to load per click (2 rows × 4 columns)
+		let isLoading = false;
+
+		// Initially hide items beyond first batch
+		allItems.forEach(function(item, index) {
+			if (index >= itemsPerPage) {
+				item.style.display = 'none';
+			}
+		});
+
+		// Hide load more button if all items are already visible
+		if (totalItems <= itemsPerPage) {
+			loadMoreBtn.closest('.load_more_container').style.display = 'none';
+			return;
+		}
+
+		// Load more functionality
+		const loadMoreItems = function() {
+			if (isLoading) {
+				return;
+			}
+
+			isLoading = true;
+			loadMoreBtn.classList.add('loading');
+			loadMoreBtn.querySelector('span').textContent = 'Loading...';
+
+			// Simulate loading delay (replace with actual AJAX call if needed)
+			setTimeout(function() {
+				const startIndex = itemsPerPage + (currentPage - 1) * itemsPerLoad;
+				const endIndex = Math.min(startIndex + itemsPerLoad, totalItems);
+
+				// Show next batch of items
+				for (let i = startIndex; i < endIndex; i++) {
+					if (allItems[i]) {
+						allItems[i].style.display = '';
+						allItems[i].style.opacity = '0';
+						allItems[i].style.transform = 'translateY(20px)';
+						
+						// Trigger animation
+						setTimeout(function() {
+							allItems[i].style.transition = 'opacity 0.6s ease-in-out, transform 0.6s ease-in-out';
+							allItems[i].style.opacity = '1';
+							allItems[i].style.transform = 'translateY(0)';
+						}, 10);
+					}
+				}
+
+				currentPage++;
+
+				// Hide load more button if all items are loaded
+				if (endIndex >= totalItems) {
+					loadMoreBtn.closest('.load_more_container').style.display = 'none';
+				}
+
+				isLoading = false;
+				loadMoreBtn.classList.remove('loading');
+				loadMoreBtn.querySelector('span').textContent = 'Load More';
+			}, 500);
+		};
+
+		// Load more on button click
+		loadMoreBtn.addEventListener('click', loadMoreItems);
+	};
+
+	// Initialize when DOM is ready
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', function() {
+			setTimeout(initNewsPageLoadMore, 100);
+		});
+	} else {
+		setTimeout(initNewsPageLoadMore, 100);
+	}
+})();
+
+// Events Page Load More Functionality
+(function() {
+	const initEventsPageLoadMore = function() {
+		const eventsSection = document.querySelector('.events_page_section');
+		if (!eventsSection) {
+			return;
+		}
+
+		const eventsList = document.getElementById('events-list');
+		const loadMoreBtn = document.getElementById('events-load-more');
+		
+		if (!eventsList || !loadMoreBtn) {
+			return;
+		}
+
+		const allItems = Array.from(eventsList.querySelectorAll('li'));
+		const totalItems = allItems.length;
+		let currentPage = 1;
+		const itemsPerPage = 8; // Number of items to show initially (2 rows × 4 columns)
+		const itemsPerLoad = 4; // Number of items to load per click (1 row × 4 columns)
+		let isLoading = false;
+
+		// Initially hide items beyond first batch
+		allItems.forEach(function(item, index) {
+			if (index >= itemsPerPage) {
+				item.style.display = 'none';
+			}
+		});
+
+		// Hide load more button if all items are already visible
+		if (totalItems <= itemsPerPage) {
+			loadMoreBtn.closest('.load_more_container').style.display = 'none';
+			return;
+		}
+
+		// Load more functionality
+		const loadMoreItems = function() {
+			if (isLoading) {
+				return;
+			}
+
+			isLoading = true;
+			loadMoreBtn.classList.add('loading');
+			loadMoreBtn.textContent = 'Loading...';
+
+			// Simulate loading delay (replace with actual AJAX call if needed)
+			setTimeout(function() {
+				const startIndex = itemsPerPage + (currentPage - 1) * itemsPerLoad;
+				const endIndex = Math.min(startIndex + itemsPerLoad, totalItems);
+
+				// Show next batch of items
+				for (let i = startIndex; i < endIndex; i++) {
+					if (allItems[i]) {
+						allItems[i].style.display = '';
+						allItems[i].style.opacity = '0';
+						allItems[i].style.transition = 'opacity 0.3s ease';
+						
+						// Fade in animation
+						setTimeout(function() {
+							allItems[i].style.opacity = '1';
+						}, 10);
+					}
+				}
+
+				currentPage++;
+
+				// Hide load more button if all items are loaded
+				if (endIndex >= totalItems) {
+					loadMoreBtn.closest('.load_more_container').style.display = 'none';
+				}
+
+				isLoading = false;
+				loadMoreBtn.classList.remove('loading');
+				loadMoreBtn.textContent = 'Load More';
+			}, 500);
+		};
+
+		// Load more on button click
+		loadMoreBtn.addEventListener('click', loadMoreItems);
+	};
+
+	// Initialize Events Load More when DOM is ready
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', function() {
+			setTimeout(initEventsPageLoadMore, 100);
+		});
+	} else {
+		setTimeout(initEventsPageLoadMore, 100);
+	}
+})();
+
 // Engineering Expertise Interactive Content
 (function() {
 	function initEngineeringExpertise() {
@@ -953,5 +1137,249 @@ var swiper = new Swiper(".mySwiper-clients", {
 		});
 	} else {
 		setTimeout(initProjectGalleryFancybox, 100);
+	}
+})();
+
+// FAQ Accordion Functionality
+(function() {
+	const initFAQAccordion = function() {
+		const faqQuestions = document.querySelectorAll('.faq_question');
+		
+		if (faqQuestions.length === 0) {
+			return; // No FAQ items found
+		}
+
+		faqQuestions.forEach(function(question) {
+			question.addEventListener('click', function() {
+				const faqItem = this.closest('.faq_item');
+				const answer = faqItem.querySelector('.faq_answer');
+				const isOpen = faqItem.classList.contains('faq_item_open');
+				
+				// Close all other FAQ items
+				document.querySelectorAll('.faq_item').forEach(function(item) {
+					if (item !== faqItem) {
+						const otherAnswer = item.querySelector('.faq_answer');
+						if (otherAnswer && item.classList.contains('faq_item_open')) {
+							otherAnswer.style.height = '0px';
+							item.classList.remove('faq_item_open');
+						}
+						const button = item.querySelector('.faq_question');
+						if (button) {
+							button.setAttribute('aria-expanded', 'false');
+						}
+					}
+				});
+				
+				// Toggle current FAQ item
+				if (isOpen) {
+					// Closing
+					answer.style.height = '0px';
+					faqItem.classList.remove('faq_item_open');
+					this.setAttribute('aria-expanded', 'false');
+				} else {
+					// Opening
+					faqItem.classList.add('faq_item_open');
+					// Get the natural height
+					answer.style.height = 'auto';
+					const height = answer.scrollHeight + 'px';
+					answer.style.height = '0px';
+					// Trigger reflow
+					answer.offsetHeight;
+					// Set to actual height
+					answer.style.height = height;
+					this.setAttribute('aria-expanded', 'true');
+				}
+			});
+		});
+
+		// Initialize items that should be open on page load
+		document.querySelectorAll('.faq_item.faq_item_open').forEach(function(item) {
+			const answer = item.querySelector('.faq_answer');
+			if (answer) {
+				setTimeout(function() {
+					answer.style.height = 'auto';
+					const height = answer.scrollHeight + 'px';
+					answer.style.height = height;
+				}, 10);
+			}
+		});
+	};
+
+	// Initialize on DOM ready
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', initFAQAccordion);
+	} else {
+		initFAQAccordion();
+	}
+})();
+
+// News List Swiper initialization
+(function() {
+	const initNewsListSwiper = function() {
+		if (typeof Swiper === 'undefined') {
+			console.warn('NewsList: Swiper library is not loaded');
+			return;
+		}
+		const swiperElement = document.querySelector(".news_list_swiper");
+		if (!swiperElement) {
+			return;
+		}
+		if (swiperElement.swiper) {
+			return;
+		}
+
+		// Find navigation buttons
+		const nextButton = document.querySelector(".news_list_but_next");
+		const prevButton = document.querySelector(".news_list_but_prev");
+
+		if (!nextButton || !prevButton) {
+			console.warn('NewsList: Navigation buttons not found');
+			return;
+		}
+
+		try {
+			new Swiper(swiperElement, {
+				slidesPerView: 1,
+				spaceBetween: 30,
+				loop: true,
+				navigation: {
+					nextEl: nextButton,
+					prevEl: prevButton,
+				},
+				breakpoints: {
+					768: {
+						slidesPerView: 2,
+						spaceBetween: 8,
+					},
+					1024: {
+						slidesPerView: 2.6,
+						spaceBetween: 10,
+					},
+				},
+			});
+			console.log('NewsList: Swiper initialized successfully');
+		} catch (error) {
+			console.error('NewsList: Error initializing Swiper', error);
+		}
+	};
+
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', function() {
+			setTimeout(initNewsListSwiper, 100);
+		});
+	} else {
+		setTimeout(initNewsListSwiper, 100);
+	}
+})();
+
+var swiper = new Swiper(".brochures_list_swiper", {
+	slidesPerView:2,
+	spaceBetween:5,
+	loop: true,
+	navigation: {
+		nextEl: ".brochures_list_but_next",
+		prevEl: ".brochures_list_but_prev",
+	},
+	breakpoints: {
+
+		500: {
+			slidesPerView:3,
+			spaceBetween:5,
+		},
+
+
+
+		768: {
+			slidesPerView: 4,
+			spaceBetween:5,
+		},
+
+		
+		1024: {
+			slidesPerView: 6,
+			spaceBetween: 10,
+		},
+	},
+});
+
+// Gallery Masonry Initialization
+(function() {
+	const initGalleryMasonry = function() {
+		const galleryElement = document.getElementById('gallery-masonry');
+		if (!galleryElement) {
+			return; // Element not found, might not be on this page
+		}
+
+		// Check if Masonry is loaded
+		if (typeof Masonry === 'undefined') {
+			console.warn('Gallery: Masonry library is not loaded');
+			return;
+		}
+
+		// Check if already initialized
+		if (galleryElement.masonry) {
+			return; // Already initialized
+		}
+
+		try {
+			// Initialize Masonry
+			const masonry = new Masonry(galleryElement, {
+				itemSelector: '.gallery_item',
+				columnWidth: '.gallery_item.normal',
+				percentPosition: true,
+				gutter: 20,
+				transitionDuration: '0.4s',
+				resize: true,
+			});
+
+			// Store masonry instance
+			galleryElement.masonry = masonry;
+
+			// Re-layout on images loaded
+			const images = galleryElement.querySelectorAll('img');
+			let imagesLoadedCount = 0;
+			const totalImages = images.length;
+
+			if (totalImages > 0) {
+				images.forEach(function(img) {
+					if (img.complete) {
+						imagesLoadedCount++;
+					} else {
+						img.addEventListener('load', function() {
+							imagesLoadedCount++;
+							if (imagesLoadedCount === totalImages) {
+								masonry.layout();
+							}
+						});
+					}
+				});
+
+				if (imagesLoadedCount === totalImages) {
+					masonry.layout();
+				}
+			}
+
+			// Re-layout on window resize
+			let resizeTimer;
+			window.addEventListener('resize', function() {
+				clearTimeout(resizeTimer);
+				resizeTimer = setTimeout(function() {
+					masonry.layout();
+				}, 250);
+			});
+
+			console.log('Gallery: Masonry initialized successfully');
+		} catch (error) {
+			console.error('Gallery: Error initializing Masonry', error);
+		}
+	};
+
+	// Initialize when DOM is ready
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', function() {
+			setTimeout(initGalleryMasonry, 100);
+		});
+	} else {
+		setTimeout(initGalleryMasonry, 100);
 	}
 })();

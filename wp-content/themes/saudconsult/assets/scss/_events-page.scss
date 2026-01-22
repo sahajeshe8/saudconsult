@@ -13,7 +13,7 @@
 	width: 100%;
 }
 
-.events_list_ul {
+.events_list_ul_new_style_01 {
 	margin: 0;
 	padding: 0;
 	list-style: none;
@@ -23,9 +23,14 @@
 
 	li {
 		list-style: none;
+		display: flex !important;
+		flex-wrap: wrap;
+		 
+		gap: 0;
 		padding: 0;
 		margin: 0;
-		width: 25%;
+		width: 50%;
+		display: block;
 
 		@media screen and (max-width: 1024px) {
 			width: 33.333%;
@@ -37,6 +42,10 @@
 
 		@media screen and (max-width: 480px) {
 			width: 100%;
+		}
+
+		&.events_item_hidden {
+			display: none;
 		}
 	}
 
@@ -72,4 +81,6 @@
 		}
 	}
 }
+
+
 

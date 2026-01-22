@@ -1,0 +1,33 @@
+// Same Month Events Section Styles
+
+.same_month_events_section {
+	 
+	.events_list_content {
+		margin-top: 40px;
+
+		@media screen and (max-width: 768px) {
+			margin-top: 30px;
+		}
+
+		@media screen and (max-width: 480px) {
+			margin-top: 20px;
+		}
+	}
+
+	.same_month_events_swiper {
+ 
+		.swiper-slide {
+			height: auto;
+		}
+	}
+
+	// Override event item content text color for dark background
+	.event_item_content {
+		h5 {
+			color: #000;
+		}
+
+	 
+	}
+}
+

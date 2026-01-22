@@ -123,22 +123,116 @@
                 <div class="navbar nav_desk">
                     <ul class="list-unstyled">
                         <li class="nav-item">
-                            <a class="nav-link" href="<?php echo esc_url( home_url( '/brands' ) ); ?>">
-							Company
+                            <a href="#" class="nav-link" >
+							Company  <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/menu-arrow-01.svg' ); ?>" alt="Arrow Down">
                             </a>
+
+<div class="sub_menu_block">
+							 <div class="sub_menu_block_inner">
+								 <div class="sub_menu_block_left_block">
+									 <h3>Company <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/company-arrow.svg' ); ?>" alt="Arrow Down"></h3>
+								
+									<p>
+									Established in 1965 as the first Saudi Engineering Consulting Firm, Saud Consult has been integral to shaping the nation's built environment.
+									</p>
+									</div>
+								 <div class="sub_menu_block_right_block">
+									 <ul class="list-submenu colom-2">
+										<li>
+											<a href="<?php echo esc_url( home_url( '/about-us' ) ); ?>">
+											Who We Are <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/menu-arrow.svg' ); ?>" alt="Arrow Down">
+											</a>
+										</li>
+										<li>
+										<a href="<?php echo esc_url( home_url( '/our-team' ) ); ?>">
+										Our Team  <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/menu-arrow.svg' ); ?>" alt="Arrow Down">
+											</a>
+										</li>
+										<li>
+										<a href="<?php echo esc_url( home_url( '/leadership' ) ); ?>">
+										Leadership <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/menu-arrow.svg' ); ?>" alt="Arrow Down">
+											</a>
+										</li>
+										<li>
+										<a href="<?php echo esc_url( home_url( '/our-journey-legacy' ) ); ?>">
+										Our Journey & Legacy <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/menu-arrow.svg' ); ?>" alt="Arrow Down">
+											</a>
+										</li>
+
+
+										<li>
+										<a href="<?php echo esc_url( home_url( '/vision-mission-values' ) ); ?>">
+										Vision, Mission & Values <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/menu-arrow.svg' ); ?>" alt="Arrow Down">
+											</a>
+										</li>
+
+
+										<li>
+										<a href="<?php echo esc_url( home_url( '/company-milestones' ) ); ?>">
+										Company Milestones <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/menu-arrow.svg' ); ?>" alt="Arrow Down">
+											</a>
+										</li>
+
+										<li>
+										<a href="<?php echo esc_url( home_url( '/awards' ) ); ?>">
+										Awards & Certifications <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/menu-arrow.svg' ); ?>" alt="Arrow Down">
+											</a>
+										</li>
+									 </ul>
+								 </div>
+							 </div>
+							</div>
+							 
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<?php echo esc_url( home_url( '/products' ) ); ?>">
-							Services
+							Services  <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/menu-arrow-01.svg' ); ?>" alt="Arrow Down">
                             </a>
+							<div class="sub_menu_block">
+							 <div class="sub_menu_block_inner">
+								 <div class="sub_menu_block_left_block">
+									 <h3>Services <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/company-arrow.svg' ); ?>" alt="Arrow Down"></h3>
+								
+									<p>
+									Our multidisciplinary team is structured to deliver integrated solutions across the following critical sectors, ensuring innovation and efficiency in every design.
+									</p>
+									</div>
+								 <div class="sub_menu_block_right_block">
+									 <ul class="list-submenu  ">
+										<li>
+											<a href="<?php echo esc_url( home_url( '/engineering-design' ) ); ?>">
+											Engineering Design <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/menu-arrow.svg' ); ?>" alt="Arrow Down">
+											</a>
+										</li>
+										<li>
+										<a href="<?php echo esc_url( home_url( '/ ' ) ); ?>">
+										Construction Supervision <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/menu-arrow.svg' ); ?>" alt="Arrow Down">
+											</a>
+										</li>
+										<li>
+										<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+										Project Management <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/menu-arrow.svg' ); ?>" alt="Arrow Down">
+											</a>
+										</li>
+										<li>
+										<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+										Specialized Studies <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/menu-arrow.svg' ); ?>" alt="Arrow Down">
+											</a>
+										</li>
+ 
+									 </ul>
+								 </div>
+							 </div>
+							</div>
+							
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?php echo esc_url( home_url( '/industries' ) ); ?>">
+                            <a class="nav-link" href="<?php echo esc_url( home_url( '/projects' ) ); ?>">
 							Projects
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?php echo esc_url( home_url( '/projects' ) ); ?>">
+                            <a class="nav-link" href="<?php echo esc_url( home_url( '/clients' ) ); ?>">
 							Clients
                             </a>
                         </li>

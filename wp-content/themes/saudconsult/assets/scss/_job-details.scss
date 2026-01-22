@@ -18,3 +18,67 @@
         font-size: 14px;
     }
 }
+
+
+.job-form-popup{ border-radius: 20px; background: #fff; padding: 3%; border-radius: 10px !important; border: 1px solid #e0e0e0; width: 509px; margin-left: auto; margin-right: auto; position: relative;}
+.related_jobs_section_content{
+    h5{ margin: 0; font-size: 23px; font-weight: 400; color: #2c2c2c;}
+    p{ font-size: 12px; color: #444444; margin: 0; margin-bottom: 10px;}
+}
+
+.career-form-list-ul{ margin: 0; padding: 0; 
+
+    li{ list-style: none; margin-bottom: 15px; position: relative;
+        .input{ border-radius: 35px; height: 48px; padding: 0 20px; border: solid 1px #dcdbdd; width: 100%;   border: 1px solid #e0e0e0;  font-size: 12px;  color: #444444;
+            &:focus-visible{ outline: none;}
+        }
+
+        .form-icon{ position: absolute; right: 20px; top: 50%; transform: translateY(-50%);}
+    }
+}
+
+.input-buttion{   background: #101922;  color: #ffffff;   font-size: 16px; width: 100%; height: 48px; border-radius: 35px; border: none; outline: none; cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+    &:hover{ background: #A9D159; color: #101922; }
+}
+
+.form-bottom-txt{ 
+    p{ margin: 0; font-size: 16px; color: #000000; margin-bottom: 10px;
+    
+        a{ color: #0d6a37; text-decoration: underline; }
+    }
+}
+
+.form-close-icon{ position: absolute; right: 20px; top: 20px; cursor: pointer; }
+
+// Fancybox styles for job form popup
+.fancybox__container {
+	.job-form-popup {
+		display: block !important;
+		max-width: 509px;
+		width: 100%;
+		margin: 0 auto;
+		
+		@media screen and (max-width: 600px) {
+			width: 90%;
+			padding: 5%;
+		}
+		
+		.form-close-icon {
+			z-index: 10;
+			
+			&:hover {
+				opacity: 0.7;
+			}
+		}
+	}
+	
+	// Hide default Fancybox close button
+	.fancybox__toolbar {
+		display: none !important;
+	}
+}
+
+.fancybox__backdrop {
+	background: rgba(0, 0, 0, 0.8);
+}

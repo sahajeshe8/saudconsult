@@ -734,14 +734,18 @@ var swiper = new Swiper(".mySwiper-clients", {
 		const allItems = Array.from(eventsList.querySelectorAll('li'));
 		const totalItems = allItems.length;
 		let currentPage = 1;
-		const itemsPerPage = 8; // Number of items to show initially (2 rows × 4 columns)
-		const itemsPerLoad = 4; // Number of items to load per click (1 row × 4 columns)
+		const itemsPerPage = 6; // Number of items to show initially
+		const itemsPerLoad = 4; // Number of items to load per click
 		let isLoading = false;
 
-		// Initially hide items beyond first batch
+		// Ensure all items are visible first, then hide the ones beyond first 6
 		allItems.forEach(function(item, index) {
+			// Remove hidden class from all items first
+			item.classList.remove('events_item_hidden');
+			
+			// Then hide items beyond first 6
 			if (index >= itemsPerPage) {
-				item.style.display = 'none';
+				item.classList.add('events_item_hidden');
 			}
 		});
 
@@ -769,7 +773,7 @@ var swiper = new Swiper(".mySwiper-clients", {
 				// Show next batch of items
 				for (let i = startIndex; i < endIndex; i++) {
 					if (allItems[i]) {
-						allItems[i].style.display = '';
+						allItems[i].classList.remove('events_item_hidden');
 						allItems[i].style.opacity = '0';
 						allItems[i].style.transition = 'opacity 0.3s ease';
 						
@@ -1272,6 +1276,23 @@ var swiper = new Swiper(".mySwiper-clients", {
 	}
 })();
 
+// Same Month Events Swiper
+var sameMonthEventsSwiper = new Swiper(".same_month_events_swiper", {
+	slidesPerView: 2,
+	spaceBetween: 30,
+	loop: true,
+	breakpoints: {
+		480: {
+			slidesPerView: 1,
+			spaceBetween: 20,
+		},
+		768: {
+			slidesPerView: 2,
+			spaceBetween: 30,
+		},
+	},
+});
+
 var swiper = new Swiper(".brochures_list_swiper", {
 	slidesPerView:2,
 	spaceBetween:5,
@@ -1381,5 +1402,76 @@ var swiper = new Swiper(".brochures_list_swiper", {
 		});
 	} else {
 		setTimeout(initGalleryMasonry, 100);
+	}
+})();
+
+// Job Form Popup Fancybox Initialization
+(function() {
+	const initJobFormFancybox = function() {
+		// Check if Fancybox is loaded
+		if (typeof Fancybox === 'undefined') {
+			console.warn('JobForm: Fancybox library is not loaded');
+			return;
+		}
+
+		// Get the job form popup link
+		const jobFormLink = document.querySelector('[data-fancybox="job-form"]');
+		
+		if (!jobFormLink) {
+			return; // Element not found, might not be on this page
+		}
+
+		try {
+			// Initialize Fancybox for the job form popup
+			const fancyboxInstance = Fancybox.bind('[data-fancybox="job-form"]', {
+				Toolbar: {
+					display: {
+						left: [],
+						middle: [],
+						right: [], // Hide default close button
+					},
+				},
+				closeButton: false, // Disable default close button
+				backdrop: 'auto',
+				placeFocusBack: true,
+				trapFocus: true,
+				autoFocus: true,
+				preventCaptionOverlap: false,
+				on: {
+					'reveal': function(fancybox, slide) {
+						// Focus on first input when popup opens
+						const firstInput = slide.el.querySelector('.input');
+						if (firstInput) {
+							setTimeout(function() {
+								firstInput.focus();
+							}, 100);
+						}
+						
+						// Add click handler to custom close button
+						const closeButton = slide.el.querySelector('.form-close-icon');
+						if (closeButton) {
+							closeButton.addEventListener('click', function(e) {
+								e.preventDefault();
+								e.stopPropagation();
+								fancybox.close();
+							});
+						}
+					}
+				}
+			});
+
+			console.log('JobForm: Fancybox initialized successfully');
+		} catch (error) {
+			console.error('JobForm: Error initializing Fancybox', error);
+		}
+	};
+
+	// Initialize when DOM is ready
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', function() {
+			setTimeout(initJobFormFancybox, 100);
+		});
+	} else {
+		setTimeout(initJobFormFancybox, 100);
 	}
 })();

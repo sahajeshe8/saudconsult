@@ -22,13 +22,13 @@ get_header();
 	<?php 
 	$page_tabs_data = array(
 		'tabs' => array(
-			array( 'id' => 'overview', 'title' => 'Who We Are' ),
-			array( 'id' => 'history', 'title' => 'Our Team' ),
-			array( 'id' => 'mission', 'title' => 'Leadership' ),
-			array( 'id' => 'journey', 'title' => 'Our Journey & Legacy' ),
-			array( 'id' => 'vision', 'title' => 'Vision, Mission & Values' ),
-			array( 'id' => 'milestones', 'title' => 'Company Milestones' ),
-			array( 'id' => 'awards', 'title' => 'Awards' )
+			array( 'id' => 'overview', 'title' => 'Who We Are', 'link' => esc_url( home_url( '/about' ) ) ),
+			array( 'id' => 'history', 'title' => 'Our Team', 'link' => esc_url( home_url( '/our-team' ) ) ),
+			array( 'id' => 'mission', 'title' => 'Leadership', 'link' => esc_url( home_url( '/leadership' ) ) ),
+			array( 'id' => 'journey', 'title' => 'Our Journey & Legacy', 'link' => esc_url( home_url( '/our-journey-legacy' ) ) ),
+			array( 'id' => 'vision', 'title' => 'Vision, Mission & Values', 'link' => esc_url( home_url( '/vision-mission-values' ) ) ),
+			array( 'id' => 'milestones', 'title' => 'Company Milestones', 'link' => esc_url( home_url( '/company-milestones' ) ) ),
+			array( 'id' => 'awards', 'title' => 'Awards', 'link' => esc_url( home_url( '/awards' ) ) )
 		),
 		'active_tab' => 'journey' // Set which tab should be active
 	);

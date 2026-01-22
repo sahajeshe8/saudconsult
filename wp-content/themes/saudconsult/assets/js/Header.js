@@ -263,6 +263,86 @@
 
 		// Initialize mobile submenus
 		initMobileSubmenus();
+
+		/**
+		 * Initialize Mega Menu Functionality
+		 */
+		const initMegaMenu = function() {
+			// Check if jQuery is available
+			if (typeof jQuery === 'undefined') {
+				console.warn('MegaMenu: jQuery is not loaded');
+				return;
+			}
+
+			// Wait for DOM to be ready
+			jQuery(document).ready(function() {
+				const $navItems = jQuery('.nav-item');
+				const $megaMenus = jQuery('.sub_menu_block');
+
+				// Close all mega menus
+				const closeAllMegaMenus = function() {
+					$megaMenus.removeClass('active');
+					$navItems.removeClass('mega_menu_active');
+				};
+
+				// Handle click on nav links that have mega menus
+				$navItems.each(function() {
+					const $navItem = jQuery(this);
+					const $navLink = $navItem.find('.nav-link');
+					const $megaMenu = $navItem.find('.sub_menu_block');
+
+					// Only add click handler if mega menu exists
+					if ($megaMenu.length > 0 && $navLink.length > 0) {
+						// Handle click on the nav-link
+						$navLink.on('click', function(e) {
+							e.preventDefault();
+							e.stopPropagation();
+
+							const isActive = $megaMenu.hasClass('active');
+
+							// Close all mega menus first
+							closeAllMegaMenus();
+
+							// Toggle current mega menu if it wasn't active
+							if (!isActive) {
+								$megaMenu.addClass('active');
+								$navItem.addClass('mega_menu_active');
+							}
+						});
+					}
+				});
+
+				// Close mega menus when clicking outside
+				jQuery(document).on('click', function(e) {
+					const $target = jQuery(e.target);
+					const isNavLink = $target.closest('.nav-link').length > 0;
+					const isNavItem = $target.closest('.nav-item').length > 0;
+					const isMegaMenu = $target.closest('.sub_menu_block').length > 0;
+					
+					// Don't close if clicking on nav-link or inside mega menu
+					if (!isNavLink && !isNavItem && !isMegaMenu) {
+						closeAllMegaMenus();
+					}
+				});
+
+				// Close mega menus when clicking on mega menu links
+				jQuery(document).on('click', '.sub_menu_block a', function() {
+					setTimeout(function() {
+						closeAllMegaMenus();
+					}, 100);
+				});
+
+				// Close mega menus on escape key
+				jQuery(document).on('keydown', function(e) {
+					if (e.key === 'Escape' || e.keyCode === 27) {
+						closeAllMegaMenus();
+					}
+				});
+			});
+		};
+
+		// Initialize mega menu
+		initMegaMenu();
 	};
 
 	/**

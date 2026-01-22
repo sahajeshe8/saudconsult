@@ -253,7 +253,7 @@ function tasheel_scripts()
 	// Enqueue Header component script (loaded on all pages)
 	$header_js_path = get_template_directory() . '/assets/js/Header.js';
 	if (file_exists($header_js_path)) {
-		wp_enqueue_script('header-script', get_template_directory_uri() . '/assets/js/Header.js', array(), _S_VERSION, true);
+		wp_enqueue_script('header-script', get_template_directory_uri() . '/assets/js/Header.js', array('jquery'), _S_VERSION, true);
 	}
 
 	// Enqueue Footer component script (loaded on all pages)
@@ -390,6 +390,18 @@ function tasheel_scripts()
 		wp_enqueue_script('fancybox-js', 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js', array(), '5.0.0', true);
 	}
 
+	// Job Details page - Enqueue Fancybox
+	if (is_page_template('page-template-job-details.php')) {
+		// Enqueue Fancybox CSS
+		if (!wp_style_is('fancybox-css', 'enqueued')) {
+			wp_enqueue_style('fancybox-css', 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css', array(), '5.0.0');
+		}
+		// Enqueue Fancybox JS
+		if (!wp_script_is('fancybox-js', 'enqueued')) {
+			wp_enqueue_script('fancybox-js', 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js', array(), '5.0.0', true);
+		}
+	}
+
 	// Contact page specific scripts
 	if (is_page_template('page-contact.php') || is_page_template('page-contact-us.php') || is_page_template('page-template-contact-us.php')) {
 		// Load ContactMap script in footer, after other scripts
@@ -406,6 +418,15 @@ function tasheel_scripts()
 			wp_enqueue_script('aos-js', 'https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js', array(), '2.3.4', true);
 			// Initialize AOS after DOM is ready
 			wp_add_inline_script('aos-js', 'document.addEventListener("DOMContentLoaded", function() { if (typeof AOS !== "undefined") { AOS.init({ duration: 800, once: true }); } });', 'after');
+		}
+	}
+
+	// Event Detail page specific scripts
+	if (is_page_template('page-template-event-detail.php')) {
+		// Load EventMap script in footer
+		$event_map_js_path = get_template_directory() . '/assets/js/EventMap.js';
+		if (file_exists($event_map_js_path)) {
+			wp_enqueue_script('event-map-script', get_template_directory_uri() . '/assets/js/EventMap.js', array(), _S_VERSION, true);
 		}
 	}
 	// Load Swiper and CompanyServices script on Company Detail pages

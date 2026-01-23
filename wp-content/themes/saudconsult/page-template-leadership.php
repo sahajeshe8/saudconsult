@@ -25,12 +25,12 @@ get_header();
 	$page_tabs_data = array(
 		'tabs' => array(
 			array( 'id' => 'overview', 'title' => 'Who We Are', 'link' => esc_url( home_url( '/about' ) ) ),
-			array( 'id' => 'history', 'title' => 'Our Team', 'link' => esc_url( home_url( '/our-team' ) ) ),
-			array( 'id' => 'mission', 'title' => 'Leadership', 'link' => esc_url( home_url( '/leadership' ) ) ),
-			array( 'id' => 'journey', 'title' => 'Our Journey & Legacy', 'link' => esc_url( home_url( '/our-journey-legacy' ) ) ),
 			array( 'id' => 'vision', 'title' => 'Vision, Mission & Values', 'link' => esc_url( home_url( '/vision-mission-values' ) ) ),
+			array( 'id' => 'mission', 'title' => 'Leadership', 'link' => esc_url( home_url( '/leadership' ) ) ),
+			array( 'id' => 'history', 'title' => 'Our Team', 'link' => esc_url( home_url( '/our-team' ) ) ),
+			array( 'id' => 'journey', 'title' => 'Our Journey & Legacy', 'link' => esc_url( home_url( '/our-journey-legacy' ) ) ),
 			array( 'id' => 'milestones', 'title' => 'Company Milestones', 'link' => esc_url( home_url( '/company-milestones' ) ) ),
-			array( 'id' => 'awards', 'title' => 'Awards', 'link' => esc_url( home_url( '/awards' ) ) )
+			array( 'id' => 'Awards & Certifications', 'title' => 'Awards & Certifications', 'link' => esc_url( home_url( '/awards' ) ) )
 		),
 		'active_tab' => 'mission' // Set which tab should be active
 	);
@@ -41,9 +41,9 @@ get_header();
 
 <section class="pt_80 pb_20">
 		<div class="wrap">
-			<h4 class="h4_title_35 ">
+			<h3 class="h3_title_50">
             Our Visionary <span>Leadership</span>
-			</h4>
+			</h3>
 		</div>
 	</section>
 

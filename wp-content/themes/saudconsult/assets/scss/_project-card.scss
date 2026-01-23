@@ -165,3 +165,8 @@
 		margin-top: 30px;
 	}
 }
+
+.file-upload-section{ display: flex; align-items: center; gap: 10px; cursor: pointer; 	}
+
+.file-upload-icon{ display: inline-flex; width: 93px; height:93px;  border-radius: 100%;  background: rgba(221, 221, 221, 0.45); align-items: center; justify-content: center; }
+.file-upload-section-wrapper{ display: flex; align-items: center;   	}

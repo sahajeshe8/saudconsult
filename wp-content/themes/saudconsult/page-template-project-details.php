@@ -80,6 +80,7 @@ get_header();
 		'image' => get_template_directory_uri() . '/assets/images/project-video.jpg',
 		'image_alt' => 'Design Scope',
 		'show_play_button' => true,
+		'video_url' => 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', // Add your video URL here
 		'section_wrapper_class' => array(),
 		'section_class' => '',
 		'scope_items' => array(

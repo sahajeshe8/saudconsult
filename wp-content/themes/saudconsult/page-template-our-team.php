@@ -34,14 +34,14 @@ get_header();
 	$page_tabs_data = array(
 		'tabs' => array(
 			array( 'id' => 'overview', 'title' => 'Who We Are', 'link' => esc_url( home_url( '/about' ) ) ),
-			array( 'id' => 'Team', 'title' => 'Our Team', 'link' => esc_url( home_url( '/our-team' ) ) ),
-			array( 'id' => 'mission', 'title' => 'Leadership', 'link' => esc_url( home_url( '/leadership' ) ) ),
-			array( 'id' => 'journey', 'title' => 'Our Journey & Legacy', 'link' => esc_url( home_url( '/our-journey-legacy' ) ) ),
 			array( 'id' => 'vision', 'title' => 'Vision, Mission & Values', 'link' => esc_url( home_url( '/vision-mission-values' ) ) ),
+			array( 'id' => 'mission', 'title' => 'Leadership', 'link' => esc_url( home_url( '/leadership' ) ) ),
+			array( 'id' => 'Our Team', 'title' => 'Our Team', 'link' => esc_url( home_url( '/our-team' ) ) ),
+			array( 'id' => 'journey', 'title' => 'Our Journey & Legacy', 'link' => esc_url( home_url( '/our-journey-legacy' ) ) ),
 			array( 'id' => 'milestones', 'title' => 'Company Milestones', 'link' => esc_url( home_url( '/company-milestones' ) ) ),
-			array( 'id' => 'awards', 'title' => 'Awards', 'link' => esc_url( home_url( '/awards' ) ) )
+			array( 'id' => 'Awards & Certifications', 'title' => 'Awards & Certifications', 'link' => esc_url( home_url( '/awards' ) ) )
 		),
-		'active_tab' => 'Team' // Set which tab should be active
+		'active_tab' => 'Our Team' // Set which tab should be active
 	);
 	get_template_part( 'template-parts/page-tabs', null, $page_tabs_data ); 
 	?>

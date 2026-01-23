@@ -37,8 +37,8 @@ $values      = isset( $args['values'] ) ? $args['values'] : array(
 
 ?>
 
-<section class="core_values_section pt_80 pb_80">
-	<div class="wrap">
+<section class="core_values_section pt_80 pb_80 " style="background:url(<?php echo get_template_directory_uri(); ?>/assets/images/vision-miossion-bg.svg) no-repeat left top;  ">
+	<div class="wrap d_flex_wrap">
 		<div class="core_values_header pb_40">
 			<?php if ( $title || $title_span ) : ?>
 				<h3 class="h3_title_50">
@@ -52,7 +52,7 @@ $values      = isset( $args['values'] ) ? $args['values'] : array(
 			<?php endif; ?>
 
 			<?php if ( $description ) : ?>
-				<p class="core_values_desc"><?php echo wp_kses_post( $description ); ?></p>
+				<h5 class="core_values_desc"><?php echo wp_kses_post( $description ); ?></h5>
 			<?php endif; ?>
 		</div>
 
@@ -60,6 +60,7 @@ $values      = isset( $args['values'] ) ? $args['values'] : array(
 			<ul class="core_values_list">
 				<?php foreach ( $values as $value ) :
 					$val_icon       = isset( $value['icon'] ) ? $value['icon'] : '';
+					$val_icon_hover = isset( $value['icon_hover'] ) ? $value['icon_hover'] : '';
 					$val_title      = isset( $value['title'] ) ? $value['title'] : '';
 					$val_title_span = isset( $value['title_span'] ) ? $value['title_span'] : '';
 					$val_text       = isset( $value['text'] ) ? $value['text'] : '';
@@ -70,7 +71,10 @@ $values      = isset( $args['values'] ) ? $args['values'] : array(
 					<li class="core_values_card">
 						<?php if ( $val_icon ) : ?>
 							<div class="core_values_icon">
-								<img src="<?php echo esc_url( $val_icon ); ?>" alt="<?php echo esc_attr( $val_title ); ?>">
+								<img src="<?php echo esc_url( $val_icon ); ?>" alt="<?php echo esc_attr( $val_title ); ?>" class="core_values_icon_default">
+								<?php if ( $val_icon_hover ) : ?>
+									<img src="<?php echo esc_url( $val_icon_hover ); ?>" alt="<?php echo esc_attr( $val_title ); ?>" class="core_values_icon_hover">
+								<?php endif; ?>
 							</div>
 						<?php endif; ?>
 

@@ -55,7 +55,7 @@ get_header();
 		'content' => '<p>Engineering Design is the cornerstone of project success. We transform ambitious visions into detailed, optimized, and buildable plans. Our multidisciplinary team ensures every element—architectural, structural, mechanical, electrical, and utility—is integrated flawlessly, adhering to local regulations and international standards.</p><p>Master Planning & Conceptual Design, Detailed Technical Drawings (2D/3D/BIM), Structural Analysis & Calculations, Specifications & Material Schedules, Value Engineering Reports, Tender Documentation Packages.</p>',
 		'button_text' => '',
 		'button_link' => esc_url( home_url( '' ) ),
-		'section_class' => '',
+		'section_class' => 'pb_0',
 		'bg_style' => '',
 		'image_container_class' => '',
 		'text_container_class' => ''

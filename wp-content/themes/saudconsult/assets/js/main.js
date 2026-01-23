@@ -1475,3 +1475,246 @@ var swiper = new Swiper(".brochures_list_swiper", {
 		setTimeout(initJobFormFancybox, 100);
 	}
 })();
+
+// Design Scope Video Fancybox Initialization
+(function() {
+	const initDesignScopeVideoFancybox = function() {
+		// Check if Fancybox is loaded
+		if (typeof Fancybox === 'undefined') {
+			console.warn('DesignScope: Fancybox library is not loaded');
+			return;
+		}
+
+		// Get the design scope video link
+		const designScopeVideoLink = document.querySelector('[data-fancybox="design-scope-video"]');
+		
+		if (!designScopeVideoLink) {
+			return; // Element not found, might not be on this page
+		}
+
+		try {
+			// Initialize Fancybox for the design scope video
+			Fancybox.bind('[data-fancybox="design-scope-video"]', {
+				Toolbar: {
+					display: {
+						left: ['infobar'],
+						middle: [],
+						right: ['close'],
+					},
+				},
+				Video: {
+					autoplay: true,
+					tpl: '<video class="fancybox__html5video" playsinline controls controlsList="nodownload" poster="{{poster}}">' +
+						'<source src="{{src}}" type="{{format}}" />' +
+						'Sorry, your browser doesn\'t support embedded videos.</video>',
+				},
+				// YouTube and Vimeo support
+				Youtube: {
+					noCookie: false,
+					rel: 0,
+					showinfo: 0,
+				},
+				Vimeo: {
+					byline: false,
+					portrait: false,
+					title: false,
+					transparent: false,
+				},
+			});
+
+			console.log('DesignScope: Fancybox initialized successfully');
+		} catch (error) {
+			console.error('DesignScope: Error initializing Fancybox', error);
+		}
+	};
+
+	// Initialize when DOM is ready
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', function() {
+			setTimeout(initDesignScopeVideoFancybox, 100);
+		});
+	} else {
+		setTimeout(initDesignScopeVideoFancybox, 100);
+	}
+})();
+
+// File Upload Preview Functionality
+(function() {
+	const initFileUpload = function() {
+		const fileInput = document.getElementById('profile-photo-upload');
+		const filePreviewContainer = document.querySelector('.file-preview-container');
+		const filePreviewImage = document.getElementById('file-preview-image');
+		const fileUploadLabel = document.querySelector('.file-upload-label');
+		const fileRemoveBtn = document.querySelector('.file-remove-btn');
+		
+		if (!fileInput || !filePreviewContainer || !filePreviewImage) {
+			return; // Elements not found, might not be on this page
+		}
+
+		// Handle file selection
+		fileInput.addEventListener('change', function(e) {
+			const file = e.target.files[0];
+			
+			if (file) {
+				// Check if file is an image
+				if (file.type.startsWith('image/')) {
+					const reader = new FileReader();
+					
+					reader.onload = function(e) {
+						filePreviewImage.src = e.target.result;
+						filePreviewContainer.style.display = 'inline-block';
+						if (fileUploadLabel) {
+							fileUploadLabel.style.display = 'none';
+						}
+					};
+					
+					reader.readAsDataURL(file);
+				} else {
+					alert('Please select an image file.');
+					fileInput.value = '';
+				}
+			}
+		});
+
+		// Handle remove button click
+		if (fileRemoveBtn) {
+			fileRemoveBtn.addEventListener('click', function(e) {
+				e.preventDefault();
+				e.stopPropagation();
+				
+				fileInput.value = '';
+				filePreviewImage.src = '';
+				filePreviewContainer.style.display = 'none';
+				if (fileUploadLabel) {
+					fileUploadLabel.style.display = 'flex';
+				}
+			});
+		}
+	};
+
+	// Initialize when DOM is ready
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', function() {
+			setTimeout(initFileUpload, 100);
+		});
+	} else {
+		setTimeout(initFileUpload, 100);
+	}
+})();
+
+// Resume Upload Functionality
+(function() {
+	const initResumeUpload = function() {
+		const resumeInput = document.getElementById('resume-upload');
+		const resumeFileName = document.querySelector('.resume-file-name');
+		const resumeUploadButton = document.querySelector('.resume-upload-button');
+		
+		if (!resumeInput || !resumeFileName) {
+			return; // Elements not found, might not be on this page
+		}
+
+		// Handle file selection
+		resumeInput.addEventListener('change', function(e) {
+			const file = e.target.files[0];
+			
+			if (file) {
+				// Check if file is PDF or DOC
+				const allowedTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+				if (allowedTypes.includes(file.type) || file.name.match(/\.(pdf|doc|docx)$/i)) {
+					// Display file name
+					resumeFileName.textContent = file.name;
+					resumeFileName.style.display = 'inline-block';
+					if (resumeUploadButton) {
+						resumeUploadButton.textContent = 'Change resume';
+					}
+				} else {
+					alert('Please select a PDF or Word document (.pdf, .doc, .docx)');
+					resumeInput.value = '';
+				}
+			}
+		});
+	};
+
+	// Initialize when DOM is ready
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', function() {
+			setTimeout(initResumeUpload, 100);
+		});
+	} else {
+		setTimeout(initResumeUpload, 100);
+	}
+})();
+
+// Certificate Upload Functionality
+(function() {
+	const initCertificateUpload = function() {
+		const certificateInput = document.getElementById('certificate-upload');
+		const certificateFileName = document.querySelector('.certificate-file-name');
+		const certificateUploadButton = document.querySelector('.certificate-upload-button');
+		
+		if (!certificateInput || !certificateFileName) {
+			return; // Elements not found, might not be on this page
+		}
+
+		// Handle file selection
+		certificateInput.addEventListener('change', function(e) {
+			const file = e.target.files[0];
+			
+			if (file) {
+				// Display file name
+				certificateFileName.textContent = file.name;
+				certificateFileName.style.display = 'inline-block';
+				if (certificateUploadButton) {
+					certificateUploadButton.textContent = 'Change attachment';
+				}
+			}
+		});
+	};
+
+	// Initialize when DOM is ready
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', function() {
+			setTimeout(initCertificateUpload, 100);
+		});
+	} else {
+		setTimeout(initCertificateUpload, 100);
+	}
+})();
+
+// Saudi Council Classification Upload Functionality
+(function() {
+	const initSaudiCouncilUpload = function() {
+		const saudiCouncilInput = document.getElementById('saudi-council-upload');
+		const saudiCouncilFileName = document.querySelector('.saudi-council-file-name');
+		const saudiCouncilInputField = document.querySelector('.saudi-council-input');
+		
+		if (!saudiCouncilInput || !saudiCouncilInputField) {
+			return; // Elements not found, might not be on this page
+		}
+
+		// Handle file selection
+		saudiCouncilInput.addEventListener('change', function(e) {
+			const file = e.target.files[0];
+			
+			if (file) {
+				// Update input field with file name
+				saudiCouncilInputField.value = file.name;
+				
+				// Display file name below if element exists
+				if (saudiCouncilFileName) {
+					saudiCouncilFileName.textContent = file.name;
+					saudiCouncilFileName.style.display = 'inline-block';
+				}
+			}
+		});
+	};
+
+	// Initialize when DOM is ready
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', function() {
+			setTimeout(initSaudiCouncilUpload, 100);
+		});
+	} else {
+		setTimeout(initSaudiCouncilUpload, 100);
+	}
+})();

@@ -23,6 +23,14 @@ if ( is_array( $section_wrapper_class ) ) {
 }
 
 $section_class = isset( $args['section_class'] ) ? $args['section_class'] : '';
+
+// Get event detail page URL
+$event_detail_page = get_page_by_path( 'event-detail' );
+$event_detail_url = $event_detail_page ? get_permalink( $event_detail_page->ID ) : home_url( '/event-detail' );
+
+// Get events listing page URL
+$events_page = get_page_by_path( 'events' );
+$events_url = $events_page ? get_permalink( $events_page->ID ) : home_url( '/events' );
 ?>
 
 <div style="background:  #272A2A url(<?php echo esc_url( get_template_directory_uri() . '/assets/images/event-bg.svg' ) ; ?>) no-repeat left top;  " class="pt_100 pb_100 events_list_section <?php echo esc_attr( $section_class ); ?> <?php echo $section_wrapper_class; ?>">
@@ -41,7 +49,7 @@ $section_class = isset( $args['section_class'] ) ? $args['section_class'] : '';
 						</h3>
 					</div>
 					<div class="title_block_right">
-						<a class="btn_style btn_transparent btn_green" href="#">
+						<a class="btn_style btn_transparent btn_green" href="<?php echo esc_url( $events_url ); ?>">
 							View all
 							<span><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/buttion-arrow.svg' ); ?>" alt="View All Events"></span>
 						</a>
@@ -61,7 +69,7 @@ $section_class = isset( $args['section_class'] ) ? $args['section_class'] : '';
 				<div class="events_list_container">
 					<ul class="events_list_ul">
 						<li>
-							<a href="#">
+							<a href="<?php echo esc_url( $event_detail_url ); ?>">
 								<div class="events_list_item">
 									<span class="events_list_item_date">30 <span>Jun</span></span>
 									<div class="events_list_item_image">
@@ -118,7 +126,7 @@ $section_class = isset( $args['section_class'] ) ? $args['section_class'] : '';
 						</li>
 
 						<li>
-							<a href="#">
+							<a href="<?php echo esc_url( $event_detail_url ); ?>">
 								<div class="events_list_item">
 									<span class="events_list_item_date">30 <span>Jun</span></span>
 									<div class="events_list_item_image">
@@ -146,7 +154,7 @@ $section_class = isset( $args['section_class'] ) ? $args['section_class'] : '';
 						</li>
 
 						<li>
-							<a href="#">
+							<a href="<?php echo esc_url( $event_detail_url ); ?>">
 								<div class="events_list_item">
 									<span class="events_list_item_date">30 <span>Jun</span></span>
 									<div class="events_list_item_image">
@@ -174,7 +182,7 @@ $section_class = isset( $args['section_class'] ) ? $args['section_class'] : '';
 						</li>
 
 						<li>
-							<a href="#">
+							<a href="<?php echo esc_url( $event_detail_url ); ?>">
 								<div class="events_list_item">
 									<span class="events_list_item_date">30 <span>Jun</span></span>
 									<div class="events_list_item_image">
@@ -202,7 +210,7 @@ $section_class = isset( $args['section_class'] ) ? $args['section_class'] : '';
 						</li>
 
 						<li>
-							<a href="#">
+							<a href="<?php echo esc_url( $event_detail_url ); ?>">
 								<div class="events_list_item">
 									<span class="events_list_item_date">30 <span>Jun</span></span>
 									<div class="events_list_item_image">
@@ -230,7 +238,7 @@ $section_class = isset( $args['section_class'] ) ? $args['section_class'] : '';
 						</li>
 
 						<li>
-							<a href="#">
+							<a href="<?php echo esc_url( $event_detail_url ); ?>">
 								<div class="events_list_item">
 									<span class="events_list_item_date">30 <span>Jun</span></span>
 									<div class="events_list_item_image">
@@ -258,7 +266,7 @@ $section_class = isset( $args['section_class'] ) ? $args['section_class'] : '';
 						</li>
 
 						<li>
-							<a href="#">
+							<a href="<?php echo esc_url( $event_detail_url ); ?>">
 								<div class="events_list_item">
 									<span class="events_list_item_date">30 <span>Jun</span></span>
 									<div class="events_list_item_image">

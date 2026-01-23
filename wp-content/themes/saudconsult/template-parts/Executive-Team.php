@@ -38,14 +38,14 @@ $team_members = isset( $args['team_members'] ) ? $args['team_members'] : array(
 	<div class="wrap">
 		<div class="executive_team_section_inner">
 			<?php if ( $title || $title_span ) : ?>
-				<h4 class="h4_title_35 pb_20">
+				<h3 class="h3_title_50 pb_20">
 					<?php if ( $title ) : ?>
 						<?php echo esc_html( $title ); ?>
 					<?php endif; ?>
 					<?php if ( $title_span ) : ?>
 						<span><?php echo esc_html( $title_span ); ?></span>
 					<?php endif; ?>
-				</h4>
+				</h3>
 			<?php endif; ?>
 
 			<?php if ( ! empty( $team_members ) ) : ?>

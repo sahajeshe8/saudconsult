@@ -29,7 +29,7 @@ html{
 
 
 }
-.btn_style{ gap: 10px; cursor: pointer;    border-radius: 100px; background: #fff; color: #000;  border: solid 1px #ffffff; height: 51px; padding: 0 30px; display: inline-flex; flex-wrap: wrap; align-items: center; justify-content: center; font-size: 16px;  font-weight: 400; 
+.btn_style{ gap: 10px; cursor: pointer;    border-radius: 100px; background: #fff; color: #000;  border: solid 1px #ffffff; height: 51px; padding: 0 30px; display: inline-flex; flex-wrap: wrap; align-items: center; justify-content: center; font-size: 16px;  font-weight: 400; transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease; 
    &:hover{ background: #A8D05A; color: #fff;
 
       img{ filter: invert(1); }
@@ -62,12 +62,12 @@ html{
 
 
 
-   &.btn_green{ background: #A9D159; border:none;  color: #fff; 
-    &:hover{ background:#8eb346; color: #111111;
-      img{ filter: invert(0); }
+   &.btn_green{ background: #A9D159; border:none; 
+    &:hover{ background:#8eb346; color: #fff !important;
+      img{ filter: invert(1);  }
    }
     
-   img{ filter: invert(1); }
+   // img{ filter: invert(1); }
    }  
 
    &.buttion_line{ border: solid 1px #293977;}
@@ -77,9 +77,9 @@ html{
    }
 
    @media (max-width: 700px) {
-      height: 40px;
+      height: 40px !important;
       padding: 0 20px;
-      font-size: 14px;
+      font-size: 14px !important;
    }
 
 
@@ -260,3 +260,5 @@ position: relative;
 .bg_img_02{ background: url(../images/bg-img-03.svg) no-repeat center left; background-size: contain;}
 
 .no_banner_section{ margin-top: 100px;}
+
+.flex-align-right{ justify-content: flex-end; display: flex  ; flex-wrap: wrap;}

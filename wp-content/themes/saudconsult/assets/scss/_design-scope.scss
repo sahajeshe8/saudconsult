@@ -93,6 +93,20 @@
     }
 }
 
+.design_scope_video_link {
+	display: block;
+	width: 100%;
+	position: relative;
+	text-decoration: none;
+	cursor: pointer;
+
+	&:hover {
+		.design_scope_play_button {
+			transform: translate(-50%, -50%) scale(1.15);
+		}
+	}
+}
+
 .design_scope_image {
 	width: 100%;
 	height: auto;

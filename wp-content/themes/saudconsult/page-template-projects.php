@@ -79,7 +79,7 @@ get_header();
 						'title' => 'King Abdullah ',
 						'title_span' => 'Road - Phase 2',
 						'description' => 'Road expansion and infrastructure upgrades to improve traffic flow, safety, and connectivity.',
-						'link' => esc_url( home_url( '/project-details' ) )
+						'link' => esc_url( home_url( '/projects-details' ) )
 					),
 					array(
 						'image' => get_template_directory_uri() . '/assets/images/pro-02.jpg',
@@ -87,7 +87,7 @@ get_header();
 						'title' => 'Al Riyadh ',
 						'title_span' => 'Transit Hub',
 						'description' => 'Water treatment and reuse plant supporting urban and industrial growth.',
-						'link' => esc_url( home_url( '/project-details' ) )
+						'link' => esc_url( home_url( '/projects-details' ) )
 					),
 					array(
 						'image' => get_template_directory_uri() . '/assets/images/pro-03.jpg',
@@ -95,7 +95,7 @@ get_header();
 						'title' => 'Eastern Coastal ',
 						'title_span' => 'Water Facility',
 						'description' => 'Water treatment and reuse plant supporting urban and industrial growth.',
-						'link' => esc_url( home_url( '/project-details' ) )
+						'link' => esc_url( home_url( '/projects-details' ) )
 					),
 					array(
 						'image' => get_template_directory_uri() . '/assets/images/pro-04.jpg',
@@ -103,7 +103,7 @@ get_header();
 						'title' => 'Jubail ',
 						'title_span' => 'Logistics Park',
 						'description' => 'Planned industrial logistics park with roads, utilities, and support facilities.',
-						'link' => esc_url( home_url( '/project-details' ) )
+						'link' => esc_url( home_url( '/projects-details' ) )
 					),
 					array(
 						'image' => get_template_directory_uri() . '/assets/images/pro-05.jpg',
@@ -111,7 +111,7 @@ get_header();
 						'title' => 'Al Riyadh ',
 						'title_span' => 'Transit Hub',
 						'description' => 'Water treatment and reuse plant supporting urban and industrial growth.',
-						'link' => esc_url( home_url( '/project-details' ) )
+						'link' => esc_url( home_url( '/projects-details' ) )
 					),
 					array(
 						'image' => get_template_directory_uri() . '/assets/images/pro-06.jpg',
@@ -119,7 +119,7 @@ get_header();
 						'title' => 'Eastern Coastal ',
 						'title_span' => 'Water Facility',
 						'description' => 'Water treatment and reuse plant supporting urban and industrial growth.',
-						'link' => esc_url( home_url( '/project-details' ) )
+						'link' => esc_url( home_url( '/projects-details' ) )
 					),
 					array(
 						'image' => get_template_directory_uri() . '/assets/images/pro-07.jpg',
@@ -127,7 +127,7 @@ get_header();
 						'title' => 'Jubail ',
 						'title_span' => 'Logistics Park',
 						'description' => 'Planned industrial logistics park with roads, utilities, and support facilities.',
-						'link' => esc_url( home_url( '/project-details' ) )
+						'link' => esc_url( home_url( '/projects-details' ) )
 					),
 					array(
 						'image' => get_template_directory_uri() . '/assets/images/pro-08.jpg',
@@ -135,7 +135,7 @@ get_header();
 						'title' => 'King Abdullah ',
 						'title_span' => 'Road - Phase 2',
 						'description' => 'Road expansion and infrastructure upgrades to improve traffic flow, safety, and connectivity.',
-						'link' => esc_url( home_url( '/project-details' ) )
+						'link' => esc_url( home_url( '/projects-details' ) )
 					),
 					array(
 						'image' => get_template_directory_uri() . '/assets/images/pro-09.jpg',
@@ -143,7 +143,7 @@ get_header();
 						'title' => 'Al Riyadh ',
 						'title_span' => 'Transit Hub',
 						'description' => 'Water treatment and reuse plant supporting urban and industrial growth.',
-						'link' => esc_url( home_url( '/project-details' ) )
+						'link' => esc_url( home_url( '/projects-details' ) )
 					),
 					array(
 						'image' => get_template_directory_uri() . '/assets/images/pro-10.jpg',
@@ -151,7 +151,7 @@ get_header();
 						'title' => 'King Abdullah ',
 						'title_span' => 'Road - Phase 2',
 						'description' => 'Road expansion and infrastructure upgrades to improve traffic flow, safety, and connectivity.',
-						'link' => esc_url( home_url( '/project-details' ) )
+						'link' => esc_url( home_url( '/projects-details' ) )
 					),
 					array(
 						'image' => get_template_directory_uri() . '/assets/images/pro-11.jpg',
@@ -159,7 +159,7 @@ get_header();
 						'title' => 'Al Riyadh ',
 						'title_span' => 'Transit Hub',
 						'description' => 'Water treatment and reuse plant supporting urban and industrial growth.',
-						'link' => esc_url( home_url( '/project-details' ) )
+						'link' => esc_url( home_url( '/projects-details' ) )
 					),
 					array(
 						'image' => get_template_directory_uri() . '/assets/images/pro-12.jpg',
@@ -167,7 +167,7 @@ get_header();
 						'title' => 'Eastern Coastal ',
 						'title_span' => 'Water Facility',
 						'description' => 'Water treatment and reuse plant supporting urban and industrial growth.',
-						'link' => esc_url( home_url( '/project-details' ) )
+						'link' => esc_url( home_url( '/projects-details' ) )
 					)
 				);
 

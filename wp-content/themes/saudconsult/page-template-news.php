@@ -41,6 +41,12 @@ get_header();
 	get_template_part( 'template-parts/Breadcrumb', null, $breadcrumb_data ); 
 	?>
 
+	<?php
+	// Get news detail page URL
+	$news_detail_page = get_page_by_path( 'news-detail' );
+	$news_detail_url = $news_detail_page ? get_permalink( $news_detail_page->ID ) : home_url( '/news-detail' );
+	?>
+
 	<section class="news_page_section pt_80 pb_80">
 		<div class="wrap">
 			<div class="title_block mb_20">
@@ -52,336 +58,336 @@ get_header();
 			<ul class="news_list_ul" id="news-list">
 				<li>
 					<div class="insights_item">
-						<a href="#" class="insights_item_image_link">
+						<a href="<?php echo esc_url( $news_detail_url ); ?>" class="insights_item_image_link">
 							<div class="insights_item_image">
 								<span class="latest_news_lable">05 August 2025</span>
 								<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/news-01.jpg' ); ?>" alt="News">
 							</div>
 						</a>
 						<div class="insights_item_content">
-							<a href="#"><h4>Saud Consult Secures Design Contract for Jeddah's New Central Utility Plant.</h4></a>
+							<a href="<?php echo esc_url( $news_detail_url ); ?>"><h4>Saud Consult Secures Design Contract for Jeddah's New Central Utility Plant.</h4></a>
 							<span class="latest_news_text_lable">Latest News</span>
 						</div>
 					</div>
 				</li>
 				<li>
 					<div class="insights_item">
-						<a href="#" class="insights_item_image_link">
+						<a href="<?php echo esc_url( $news_detail_url ); ?>" class="insights_item_image_link">
 							<div class="insights_item_image">
 								<span class="latest_news_lable">05 August 2025</span>
 								<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/news-02.jpg' ); ?>" alt="News">
 							</div>
 						</a>
 						<div class="insights_item_content">
-							<a href="#"><h4>Saud Consult Secures Design Contract for Jeddah's New Central Utility Plant.</h4></a>
+							<a href="<?php echo esc_url( $news_detail_url ); ?>"><h4>Saud Consult Secures Design Contract for Jeddah's New Central Utility Plant.</h4></a>
 							<span class="latest_news_text_lable">Latest News</span>
 						</div>
 					</div>
 				</li>
 				<li>
 					<div class="insights_item">
-						<a href="#" class="insights_item_image_link">
+						<a href="<?php echo esc_url( $news_detail_url ); ?>" class="insights_item_image_link">
 							<div class="insights_item_image">
 								<span class="latest_news_lable">05 August 2025</span>
 								<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/news-03.jpg' ); ?>" alt="News">
 							</div>
 						</a>
 						<div class="insights_item_content">
-							<a href="#"><h4>Saud Consult Secures Design Contract for Jeddah's New Central Utility Plant.</h4></a>
+							<a href="<?php echo esc_url( $news_detail_url ); ?>"><h4>Saud Consult Secures Design Contract for Jeddah's New Central Utility Plant.</h4></a>
 							<span class="latest_news_text_lable">Latest News</span>
 						</div>
 					</div>
 				</li>
 				<li>
 					<div class="insights_item">
-						<a href="#" class="insights_item_image_link">
+						<a href="<?php echo esc_url( $news_detail_url ); ?>" class="insights_item_image_link">
 							<div class="insights_item_image">
 								<span class="latest_news_lable">05 August 2025</span>
 								<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/news-04.jpg' ); ?>" alt="News">
 							</div>
 						</a>
 						<div class="insights_item_content">
-							<a href="#"><h4>Saud Consult Secures Design Contract for Jeddah's New Central Utility Plant.</h4></a>
+							<a href="<?php echo esc_url( $news_detail_url ); ?>"><h4>Saud Consult Secures Design Contract for Jeddah's New Central Utility Plant.</h4></a>
 							<span class="latest_news_text_lable">Latest News</span>
 						</div>
 					</div>
 				</li>
 				<li>
 					<div class="insights_item">
-						<a href="#" class="insights_item_image_link">
+						<a href="<?php echo esc_url( $news_detail_url ); ?>" class="insights_item_image_link">
 							<div class="insights_item_image">
 								<span class="latest_news_lable">04 August 2025</span>
 								<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/news-01.jpg' ); ?>" alt="News">
 							</div>
 						</a>
 						<div class="insights_item_content">
-							<a href="#"><h4>Saud Consult Secures Design Contract for Jeddah's New Central Utility Plant.</h4></a>
+							<a href="<?php echo esc_url( $news_detail_url ); ?>"><h4>Saud Consult Secures Design Contract for Jeddah's New Central Utility Plant.</h4></a>
 							<span class="latest_news_text_lable">Latest News</span>
 						</div>
 					</div>
 				</li>
 				<li>
 					<div class="insights_item">
-						<a href="#" class="insights_item_image_link">
+						<a href="<?php echo esc_url( $news_detail_url ); ?>" class="insights_item_image_link">
 							<div class="insights_item_image">
 								<span class="latest_news_lable">04 August 2025</span>
 								<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/news-02.jpg' ); ?>" alt="News">
 							</div>
 						</a>
 						<div class="insights_item_content">
-							<a href="#"><h4>Saud Consult Secures Design Contract for Jeddah's New Central Utility Plant.</h4></a>
+							<a href="<?php echo esc_url( $news_detail_url ); ?>"><h4>Saud Consult Secures Design Contract for Jeddah's New Central Utility Plant.</h4></a>
 							<span class="latest_news_text_lable">Latest News</span>
 						</div>
 					</div>
 				</li>
 				<li>
 					<div class="insights_item">
-						<a href="#" class="insights_item_image_link">
+						<a href="<?php echo esc_url( $news_detail_url ); ?>" class="insights_item_image_link">
 							<div class="insights_item_image">
 								<span class="latest_news_lable">04 August 2025</span>
 								<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/news-03.jpg' ); ?>" alt="News">
 							</div>
 						</a>
 						<div class="insights_item_content">
-							<a href="#"><h4>Saud Consult Secures Design Contract for Jeddah's New Central Utility Plant.</h4></a>
+							<a href="<?php echo esc_url( $news_detail_url ); ?>"><h4>Saud Consult Secures Design Contract for Jeddah's New Central Utility Plant.</h4></a>
 							<span class="latest_news_text_lable">Latest News</span>
 						</div>
 					</div>
 				</li>
 				<li>
 					<div class="insights_item">
-						<a href="#" class="insights_item_image_link">
+						<a href="<?php echo esc_url( $news_detail_url ); ?>" class="insights_item_image_link">
 							<div class="insights_item_image">
 								<span class="latest_news_lable">04 August 2025</span>
 								<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/news-04.jpg' ); ?>" alt="News">
 							</div>
 						</a>
 						<div class="insights_item_content">
-							<a href="#"><h4>Saud Consult Secures Design Contract for Jeddah's New Central Utility Plant.</h4></a>
+							<a href="<?php echo esc_url( $news_detail_url ); ?>"><h4>Saud Consult Secures Design Contract for Jeddah's New Central Utility Plant.</h4></a>
 							<span class="latest_news_text_lable">Latest News</span>
 						</div>
 					</div>
 				</li>
 				<li>
 					<div class="insights_item">
-						<a href="#" class="insights_item_image_link">
+						<a href="<?php echo esc_url( $news_detail_url ); ?>" class="insights_item_image_link">
 							<div class="insights_item_image">
 								<span class="latest_news_lable">03 August 2025</span>
 								<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/news-01.jpg' ); ?>" alt="News">
 							</div>
 						</a>
 						<div class="insights_item_content">
-							<a href="#"><h4>Saud Consult Secures Design Contract for Jeddah's New Central Utility Plant.</h4></a>
+							<a href="<?php echo esc_url( $news_detail_url ); ?>"><h4>Saud Consult Secures Design Contract for Jeddah's New Central Utility Plant.</h4></a>
 							<span class="latest_news_text_lable">Latest News</span>
 						</div>
 					</div>
 				</li>
 				<li>
 					<div class="insights_item">
-						<a href="#" class="insights_item_image_link">
+						<a href="<?php echo esc_url( $news_detail_url ); ?>" class="insights_item_image_link">
 							<div class="insights_item_image">
 								<span class="latest_news_lable">03 August 2025</span>
 								<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/news-02.jpg' ); ?>" alt="News">
 							</div>
 						</a>
 						<div class="insights_item_content">
-							<a href="#"><h4>Saud Consult Secures Design Contract for Jeddah's New Central Utility Plant.</h4></a>
+							<a href="<?php echo esc_url( $news_detail_url ); ?>"><h4>Saud Consult Secures Design Contract for Jeddah's New Central Utility Plant.</h4></a>
 							<span class="latest_news_text_lable">Latest News</span>
 						</div>
 					</div>
 				</li>
 				<li>
 					<div class="insights_item">
-						<a href="#" class="insights_item_image_link">
+						<a href="<?php echo esc_url( $news_detail_url ); ?>" class="insights_item_image_link">
 							<div class="insights_item_image">
 								<span class="latest_news_lable">03 August 2025</span>
 								<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/news-03.jpg' ); ?>" alt="News">
 							</div>
 						</a>
 						<div class="insights_item_content">
-							<a href="#"><h4>Saud Consult Secures Design Contract for Jeddah's New Central Utility Plant.</h4></a>
+							<a href="<?php echo esc_url( $news_detail_url ); ?>"><h4>Saud Consult Secures Design Contract for Jeddah's New Central Utility Plant.</h4></a>
 							<span class="latest_news_text_lable">Latest News</span>
 						</div>
 					</div>
 				</li>
 				<li>
 					<div class="insights_item">
-						<a href="#" class="insights_item_image_link">
+						<a href="<?php echo esc_url( $news_detail_url ); ?>" class="insights_item_image_link">
 							<div class="insights_item_image">
 								<span class="latest_news_lable">03 August 2025</span>
 								<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/news-04.jpg' ); ?>" alt="News">
 							</div>
 						</a>
 						<div class="insights_item_content">
-							<a href="#"><h4>Saud Consult Secures Design Contract for Jeddah's New Central Utility Plant.</h4></a>
+							<a href="<?php echo esc_url( $news_detail_url ); ?>"><h4>Saud Consult Secures Design Contract for Jeddah's New Central Utility Plant.</h4></a>
 							<span class="latest_news_text_lable">Latest News</span>
 						</div>
 					</div>
 				</li>
 				<li>
 					<div class="insights_item">
-						<a href="#" class="insights_item_image_link">
+						<a href="<?php echo esc_url( $news_detail_url ); ?>" class="insights_item_image_link">
 							<div class="insights_item_image">
 								<span class="latest_news_lable">02 August 2025</span>
 								<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/news-01.jpg' ); ?>" alt="News">
 							</div>
 						</a>
 						<div class="insights_item_content">
-							<a href="#"><h4>Saud Consult Secures Design Contract for Jeddah's New Central Utility Plant.</h4></a>
+							<a href="<?php echo esc_url( $news_detail_url ); ?>"><h4>Saud Consult Secures Design Contract for Jeddah's New Central Utility Plant.</h4></a>
 							<span class="latest_news_text_lable">Latest News</span>
 						</div>
 					</div>
 				</li>
 				<li>
 					<div class="insights_item">
-						<a href="#" class="insights_item_image_link">
+						<a href="<?php echo esc_url( $news_detail_url ); ?>" class="insights_item_image_link">
 							<div class="insights_item_image">
 								<span class="latest_news_lable">02 August 2025</span>
 								<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/news-02.jpg' ); ?>" alt="News">
 							</div>
 						</a>
 						<div class="insights_item_content">
-							<a href="#"><h4>Saud Consult Secures Design Contract for Jeddah's New Central Utility Plant.</h4></a>
+							<a href="<?php echo esc_url( $news_detail_url ); ?>"><h4>Saud Consult Secures Design Contract for Jeddah's New Central Utility Plant.</h4></a>
 							<span class="latest_news_text_lable">Latest News</span>
 						</div>
 					</div>
 				</li>
 				<li>
 					<div class="insights_item">
-						<a href="#" class="insights_item_image_link">
+						<a href="<?php echo esc_url( $news_detail_url ); ?>" class="insights_item_image_link">
 							<div class="insights_item_image">
 								<span class="latest_news_lable">02 August 2025</span>
 								<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/news-03.jpg' ); ?>" alt="News">
 							</div>
 						</a>
 						<div class="insights_item_content">
-							<a href="#"><h4>Saud Consult Secures Design Contract for Jeddah's New Central Utility Plant.</h4></a>
+							<a href="<?php echo esc_url( $news_detail_url ); ?>"><h4>Saud Consult Secures Design Contract for Jeddah's New Central Utility Plant.</h4></a>
 							<span class="latest_news_text_lable">Latest News</span>
 						</div>
 					</div>
 				</li>
 				<li>
 					<div class="insights_item">
-						<a href="#" class="insights_item_image_link">
+						<a href="<?php echo esc_url( $news_detail_url ); ?>" class="insights_item_image_link">
 							<div class="insights_item_image">
 								<span class="latest_news_lable">02 August 2025</span>
 								<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/news-04.jpg' ); ?>" alt="News">
 							</div>
 						</a>
 						<div class="insights_item_content">
-							<a href="#"><h4>Saud Consult Secures Design Contract for Jeddah's New Central Utility Plant.</h4></a>
+							<a href="<?php echo esc_url( $news_detail_url ); ?>"><h4>Saud Consult Secures Design Contract for Jeddah's New Central Utility Plant.</h4></a>
 							<span class="latest_news_text_lable">Latest News</span>
 						</div>
 					</div>
 				</li>
 				<li class="news_item_hidden">
 					<div class="insights_item">
-						<a href="#" class="insights_item_image_link">
+						<a href="<?php echo esc_url( $news_detail_url ); ?>" class="insights_item_image_link">
 							<div class="insights_item_image">
 								<span class="latest_news_lable">01 August 2025</span>
 								<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/news-01.jpg' ); ?>" alt="News">
 							</div>
 						</a>
 						<div class="insights_item_content">
-							<a href="#"><h4>Saud Consult Secures Design Contract for Jeddah's New Central Utility Plant.</h4></a>
+							<a href="<?php echo esc_url( $news_detail_url ); ?>"><h4>Saud Consult Secures Design Contract for Jeddah's New Central Utility Plant.</h4></a>
 							<span class="latest_news_text_lable">Latest News</span>
 						</div>
 					</div>
 				</li>
 				<li class="news_item_hidden">
 					<div class="insights_item">
-						<a href="#" class="insights_item_image_link">
+						<a href="<?php echo esc_url( $news_detail_url ); ?>" class="insights_item_image_link">
 							<div class="insights_item_image">
 								<span class="latest_news_lable">01 August 2025</span>
 								<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/news-02.jpg' ); ?>" alt="News">
 							</div>
 						</a>
 						<div class="insights_item_content">
-							<a href="#"><h4>Saud Consult Secures Design Contract for Jeddah's New Central Utility Plant.</h4></a>
+							<a href="<?php echo esc_url( $news_detail_url ); ?>"><h4>Saud Consult Secures Design Contract for Jeddah's New Central Utility Plant.</h4></a>
 							<span class="latest_news_text_lable">Latest News</span>
 						</div>
 					</div>
 				</li>
 				<li class="news_item_hidden">
 					<div class="insights_item">
-						<a href="#" class="insights_item_image_link">
+						<a href="<?php echo esc_url( $news_detail_url ); ?>" class="insights_item_image_link">
 							<div class="insights_item_image">
 								<span class="latest_news_lable">01 August 2025</span>
 								<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/news-03.jpg' ); ?>" alt="News">
 							</div>
 						</a>
 						<div class="insights_item_content">
-							<a href="#"><h4>Saud Consult Secures Design Contract for Jeddah's New Central Utility Plant.</h4></a>
+							<a href="<?php echo esc_url( $news_detail_url ); ?>"><h4>Saud Consult Secures Design Contract for Jeddah's New Central Utility Plant.</h4></a>
 							<span class="latest_news_text_lable">Latest News</span>
 						</div>
 					</div>
 				</li>
 				<li class="news_item_hidden">
 					<div class="insights_item">
-						<a href="#" class="insights_item_image_link">
+						<a href="<?php echo esc_url( $news_detail_url ); ?>" class="insights_item_image_link">
 							<div class="insights_item_image">
 								<span class="latest_news_lable">01 August 2025</span>
 								<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/news-04.jpg' ); ?>" alt="News">
 							</div>
 						</a>
 						<div class="insights_item_content">
-							<a href="#"><h4>Saud Consult Secures Design Contract for Jeddah's New Central Utility Plant.</h4></a>
+							<a href="<?php echo esc_url( $news_detail_url ); ?>"><h4>Saud Consult Secures Design Contract for Jeddah's New Central Utility Plant.</h4></a>
 							<span class="latest_news_text_lable">Latest News</span>
 						</div>
 					</div>
 				</li>
 				<li class="news_item_hidden">
 					<div class="insights_item">
-						<a href="#" class="insights_item_image_link">
+						<a href="<?php echo esc_url( $news_detail_url ); ?>" class="insights_item_image_link">
 							<div class="insights_item_image">
 								<span class="latest_news_lable">31 July 2025</span>
 								<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/news-01.jpg' ); ?>" alt="News">
 							</div>
 						</a>
 						<div class="insights_item_content">
-							<a href="#"><h4>Saud Consult Secures Design Contract for Jeddah's New Central Utility Plant.</h4></a>
+							<a href="<?php echo esc_url( $news_detail_url ); ?>"><h4>Saud Consult Secures Design Contract for Jeddah's New Central Utility Plant.</h4></a>
 							<span class="latest_news_text_lable">Latest News</span>
 						</div>
 					</div>
 				</li>
 				<li class="news_item_hidden">
 					<div class="insights_item">
-						<a href="#" class="insights_item_image_link">
+						<a href="<?php echo esc_url( $news_detail_url ); ?>" class="insights_item_image_link">
 							<div class="insights_item_image">
 								<span class="latest_news_lable">31 July 2025</span>
 								<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/news-02.jpg' ); ?>" alt="News">
 							</div>
 						</a>
 						<div class="insights_item_content">
-							<a href="#"><h4>Saud Consult Secures Design Contract for Jeddah's New Central Utility Plant.</h4></a>
+							<a href="<?php echo esc_url( $news_detail_url ); ?>"><h4>Saud Consult Secures Design Contract for Jeddah's New Central Utility Plant.</h4></a>
 							<span class="latest_news_text_lable">Latest News</span>
 						</div>
 					</div>
 				</li>
 				<li class="news_item_hidden">
 					<div class="insights_item">
-						<a href="#" class="insights_item_image_link">
+						<a href="<?php echo esc_url( $news_detail_url ); ?>" class="insights_item_image_link">
 							<div class="insights_item_image">
 								<span class="latest_news_lable">31 July 2025</span>
 								<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/news-03.jpg' ); ?>" alt="News">
 							</div>
 						</a>
 						<div class="insights_item_content">
-							<a href="#"><h4>Saud Consult Secures Design Contract for Jeddah's New Central Utility Plant.</h4></a>
+							<a href="<?php echo esc_url( $news_detail_url ); ?>"><h4>Saud Consult Secures Design Contract for Jeddah's New Central Utility Plant.</h4></a>
 							<span class="latest_news_text_lable">Latest News</span>
 						</div>
 					</div>
 				</li>
 				<li class="news_item_hidden">
 					<div class="insights_item">
-						<a href="#" class="insights_item_image_link">
+						<a href="<?php echo esc_url( $news_detail_url ); ?>" class="insights_item_image_link">
 							<div class="insights_item_image">
 								<span class="latest_news_lable">31 July 2025</span>
 								<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/news-04.jpg' ); ?>" alt="News">
 							</div>
 						</a>
 						<div class="insights_item_content">
-							<a href="#"><h4>Saud Consult Secures Design Contract for Jeddah's New Central Utility Plant.</h4></a>
+							<a href="<?php echo esc_url( $news_detail_url ); ?>"><h4>Saud Consult Secures Design Contract for Jeddah's New Central Utility Plant.</h4></a>
 							<span class="latest_news_text_lable">Latest News</span>
 						</div>
 					</div>

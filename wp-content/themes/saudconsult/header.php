@@ -130,7 +130,7 @@
 <div class="sub_menu_block">
 							 <div class="sub_menu_block_inner">
 								 <div class="sub_menu_block_left_block">
-									 <h3>Company <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/company-arrow.svg' ); ?>" alt="Arrow Down"></h3>
+									 <h3>Company  <a href="<?php echo esc_url( home_url( '/about-us' ) ); ?>"  > <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/company-arrow.svg' ); ?>" alt="Arrow Down"></a></h3>
 								
 									<p>
 									Established in 1965 as the first Saudi Engineering Consulting Firm, Saud Consult has been integral to shaping the nation's built environment.
@@ -191,7 +191,7 @@
 							<div class="sub_menu_block">
 							 <div class="sub_menu_block_inner">
 								 <div class="sub_menu_block_left_block">
-									 <h3>Services <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/company-arrow.svg' ); ?>" alt="Arrow Down"></h3>
+									 <h3>Services <a href="<?php echo esc_url( home_url( '/services' ) ); ?>"  > <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/company-arrow.svg' ); ?>" alt="Arrow Down"></a></h3>
 								
 									<p>
 									Our multidisciplinary team is structured to deliver integrated solutions across the following critical sectors, ensuring innovation and efficiency in every design.

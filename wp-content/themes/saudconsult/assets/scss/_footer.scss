@@ -39,7 +39,7 @@
       span{ font-weight:300; }
 
       @media screen and (max-width:820px) {
-        @include px-rem(68);
+        @include px-rem(60);
       }
     }
 

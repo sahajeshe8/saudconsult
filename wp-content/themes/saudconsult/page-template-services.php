@@ -40,7 +40,7 @@ get_header();
 						'subtitle' => 'Innovative Solutions',
 						'description' => 'Translating vision into robust, buildable plans, including architectural, structural.',
 						'button_text' => 'View more',
-						'button_link' => esc_url( home_url( '/contact' ) )
+						'button_link' => esc_url( home_url( '/engineering-design' ) )
 					);
 					get_template_part( 'template-parts/Service-Item', null, $service_item_data ); 
 					?>
@@ -55,7 +55,7 @@ get_header();
 						'subtitle' => 'Quality Assurance',
 						'description' => 'Providing on-site assurance and quality management to ensure execution.',
 						'button_text' => 'View more',
-						'button_link' => esc_url( home_url( '/contact' ) )
+						'button_link' => esc_url( home_url( '/' ) )
 					);
 					get_template_part( 'template-parts/Service-Item', null, $service_item_data ); 
 					?>
@@ -70,7 +70,7 @@ get_header();
 						'subtitle' => 'On-Time Delivery',
 						'description' => 'Offering end-to-end management consultancy (PMC) to control scope.',
 						'button_text' => 'View more',
-						'button_link' => esc_url( home_url( '/contact' ) )
+						'button_link' => esc_url( home_url( '/' ) )
 					);
 					get_template_part( 'template-parts/Service-Item', null, $service_item_data ); 
 					?>
@@ -85,7 +85,7 @@ get_header();
 						'subtitle' => 'Innovative Solutions',
 						'description' => 'Conducting essential pre-design work, including feasibility studies.',
 						'button_text' => 'View more',
-						'button_link' => esc_url( home_url( '/contact' ) )
+						'button_link' => esc_url( home_url( '/' ) )
 					);
 					get_template_part( 'template-parts/Service-Item', null, $service_item_data ); 
 					?>

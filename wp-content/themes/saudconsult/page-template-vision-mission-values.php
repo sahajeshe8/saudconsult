@@ -23,12 +23,12 @@ get_header();
 	$page_tabs_data = array(
 		'tabs' => array(
 			array( 'id' => 'overview', 'title' => 'Who We Are', 'link' => esc_url( home_url( '/about' ) ) ),
-			array( 'id' => 'history', 'title' => 'Our Team', 'link' => esc_url( home_url( '/our-team' ) ) ),
-			array( 'id' => 'mission', 'title' => 'Leadership', 'link' => esc_url( home_url( '/leadership' ) ) ),
-			array( 'id' => 'journey', 'title' => 'Our Journey & Legacy', 'link' => esc_url( home_url( '/journey-legacy' ) ) ),
 			array( 'id' => 'vision', 'title' => 'Vision, Mission & Values', 'link' => esc_url( home_url( '/vision-mission-values' ) ) ),
+			array( 'id' => 'mission', 'title' => 'Leadership', 'link' => esc_url( home_url( '/leadership' ) ) ),
+			array( 'id' => 'history', 'title' => 'Our Team', 'link' => esc_url( home_url( '/our-team' ) ) ),
+			array( 'id' => 'journey', 'title' => 'Our Journey & Legacy', 'link' => esc_url( home_url( '/our-journey-legacy' ) ) ),
 			array( 'id' => 'milestones', 'title' => 'Company Milestones', 'link' => esc_url( home_url( '/company-milestones' ) ) ),
-			array( 'id' => 'awards', 'title' => 'Awards', 'link' => esc_url( home_url( '/awards' ) ) )
+			array( 'id' => 'Awards & Certifications', 'title' => 'Awards & Certifications', 'link' => esc_url( home_url( '/awards' ) ) )
 		),
 		'active_tab' => 'vision' // Set which tab should be active
 	);
@@ -45,7 +45,7 @@ get_header();
 		'mission_title_span' => 'Delivering Comprehensive Success.',
 		'mission_content' => '<p>To deliver comprehensive, high-quality engineering and architectural services that seamlessly integrate modern technical know-how with deep local sensitivity, ensuring client success across the full project lifecycle and maximizing positive national impact.</p>',
 		'mission_icon' => get_template_directory_uri() . '/assets/images/mission-icn.svg',
-		'section_class' => 'bg_02'
+		'section_class' => 'bg_color_01'
 	);
 	get_template_part( 'template-parts/Mission-Vision', null, $mission_vision_data ); 
 	?>
@@ -59,27 +59,31 @@ get_header();
 		'description' => 'Our history is inextricably linked to the national development story of Saudi Arabia. We have consistently met the moment, adapting our expertise to the growing scale and complexity of the Kingdom\'s infrastructure needs.',
 		'values' => array(
 			array(
-				'icon' => get_template_directory_uri() . '/assets/images/values-icn-01.svg',
-				'title' => 'Integrity and Professionalism.',
-				'title_span' => 'Pioneering Excellence',
+				'icon' => get_template_directory_uri() . '/assets/images/cor-icn-1.svg',
+				'icon_hover' => get_template_directory_uri() . '/assets/images/cor-icn-1-h.svg',
+				'title' => 'Integrity and Professionalism. Pioneering Excellence',
+				'title_span' => '',
 				'text' => 'Upholding the highest ethical standards, transparency, and fiduciary responsibility in every engagement. Trust is the foundation of our five-decade legacy.',
 			),
 			array(
-				'icon' => get_template_directory_uri() . '/assets/images/values-icn-02.svg',
-				'title' => 'Technical',
-				'title_span' => 'Excellence.',
+				'icon' => get_template_directory_uri() . '/assets/images/cor-icn-2.svg',
+				'icon_hover' => get_template_directory_uri() . '/assets/images/cor-icn-2-h.svg',
+				'title' => 'Technical Excellence.',
+				'title_span' => '',
 				'text' => 'Driving continuous innovation and leveraging vast experience to solve the most complex technical challenges. We are committed to optimal, cost-effective, and technologically advanced design solutions.',
 			),
 			array(
-				'icon' => get_template_directory_uri() . '/assets/images/values-icn-03.svg',
-				'title' => 'Partnership and',
-				'title_span' => 'Collaboration.',
+				'icon' => get_template_directory_uri() . '/assets/images/cor-icn-3.svg',
+				'icon_hover' => get_template_directory_uri() . '/assets/images/cor-icn-3-h.svg',
+				'title' => 'Partnership and Collaboration.',
+				'title_span' => '',
 				'text' => 'Working as a genuine partner to our clients, stakeholders, and international affiliates, ensuring clear communication and a unified vision from project inception to final handover.',
 			),
 			array(
-				'icon' => get_template_directory_uri() . '/assets/images/values-icn-04.svg',
-				'title' => 'Quality &',
-				'title_span' => 'Sustainability.',
+				'icon' => get_template_directory_uri() . '/assets/images/cor-icn-4.svg',
+				'icon_hover' => get_template_directory_uri() . '/assets/images/cor-icn-4-h.svg',
+				'title' => 'Quality & Sustainability.',
+				'title_span' => '',
 				'text' => 'An uncompromising commitment to quality, safety, and sustainable practices, ensuring that all our designs are resilient, environmentally responsible, and contribute positively to future generations.',
 			),
 		),

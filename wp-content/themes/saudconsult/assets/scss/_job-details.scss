@@ -26,14 +26,77 @@
     p{ font-size: 12px; color: #444444; margin: 0; margin-bottom: 10px;}
 }
 
-.career-form-list-ul{ margin: 0; padding: 0; 
+.career-form-list-ul{ margin: 0; padding: 0;  margin-top: 20px;
 
     li{ list-style: none; margin-bottom: 15px; position: relative;
         .input{ border-radius: 35px; height: 48px; padding: 0 20px; border: solid 1px #dcdbdd; width: 100%;   border: 1px solid #e0e0e0;  font-size: 12px;  color: #444444;
             &:focus-visible{ outline: none;}
+       
+        @media screen and (max-width: 700px) {
+            font-size: 14px; height: 40px !important;
+        }
+        
+        }
+        
+        .textarea-input {
+            border-radius: 20px;
+            height: auto;
+            min-height: 100px;
+            padding: 15px 20px;
+            resize: vertical;
+            font-family: inherit;
         }
 
         .form-icon{ position: absolute; right: 20px; top: 50%; transform: translateY(-50%);}
+        
+        .select-wrapper {
+            position: relative;
+            width: 100%;
+            
+            .select-input {
+                appearance: none;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                padding-right: 45px;
+                cursor: pointer;
+                
+                option {
+                    color: #444444;
+                }
+            }
+            
+            .select-arrow {
+                position: absolute;
+                right: 20px;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 0;
+                height: 0;
+                border-left: 5px solid transparent;
+                border-right: 5px solid transparent;
+                border-top: 6px solid #444444;
+                pointer-events: none;
+            }
+            
+            &.date-input-wrapper {
+                .date-input {
+                    cursor: pointer;
+                    
+                    &::-webkit-calendar-picker-indicator {
+                        cursor: pointer;
+                        opacity: 1;
+                    }
+                    
+                    &::-webkit-input-placeholder {
+                        color: #999;
+                    }
+                    
+                    &::placeholder {
+                        color: #999;
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -81,4 +144,440 @@
 
 .fancybox__backdrop {
 	background: rgba(0, 0, 0, 0.8);
+}
+
+// File Upload Styles
+.file-upload-section-wrapper {
+	margin-bottom: 20px; margin-top: 20px;
+}
+
+.file-upload-section {
+	position: relative;
+	width: 100%;
+}
+
+.file-input-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	opacity: 0;
+	overflow: hidden;
+	z-index: -1;
+}
+
+.file-upload-label {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+ 	border-radius: 10px;
+	 
+	cursor: pointer;
+	transition: all 0.3s ease;
+	
+	 
+	
+	.file-upload-icon {
+		display: flex;
+		align-items: center;
+		
+		img {
+			width: 24px;
+			height: 24px;
+		}
+	}
+	
+	.file-upload-text {
+		margin: 0;
+		font-size: 16px;
+		color: #444444;
+		font-weight: 400;
+	}
+}
+
+.file-preview-container {
+	position: relative;
+	margin-top: 15px;
+	display: inline-block;
+	
+	.file-preview-image {
+		max-width: 150px;
+		max-height: 150px;
+		border-radius: 10px;
+		object-fit: cover;
+		border: 2px solid #e0e0e0;
+	}
+	
+	.file-remove-btn {
+		position: absolute;
+		top: -10px;
+		right: -10px;
+		width: 30px;
+		height: 30px;
+		border-radius: 50%;
+		background: #ff4444;
+		color: #fff;
+		border: none;
+		font-size: 20px;
+		line-height: 1;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		transition: background 0.3s ease;
+		
+		&:hover {
+			background: #cc0000;
+		}
+	}
+}
+
+.form-group{ background: #fff; padding: 6%; border-radius: 20px; margin-bottom: 20px; }
+
+.form-col-2{ 
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 15px;
+	column-count: unset;
+	
+	li {
+		break-inside: avoid;
+		page-break-inside: avoid;
+		margin-bottom: 0;
+	}
+	
+	@media screen and (max-width: 768px) {
+		grid-template-columns: 1fr;
+	}
+}
+
+.create_profile_container{ max-width: 1073px; margin-left: auto; margin-right: auto; }
+
+// Resume Upload Styles
+.resume-upload-wrapper {
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+
+.resume-upload-area {
+	position: relative;
+	width: 100%;
+	background: #f5f5f5;
+	border-radius: 30px;
+	padding: 40px 20px;
+	text-align: center;
+	min-height: 150px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.resume-upload-button {
+	background: #101922;
+	color: #ffffff;
+	font-size: 16px;
+	padding: 15px 40px;
+	border-radius: 35px;
+	border: none;
+	cursor: pointer;
+	display: inline-block;
+	transition: background 0.3s ease, color 0.3s ease;
+	font-weight: 400;
+	
+	&:hover {
+		background: #A9D159;
+		color: #101922;
+	}
+}
+
+.resume-file-name {
+	margin-top: 15px;
+	font-size: 14px;
+	color: #444444;
+	padding: 10px 15px;
+	background: #fff;
+	border-radius: 10px;
+	border: 1px solid #e0e0e0;
+	display: inline-block;
+}
+
+// Education Section Styles
+.education-checkbox-wrapper {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.education-checkbox-label {
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	gap: 10px;
+}
+
+.education-checkbox {
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+    border-radius: 10px;
+	accent-color: #0d6a37;
+}
+
+.checkbox-text {
+	font-size: 14px;
+	color: #818181;
+	font-weight: 400;
+}
+
+.education-buttons-wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+	margin-top: 20px;
+	
+	.btn_save_education {
+		background: #0d6a37;
+		color: #ffffff;
+		font-size: 16px;
+		width: 100%;
+		height: 48px;
+		border-radius: 35px;
+		border: none;
+		outline: none;
+		cursor: pointer;
+		transition: background 0.3s ease, color 0.3s ease;
+		font-weight: 400;
+		
+		&:hover {
+			background: #8dc540;
+		}
+	}
+	
+	.btn_add_more_education {
+		background: #101922;
+		color: #ffffff;
+		font-size: 16px;
+		width: 100%;
+		height: 48px;
+		border-radius: 35px;
+		border: none;
+		outline: none;
+		cursor: pointer;
+		transition: background 0.3s ease, color 0.3s ease;
+		font-weight: 400;
+		
+		&:hover {
+			background: #A9D159;
+			color: #101922;
+		}
+	}
+}
+
+.max-w-but{ max-width: 248px; margin-left: auto; margin-right: auto; }
+
+// Certificate Upload Styles
+.certificate-upload-section {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.certificate-upload-instruction {
+	font-size: 14px;
+	color: #444444;
+	margin: 0 0 15px 0;
+	font-weight: 400;
+}
+
+.certificate-upload-area {
+	position: relative;
+	width: 100%;
+	background: #f5f5f5;
+	border-radius: 30px;
+	padding: 40px 20px;
+	text-align: center;
+	min-height: 150px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.certificate-upload-button {
+	background: #101922;
+	color: #ffffff;
+	font-size: 16px;
+	padding: 15px 40px;
+	border-radius: 35px;
+	border: none;
+	cursor: pointer;
+	display: inline-block;
+	transition: background 0.3s ease, color 0.3s ease;
+	font-weight: 400;
+	
+	&:hover {
+		background: #A9D159;
+		color: #101922;
+	}
+}
+
+.certificate-file-name {
+	margin-top: 15px;
+	font-size: 14px;
+	color: #444444;
+	padding: 10px 15px;
+	background: #fff;
+	border-radius: 10px;
+	border: 1px solid #e0e0e0;
+	display: inline-block;
+}
+
+// Saudi Council Classification Styles
+.saudi-council-section {
+	width: 100%;
+}
+
+.saudi-council-title {
+	margin: 0 0 20px 0;
+	font-size: 23px;
+	font-weight: 400;
+	color: #2c2c2c;
+}
+
+.saudi-council-upload-wrapper {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+	background: rgba(220, 219, 221, 0.3);  
+    border-radius: 30px;  
+    
+	@media screen and (max-width: 768px) {
+		flex-direction: column;
+		align-items: stretch;
+	}
+}
+
+.saudi-council-input-wrapper {
+	flex: 1;
+	
+	.saudi-council-input {
+		width: 100%;
+		background: #f5f5f5;
+        padding-left: 20px;
+        padding-right: 20px;
+		border: none;
+		cursor: default;
+		
+		&::placeholder {
+			color: #999;
+		}
+
+        &:focus-visible{ outline: none; }
+	}
+}
+
+.saudi-council-button-wrapper {
+	flex-shrink: 0;
+}
+
+.saudi-council-attach-btn {
+	background: #0d6a37;
+	color: #ffffff;
+	font-size: 16px;
+	padding: 12px 30px;
+	border-radius: 35px;
+	border: none;
+	cursor: pointer;
+	display: inline-block;
+	transition: background 0.3s ease, color 0.3s ease;
+	font-weight: 400;
+	white-space: nowrap;
+	
+	&:hover {
+		background: #0a5630;
+	}
+	
+	@media screen and (max-width: 768px) {
+		width: 100%;
+		text-align: center;
+	}
+}
+
+.saudi-council-file-name {
+	margin-top: 10px;
+	font-size: 14px;
+	color: #444444;
+	padding: 8px 12px;
+	background: #fff;
+	border-radius: 10px;
+	border: 1px solid #e0e0e0;
+	display: inline-block;
+}
+
+// Employment History Styles
+.employment-section {
+	margin-bottom: 30px;
+	
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.employment-question {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 0;
+	flex-wrap: wrap;
+    margin-bottom: 10px;
+	gap: 15px;
+	width: 100%;
+	
+	@media screen and (max-width: 768px) {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+}
+
+.employment-question-label {
+	font-size: 16px;
+	color: #444444;
+	font-weight: 400;
+	margin: 0;
+}
+
+.yes-no-checkboxes {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+}
+
+.yes-no-checkbox-label {
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	gap: 8px;
+}
+
+.yes-no-checkbox {
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+	accent-color: #0d6a37;
+	border-radius: 10px;
+}
+
+.add-more-projects-link {
+	margin-top: 15px;
+}
+
+.add-more-link {
+	color: #0d6a37;
+	font-size: 16px;
+	text-decoration: underline;
+	font-weight: 400;
+	transition: color 0.3s ease;
+	
+	&:hover {
+		color: #0a5630;
+	}
 }

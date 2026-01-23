@@ -63,7 +63,7 @@ $content_items = isset( $args['content_items'] ) ? $args['content_items'] : arra
 		'title' => 'Infrastructure',
 		'description' => 'Infrastructure is the lifeblood of national development. We deliver comprehensive infrastructure solutions including roads, bridges, utilities, and public facilities that form the foundation of modern society.',
 		'button_text' => 'View more',
-		'button_link' => esc_url( home_url( '/contact' ) )
+		'button_link' => esc_url( home_url( '/infrastructure' ) )
 	),
 	array(
 		'label' => 'Planning and Site Development',
@@ -71,7 +71,7 @@ $content_items = isset( $args['content_items'] ) ? $args['content_items'] : arra
 		'title' => 'Planning and Site Development',
 		'description' => 'Comprehensive planning and site development services that optimize land use, ensure environmental compliance, and create sustainable communities. Our expertise covers master planning, feasibility studies, and site optimization.',
 		'button_text' => 'View more',
-		'button_link' => esc_url( home_url( '/contact' ) )
+		'button_link' => esc_url( home_url( '/' ) )
 	),
 	array(
 		'label' => 'Building Engineering',
@@ -79,7 +79,7 @@ $content_items = isset( $args['content_items'] ) ? $args['content_items'] : arra
 		'title' => 'Building Engineering',
 		'description' => 'Expert building engineering solutions that ensure structural integrity, energy efficiency, and code compliance. We design commercial, residential, and institutional buildings that stand the test of time.',
 		'button_text' => 'View more',
-		'button_link' => esc_url( home_url( '/contact' ) )
+		'button_link' => esc_url( home_url( '/' ) )
 	),
 	array(
 		'label' => 'Electric Power Projects',
@@ -87,7 +87,7 @@ $content_items = isset( $args['content_items'] ) ? $args['content_items'] : arra
 		'title' => 'Electric Power Projects',
 		'description' => 'Advanced electric power project design and implementation services including transmission lines, substations, and renewable energy systems. We power the future with reliable and sustainable energy solutions.',
 		'button_text' => 'View more',
-		'button_link' => esc_url( home_url( '/contact' ) )
+		'button_link' => esc_url( home_url( '/' ) )
 	),
 	array(
 		'label' => 'Transportation',
@@ -95,7 +95,7 @@ $content_items = isset( $args['content_items'] ) ? $args['content_items'] : arra
 		'title' => 'Transportation',
 		'description' => 'Innovative transportation infrastructure solutions for modern mobility needs. From highways and railways to airports and ports, we design transportation systems that connect communities and drive economic growth.',
 		'button_text' => 'View more',
-		'button_link' => esc_url( home_url( '/contact' ) )
+		'button_link' => esc_url( home_url( '/' ) )
 	),
 	array(
 		'label' => 'Defense and Aviation',
@@ -103,7 +103,7 @@ $content_items = isset( $args['content_items'] ) ? $args['content_items'] : arra
 		'title' => 'Defense and Aviation',
 		'description' => 'Specialized engineering services for defense and aviation infrastructure projects. We deliver secure, efficient facilities that meet the highest standards of safety and operational excellence for military and aviation sectors.',
 		'button_text' => 'View more',
-		'button_link' => esc_url( home_url( '/contact' ) )
+		'button_link' => esc_url( home_url( '/' ) )
 	),
 	array(
 		'label' => 'Oil & Gas / Industrial',
@@ -111,7 +111,7 @@ $content_items = isset( $args['content_items'] ) ? $args['content_items'] : arra
 		'title' => 'Oil & Gas / Industrial',
 		'description' => 'Comprehensive engineering solutions for oil, gas, and industrial facilities. Our expertise includes refineries, petrochemical plants, pipelines, and industrial complexes designed for safety, efficiency, and environmental compliance.',
 		'button_text' => 'View more',
-		'button_link' => esc_url( home_url( '/contact' ) )
+		'button_link' => esc_url( home_url( '/' ) )
 	),
 	array(
 		'label' => 'Environmental and Sustainability',
@@ -119,7 +119,7 @@ $content_items = isset( $args['content_items'] ) ? $args['content_items'] : arra
 		'title' => 'Environmental and Sustainability',
 		'description' => 'Sustainable engineering practices for environmental protection and conservation. We integrate green building principles, renewable energy, and environmental management systems to minimize impact and maximize sustainability.',
 		'button_text' => 'View more',
-		'button_link' => esc_url( home_url( '/contact' ) )
+		'button_link' => esc_url( home_url( '/' ) )
 	),
 	array(
 		'label' => 'BIM / GIS',
@@ -127,7 +127,7 @@ $content_items = isset( $args['content_items'] ) ? $args['content_items'] : arra
 		'title' => 'BIM / GIS',
 		'description' => 'Advanced Building Information Modeling and Geographic Information Systems services. We leverage cutting-edge technology to create detailed 3D models, spatial analysis, and digital twins that enhance project visualization and collaboration.',
 		'button_text' => 'View more',
-		'button_link' => esc_url( home_url( '/contact' ) )
+		'button_link' => esc_url( home_url( '/' ) )
 	)
 );
 
@@ -140,14 +140,14 @@ $active_item = ! empty( $content_items ) ? $content_items[0] : array();
 	<div class="wrap">
 		<?php if ( $title || $title_span ) : ?>
 			<div class="engineering_expertise_header pb_40">
-				<h4 class="h4_title_35">
+				<h3 class="h3_title_50">
 					<?php if ( $title ) : ?>
 						<?php echo esc_html( $title ); ?>
 					<?php endif; ?>
 					<?php if ( $title_span ) : ?>
 						<span><?php echo esc_html( $title_span ); ?></span>
 					<?php endif; ?>
-				</h4>
+				</h3>
 			</div>
 		<?php endif; ?>
 

@@ -258,6 +258,169 @@ var swiper = new Swiper(".mySwiper-clients", {
 	},
 });
 
+// Awards Swiper initialization
+var swiper = new Swiper(".mySwiper-awards", {
+	slidesPerView: 1,
+	spaceBetween: 30,
+	centeredSlides: true,
+	centeredSlidesBounds: true,
+	centeredSlides: true,
+	centeredSlides: true,
+	loop: true,
+	// autoplay: {
+	// 	delay: 4000,
+	// 	disableOnInteraction: false,
+	// },
+	// navigation: {
+	// 	nextEl: ".swiper-button-next",
+	// 	prevEl: ".swiper-button-prev",
+	// },
+	pagination: {
+		el: ".swiper-pagination",
+		clickable: true,
+	},
+	breakpoints: {
+		640: {
+			slidesPerView: 2,
+			spaceBetween: 5,
+		},
+		768: {
+			slidesPerView: 2,
+			spaceBetween:  5,
+		},
+		1024: {
+			slidesPerView: 3,
+			spaceBetween: 10,
+		},
+		1280: {
+			slidesPerView: 5,
+			spaceBetween: 10,
+		},
+	},
+});
+
+// Awards Bot Swiper initialization - Slider 2: 1 slide per view
+(function() {
+	const awardsBotSwiperEl = document.querySelector(".mySwiper-awards-bot");
+	if (awardsBotSwiperEl) {
+		var swiper = new Swiper(".mySwiper-awards-bot", {
+			slidesPerView: 1,
+			spaceBetween: 30,
+			centeredSlides: true,
+			centeredSlidesBounds: true,
+			loop: true,
+			navigation: {
+				nextEl: awardsBotSwiperEl.querySelector(".swiper-button-next"),
+				prevEl: awardsBotSwiperEl.querySelector(".swiper-button-prev"),
+			},
+			pagination: {
+				el: awardsBotSwiperEl.querySelector(".swiper-pagination"),
+				clickable: true,
+			},
+			breakpoints: {
+				640: {
+					slidesPerView: 1,
+					spaceBetween: 20,
+				},
+				768: {
+					slidesPerView: 1,
+					spaceBetween: 25,
+				},
+				1024: {
+					slidesPerView: 1,
+					spaceBetween: 30,
+				},
+				1280: {
+					slidesPerView: 1,
+					spaceBetween: 30,
+				},
+			},
+		});
+	}
+})();
+
+// Awards Slider 2 initialization - 1 slide per view
+(function() {
+	const awards2SwiperEl = document.querySelector(".mySwiper-awards-2");
+	if (awards2SwiperEl) {
+		var swiper = new Swiper(".mySwiper-awards-2", {
+			slidesPerView: 1,
+			spaceBetween: 30,
+			centeredSlides: false,
+			loop: true,
+			navigation: {
+				nextEl: awards2SwiperEl.querySelector(".swiper-button-next"),
+				prevEl: awards2SwiperEl.querySelector(".swiper-button-prev"),
+			},
+			pagination: {
+				el: awards2SwiperEl.querySelector(".swiper-pagination"),
+				clickable: true,
+			},
+			breakpoints: {
+				640: {
+					slidesPerView: 1,
+					spaceBetween: 20,
+				},
+				768: {
+					slidesPerView: 1,
+					spaceBetween: 25,
+				},
+				1024: {
+					slidesPerView: 1,
+					spaceBetween: 30,
+				},
+				1280: {
+					slidesPerView: 1,
+					spaceBetween: 30,
+				},
+			},
+		});
+	}
+})();
+
+// Awards Slider 3 initialization - 1 slide per view (variant)
+(function() {
+	const awards3SwiperEl = document.querySelector(".mySwiper-awards-3");
+	if (awards3SwiperEl) {
+		var swiper = new Swiper(".mySwiper-awards-3", {
+			slidesPerView: 1,
+			spaceBetween: 30,
+			centeredSlides: true,
+			loop: true,
+			autoplay: {
+				delay: 4000,
+				disableOnInteraction: false,
+			},
+			navigation: {
+				nextEl: awards3SwiperEl.querySelector(".swiper-button-next"),
+				prevEl: awards3SwiperEl.querySelector(".swiper-button-prev"),
+			},
+			pagination: {
+				el: awards3SwiperEl.querySelector(".swiper-pagination"),
+				clickable: true,
+			},
+			breakpoints: {
+				640: {
+					slidesPerView: 1,
+					spaceBetween: 20,
+				},
+				768: {
+					slidesPerView: 1,
+					spaceBetween: 25,
+				},
+				1024: {
+					slidesPerView: 1,
+					spaceBetween: 30,
+				},
+				1280: {
+					slidesPerView: 1,
+					spaceBetween: 30,
+				},
+			},
+		});
+	}
+})();
+
 // Insights Swiper initialization
 (function() {
 	const initInsightsSwiper = function() {

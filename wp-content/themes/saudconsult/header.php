@@ -72,6 +72,11 @@
 		$header_classes[] = 'header-about-page';
 	}
 	
+	// Awards page
+	if ( is_page_template( 'page-template-awards.php' ) ) {
+		$header_classes[] = 'header-awards-page';
+	}
+	
 	// Products pages
 	if ( is_page_template( 'page-products.php' ) || is_page_template( 'page-product-detail.php' ) ) {
 		$header_classes[] = 'header-products-page';

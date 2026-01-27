@@ -7,22 +7,54 @@
  * @package tasheel
  */
 global $header_custom_class;
-$header_custom_class = 'black-header';
+$header_custom_class = ' ';
 get_header();
 ?>
 
 <main id="primary" class="site-main">
+
+<?php 
+	$inner_banner_data = array(
+		'background_image' => get_template_directory_uri() . '/assets/images/awards-banner.jpg',
+		'title' => 'Awards & Certifications',
+	);
+	get_template_part( 'template-parts/inner-banner', null, $inner_banner_data ); 
+	?>
+
+
+
+
+<?php 
+	$page_tabs_data = array(
+		'tabs' => array(
+			array( 'id' => 'overview', 'title' => 'Who We Are', 'link' => esc_url( home_url( '/about' ) ) ),
+			array( 'id' => 'vision', 'title' => 'Vision, Mission & Values', 'link' => esc_url( home_url( '/vision-mission-values' ) ) ),
+			array( 'id' => 'mission', 'title' => 'Leadership', 'link' => esc_url( home_url( '/leadership' ) ) ),
+			array( 'id' => 'Our Team', 'title' => 'Our Team', 'link' => esc_url( home_url( '/our-team' ) ) ),
+			array( 'id' => 'journey', 'title' => 'Our Journey & Legacy', 'link' => esc_url( home_url( '/our-journey-legacy' ) ) ),
+			array( 'id' => 'milestones', 'title' => 'Company Milestones', 'link' => esc_url( home_url( '/company-milestones' ) ) ),
+			array( 'id' => 'Awards & Certifications', 'title' => 'Awards & Certifications', 'link' => esc_url( home_url( '/awards' ) ) )
+		),
+		'active_tab' => 'Awards & Certifications' // Set which tab should be active
+	);
+	get_template_part( 'template-parts/page-tabs', null, $page_tabs_data ); 
+	?>
+
+
+
+
 	<?php 
 	$awards_slider_data = array(
-		'title' => 'Our',
-		'title_span' => 'Awards & Certifications',
+		'title' => 'Certifications',
+		'title_span' => '',
+		'description' => 'Certified to international standards that ensure quality, compliance, and professional excellence.',
 		'section_class' => '',
 		'awards' => array(
                 array(
                     'image' => get_template_directory_uri() . '/assets/images/awards.jpg',
                     'alt' => 'Awards & Certifications',
                     'title' => 'Awards & Certifications',
-                    'year' => '',
+                    'year' => 'ISO 9001:2015',
                     'link' => ''
                 ),
                 array(
@@ -79,11 +111,12 @@ get_header();
 	 <p>Our state-of-the-art facility is ISO-certified, ensuring every product meets rigorous international standards for quality and food safety.</p>
 </div>
 
-<div class="w_100 d_flex_wrap mt_auto justify-content-between">
+<div class="w_100 d_flex_wrap mt_auto justify-content-between award-row-02">
 	  <div class="slider-block-01">
 	  <div class="swiper mySwiper-01">
     <div class="swiper-wrapper">
       <div class="swiper-slide"> <img src="<?php echo get_template_directory_uri(); ?>/assets/images/aw-01.jpg" alt="Awards & Certifications"></div>
+      <div class="swiper-slide"> <img src="<?php echo get_template_directory_uri(); ?>/assets/images/aw-02.jpg" alt="Awards & Certifications"></div>
       <div class="swiper-slide"> <img src="<?php echo get_template_directory_uri(); ?>/assets/images/aw-02.jpg" alt="Awards & Certifications"></div>
       <div class="swiper-slide"> <img src="<?php echo get_template_directory_uri(); ?>/assets/images/aw-03.jpg" alt="Awards & Certifications"></div>
       
@@ -91,17 +124,7 @@ get_header();
   
   </div>
 	  </div>
-	  <div  class="slider-block-02">
-	  <div class="swiper mySwiper-02">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">
-		<img src="<?php echo get_template_directory_uri(); ?>/assets/images/aw-04.jpg" alt="Awards & Certifications">
-	  </div>
-      
-    </div>
-   
-  </div>
-	  </div>
+ 
 </div>
 </div>
 
@@ -115,7 +138,36 @@ get_header();
 
 
 	  <div class="slider-block-03">
+
+
+
+
+
+	  <div class="slider_arrow_block">
+						<span class="slider_buttion but_next-aw" tabindex="0" role="button" aria-label="Next slide" aria-controls="swiper-wrapper-e3f72735436d4394">
+							<img src="http://localhost/saudconsult/wp-content/themes/saudconsult/assets/images/slider-arrow.svg" alt="Next Project">
+						</span>
+						<span class="slider_buttion but_prev-aw" tabindex="0" role="button" aria-label="Previous slide" aria-controls="swiper-wrapper-e3f72735436d4394">
+							<img src="http://localhost/saudconsult/wp-content/themes/saudconsult/assets/images/slider-arrow.svg" alt="Previous Project">
+						</span>
+					</div>
+
+
+
+
 	  <div class="swiper mySwiper-03">
+
+
+
+
+
+
+
+
+
+
+
+	  
     <div class="swiper-wrapper">
       <div class="swiper-slide d_flex_wrap  justify-content-between">
 		<div class="swiper-slide-inner-img">
@@ -157,12 +209,27 @@ get_header();
 
 
 	  </div>
+
+	  <div class="swiper-slide d_flex_wrap  justify-content-between">
+		<div class="swiper-slide-inner-img">
+			<img src="<?php echo get_template_directory_uri(); ?>/assets/images/award-slider-img.jpg" alt="Awards & Certifications">
+		</div>
+		<div class="swiper-slide-inner-txt">
+			<div class="swiper-slide-inner-txt-content">
+			 <h6>Saud Consult Honored by the Saudi Boccia Federation</h6>
+			 <p>Recognized for our role as the Platinum Sponsor of the <b>Al-Ojami Boccia Championship – Elite 2025,</b> reflecting our commitment to social responsibility and inclusive sports.</p>
+		</div>
+		</div>
+
+
+	  </div>
     </div>
     
   </div>
 	  </div>
   </div>
   </section>
+ 
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -171,10 +238,99 @@ document.addEventListener('DOMContentLoaded', function() {
 		console.warn('Swiper library is not loaded');
 		return;
 	}
- 
 
-	 
- 
+	// Awards Page Thumbnail Gallery Setup
+	const thumbSwiperEl = document.querySelector('.mySwiper-01');
+	const mainSwiperEl = document.querySelector('.mySwiper-03');
+
+	if (thumbSwiperEl && mainSwiperEl) {
+		// Check if already initialized
+		if (thumbSwiperEl.swiper || mainSwiperEl.swiper) {
+			console.warn('Awards Gallery: Swipers already initialized');
+			return;
+		}
+
+		try {
+			// Initialize thumbnail swiper first with auto slides per view
+			const thumbSwiper = new Swiper('.mySwiper-01', {
+				slidesPerView: 'auto',
+				spaceBetween: 10,
+				freeMode: false,
+				watchSlidesProgress: true,
+				slideToClickedSlide: true,
+				centeredSlides: false,
+			});
+
+			// Wait a bit for thumbnail swiper to fully initialize
+			setTimeout(function() {
+				// Find custom navigation buttons
+				const nextButton = document.querySelector('.but_next-aw');
+				const prevButton = document.querySelector('.but_prev-aw');
+
+				// Initialize main swiper with thumbnail control and custom navigation
+				const mainSwiper = new Swiper('.mySwiper-03', {
+					slidesPerView: 1,
+					spaceBetween: 0,
+					thumbs: {
+						swiper: thumbSwiper,
+					},
+					loop: false,
+					effect: 'slide',
+					speed: 300,
+					navigation: {
+						nextEl: nextButton,
+						prevEl: prevButton,
+					},
+				});
+
+				// Wait for main swiper to initialize
+				setTimeout(function() {
+					// Add reliable click handlers to each thumbnail slide
+					const thumbSlides = thumbSwiperEl.querySelectorAll('.swiper-slide');
+					thumbSlides.forEach(function(slide, index) {
+						slide.style.cursor = 'pointer';
+						
+						// Create a robust click handler
+						const handleThumbClick = function(e) {
+							e.preventDefault();
+							e.stopPropagation();
+							
+							// Ensure main swiper exists and is ready
+							if (mainSwiper && mainSwiper.initialized) {
+								// Navigate to the clicked slide
+								mainSwiper.slideTo(index, 300);
+								
+								// Also update thumbnail swiper to show active state
+								if (thumbSwiper && thumbSwiper.initialized) {
+									thumbSwiper.slideTo(index, 300);
+								}
+							}
+						};
+						
+						// Remove any existing handler and add new one
+						slide.removeEventListener('click', handleThumbClick);
+						slide.addEventListener('click', handleThumbClick);
+					});
+
+					// Backup: Listen to thumbnail swiper slideChange
+					thumbSwiper.on('slideChange', function() {
+						if (mainSwiper && mainSwiper.initialized) {
+							const activeIndex = thumbSwiper.activeIndex;
+							if (mainSwiper.activeIndex !== activeIndex) {
+								mainSwiper.slideTo(activeIndex, 300);
+							}
+						}
+					});
+
+					console.log('Awards Gallery: Thumbnail gallery initialized successfully');
+				}, 100);
+			}, 50);
+		} catch (error) {
+			console.error('Awards Gallery: Error initializing thumbnail gallery', error);
+		}
+	} else {
+		console.warn('Awards Gallery: Swiper elements not found');
+	}
 });
 </script>
 

@@ -9,18 +9,18 @@
 
 <section class="services_section pt_80 pb_80">
 	<div class="wrap">
-		<span class="lable_text green_text">
+		<span class="lable_text green_text" data-aos="fade-up" data-aos-duration="800" data-aos-delay="0">
 			<img src="<?php echo get_template_directory_uri(); ?>/assets/images/dot-02.svg" alt="Our Comprehensive Services">
 			Our Comprehensive Services
 		</span>
 
 		<div class="services_section_01">
-			<div class="services_section_01_item_01 pt_40">
+			<div class="services_section_01_item_01 pt_40" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
 				<h3 class="h3_title_50">
 					Explore Our Full Range <br>of <span>Professional Services</span>
 				</h3>
 			</div>
-			<div class="services_section_01_item_02">
+			<div class="services_section_01_item_02" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
 				<p>
 					Our multidisciplinary team is structured to deliver integrated solutions across the following critical sectors, <b>ensuring innovation and efficiency in every design.</b>
 				</p>
@@ -30,7 +30,7 @@
 
 	<div class="swiper mySwiper-services">
 		<div class="swiper-wrapper">
-			<div class="swiper-slide">
+			<div class="swiper-slide" data-aos="fade-up" data-aos-duration="800" data-aos-delay="0">
 				<div class="services_section_item_01_content">
 					<h3 class="h3_title_30">
 						Engineering <br>Design
@@ -50,7 +50,7 @@
 				</div>
 			</div>
 
-			<div class="swiper-slide">
+			<div class="swiper-slide" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
 				<div class="services_section_item_01_content">
 					<h3 class="h3_title_30">
 					Construction <br>Supervision
@@ -70,7 +70,7 @@
 				</div>
 			</div>
 
-			<div class="swiper-slide">
+			<div class="swiper-slide" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
 				<div class="services_section_item_01_content">
 					<h3 class="h3_title_30">
 					Project <br>Management
@@ -90,7 +90,7 @@
 				</div>
 			</div>
 
-			<div class="swiper-slide">
+			<div class="swiper-slide" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
 				<div class="services_section_item_01_content">
 					<h3 class="h3_title_30">
 					Specialized <br>Studies
@@ -110,7 +110,7 @@
 				</div>
 			</div>
 
-			<div class="swiper-slide">
+			<div class="swiper-slide" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
 				<div class="services_section_item_01_content">
 					<h3 class="h3_title_30">
 					Construction <br>Supervision

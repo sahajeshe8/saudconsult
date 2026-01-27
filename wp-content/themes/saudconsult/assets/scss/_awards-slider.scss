@@ -18,6 +18,21 @@
 		.h3_title_50 {
 			margin: 0;
 		}
+
+		.awards_slider_description {
+			margin: 20px auto 0;
+			max-width: 350px;
+			font-size: 16px;
+			line-height: 1.6;
+			color: #666;
+			font-weight: 400;
+
+			@media screen and (max-width: 768px) {
+				font-size: 14px;
+				margin-top: 15px;
+				padding: 0 20px;
+			}
+		}
 	}
 
 	.mySwiper-awards {
@@ -48,20 +63,29 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			transition: transform 0.3s ease, scale 0.3s ease;
+			transition: transform 0.3s ease, scale 0.3s ease, opacity 0.3s ease;
 			transform: scale(1);
+			cursor: pointer;
+			opacity: 0.7;
 
+
+			@media screen and (min-width: 1024px) {
 			&.swiper-slide-active {
 				transform: scale(1.8);
 				z-index: 100;
+				opacity: 1;
 			}
 
+			&:hover {
+				opacity: 0.9;
+			}
+	 
 			&.swiper-slide-prev,
 			&.swiper-slide-next {
 				transform: scale(1.2);
 				z-index:50;
 			}
-
+		}
 			.award_item {
 				width: 100%;
 				height: 100%;
@@ -208,24 +232,62 @@
 	}
 }
 
+ 
+.slider-block-01{  width:100%;  display: flex; flex-wrap: wrap; align-items: flex-end;}
+.slider-block-02{ width:26%;  
+@media screen and (max-width: 768px) {
+	width: 100%;
+}
 
+}
+.slider-block-03{ width:55%; position: relative;
+@media screen and (max-width: 768px) {
+	width: 100%;
+}
 
-.slider-block-01{  width:70%;  display: flex; flex-wrap: wrap; align-items: flex-end;}
-.slider-block-02{ width:26%;   }
-.slider-block-03{ width:55%; }
+.slider_arrow_block{ z-index: 100; bottom: 0; padding-bottom: 0 !important; left: 55%; right: unset !important;}
 
-.swiper-slide-inner-img{  width: 45%; }
+.slider_arrow_block{ width: 20%; position: absolute; right: 0; margin-left: auto; display: flex; flex-wrap: wrap; gap: 10px; padding-bottom:90px;
+
+    .slider_buttion{ cursor: pointer;  width: 58px; height: 58px; border-radius: 100%; background: #A9D159; display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+        &.but_prev{ transform: rotate(180deg);}
+        &:hover{ background: #fff;
+            img{ filter: invert(1); }
+        }
+
+       
+
+        @media screen and (max-width:700px) {  width: 46px; height: 46px; }
+    }
+    @media screen and (max-width:700px) {  position: unset !important; width: 100%; margin-top: 20px; padding-bottom:10px; justify-content: flex-end; }
+}
+}
+
+.swiper-slide-inner-img{  width: 45%; 
+@media screen and (max-width: 768px) {
+	width: 100%;
+}
+}
 .swiper-slide-inner-txt{  width: 45%;  display: flex; align-items: center; justify-content: center;
 
 
 	h6{ color: #0d6a37; margin: 0 0 10px 0; font-size: 20px; line-height: 100%;}
 	p{ margin: 0; font-size: 14px; line-height: 150%; font-size: 18px; color: #000; font-weight: 500;}
 
+
+	@media screen and (max-width: 768px) {
+		width: 100%;
+	}
 }
 
 .justify-content-between{ justify-content: space-between ;}
 
-.award_slider_block_01{ width:43%;  display: flex; flex-wrap: wrap;  }
+.award_slider_block_01{ width:43%;  display: flex; flex-wrap: wrap;
+
+@media screen and (max-width: 768px) {
+	width: 100%;
+}
+}
 
 .mb_auto{ margin-bottom: auto;}
 .mt_auto{ margin-top: auto;}
@@ -236,5 +298,89 @@
 		a{ font-size: 16px; font-weight: 300; display: inline-flex; border: solid 1px #E0E0E0; border-radius: 50px; padding: 10px 20px; height: 44px; align-items: center; text-decoration: none; color: #011334;  line-height: 100%; 
 			&.active{  background: rgba(229, 229, 229, 0.5);}
 		}
+	}
+}
+
+
+.mySwiper-01 {
+	overflow: visible;
+}
+
+.mySwiper-01 .swiper-wrapper {
+	align-items: flex-end;
+}
+
+.mySwiper-01 .swiper-slide {
+	width: auto;
+	transition: transform 0.3s ease, opacity 0.3s ease;
+	// opacity: 0.6;
+}
+
+.mySwiper-01 .swiper-slide.swiper-slide-thumb-active {
+	 width: 27%;
+	opacity: 1;
+	z-index: 10;
+}
+
+.mySwiper-01 .swiper-slide img {
+	transition: transform 0.3s ease;
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+ 
+
+// Awards Page Custom Navigation Buttons
+.slider_arrow_block {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+	margin-bottom: 20px;
+
+	.slider_buttion {
+		cursor: pointer;
+		width: 58px;
+		height: 58px;
+		border-radius: 100%;
+		background: #A9D159;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		transition: all 0.3s ease;
+
+		&:hover {
+			background: #0D6A37;
+			transform: scale(1.05);
+		}
+
+		&.but_prev-aw {
+			img {
+				transform: rotate(180deg);
+			}
+		}
+
+		img {
+			width: 24px;
+			height: 24px;
+			transition: transform 0.3s ease;
+		}
+
+		@media screen and (max-width: 768px) {
+			width: 40px;
+			height: 40px;
+
+			img {
+				width: 20px;
+				height: 20px;
+			}
+		}
+	}
+}
+
+
+.award-row-02{
+	@media screen and (max-width: 768px) {
+	 display: none;
 	}
 }

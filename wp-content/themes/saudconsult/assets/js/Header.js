@@ -217,47 +217,273 @@
 		initDropdowns();
 
 		/**
-		 * Initialize Mobile Menu Submenu Functionality
+		 * Initialize Mobile Menu Submenu Functionality - Same as Desktop
 		 */
 		const initMobileSubmenus = function() {
+			const mobileMenuItems = document.querySelectorAll('.mobile_menu_item');
+			const mobileMenuList = document.querySelector('.mobile_menu_list');
+			
+			if (!mobileMenuList) {
+				return;
+			}
+
+			// Find desktop menu items with submenus to replicate in mobile
+			const desktopNavItems = document.querySelectorAll('.nav-item');
+			
+			// Close all mobile submenus with accordion animation
+			const closeAllMobileSubmenus = function(excludeMenu = null) {
+				document.querySelectorAll('.mobile_menu_submenu').forEach(menu => {
+					if (menu !== excludeMenu) {
+						const isOpen = menu.classList.contains('mobile_submenu_open');
+						if (isOpen) {
+							// Animate height to 0
+							const content = menu.querySelector('.mobile_submenu_content');
+							if (content) {
+								content.style.height = content.scrollHeight + 'px';
+								// Force reflow
+								content.offsetHeight;
+								content.style.height = '0px';
+							}
+							menu.classList.remove('mobile_submenu_open');
+						}
+					}
+				});
+				document.querySelectorAll('.mobile_menu_item_has_submenu').forEach(item => {
+					if (!excludeMenu || !item.contains(excludeMenu)) {
+						item.classList.remove('mobile_submenu_item_active');
+					}
+				});
+				document.querySelectorAll('.mobile_menu_submenu_toggle').forEach(btn => {
+					if (!excludeMenu || btn.getAttribute('data-submenu') !== excludeMenu.id) {
+						btn.classList.remove('mobile_submenu_toggle_active');
+					}
+				});
+			};
+
+			// Open submenu with accordion animation
+			const openMobileSubmenu = function(submenu, parentItem, toggleButton) {
+				const content = submenu.querySelector('.mobile_submenu_content');
+				if (content) {
+					// Set initial height
+					submenu.style.display = 'block';
+					content.style.height = '0px';
+					content.style.overflow = 'hidden';
+					
+					// Force reflow
+					content.offsetHeight;
+					
+					// Animate to full height
+					const targetHeight = content.scrollHeight;
+					content.style.height = targetHeight + 'px';
+					
+					// After animation, set to auto
+					setTimeout(function() {
+						content.style.height = 'auto';
+						content.style.overflow = 'visible';
+					}, 300);
+				}
+				
+				submenu.classList.add('mobile_submenu_open');
+				parentItem.classList.add('mobile_submenu_item_active');
+				if (toggleButton) {
+					toggleButton.classList.add('mobile_submenu_toggle_active');
+				}
+			};
+
+			// Close submenu with accordion animation
+			const closeMobileSubmenu = function(submenu, parentItem, toggleButton) {
+				const content = submenu.querySelector('.mobile_submenu_content');
+				if (content) {
+					// Set current height
+					content.style.height = content.scrollHeight + 'px';
+					content.style.overflow = 'hidden';
+					
+					// Force reflow
+					content.offsetHeight;
+					
+					// Animate to 0
+					content.style.height = '0px';
+					
+					// Remove classes after animation
+					setTimeout(function() {
+						submenu.style.display = '';
+						content.style.height = '';
+						content.style.overflow = '';
+					}, 300);
+				}
+				
+				submenu.classList.remove('mobile_submenu_open');
+				parentItem.classList.remove('mobile_submenu_item_active');
+				if (toggleButton) {
+					toggleButton.classList.remove('mobile_submenu_toggle_active');
+				}
+			};
+
+			// Process each desktop nav item to create mobile equivalents
+			desktopNavItems.forEach(function(desktopItem, index) {
+				const desktopSubmenu = desktopItem.querySelector('.sub_menu_block');
+				if (!desktopSubmenu) {
+					return; // Skip items without submenus
+				}
+
+				// Find corresponding mobile menu item or create one
+				const desktopLink = desktopItem.querySelector('.nav-link');
+				const desktopLinkText = desktopLink ? desktopLink.textContent.trim().replace(/\s+/g, ' ') : '';
+				
+				// Try to find existing mobile menu item with same text
+				let mobileItem = null;
+				mobileMenuItems.forEach(function(item) {
+					const itemLink = item.querySelector('a');
+					if (itemLink && itemLink.textContent.trim().replace(/\s+/g, ' ') === desktopLinkText) {
+						mobileItem = item;
+					}
+				});
+
+				// If mobile item found, enhance it with submenu functionality
+				if (mobileItem) {
+					// Mark as having submenu
+					mobileItem.classList.add('mobile_menu_item_has_submenu');
+					
+					// Get submenu content from desktop
+					const submenuInner = desktopSubmenu.querySelector('.sub_menu_block_inner');
+					if (submenuInner) {
+						// Check if submenu already exists in mobile
+						let mobileSubmenu = mobileItem.querySelector('.mobile_menu_submenu');
+						
+						if (!mobileSubmenu) {
+							// Create mobile submenu structure
+							mobileSubmenu = document.createElement('div');
+							mobileSubmenu.className = 'mobile_menu_submenu';
+							mobileSubmenu.id = 'mobile-submenu-' + index;
+							
+							// Clone and adapt desktop submenu content for mobile
+							const mobileSubmenuContent = document.createElement('div');
+							mobileSubmenuContent.className = 'mobile_submenu_content';
+							
+							// Get all links from desktop submenu
+							const desktopSubmenuLinks = desktopSubmenu.querySelectorAll('.list-submenu a, .sub_menu_block_right_block a');
+							if (desktopSubmenuLinks.length > 0) {
+								const mobileSubmenuList = document.createElement('ul');
+								mobileSubmenuList.className = 'mobile_submenu_list';
+								
+								desktopSubmenuLinks.forEach(function(link) {
+									const listItem = document.createElement('li');
+									const mobileLink = document.createElement('a');
+									mobileLink.href = link.href;
+									mobileLink.textContent = link.textContent.trim();
+									listItem.appendChild(mobileLink);
+									mobileSubmenuList.appendChild(listItem);
+								});
+								
+								mobileSubmenuContent.appendChild(mobileSubmenuList);
+							}
+							
+							mobileSubmenu.appendChild(mobileSubmenuContent);
+							mobileItem.appendChild(mobileSubmenu);
+						}
+
+						// Add toggle button if not exists
+						let toggleButton = mobileItem.querySelector('.mobile_menu_submenu_toggle');
+						if (!toggleButton) {
+							toggleButton = document.createElement('span');
+							toggleButton.className = 'mobile_menu_submenu_toggle';
+							toggleButton.setAttribute('data-submenu', 'mobile-submenu-' + index);
+							toggleButton.innerHTML = '<img src="' + (desktopLink.querySelector('img') ? desktopLink.querySelector('img').src : '') + '" alt="Toggle">';
+							
+							// Insert toggle after the link
+							const mobileLink = mobileItem.querySelector('a');
+							if (mobileLink) {
+								mobileLink.parentNode.insertBefore(toggleButton, mobileLink.nextSibling);
+							}
+						}
+
+						// Link should navigate normally, only toggle button opens accordion
+						const mobileLink = mobileItem.querySelector('a');
+						if (mobileLink) {
+							// Remove any existing click handlers that might prevent navigation
+							mobileLink.addEventListener('click', function(e) {
+								// Allow link to navigate normally
+								// Don't prevent default - let the link work as normal
+							});
+						}
+
+						// Add toggle button click handler (accordion) - ONLY opens on click
+						if (toggleButton) {
+							// Mark as handled to prevent duplicate handlers
+							if (!toggleButton.hasAttribute('data-toggle-handler-added')) {
+								toggleButton.setAttribute('data-toggle-handler-added', 'true');
+								
+								toggleButton.addEventListener('click', function(e) {
+									e.preventDefault();
+									e.stopPropagation();
+									e.stopImmediatePropagation();
+									
+									const isOpen = mobileSubmenu.classList.contains('mobile_submenu_open');
+									
+									if (isOpen) {
+										// Close this submenu
+										closeMobileSubmenu(mobileSubmenu, mobileItem, toggleButton);
+									} else {
+										// Close all other submenus first (accordion behavior)
+										closeAllMobileSubmenus(mobileSubmenu);
+										// Then open this one
+										openMobileSubmenu(mobileSubmenu, mobileItem, toggleButton);
+									}
+									
+									return false;
+								}, true); // Use capture phase to ensure it fires first
+							}
+						}
+					}
+				}
+			});
+
+			// Also handle existing submenu toggles (for manually added ones) - ONLY opens on click
 			const submenuToggles = document.querySelectorAll('.mobile_menu_submenu_toggle');
 			
 			submenuToggles.forEach(toggle => {
+				// Skip if already has handler
+				if (toggle.hasAttribute('data-handler-added')) {
+					return;
+				}
+				
+				toggle.setAttribute('data-handler-added', 'true');
+				
 				toggle.addEventListener('click', function(e) {
 					e.preventDefault();
 					e.stopPropagation();
+					e.stopImmediatePropagation();
 					
 					const submenuId = this.getAttribute('data-submenu');
-					const submenu = document.getElementById('mobile-submenu-' + submenuId);
+					const submenu = document.getElementById(submenuId);
 					const parentItem = this.closest('.mobile_menu_item_has_submenu');
 					
 					if (!submenu || !parentItem) {
-						return;
+						return false;
 					}
 					
 					const isOpen = submenu.classList.contains('mobile_submenu_open');
 					
-					// Close all other submenus
-					document.querySelectorAll('.mobile_menu_submenu').forEach(menu => {
-						if (menu !== submenu) {
-							menu.classList.remove('mobile_submenu_open');
-						}
-					});
-					document.querySelectorAll('.mobile_menu_submenu_toggle').forEach(btn => {
-						if (btn !== toggle) {
-							btn.classList.remove('mobile_submenu_toggle_active');
-						}
-					});
-					
-					// Toggle current submenu
 					if (isOpen) {
-						submenu.classList.remove('mobile_submenu_open');
-						toggle.classList.remove('mobile_submenu_toggle_active');
+						// Close this submenu
+						closeMobileSubmenu(submenu, parentItem, toggle);
 					} else {
-						submenu.classList.add('mobile_submenu_open');
-						toggle.classList.add('mobile_submenu_toggle_active');
+						// Close all other submenus first (accordion behavior)
+						closeAllMobileSubmenus(submenu);
+						// Then open this one
+						openMobileSubmenu(submenu, parentItem, toggle);
 					}
-				});
+					
+					return false;
+				}, true); // Use capture phase to ensure it fires first
+			});
+
+			// Close submenus when clicking outside
+			document.addEventListener('click', function(event) {
+				const clickedInside = event.target.closest('.mobile_menu_item_has_submenu');
+				if (!clickedInside) {
+					closeAllMobileSubmenus();
+				}
 			});
 		};
 

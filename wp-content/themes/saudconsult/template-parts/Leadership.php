@@ -14,9 +14,9 @@
 
  
 
-<ul class="leadership_section_inner_left_list">
+<ul class="leadership_section_inner_left_list"> 
  
-<li>
+<li data-aos="fade-up" data-aos-duration="800" data-aos-delay="0">
 <span class="lable_text green_text mb_50">
 					<img src="<?php echo get_template_directory_uri(); ?>/assets/images/dot-02.svg" alt="Our Projects">
 					Our Projects
@@ -27,7 +27,7 @@
                 Our Visionary <span>Leadership</span>
 				</h3>
 </li>
-<li>
+<li data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
     <div class="leadership_block">
        <div class="leadership_img">
         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/l1.jpg" alt="Leadership Image">
@@ -45,7 +45,7 @@
        </div>
     </diuv>
 </li>
-<li>
+<li data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
     <div class="leadership_block">
        <div class="leadership_img">
         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/l2.jpg" alt="Leadership Image">
@@ -111,7 +111,7 @@
         </div>
      </diuv>
  </li>
- <li>
+ <li data-aos="fade-up" data-aos-duration="800" data-aos-delay="500">
      <div class="leadership_block">
         <div class="leadership_img">
          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/l4.jpg" alt="Leadership Image">
@@ -129,7 +129,7 @@
         
      </div>
  </li>
- <li>
+ <li data-aos="fade-up" data-aos-duration="800" data-aos-delay="600">
      <div class="leadership_block">
         <div class="leadership_img">
          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/l5.jpg" alt="Leadership Image">

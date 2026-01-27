@@ -21,7 +21,7 @@ $button_link = isset( $args['button_link'] ) ? $args['button_link'] : '#';
 <section class="ready_to_partner_section pt_80 pb_80" style="background: url('<?php echo esc_url( $background_image ); ?>') no-repeat center center; background-size: cover;">
 	<div class="wrap">
 		<?php if ( $title || $subtitle ) : ?>
-			<h3 class="h3_title_50 white_txt">
+			<h3 class="h3_title_50 white_txt" data-aos="fade-up" data-aos-duration="800" data-aos-delay="0">
 				<?php if ( $title ) : ?>
 					<?php echo esc_html( $title ); ?>
 				<?php endif; ?>
@@ -32,11 +32,11 @@ $button_link = isset( $args['button_link'] ) ? $args['button_link'] : '#';
 		<?php endif; ?>
 		
 		<?php if ( $description ) : ?>
-			<p><?php echo esc_html( $description ); ?></p>
+			<p data-aos="fade-up" data-aos-duration="800" data-aos-delay="100"><?php echo esc_html( $description ); ?></p>
 		<?php endif; ?>
 		
 		<?php if ( $button_text && $button_link ) : ?>
-			<a class="btn_style btn_transparent" href="<?php echo esc_url( $button_link ); ?>">
+			<a class="btn_style btn_transparent" href="<?php echo esc_url( $button_link ); ?>" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
 				<?php echo esc_html( $button_text ); ?> <span><img src="<?php echo get_template_directory_uri(); ?>/assets/images/buttion-arrow.svg" alt="<?php echo esc_attr( $button_text ); ?>"></span>
 			</a>
 		<?php endif; ?>

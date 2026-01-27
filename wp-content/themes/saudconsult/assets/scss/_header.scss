@@ -69,7 +69,102 @@
 }
 .mobile_menu_overlay.mobile_menu_open{ transform: translateX(0); }
 .mobile_menu_list{ list-style: none; padding: 0; margin: 0; width: 100%; max-width: 320px; display: flex; flex-direction: column; gap: 18px; }
-.mobile_menu_item a{ color: #fff; font-size: 18px; font-weight: 500; text-decoration: none; display: block; padding: 8px 0; }
+.mobile_menu_item{ 
+	position: relative;
+	
+	a{ 
+		color: #fff; 
+		font-size: 18px; 
+		font-weight: 500; 
+		text-decoration: none; 
+		display: block; 
+		padding: 8px 0; 
+		flex: 1; // Allow link to take available space
+	}
+	
+	&.mobile_menu_item_has_submenu{
+		display: flex;
+    flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+		gap: 10px;
+		
+		a{
+			display: block;
+			flex: 1;
+		}
+	}
+}
+
+// Mobile submenu accordion styles
+.mobile_menu_submenu_toggle{
+	cursor: pointer;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 24px;
+	height: 24px;
+	transition: transform 0.3s ease;
+	
+	img{
+		width: 100%;
+		height: auto;
+		transition: transform 0.3s ease;
+	}
+	
+	&.mobile_submenu_toggle_active{
+		transform: rotate(180deg);
+	}
+}
+
+.mobile_menu_submenu{
+	display: none;
+	overflow: hidden;
+	width: 100%;
+	
+	&.mobile_submenu_open{
+		display: block;
+	}
+}
+
+.mobile_submenu_content{
+	transition: height 0.3s ease;
+	overflow: hidden;
+}
+
+.mobile_submenu_list{
+	list-style: none;
+	padding: 0;
+	margin: 10px 0 0 0;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	
+	li{
+		padding: 0;
+		
+		a{
+			color: rgba(255, 255, 255, 0.8);
+			font-size: 16px;
+			font-weight: 400;
+			text-decoration: none;
+			display: block;
+			padding:  0px;
+			transition: color 0.3s ease, padding-left 0.3s ease;
+			
+			&:hover{
+				color: #fff;
+				padding-left: 25px;
+			}
+		}
+	}
+}
+
+.mobile_menu_item_has_submenu.mobile_submenu_item_active{
+	> a{
+		color: #8dc540;
+	}
+}
 
 .menu_icon.menu_open span:nth-child(1){ transform: translateY(13px) rotate(45deg); }
 .menu_icon.menu_open span:nth-child(2){ opacity: 0; }
@@ -179,3 +274,5 @@
     img{ filter: invert(1);}
   }
 }
+.mobile_menu_submenu { display: none;}
+.mobile_submenu_open{ display: block;}

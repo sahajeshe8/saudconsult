@@ -54,7 +54,7 @@ $section_class = isset( $args['section_class'] ) ? $args['section_class'] : '';
         <div class="insights_section_content">
             <div class="swiper mySwiper-insights">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
+                    <div class="swiper-slide" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
                         <div class="insights_item">
                             <div class="insights_item_image">
                                 <span class="latest_news_lable">
@@ -71,7 +71,7 @@ $section_class = isset( $args['section_class'] ) ? $args['section_class'] : '';
 
                 
 
-                    <div class="swiper-slide">
+                    <div class="swiper-slide" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
                         <div class="insights_item">
                             <div class="insights_item_image">
                                 <span class="latest_news_lable">
@@ -86,7 +86,7 @@ $section_class = isset( $args['section_class'] ) ? $args['section_class'] : '';
                         </div>
                     </div>
 
-                    <div class="swiper-slide">
+                    <div class="swiper-slide" data-aos="fade-up" data-aos-duration="800" data-aos-delay="500">
                         <div class="insights_item">
                             <div class="insights_item_image">
                                 <span class="latest_news_lable">
@@ -101,7 +101,7 @@ $section_class = isset( $args['section_class'] ) ? $args['section_class'] : '';
                         </div>
                     </div>
 
-                    <div class="swiper-slide">
+                    <div class="swiper-slide" data-aos="fade-up" data-aos-duration="800" data-aos-delay="600">
                         <div class="insights_item">
                             <div class="insights_item_image">
                                 <span class="latest_news_lable">
@@ -115,7 +115,7 @@ $section_class = isset( $args['section_class'] ) ? $args['section_class'] : '';
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide">
+                    <div class="swiper-slide" data-aos="fade-up" data-aos-duration="800" data-aos-delay="700">
                         <div class="insights_item">
                             <div class="insights_item_image">
                                 <span class="latest_news_lable">

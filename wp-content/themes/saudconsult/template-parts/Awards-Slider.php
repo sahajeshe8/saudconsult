@@ -13,8 +13,10 @@ $args = isset( $args ) ? $args : array();
 // Set default values or use passed values
 $title = isset( $args['title'] ) ? $args['title'] : 'Our';
 $title_span = isset( $args['title_span'] ) ? $args['title_span'] : 'Awards & Certifications';
+$description = isset( $args['description'] ) ? $args['description'] : '';
 $awards = isset( $args['awards'] ) ? $args['awards'] : array();
 $section_class = isset( $args['section_class'] ) ? $args['section_class'] : '';
+$loop = isset( $args['loop'] ) ? $args['loop'] : true; // Default to true for looping
 
 ?>
 
@@ -30,11 +32,14 @@ $section_class = isset( $args['section_class'] ) ? $args['section_class'] : '';
 						<span><?php echo esc_html( $title_span ); ?></span>
 					<?php endif; ?>
 				</h3>
+				<?php if ( $description ) : ?>
+					<p class="awards_slider_description"><?php echo esc_html( $description ); ?></p>
+				<?php endif; ?>
 			</div>
 		<?php endif; ?>
 
 		<?php if ( ! empty( $awards ) ) : ?>
-			<div class="swiper mySwiper-awards">
+			<div class="swiper mySwiper-awards" data-loop="<?php echo $loop ? 'true' : 'false'; ?>">
 				<div class="swiper-wrapper">
 					<?php foreach ( $awards as $award ) : 
 						$image = isset( $award['image'] ) ? $award['image'] : '';

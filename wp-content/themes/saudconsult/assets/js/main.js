@@ -259,45 +259,84 @@ var swiper = new Swiper(".mySwiper-clients", {
 });
 
 // Awards Swiper initialization
-var swiper = new Swiper(".mySwiper-awards", {
-	slidesPerView: 1,
-	spaceBetween: 30,
-	centeredSlides: true,
-	centeredSlidesBounds: true,
-	centeredSlides: true,
-	centeredSlides: true,
-	loop: true,
-	// autoplay: {
-	// 	delay: 4000,
-	// 	disableOnInteraction: false,
-	// },
-	// navigation: {
-	// 	nextEl: ".swiper-button-next",
-	// 	prevEl: ".swiper-button-prev",
-	// },
-	pagination: {
-		el: ".swiper-pagination",
-		clickable: true,
-	},
-	breakpoints: {
-		640: {
-			slidesPerView: 2,
-			spaceBetween: 5,
-		},
-		768: {
-			slidesPerView: 2,
-			spaceBetween:  5,
-		},
-		1024: {
-			slidesPerView: 3,
-			spaceBetween: 10,
-		},
-		1280: {
-			slidesPerView: 5,
-			spaceBetween: 10,
-		},
-	},
-});
+(function() {
+	const awardsSwiperEl = document.querySelector(".mySwiper-awards");
+	if (awardsSwiperEl) {
+		// Get loop option from data attribute, default to true
+		const loopOption = awardsSwiperEl.getAttribute('data-loop');
+		const shouldLoop = loopOption === null || loopOption === 'true';
+		
+		// Count slides to determine if loop is possible (need at least slidesPerView + 1 slides)
+		const slides = awardsSwiperEl.querySelectorAll('.swiper-slide');
+		const slideCount = slides.length;
+		
+		// For loop to work, we need more slides than slidesPerView
+		// Base config: slidesPerView: 1, so need at least 2 slides
+		const canLoopBase = shouldLoop && slideCount >= 2;
+		
+		var swiper = new Swiper(".mySwiper-awards", {
+			slidesPerView: 1,
+			spaceBetween: 30,
+			centeredSlides: true,
+			centeredSlidesBounds: !canLoopBase, // Disable bounds when looping
+			loop: canLoopBase,
+			loopAdditionalSlides: 1,
+			loopedSlides: canLoopBase ? Math.max(2, Math.ceil(slideCount / 2)) : 0,
+			slideToClickedSlide: true,
+			watchSlidesProgress: true,
+			autoplay: canLoopBase ? {
+				delay: 3000,
+				disableOnInteraction: false,
+			} : false,
+			// navigation: {
+			// 	nextEl: ".swiper-button-next",
+			// 	prevEl: ".swiper-button-prev",
+			// },
+			pagination: {
+				el: ".swiper-pagination",
+				clickable: true,
+			},
+			breakpoints: {
+				640: {
+					slidesPerView: 2,
+					spaceBetween: 5,
+					centeredSlidesBounds: !(shouldLoop && slideCount >= 4),
+					loop: shouldLoop && slideCount >= 4,
+				},
+				768: {
+					slidesPerView: 2,
+					spaceBetween:  5,
+					centeredSlidesBounds: !(shouldLoop && slideCount >= 4),
+					loop: shouldLoop && slideCount >= 4,
+				},
+				1024: {
+					slidesPerView: 3,
+					spaceBetween: 10,
+					centeredSlidesBounds: !(shouldLoop && slideCount >= 6),
+					loop: shouldLoop && slideCount >= 6,
+				},
+				1280: {
+					slidesPerView: 5,
+					spaceBetween: 10,
+					centeredSlidesBounds: !(shouldLoop && slideCount >= 10),
+					loop: shouldLoop && slideCount >= 10,
+				},
+			},
+		});
+
+		// Add click handlers for active state on slides
+		if (slides.length > 0) {
+			slides.forEach(function(slide, index) {
+				slide.style.cursor = 'pointer';
+				slide.addEventListener('click', function() {
+					if (swiper && swiper.slideTo) {
+						swiper.slideTo(index);
+					}
+				});
+			});
+		}
+	}
+})();
 
 // Awards Bot Swiper initialization - Slider 2: 1 slide per view
 (function() {
@@ -2067,14 +2106,13 @@ var swiper = new Swiper(".brochures_list_swiper", {
 
  
 
-var swiper = new Swiper(".mySwiper-01", {
-	slidesPerView:3,
-	spaceBetween: 10,
-
-	
-});
+// Awards page swipers are initialized in page-template-awards.php as thumbnail gallery
+// var swiper = new Swiper(".mySwiper-01", {
+// 	slidesPerView:4,
+// 	spaceBetween: 10,
+// });
 var swiper = new Swiper(".mySwiper-02", {});
-var swiper = new Swiper(".mySwiper-03", {});
+// var swiper = new Swiper(".mySwiper-03", {});
 
 // Our Journey Gallery Swiper with Thumbnails
 (function() {

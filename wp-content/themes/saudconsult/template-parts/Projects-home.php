@@ -88,7 +88,7 @@ $projects = isset( $args['projects'] ) ? $args['projects'] : array(
 <section class="projects_section pt_80 <?php echo esc_attr( $section_class ); ?> <?php echo $section_wrapper_class; ?>">
 	<div class="wrap">
 		<div class="title_block">
-			<div class="title_block_left">
+			<div class="title_block_left" data-aos="fade-up" data-aos-duration="800" data-aos-delay="0">
 				<?php if ( $label_text ) : ?>
 					<span class="lable_text green_text">
 						<?php if ( $label_icon ) : ?>
@@ -115,7 +115,7 @@ $projects = isset( $args['projects'] ) ? $args['projects'] : array(
 			</div>
 
 			<?php if ( $button_text && $button_link ) : ?>
-				<div class="title_block_right">
+				<div class="title_block_right" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
 					<a class="btn_style btn_transparent but_black" href="<?php echo esc_url( $button_link ); ?>">
 						<?php echo esc_html( $button_text ); ?> 
 						<span><img src="<?php echo get_template_directory_uri(); ?>/assets/images/buttion-arrow.svg" alt="<?php echo esc_attr( $button_text ); ?>"></span>
@@ -142,7 +142,9 @@ $projects = isset( $args['projects'] ) ? $args['projects'] : array(
 
 			<div class="swiper mySwiper-projects">
 				<div class="swiper-wrapper">
-					<?php foreach ( $projects as $project ) : 
+					<?php 
+					$project_index = 0;
+					foreach ( $projects as $project ) : 
 						$project_bg_image = isset( $project['background_image'] ) ? $project['background_image'] : '';
 						$project_bg_alt = isset( $project['background_image_alt'] ) ? $project['background_image_alt'] : 'Project Background';
 						$project_title = isset( $project['title'] ) ? $project['title'] : '';
@@ -151,7 +153,7 @@ $projects = isset( $args['projects'] ) ? $args['projects'] : array(
 						$project_button_link = isset( $project['button_link'] ) ? $project['button_link'] : '#';
 						$project_stats = isset( $project['stats'] ) ? $project['stats'] : array();
 					?>
-						<div class="swiper-slide">
+						<div class="swiper-slide" data-aos="fade-up" data-aos-duration="800" data-aos-delay="<?php echo esc_attr( 200 + ( $project_index * 100 ) ); ?>">
 							<?php if ( $project_bg_image ) : ?>
 								<div class="projects_slide_bg">
 									<img src="<?php echo esc_url( $project_bg_image ); ?>" alt="<?php echo esc_attr( $project_bg_alt ); ?>">
@@ -205,7 +207,9 @@ $projects = isset( $args['projects'] ) ? $args['projects'] : array(
 								</div>
 							</div>
 						</div>
-					<?php endforeach; ?>
+					<?php 
+						$project_index++;
+					endforeach; ?>
 				</div>
 			</div>
 		</div>

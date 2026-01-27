@@ -84,7 +84,7 @@ get_header();
 		get_template_part( 'template-parts/Projects-home', null, $projects_home_data ); 
 		?>
  		<?php get_template_part( 'template-parts/Leadership' ); ?>
-		<?php get_template_part( 'template-parts/home-Partners' ); ?>
+ 		<?php get_template_part( 'template-parts/home-Partners' ); ?>
 		<?php 
 		$banner_add_data = array(
 			'background_image' => get_template_directory_uri() . '/assets/images/ready-to-partner-one.jpg',
@@ -106,7 +106,7 @@ get_header();
 			'background_image' => get_template_directory_uri() . '/assets/images/build-your-future.jpg',
 			'title' => 'Build Your Future',
 			'subtitle' => 'With Us',
-			'description' => 'We don’t just fill positions—we cultivate talent. Explore opportunities where your skills lead to transformative impact across the region.',
+			'description' => 'We don\'t just fill positions—we cultivate talent. Explore opportunities where your skills lead to transformative impact across the region.',
 			'button_text' => 'Join our Team',
 			'button_link' => '#'
 		);

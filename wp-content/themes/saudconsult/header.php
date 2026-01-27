@@ -301,11 +301,61 @@
 
             <div id="mobileMenuOverlay" class="mobile_menu_overlay">
                 <ul class="mobile_menu_list">
-                    <li class="mobile_menu_item"><a href="<?php echo esc_url( home_url( '/brands' ) ); ?>">Brands</a></li>
-                    <li class="mobile_menu_item"><a href="<?php echo esc_url( home_url( '/products' ) ); ?>">Products</a></li>
-                    <li class="mobile_menu_item"><a href="<?php echo esc_url( home_url( '/industries' ) ); ?>">Industries We Serve</a></li>
+                    <!-- Company with submenu -->
+                    <li class="mobile_menu_item mobile_menu_item_has_submenu">
+                        <a href="<?php echo esc_url( home_url( '/about-us' ) ); ?>">Company</a>
+                        <span class="mobile_menu_submenu_toggle" data-submenu="mobile-submenu-company">
+                            <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/menu-arrow-01.svg' ); ?>" alt="Toggle">
+                        </span>
+                        <div class="mobile_menu_submenu" id="mobile-submenu-company">
+                            <div class="mobile_submenu_content">
+                                <ul class="mobile_submenu_list">
+                                    <li><a href="<?php echo esc_url( home_url( '/about-us' ) ); ?>">Who We Are</a></li>
+                                    <li><a href="<?php echo esc_url( home_url( '/our-team' ) ); ?>">Our Team</a></li>
+                                    <li><a href="<?php echo esc_url( home_url( '/leadership' ) ); ?>">Leadership</a></li>
+                                    <li><a href="<?php echo esc_url( home_url( '/our-journey-legacy' ) ); ?>">Our Journey & Legacy</a></li>
+                                    <li><a href="<?php echo esc_url( home_url( '/vision-mission-values' ) ); ?>">Vision, Mission & Values</a></li>
+                                    <li><a href="<?php echo esc_url( home_url( '/company-milestones' ) ); ?>">Company Milestones</a></li>
+                                    <li><a href="<?php echo esc_url( home_url( '/awards' ) ); ?>">Awards & Certifications</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <!-- Services with submenu -->
+                    <li class="mobile_menu_item mobile_menu_item_has_submenu">
+                        <a href="<?php echo esc_url( home_url( '/services' ) ); ?>">Services</a>
+                        <span class="mobile_menu_submenu_toggle" data-submenu="mobile-submenu-services">
+                            <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/menu-arrow-01.svg' ); ?>" alt="Toggle">
+                        </span>
+                        <div class="mobile_menu_submenu" id="mobile-submenu-services">
+                            <div class="mobile_submenu_content">
+                                <ul class="mobile_submenu_list">
+                                    <li><a href="<?php echo esc_url( home_url( '/engineering-design' ) ); ?>">Engineering Design</a></li>
+                                    <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Construction Supervision</a></li>
+                                    <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Project Management</a></li>
+                                    <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Specialized Studies</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <!-- Projects -->
                     <li class="mobile_menu_item"><a href="<?php echo esc_url( home_url( '/projects' ) ); ?>">Projects</a></li>
+                    
+                    <!-- Clients -->
+                    <li class="mobile_menu_item"><a href="<?php echo esc_url( home_url( '/clients' ) ); ?>">Clients</a></li>
+                    
+                    <!-- Media Center -->
                     <li class="mobile_menu_item"><a href="<?php echo esc_url( home_url( '/media-center' ) ); ?>">Media Center</a></li>
+                    
+                    <!-- Careers -->
+                    <li class="mobile_menu_item"><a href="<?php echo esc_url( home_url( '/careers' ) ); ?>">Careers</a></li>
+                    
+                    <!-- Vendor Registration -->
+                    <li class="mobile_menu_item"><a href="<?php echo esc_url( home_url( '/media-center' ) ); ?>">Vendor Registration</a></li>
+                    
+                    <!-- Contact -->
                     <li class="mobile_menu_item"><a href="<?php echo esc_url( home_url( '/contact' ) ); ?>">Contact</a></li>
                 </ul>
             </div>

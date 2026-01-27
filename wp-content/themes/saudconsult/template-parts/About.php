@@ -18,14 +18,14 @@ $about_button_link = get_theme_mod( 'about_button_link', '#' );
 <section class="about_section pt_80 pb_80">
 	<div class="wrap">
 	  <div class="about_section_01">
-		 <div class="about_sectioncl_01">
+		 <div class="about_sectioncl_01" data-aos="fade-up" data-aos-duration="800" data-aos-delay="0">
 
 		 <span class="lable_text"> <img src="<?php echo get_template_directory_uri(); ?>/assets/images/banner-dot.svg" alt="About Us"> About Us</span>
 			 <h1>
 			 The Kingdom's Pioneer in Engineering. <span>A Legacy of Trust Since 1965.</span>
 </h1>
 		 </div>
-		 <div class="about_sectioncl_02">
+		 <div class="about_sectioncl_02" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
 			 <h5>Established in 1965 as the first Saudi Engineering Consulting Firm, </h5>
 			 <p>Saud Consult has been integral to shaping the nation's built environment. Our foundation is built on deep local understanding, navigating the complexities of the Saudi landscape, coupled with advanced international technical expertise.</p>
 		 
@@ -38,7 +38,7 @@ Explore Our Expertise <span><img src="<?php echo get_template_directory_uri(); ?
 
 
 <ul class="about_4_cl_blocks"> 
-	<li>
+	<li data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
 		<div class="about_4_cl_blocks_item_01">
 			<div class="w_100 text_cl_01">
 			<h3>50+ Years</h3>
@@ -50,7 +50,7 @@ Decades of navigating the market, establishing trust, and delivering landmark pr
 </p></div>
 		</div>
 	</li>
-	<li>
+	<li data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
 		<div class="about_4_cl_blocks_item_01">
 			<div class="w_100 text_cl_01">
 			<h3>2000+ </h3>
@@ -62,7 +62,7 @@ Decades of navigating the market, establishing trust, and delivering landmark pr
 </p></div>
 		</div>
 	</li>
-	<li>
+	<li data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
 		<div class="about_4_cl_blocks_item_01">
 			<div class="w_100 text_cl_01">
 			<h3>9 Core</h3>
@@ -74,7 +74,7 @@ Decades of navigating the market, establishing trust, and delivering landmark pr
 </p></div>
 		</div>
 	</li>
-	<li>
+	<li data-aos="fade-up" data-aos-duration="800" data-aos-delay="500">
 		<div class="about_4_cl_blocks_item_01">
 			<div class="w_100 text_cl_01">
 			<h3>2,600+</h3>

@@ -107,7 +107,19 @@
 		$header_classes[] = 'header-sitemap-page';
 	}
 	
+	// Check for custom header class from page template
+	global $header_custom_class;
+	if ( ! empty( $header_custom_class ) ) {
+		$header_classes[] = $header_custom_class;
+	}
+	
 	$header_class_string = implode( ' ', array_unique( $header_classes ) );
+	
+	// Determine which logo to use based on header class
+	$is_black_header = in_array( 'black-header', $header_classes );
+	$logo_filename = $is_black_header ? 'saudconsult-logo-black.svg' : 'saudconsult-logo.svg';
+	$logo_path = get_template_directory() . '/assets/images/' . $logo_filename;
+	$logo_url = get_template_directory_uri() . '/assets/images/' . $logo_filename;
 	?>
 	<header class="<?php echo esc_attr( $header_class_string ); ?>" id="headerMainSection">
    <div class="wrap">
@@ -115,8 +127,6 @@
      <div class="header_main_wrapper">
         <div class="logo_desktop text-center d-flex">
             <?php 
-            $logo_path = get_template_directory() . '/assets/images/saudconsult-logo.svg';
-            $logo_url = get_template_directory_uri() . '/assets/images/saudconsult-logo.svg';
             if ( file_exists( $logo_path ) ) : ?>
                 <a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>">
                     <img src="<?php echo esc_url( $logo_url ); ?>" alt="<?php bloginfo( 'name' ); ?>">
@@ -210,7 +220,7 @@
 											</a>
 										</li>
 										<li>
-										<a href="<?php echo esc_url( home_url( '/ ' ) ); ?>">
+										<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
 										Construction Supervision <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/menu-arrow.svg' ); ?>" alt="Arrow Down">
 											</a>
 										</li>
@@ -265,12 +275,14 @@
                     </ul>
 
                     <div class="menu_right_block">
-
+<a href="#login-popup" class="user-login-trigger" data-fancybox="login-popup">
+                      <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/user-logon.svg' ); ?>" alt="User Icon">
+                    </a>
 
                     <a class="language_button button_link" href="">
 					عربي
                     </a>
-                    <a class="btn_style btn_transparent" href="<?php echo esc_url( home_url( '/contact' ) ); ?>">
+                    <a class="btn_style btn_transparent <?php echo $is_black_header ? 'btn_green' : ''; ?>" href="<?php echo esc_url( home_url( '/contact' ) ); ?>">
                         Contact
                     </a>
 
@@ -302,4 +314,77 @@
 
     </div>
 </header>
+
+<!-- Login Popup -->
+<div id="login-popup" class="job-form-popup" style="display: none;">
+	<span class="form-close-icon">
+		<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/pop-close.svg' ); ?>" alt="Close">
+	</span>
+	<h3 class="h3_title_50 pb_10 text_center mb_20">Sign In</h3>
+
+	<div class="related_jobs_section_content">
+		<h5>Have an account?</h5>
+		<p>Enter your email address and password</p>
+	</div>
+
+	<ul class="career-form-list-ul">
+		<li><input class="input" type="email" placeholder="Email address" required></li>
+		<li>
+			<input class="input" type="password" placeholder="Password" required>
+			<span class="form-icon">
+				<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/eye-icn.svg' ); ?>" alt="Eye">
+			</span>
+		</li>
+		<li class="login-options">
+			<label class="keep-logged-in">
+				<input type="checkbox" checked>
+				<span>Keep me logged in</span>
+			</label>
+			<a href="#" class="forget-password-link">Forget password?</a>
+		</li>
+		<li><a href="<?php echo esc_url( home_url( '/my-profile' ) ); ?>" class="input-buttion btn_style btn_transparent but_black" type="submit">Sign In</a></li>
+	</ul>
+
+	<div class="form-bottom-txt">
+		<h5>Not a registered user yet?</h5>
+		<p><a href="#job-form-popup" class="text_black" data-fancybox="job-form">Create an account</a>  to apply for our career opportunities.</p>
+	</div>
+</div>
+
+<!-- Job Form Popup (Sign Up) -->
+<div id="job-form-popup" class="job-form-popup" style="display: none;">
+	<span class="form-close-icon">
+		<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/pop-close.svg' ); ?>" alt="Close">
+	</span>
+	<h3 class="h3_title_50 pb_10 text_center mb_20">Sign Up</h3>
+
+	<div class="related_jobs_section_content">
+		<h5>Create an account</h5>
+		<p>Create your account in a seconds</p>
+	</div>
+
+	<ul class="career-form-list-ul">
+		<li><input class="input" type="text" placeholder="Email Address *"></li>
+		<li><input class="input" type="email" placeholder="Retype Email Address *"></li>
+		<li><input class="input" type="text" placeholder="First Name *"></li>
+		<li><input class="input" type="text" placeholder="Last Name *"></li>
+		<li>
+			<input class="input" type="password" placeholder="Choose Password *">
+			<span class="form-icon">
+				<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/eye-icn.svg' ); ?>" alt="Eye">
+			</span>
+		</li>
+		<li>
+			<input class="input" type="password" placeholder="Retype Password *">
+			<span class="form-icon">
+				<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/eye-icn.svg' ); ?>" alt="Eye">
+			</span>
+		</li>
+		<li><a href="<?php echo esc_url( home_url( '/create-profile' ) ); ?>" class="input-buttion btn_style btn_transparent but_black" type="submit" value="Create Account">Create Account</a></li>
+	</ul>
+
+	<div class="form-bottom-txt">
+		<p>Already a registered user? <a href="#login-popup" class="text_black" data-fancybox="login-popup"> Please sign in</a></p>
+	</div>
+</div>
 </body>

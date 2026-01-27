@@ -1160,6 +1160,66 @@ var swiper = new Swiper(".mySwiper-awards", {
 	}
 })();
 
+// Load More Clients (Grid) Functionality
+(function() {
+	const initLoadMoreClients = function() {
+		const grid = document.getElementById('clients-grid');
+		const loadMoreBtn = document.getElementById('load-more-clients');
+
+		if (!grid || !loadMoreBtn) {
+			return; // Not on clients page
+		}
+
+		const allItems = Array.from(grid.querySelectorAll('.client_item'));
+		const initialVisible = 20; // Show 20 items per view
+		const itemsPerLoad = 8;
+		let currentVisible = initialVisible;
+
+		if (allItems.length <= initialVisible) {
+			loadMoreBtn.closest('.load_more_container').style.display = 'none';
+			return;
+		}
+
+		// Hide all beyond initial
+		allItems.forEach(function(item, idx) {
+			if (idx >= initialVisible) {
+				item.classList.add('client_item_hidden');
+			}
+		});
+
+		loadMoreBtn.addEventListener('click', function() {
+			const itemsToShow = Math.min(itemsPerLoad, allItems.length - currentVisible);
+
+			for (let i = currentVisible; i < currentVisible + itemsToShow; i++) {
+				if (allItems[i]) {
+					allItems[i].classList.remove('client_item_hidden');
+					allItems[i].style.opacity = '0';
+					allItems[i].style.transform = 'translateY(16px)';
+					setTimeout(function() {
+						allItems[i].style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+						allItems[i].style.opacity = '1';
+						allItems[i].style.transform = 'translateY(0)';
+					}, 10);
+				}
+			}
+
+			currentVisible += itemsToShow;
+
+			if (currentVisible >= allItems.length) {
+				loadMoreBtn.closest('.load_more_container').style.display = 'none';
+			}
+		});
+	};
+
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', function() {
+			setTimeout(initLoadMoreClients, 100);
+		});
+	} else {
+		setTimeout(initLoadMoreClients, 100);
+	}
+})();
+
 // Project Gallery Swiper Functionality
 (function() {
 	const initProjectGallerySwiper = function() {
@@ -1570,21 +1630,44 @@ var swiper = new Swiper(".brochures_list_swiper", {
 
 // Job Form Popup Fancybox Initialization
 (function() {
+	let retryCount = 0;
+	const maxRetries = 10;
+	
 	const initJobFormFancybox = function() {
 		// Check if Fancybox is loaded
 		if (typeof Fancybox === 'undefined') {
-			console.warn('JobForm: Fancybox library is not loaded');
+			if (retryCount < maxRetries) {
+				retryCount++;
+				setTimeout(initJobFormFancybox, 500);
+			} else {
+				console.warn('JobForm: Fancybox library is not loaded after multiple attempts');
+			}
 			return;
 		}
 
-		// Get the job form popup link
+		// Get the job form popup link - check multiple times to ensure it's loaded
 		const jobFormLink = document.querySelector('[data-fancybox="job-form"]');
 		
 		if (!jobFormLink) {
-			return; // Element not found, might not be on this page
+			if (retryCount < maxRetries) {
+				retryCount++;
+				setTimeout(initJobFormFancybox, 200);
+			}
+			return;
 		}
 
+		// Check if already initialized
+		if (jobFormLink.hasAttribute('data-fancybox-initialized')) {
+			return;
+		}
+		
+		// Reset retry count on success
+		retryCount = 0;
+
 		try {
+			// Mark as initialized
+			jobFormLink.setAttribute('data-fancybox-initialized', 'true');
+			
 			// Initialize Fancybox for the job form popup
 			const fancyboxInstance = Fancybox.bind('[data-fancybox="job-form"]', {
 				Toolbar: {
@@ -1593,6 +1676,9 @@ var swiper = new Swiper(".brochures_list_swiper", {
 						middle: [],
 						right: [], // Hide default close button
 					},
+				},
+				Carousel: {
+					Navigation: false, // Disable next/previous navigation buttons
 				},
 				closeButton: false, // Disable default close button
 				backdrop: 'auto',
@@ -1636,6 +1722,103 @@ var swiper = new Swiper(".brochures_list_swiper", {
 		});
 	} else {
 		setTimeout(initJobFormFancybox, 100);
+	}
+})();
+
+// Login Popup Fancybox Initialization
+(function() {
+	let retryCount = 0;
+	const maxRetries = 10;
+	
+	const initLoginPopupFancybox = function() {
+		// Check if Fancybox is loaded
+		if (typeof Fancybox === 'undefined') {
+			if (retryCount < maxRetries) {
+				retryCount++;
+				setTimeout(initLoginPopupFancybox, 500);
+			} else {
+				console.warn('LoginPopup: Fancybox library is not loaded after multiple attempts');
+			}
+			return;
+		}
+
+		// Get the login popup link - check multiple times to ensure it's loaded
+		const loginPopupLink = document.querySelector('[data-fancybox="login-popup"]');
+		
+		if (!loginPopupLink) {
+			if (retryCount < maxRetries) {
+				retryCount++;
+				setTimeout(initLoginPopupFancybox, 200);
+			}
+			return;
+		}
+
+		// Check if already initialized
+		if (loginPopupLink.hasAttribute('data-fancybox-initialized')) {
+			return;
+		}
+		
+		// Reset retry count on success
+		retryCount = 0;
+
+		try {
+			// Mark as initialized
+			loginPopupLink.setAttribute('data-fancybox-initialized', 'true');
+			
+			// Initialize Fancybox for the login popup
+			const fancyboxInstance = Fancybox.bind('[data-fancybox="login-popup"]', {
+				Toolbar: {
+					display: {
+						left: [],
+						middle: [],
+						right: [], // Hide default close button
+					},
+				},
+				Carousel: {
+					Navigation: false, // Disable next/previous navigation buttons
+				},
+				closeButton: false, // Disable default close button
+				backdrop: 'auto',
+				placeFocusBack: true,
+				trapFocus: true,
+				autoFocus: true,
+				preventCaptionOverlap: false,
+				on: {
+					'reveal': function(fancybox, slide) {
+						// Focus on first input when popup opens
+						const firstInput = slide.el.querySelector('.input');
+						if (firstInput) {
+							setTimeout(function() {
+								firstInput.focus();
+							}, 100);
+						}
+						
+						// Add click handler to custom close button
+						const closeButton = slide.el.querySelector('.form-close-icon');
+						if (closeButton) {
+							closeButton.addEventListener('click', function(e) {
+								e.preventDefault();
+								e.stopPropagation();
+								fancybox.close();
+							});
+						}
+					}
+				}
+			});
+
+			console.log('LoginPopup: Fancybox initialized successfully');
+		} catch (error) {
+			console.error('LoginPopup: Error initializing Fancybox', error);
+		}
+	};
+
+	// Initialize when DOM is ready
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', function() {
+			setTimeout(initLoginPopupFancybox, 100);
+		});
+	} else {
+		setTimeout(initLoginPopupFancybox, 100);
 	}
 })();
 
@@ -1879,5 +2062,141 @@ var swiper = new Swiper(".brochures_list_swiper", {
 		});
 	} else {
 		setTimeout(initSaudiCouncilUpload, 100);
+	}
+})();
+
+ 
+
+var swiper = new Swiper(".mySwiper-01", {
+	slidesPerView:3,
+	spaceBetween: 10,
+
+	
+});
+var swiper = new Swiper(".mySwiper-02", {});
+var swiper = new Swiper(".mySwiper-03", {});
+
+// Our Journey Gallery Swiper with Thumbnails
+(function() {
+	const initOurJourneyGallerySwiper = function() {
+		const mainSwiperEl = document.querySelector('.our_journey_main_swiper');
+		const thumbSwiperEl = document.querySelector('.our_journey_thumb_swiper');
+		
+		if (!mainSwiperEl || !thumbSwiperEl) {
+			return; // Elements not found, might not be on this page
+		}
+
+		// Check if Swiper is loaded
+		if (typeof Swiper === 'undefined') {
+			console.warn('OurJourneyGallery: Swiper library is not loaded');
+			setTimeout(initOurJourneyGallerySwiper, 500);
+			return;
+		}
+
+		// Check if already initialized
+		if (mainSwiperEl.swiper) {
+			return; // Already initialized
+		}
+
+		try {
+			// Find custom navigation buttons
+			const nextButton = document.querySelector('.news_but_next');
+			const prevButton = document.querySelector('.news_but_prev');
+
+			// Initialize thumbnail swiper first
+			const thumbSwiper = new Swiper(thumbSwiperEl, {
+				spaceBetween: 0,
+				slidesPerView:3.5,
+				freeMode: true,
+				watchSlidesProgress: true,
+				breakpoints: {
+					640: {
+						slidesPerView:3.5,
+						spaceBetween:0,
+					},
+					768: {
+						slidesPerView:3.5,
+						spaceBetween: 0,
+					},
+					1024: {
+						slidesPerView:3.1,
+						spaceBetween: 0,
+					},
+				},
+			});
+
+			// Initialize main swiper with thumbnail control and custom navigation
+			const mainSwiper = new Swiper(mainSwiperEl, {
+				spaceBetween: 10,
+				slidesPerView: 1,
+				thumbs: {
+					swiper: thumbSwiper,
+				},
+				navigation: {
+					nextEl: nextButton,
+					prevEl: prevButton,
+				},
+			});
+
+			console.log('OurJourneyGallery: Swiper initialized successfully');
+		} catch (error) {
+			console.error('OurJourneyGallery: Error initializing Swiper', error);
+		}
+	};
+
+	// Initialize when DOM is ready
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', function() {
+			setTimeout(initOurJourneyGallerySwiper, 100);
+		});
+	} else {
+		setTimeout(initOurJourneyGallerySwiper, 100);
+	}
+})();
+
+// Password Management - Toggle Password Visibility
+(function() {
+	const initPasswordToggle = function() {
+		const passwordToggleBtns = document.querySelectorAll('.password-toggle-btn');
+		
+		if (!passwordToggleBtns.length) {
+			return; // Elements not found, might not be on this page
+		}
+
+		passwordToggleBtns.forEach(function(btn) {
+			btn.addEventListener('click', function() {
+				const wrapper = this.closest('.password-input-wrapper');
+				const input = wrapper ? wrapper.querySelector('input[type="password"], input[type="text"]') : null;
+				const icon = this.querySelector('.password-toggle-icon');
+				
+				if (!input) {
+					return;
+				}
+
+				// Toggle input type
+				if (input.type === 'password') {
+					input.type = 'text';
+					if (icon) {
+						icon.textContent = '🙈';
+						icon.setAttribute('aria-label', 'Hide password');
+					}
+				} else {
+					input.type = 'password';
+					if (icon) {
+						icon.textContent = '👁️';
+						icon.setAttribute('aria-label', 'Show password');
+					}
+				}
+			});
+		});
+	};
+
+	// Initialize when DOM is ready
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', function() {
+			setTimeout(initPasswordToggle, 100);
+		});
+	} else {
+		setTimeout(initPasswordToggle, 100);
 	}
 })();

@@ -161,3 +161,21 @@
     .colom-2{ column-count: 2; column-gap: 20px;}
   }
 }
+
+.black-header{
+  .list-unstyled {
+    li {
+      .nav-link{ color: #000;
+      > img{ filter: invert(1);}
+      }
+    }
+  }
+
+  .menu_right_block{
+    a{ color: #000;}
+  }
+
+  .user-login-trigger{
+    img{ filter: invert(1);}
+  }
+}

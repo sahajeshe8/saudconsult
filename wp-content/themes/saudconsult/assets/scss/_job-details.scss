@@ -22,11 +22,16 @@
 
 .job-form-popup{ border-radius: 20px; background: #fff; padding: 3%; border-radius: 10px !important; border: 1px solid #e0e0e0; width: 509px; margin-left: auto; margin-right: auto; position: relative;}
 .related_jobs_section_content{
-    h5{ margin: 0; font-size: 23px; font-weight: 400; color: #2c2c2c;}
+    h5{ margin: 0; font-size: 23px; font-weight: 400; color: #2c2c2c;
+	
+	@media screen and (max-width: 768px) {
+		font-size: 20px;
+	}
+	}
     p{ font-size: 12px; color: #444444; margin: 0; margin-bottom: 10px;}
 }
 
-.career-form-list-ul{ margin: 0; padding: 0;  margin-top: 20px;
+.career-form-list-ul{ margin: 0; padding: 0;  margin-top: 10px;
 
     li{ list-style: none; margin-bottom: 15px; position: relative;
         .input{ border-radius: 35px; height: 48px; padding: 0 20px; border: solid 1px #dcdbdd; width: 100%;   border: 1px solid #e0e0e0;  font-size: 12px;  color: #444444;
@@ -36,6 +41,52 @@
             font-size: 14px; height: 40px !important;
         }
         
+        }
+        
+        &.login-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+    		margin-top: 23px;
+            
+            @media screen and (max-width: 480px) {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .keep-logged-in {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                cursor: pointer;
+                
+                input[type="checkbox"] {
+                    width: 20px;
+                    height: 20px;
+                    cursor: pointer;
+                    accent-color: #0d6a37;
+                    border-radius: 4px;
+                }
+                
+                span {
+                    font-size: 16px;
+                    color: #444444;
+                    font-weight: 400;
+                }
+            }
+            
+            .forget-password-link {
+                font-size: 16px;
+                color: #0d6a37;
+                text-decoration: none;
+                font-weight: 500;
+                
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
         }
         
         .textarea-input {
@@ -106,7 +157,21 @@
 }
 
 .form-bottom-txt{ 
-    p{ margin: 0; font-size: 16px; color: #000000; margin-bottom: 10px;
+    margin-top: 30px;
+    
+    h5 {
+        margin: 0 0 0px 0;
+        font-size: 23px;
+        font-weight: 400;
+        color: #2c2c2c;
+        
+        @media screen and (max-width: 768px) {
+            font-size: 20px;
+        }
+    }
+    
+    p{ margin: 0; font-size: 16px; color: #000000; margin-bottom: 10px; font-weight: 400;
+        line-height: 1.6;
     
         a{ color: #0d6a37; text-decoration: underline; }
     }
@@ -119,6 +184,7 @@
 	.job-form-popup {
 		display: block !important;
 		max-width: 509px;
+		padding: 2.5%;
 		width: 100%;
 		margin: 0 auto;
 		
@@ -138,6 +204,16 @@
 	
 	// Hide default Fancybox close button
 	.fancybox__toolbar {
+		display: none !important;
+	}
+	
+	// Hide navigation arrows (next/previous buttons)
+	.fancybox__nav {
+		display: none !important;
+	}
+	
+	.fancybox__button--prev,
+	.fancybox__button--next {
 		display: none !important;
 	}
 }
@@ -579,5 +655,12 @@
 	
 	&:hover {
 		color: #0a5630;
+	}
+}
+
+
+.text-center-title{ text-align: center;
+	@media screen and (max-width: 768px) {
+	 margin-bottom: 15px;
 	}
 }

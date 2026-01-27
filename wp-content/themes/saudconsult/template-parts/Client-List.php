@@ -40,11 +40,15 @@ $clients = isset( $args['clients'] ) ? $args['clients'] : array(
 );
 $display_type = isset( $args['display_type'] ) ? $args['display_type'] : 'grid'; // 'grid' or 'slider'
 $section_class = isset( $args['section_class'] ) ? $args['section_class'] : '';
+$grid_id = isset( $args['grid_id'] ) ? $args['grid_id'] : '';
+$enable_load_more = isset( $args['enable_load_more'] ) ? (bool) $args['enable_load_more'] : false;
+$load_more_btn_id = isset( $args['load_more_btn_id'] ) ? $args['load_more_btn_id'] : '';
+$load_more_label = isset( $args['load_more_label'] ) ? $args['load_more_label'] : 'Load more';
 
 ?>
 
-<section class="client_list_section pt_80 pb_80 <?php echo esc_attr( $section_class ); ?>">
-	<div class="wrap">
+<div class="client_list_section pt_50 pb_80 <?php echo esc_attr( $section_class ); ?>">
+ 
 		<?php if ( $title || $title_span ) : ?>
 			<h4 class="h4_title_35 pb_20">
 				<?php if ( $title ) : ?>
@@ -79,7 +83,7 @@ $section_class = isset( $args['section_class'] ) ? $args['section_class'] : '';
 					<div class="swiper-pagination"></div>
 				</div>
 			<?php else : ?>
-				<ul class="client_list_grid">
+				<ul class="client_list_grid" <?php if ( $grid_id ) : ?>id="<?php echo esc_attr( $grid_id ); ?>"<?php endif; ?>>
 					<?php foreach ( $clients as $client ) : 
 						$client_logo = isset( $client['logo'] ) ? $client['logo'] : '';
 						$client_name = isset( $client['name'] ) ? $client['name'] : '';
@@ -96,9 +100,20 @@ $section_class = isset( $args['section_class'] ) ? $args['section_class'] : '';
 						</li>
 					<?php endforeach; ?>
 				</ul>
+				<?php if ( $enable_load_more ) : ?>
+					<div class="load_more_container">
+						<button
+							type="button"
+							class="load_more_btn"
+							<?php if ( $load_more_btn_id ) : ?>id="<?php echo esc_attr( $load_more_btn_id ); ?>"<?php endif; ?>
+						>
+							<span><?php echo esc_html( $load_more_label ); ?></span>
+						</button>
+					</div>
+				<?php endif; ?>
 			<?php endif; ?>
 		<?php endif; ?>
-	</div>
-</section>
+ 
+							</div>
 
 

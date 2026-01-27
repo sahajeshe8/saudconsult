@@ -1,7 +1,7 @@
 .client_list_section {
 	width: 100%;
 	position: relative;
-	border-top: solid 1px #e5e5e5;
+	// border-top: solid 1px #e5e5e5;
 
 	.wrap {
 		width: 100%;
@@ -12,18 +12,24 @@
 		padding: 0;
 		list-style: none;
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+		grid-template-columns: repeat(4, 1fr);
 		gap: 30px;
 		width: 100%;
+		box-sizing: border-box;
 
 		@media screen and (max-width: 1024px) {
-			grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+			grid-template-columns: repeat(3, 1fr);
 			gap: 20px;
 		}
 
 		@media screen and (max-width: 768px) {
-			grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+			grid-template-columns: repeat(2, 1fr);
 			gap: 15px;
+		}
+
+		@media screen and (max-width: 480px) {
+			grid-template-columns: repeat(2, 1fr);
+			gap: 10px;
 		}
 
 		.client_item {
@@ -31,46 +37,76 @@
 			padding: 0;
 			list-style: none;
 			width: 100%;
+			max-width: 100%;
 			display: flex;
 			align-items: center;
 			justify-content: center;
 			border: solid 1px #E0E0E0;
 			background: #fff;
 			transition: all 0.3s ease;
-			aspect-ratio: 320/319;
+			aspect-ratio: 320/165;
+			box-sizing: border-box;
+			overflow: hidden;
 
-			&:hover {
-				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-				transform: translateY(-2px);
+			@media screen and (max-width: 768px) {
+				aspect-ratio: 320/180;
+			}
+
+			@media screen and (max-width: 480px) {
+				aspect-ratio: 320/200;
 			}
 
 			.client_item_link {
 				width: 100%;
 				height: 100%;
+				max-width: 100%;
 				display: flex;
 				align-items: center;
 				justify-content: center;
 				padding: 20px;
+				box-sizing: border-box;
 				text-decoration: none;
 
+				@media screen and (max-width: 768px) {
+					padding: 15px;
+				}
+
+				@media screen and (max-width: 480px) {
+					padding: 10px;
+				}
+
 				img {
+					max-width: 100%;
 					width: 100%;
 					height: auto;
-					max-width: 100%;
 					object-fit: contain;
 					display: block;
 				}
 			}
 
 			img {
-				width: 100%;
-				height: auto;
 				max-width: 100%;
+				 
+				height: auto;
 				object-fit: contain;
 				display: block;
 				padding: 20px;
+				box-sizing: border-box;
+
+				@media screen and (max-width: 768px) {
+					padding: 15px;
+				}
+
+				@media screen and (max-width: 480px) {
+					padding: 10px;
+				}
 			}
 		}
+	}
+
+	// Clients page "load more" behavior (hide extra items)
+	.client_item.client_item_hidden {
+		display: none;
 	}
 
 	// Slider styles
@@ -121,6 +157,72 @@
 			}
 		}
 	}
+
+	// Load More Button - Green Button Style
+	.load_more_container {
+		width: 100%;
+		margin-top: 40px;
+		text-align: center;
+
+		@media screen and (max-width: 768px) {
+			margin-top: 30px;
+		}
+
+		@media screen and (max-width: 480px) {
+			margin-top: 20px;
+		}
+
+		.load_more_btn {
+			// Apply green button style
+			gap: 10px;
+			cursor: pointer;
+			border-radius: 100px;
+			background: #A9D159;
+			border: none;
+			color: #fff;
+			height: 51px;
+			padding: 0 30px;
+			display: inline-flex;
+			flex-wrap: wrap;
+			align-items: center;
+			justify-content: center;
+			font-size: 16px;
+			font-weight: 400;
+			transition: background 0.3s ease, color 0.3s ease;
+
+			&:hover {
+				background: #8eb346;
+				color: #fff;
+			}
+
+			&.loading {
+				opacity: 0.7;
+				pointer-events: none;
+			}
+
+			@media screen and (max-width: 1300px) {
+				padding: 0 20px;
+			}
+
+			@media screen and (max-width: 700px) {
+				height: 40px !important;
+				padding: 0 20px;
+				font-size: 14px !important;
+			}
+
+			@media screen and (max-width: 800px) {
+				height: 42px;
+			}
+
+			span {
+				display: inline-block;
+			}
+		}
+	}
 }
 
+.clients-filter-block{
+	padding-bottom: 15px;
+}
 
+.profile-tabs-nav{ justify-content:  unset !important;}

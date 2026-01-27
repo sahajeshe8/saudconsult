@@ -382,24 +382,25 @@ function tasheel_scripts()
 		}
 	}
 
-	// Project Details page - Enqueue Fancybox
-	if (is_page_template('page-template-project-details.php')) {
-		// Enqueue Fancybox CSS
-		wp_enqueue_style('fancybox-css', 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css', array(), '5.0.0');
-		// Enqueue Fancybox JS
-		wp_enqueue_script('fancybox-js', 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js', array(), '5.0.0', true);
+	// Fancybox - Enqueue globally (used for galleries, job form popup, login popup, etc.)
+	// Enqueue Fancybox CSS once
+	if ( ! wp_style_is( 'fancybox-css', 'enqueued' ) ) {
+		wp_enqueue_style(
+			'fancybox-css',
+			'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css',
+			array(),
+			'5.0.0'
+		);
 	}
-
-	// Job Details page - Enqueue Fancybox
-	if (is_page_template('page-template-job-details.php')) {
-		// Enqueue Fancybox CSS
-		if (!wp_style_is('fancybox-css', 'enqueued')) {
-			wp_enqueue_style('fancybox-css', 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css', array(), '5.0.0');
-		}
-		// Enqueue Fancybox JS
-		if (!wp_script_is('fancybox-js', 'enqueued')) {
-			wp_enqueue_script('fancybox-js', 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js', array(), '5.0.0', true);
-		}
+	// Enqueue Fancybox JS once
+	if ( ! wp_script_is( 'fancybox-js', 'enqueued' ) ) {
+		wp_enqueue_script(
+			'fancybox-js',
+			'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js',
+			array(),
+			'5.0.0',
+			true
+		);
 	}
 
 	// Contact page specific scripts

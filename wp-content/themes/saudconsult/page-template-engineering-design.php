@@ -65,7 +65,7 @@ get_header();
 
 	<?php 
 	$engineering_expertise_data = array(
-		'title' => 'Our Engineering',
+		'title' => 'Engineering',
 		'title_span' => 'Expertise',
 		 
 	);

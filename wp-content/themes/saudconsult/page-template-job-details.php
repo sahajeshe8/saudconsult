@@ -88,35 +88,6 @@ get_header();
 
 
 
-	<div id="job-form-popup" class="job-form-popup" style="display: none;">
-		<span class="form-close-icon">
-			<img src="<?php echo get_template_directory_uri(); ?>/assets/images/pop-close.svg" alt="Close">
-		</span>
-		<h3 class="h3_title_50 pb_10 text_center mb_20">Sign Up</h3>
-
-
-		<div class="related_jobs_section_content">
-			<h5>Create an account</h5>
-			<p>Create your account in a seconds</p>
-		</div>
-
-		<ul class="career-form-list-ul  ">
-			<li><input class="input" type="text" placeholder="Email Address *"></li>
-			<li><input class="input" type="email" placeholder="Retype Email Address *"></li>
-			<li><input class="input" type="text" placeholder="First Name *"></li>
-			<li><input class="input" type="text" placeholder="Last Name *"></li>
-			<li><input class="input" type="password" placeholder="Choose Password *"> <span class="form-icon"> <img src="<?php echo get_template_directory_uri(); ?>/assets/images/eye-icn.svg" alt="Eye"></span></li>
-			<li><input class="input" type="password" placeholder="Retype Password *"> <span class="form-icon"> <img src="<?php echo get_template_directory_uri(); ?>/assets/images/eye-icn.svg" alt="Eye"></span></li>
-			<li><a href="create-profile" class="input-buttion btn_style btn_transparent but_black" type="submit" value="Create Account">Create Account</a> </li>
-		</ul>
-
-
-		
-
-		<div class="form-bottom-txt">
-			<p>Already a registered user? <a href="#" class="text_black"> Please sign in</a></p>
-		</div>
-	</div>
 
 </main><!-- #main -->
 

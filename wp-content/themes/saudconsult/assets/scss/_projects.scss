@@ -101,12 +101,12 @@
 .slider_arrow_block{ width: 20%; position: absolute; right: 0; margin-left: auto; display: flex; flex-wrap: wrap; gap: 10px; padding-bottom:90px;
 
     .slider_buttion{ cursor: pointer;  width: 58px; height: 58px; border-radius: 100%; background: #A9D159; display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
-    
+        &.but_prev{ transform: rotate(180deg);}
         &:hover{ background: #fff;
             img{ filter: invert(1); }
         }
 
-        &.but_prev{ transform: rotate(180deg);}
+       
 
         @media screen and (max-width:700px) {  width: 46px; height: 46px; }
     }

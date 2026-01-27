@@ -1,0 +1,64 @@
+.application_received_section {
+	.wrap {
+		width: 100%;
+	}
+
+	.application_received_container {
+		max-width: 600px;
+		margin: 0 auto;
+	}
+
+	.application_received_content {
+		background: #ffffff;
+		padding: 60px 40px;
+		border-radius: 12px;
+		text-align: center;
+
+		@media screen and (max-width: 768px) {
+			padding: 40px 30px;
+		}
+
+		.application_received_title {
+			font-size: 36px;
+			font-weight: 700;
+			color: #0D6A37;
+			margin: 0 0 20px;
+			font-family: 'RB', sans-serif;
+			line-height: 1.2;
+
+			@media screen and (max-width: 768px) {
+				font-size: 28px;
+				margin-bottom: 16px;
+			}
+		}
+
+		.application_received_message {
+			font-size: 18px;
+			line-height: 1.6;
+			color: #0D6A37;
+			margin: 0 0 40px;
+			font-weight: 400;
+
+			@media screen and (max-width: 768px) {
+				font-size: 16px;
+				margin-bottom: 30px;
+			}
+		}
+
+		.application_received_actions {
+			display: flex;
+			justify-content: center;
+
+			.btn_style {
+				margin-top: 0;
+				min-width: 200px;
+
+				@media screen and (max-width: 768px) {
+					width: 100%;
+					min-width: auto;
+				}
+			}
+		}
+	}
+}
+

@@ -46,7 +46,7 @@ $section_class = isset( $args['section_class'] ) ? $args['section_class'] : '';
 						<div class="swiper-slide">
 							<div class="award_item">
 								<?php if ( $link ) : ?>
-									<a href="<?php echo esc_url( $link ); ?>" class="award_item_link" data-lightbox="awards">
+									 
 										<div class="award_item_image">
 											<img src="<?php echo esc_url( $image ); ?>" alt="<?php echo esc_attr( $alt ); ?>">
 										</div>
@@ -60,7 +60,7 @@ $section_class = isset( $args['section_class'] ) ? $args['section_class'] : '';
 												<?php endif; ?>
 											</div>
 										<?php endif; ?>
-									</a>
+								 
 								<?php else : ?>
 									<div class="award_item_wrapper">
 										<div class="award_item_image">

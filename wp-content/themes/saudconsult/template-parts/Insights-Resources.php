@@ -51,7 +51,7 @@ $section_class = isset( $args['section_class'] ) ? $args['section_class'] : '';
 		</div>
 
 
-        <div class="insights_section_content">
+        <div class="insights_section_content" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
             <div class="swiper mySwiper-insights">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">

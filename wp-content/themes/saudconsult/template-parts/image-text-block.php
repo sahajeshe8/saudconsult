@@ -45,10 +45,10 @@ if ( $text_container_class ) {
 
 <section class="<?php echo esc_attr( $section_classes ); ?>">
 	<div class="wrap d_flex align_center justify_space_between">
-		<div class="<?php echo esc_attr( $image_container_classes ); ?>">
+		<div class="<?php echo esc_attr( $image_container_classes ); ?>" data-aos="fade-up" data-aos-duration="800" data-aos-delay="0">
 			<img src="<?php echo esc_url( $image ); ?>" alt="<?php echo esc_attr( $image_alt ); ?>">
 		</div>
-		<div class="<?php echo esc_attr( $text_container_classes ); ?>">
+		<div class="<?php echo esc_attr( $text_container_classes ); ?>" data-aos="fade-up" data-aos-duration="800" data-aos-delay="150">
 			<?php if ( $title || $title_span ) : ?>
 				<h3 class="h3_title_50">
 					<?php if ( $title ) : ?>

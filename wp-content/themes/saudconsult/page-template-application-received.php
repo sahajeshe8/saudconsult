@@ -6,7 +6,8 @@
  *
  * @package tasheel
  */
-
+global $header_custom_class;
+$header_custom_class = 'black-header';
 get_header();
 ?>
 

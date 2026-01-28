@@ -18,7 +18,7 @@
 
 			<div class="footer_right">
 				<div class="footer_row_01">
-					<ul class="footer_social_ul">
+					<ul class="footer_social_ul desktop_show">
 						<li>
 							<a href="#">
 								<img

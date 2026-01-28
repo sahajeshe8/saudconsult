@@ -88,6 +88,7 @@ get_header();
 		<?php 
 		$banner_add_data = array(
 			'background_image' => get_template_directory_uri() . '/assets/images/ready-to-partner-one.jpg',
+			'mobile_image' => get_template_directory_uri() . '/assets/images/ready-to-partner-one-mobile.jpg',
 			'title' => 'Ready to Partner',
 			'subtitle' => 'on Your Vision?',
 			'description' => 'Leverage our five decades of pioneering excellence to ensure the success of your next ambitious venture.',
@@ -104,6 +105,7 @@ get_header();
 <?php 
 		$banner_add_data = array(
 			'background_image' => get_template_directory_uri() . '/assets/images/build-your-future.jpg',
+			'mobile_image' => get_template_directory_uri() . '/assets/images/build-your-future-mobile.jpg',
 			'title' => 'Build Your Future',
 			'subtitle' => 'With Us',
 			'description' => 'We don\'t just fill positions—we cultivate talent. Explore opportunities where your skills lead to transformative impact across the region.',

@@ -37,56 +37,54 @@ Explore Our Expertise <span><img src="<?php echo get_template_directory_uri(); ?
 	  </div>
 
 
-<ul class="about_4_cl_blocks"> 
-	<li data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
-		<div class="about_4_cl_blocks_item_01">
-			<div class="w_100 text_cl_01">
-			<h3>50+ Years</h3>
-			<p>Pioneering Excellence</p>
+<div class="swiper about_4_cl_swiper">
+	<ul class="about_4_cl_blocks home_4_cl_blocks about_4_cl_blocks_swipper swiper-wrapper"> 
+		<li class="swiper-slide" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+			<div class="about_4_cl_blocks_item_01">
+				<div class="w_100 text_cl_01">
+					<h3>50+ Years</h3>
+					<p>Pioneering Excellence</p>
+				</div>
+				<div class="about_4_cl_blocks_item_02">
+					<p>Decades of navigating the market, establishing trust, and delivering landmark projects across the Kingdom.</p>
+				</div>
+			</div>
+		</li>
+		<li class="swiper-slide" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+			<div class="about_4_cl_blocks_item_01">
+				<div class="w_100 text_cl_01">
+					<h3>2000+ </h3>
+					<p>Professionals</p>
+				</div>
+				<div class="about_4_cl_blocks_item_02">
+					<p>Decades of navigating the market, establishing trust, and delivering landmark projects across the Kingdom.</p>
+				</div>
+			</div>
+		</li>
+		<li class="swiper-slide" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
+			<div class="about_4_cl_blocks_item_01">
+				<div class="w_100 text_cl_01">
+					<h3>9 Core</h3>
+					<p>Sectors</p>
+				</div>
+				<div class="about_4_cl_blocks_item_02">
+					<p>Decades of navigating the market, establishing trust, and delivering landmark projects across the Kingdom.</p>
+				</div>
+			</div>
+		</li>
+		<li class="swiper-slide" data-aos="fade-up" data-aos-duration="800" data-aos-delay="500">
+			<div class="about_4_cl_blocks_item_01">
+				<div class="w_100 text_cl_01">
+					<h3>2,600+</h3>
+					<p>Projects Completed</p>
+				</div>
+				<div class="about_4_cl_blocks_item_02">
+					<p>Decades of navigating the market, establishing trust, and delivering landmark projects across the Kingdom.</p>
+				</div>
+			</div>
+		</li>
+	</ul>
 </div>
-<div class="about_4_cl_blocks_item_02">
-<p>
-Decades of navigating the market, establishing trust, and delivering landmark projects across the Kingdom.
-</p></div>
-		</div>
-	</li>
-	<li data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
-		<div class="about_4_cl_blocks_item_01">
-			<div class="w_100 text_cl_01">
-			<h3>2000+ </h3>
-			<p>Professionals</p>
-</div>
-<div class="about_4_cl_blocks_item_02">
-<p>
-Decades of navigating the market, establishing trust, and delivering landmark projects across the Kingdom.
-</p></div>
-		</div>
-	</li>
-	<li data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
-		<div class="about_4_cl_blocks_item_01">
-			<div class="w_100 text_cl_01">
-			<h3>9 Core</h3>
-			<p>Sectors</p>
-</div>
-<div class="about_4_cl_blocks_item_02">
-<p>
-Decades of navigating the market, establishing trust, and delivering landmark projects across the Kingdom.
-</p></div>
-		</div>
-	</li>
-	<li data-aos="fade-up" data-aos-duration="800" data-aos-delay="500">
-		<div class="about_4_cl_blocks_item_01">
-			<div class="w_100 text_cl_01">
-			<h3>2,600+</h3>
-			<p>Projects Completed</p>
-</div>
-<div class="about_4_cl_blocks_item_02">
-<p>
-Decades of navigating the market, establishing trust, and delivering landmark projects across the Kingdom.
-</p></div>
-		</div>
-	</li>
-</ul>
 
 	</div>
 </section>

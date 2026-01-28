@@ -7,7 +7,13 @@
       }
    }
    .services_section_01_item_02{ width: 33%;
-      p{ font-size: 18px; margin: 0;}
+      p{ font-size: 18px; margin: 0;
+	
+	
+	@media screen and (max-width:700px) {
+		font-size: 16px; 
+	}
+	}
    
 
 
@@ -70,7 +76,7 @@
    }
 
 }
- h5{ margin: 0; color: #A9D159; font-size: 20px; font-weight: 400; font-family: 'RB';
+ h5{ margin: 0; color: #A9D159; font-size: 20px; font-weight: 400;  line-height: 100%;
 
    @media screen and (max-width:700px) {
       @include px-rem(55);
@@ -81,12 +87,22 @@
  p{ margin: 0; color: #fff; line-height: 100%; font-size: 16px;} 
 
 
- .btn_style{ margin-top: 45px;}
+ .btn_style{ margin-top: 45px;
+
+@media screen and (max-width: 1100px) {
+	margin-top: 20px;
+}
+
+
+}
 
 
 @media screen and (max-width: 800px) {
    margin-top: 30px;
 }
+
+
+
 }
 
 // Service Item Block
@@ -194,6 +210,7 @@
 	.btn_style {
 		margin-top: 45px;
 
+	 
 		@media screen and (max-width: 800px) {
 			margin-top: 30px;
 		}
@@ -377,5 +394,48 @@
 
 	.btn_style {
 		display: inline-block;
+	}
+}
+
+
+.services_cards_row{ display: flex; flex-wrap: wrap; width: 100%;  
+	.services_card{ width: 20%; padding: 0 2px;
+	
+		@media screen and (max-width: 700px) {
+			width: 100%; margin-bottom: 5px;
+		}
+	}
+
+	@media screen and (max-width: 1000px) {
+		
+	}
+}
+
+// Services Swiper - Static grid on mobile
+.mySwiper-services {
+	@media screen and (max-width: 767px) {
+		.swiper-wrapper {
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+			transform: none !important;
+		}
+
+		.swiper-slide {
+			width: 100% !important;
+			height: auto !important;
+			margin-right: 0 !important;
+			opacity: 1 !important;
+		}
+	}
+
+	.swiper-pagination {
+		@media screen and (max-width: 767px) {
+			display: none;
+		}
+	}
+
+	@media screen and (max-width: 700px) {
+		 padding-left: 4%; padding-right: 4%;
 	}
 }

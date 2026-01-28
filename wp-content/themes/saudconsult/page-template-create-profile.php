@@ -571,7 +571,7 @@ get_header();
 					</div>
 
 					 <div class="form-buttion-row flex-align-right">
-                        <button type="button" class="btn_style btn_transparent but_black">Save Profile</button>
+                        <a href="<?php echo esc_url( home_url( '/application-received' ) ); ?>" type="button" class="btn_style btn_transparent but_black">Submit Application</a>
                      </div>
 				</div>
 			</div>

@@ -39,7 +39,7 @@ $values      = isset( $args['values'] ) ? $args['values'] : array(
 
 <section class="core_values_section pt_80 pb_80 " style="background:url(<?php echo get_template_directory_uri(); ?>/assets/images/vision-miossion-bg.svg) no-repeat left top;  ">
 	<div class="wrap d_flex_wrap">
-		<div class="core_values_header pb_40">
+		<div class="core_values_header pb_40" data-aos="fade-up" data-aos-duration="800" data-aos-delay="0">
 			<?php if ( $title || $title_span ) : ?>
 				<h3 class="h3_title_50">
 					<?php if ( $title ) : ?>
@@ -58,7 +58,9 @@ $values      = isset( $args['values'] ) ? $args['values'] : array(
 
 		<?php if ( ! empty( $values ) ) : ?>
 			<ul class="core_values_list">
-				<?php foreach ( $values as $value ) :
+				<?php 
+				$delay = 100;
+				foreach ( $values as $value ) :
 					$val_icon       = isset( $value['icon'] ) ? $value['icon'] : '';
 					$val_icon_hover = isset( $value['icon_hover'] ) ? $value['icon_hover'] : '';
 					$val_title      = isset( $value['title'] ) ? $value['title'] : '';
@@ -68,7 +70,7 @@ $values      = isset( $args['values'] ) ? $args['values'] : array(
 						continue;
 					}
 					?>
-					<li class="core_values_card">
+					<li class="core_values_card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="<?php echo esc_attr( $delay ); ?>">
 						<?php if ( $val_icon ) : ?>
 							<div class="core_values_icon">
 								<img src="<?php echo esc_url( $val_icon ); ?>" alt="<?php echo esc_attr( $val_title ); ?>" class="core_values_icon_default">
@@ -93,7 +95,9 @@ $values      = isset( $args['values'] ) ? $args['values'] : array(
 							<p class="core_values_text"><?php echo wp_kses_post( $val_text ); ?></p>
 						<?php endif; ?>
 					</li>
-				<?php endforeach; ?>
+				<?php 
+					$delay += 100;
+				endforeach; ?>
 			</ul>
 		<?php endif; ?>
 	</div>

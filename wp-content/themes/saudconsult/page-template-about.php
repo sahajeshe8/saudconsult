@@ -54,6 +54,7 @@ get_header();
 
 
 <?php 
+	// Second block
 	$image_text_data = array(
 		'image' => get_template_directory_uri() . '/assets/images/about-img-02.jpg',
 		'image_alt' => 'About Us',

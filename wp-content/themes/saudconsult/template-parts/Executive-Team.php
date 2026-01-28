@@ -38,7 +38,7 @@ $team_members = isset( $args['team_members'] ) ? $args['team_members'] : array(
 	<div class="wrap">
 		<div class="executive_team_section_inner">
 			<?php if ( $title || $title_span ) : ?>
-				<h3 class="h3_title_50 pb_20">
+				<h3 class="h3_title_50 pb_20" data-aos="fade-up" data-aos-duration="800" data-aos-delay="0">
 					<?php if ( $title ) : ?>
 						<?php echo esc_html( $title ); ?>
 					<?php endif; ?>
@@ -50,13 +50,15 @@ $team_members = isset( $args['team_members'] ) ? $args['team_members'] : array(
 
 			<?php if ( ! empty( $team_members ) ) : ?>
 				<ul class="executive_team_list">
-					<?php foreach ( $team_members as $member ) : 
+					<?php 
+					$delay = 100;
+					foreach ( $team_members as $member ) : 
 						$member_image = isset( $member['image'] ) ? $member['image'] : get_template_directory_uri() . '/assets/images/l3.jpg';
 						$member_name = isset( $member['name'] ) ? $member['name'] : '';
 						$member_position = isset( $member['position'] ) ? $member['position'] : '';
 						$member_linkedin = isset( $member['linkedin_url'] ) ? $member['linkedin_url'] : '#';
 					?>
-						<li>
+						<li data-aos="fade-up" data-aos-duration="800" data-aos-delay="<?php echo esc_attr( $delay ); ?>">
 							<div class="leadership_block">
 								<div class="leadership_img">
 									<img src="<?php echo esc_url( $member_image ); ?>" alt="<?php echo esc_attr( $member_name ); ?>">
@@ -78,7 +80,9 @@ $team_members = isset( $args['team_members'] ) ? $args['team_members'] : array(
 								</div>
 							</div>
 						</li>
-					<?php endforeach; ?>
+					<?php 
+						$delay += 100;
+					endforeach; ?>
 				</ul>
 			<?php endif; ?>
 		</div>

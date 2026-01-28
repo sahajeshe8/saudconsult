@@ -107,43 +107,169 @@
 
 
    
-var swiper = new Swiper(".mySwiper_banner", {});
- 
- 
-
-
-
-
-
-
-
-var swiper = new Swiper(".mySwiper-services", {
-	slidesPerView: 1,
-	spaceBetween: 10,
-	// pagination: {
-	//   el: ".swiper-pagination",
-	//   clickable: true,
-	// },
-	breakpoints: {
-	  640: {
-		slidesPerView: 2,
-		spaceBetween: 2,
-	  },
-	  768: {
-		slidesPerView: 3,
-		spaceBetween: 5,
-	  },
-	  1024: {
-		slidesPerView: 4,
-		spaceBetween:5,
-	  },
-
-	  1920: {
-		slidesPerView: 5,
-		spaceBetween:5,
-	  },
+var bannerSwiper = new Swiper(".mySwiper_banner", {
+	loop: true,
+	pagination: {
+		el: ".banner-pagination",
+		clickable: true,
 	},
-  });
+});
+
+// Banner responsive background (desktop vs mobile)
+(function() {
+	const updateBannerBackgrounds = function() {
+		const isMobile = window.innerWidth < 768;
+		
+		// Update banner slides
+		const slides = document.querySelectorAll('.banner_slide[data-desktop-bg][data-mobile-bg]');
+		slides.forEach(function(slide) {
+			const desktopBg = slide.getAttribute('data-desktop-bg');
+			const mobileBg  = slide.getAttribute('data-mobile-bg');
+			const targetBg  = isMobile && mobileBg ? mobileBg : desktopBg;
+
+			if (targetBg) {
+				slide.style.backgroundImage = 'url(\"' + targetBg + '\")';
+			}
+		});
+
+		// Update banner-add sections
+		const bannerAddSections = document.querySelectorAll('.banner-add-section');
+		bannerAddSections.forEach(function(section) {
+			const desktopBg = section.getAttribute('data-desktop-bg');
+			const mobileBg  = section.getAttribute('data-mobile-bg');
+			
+			if (desktopBg) {
+				const targetBg = isMobile && mobileBg ? mobileBg : desktopBg;
+				if (targetBg) {
+					section.style.backgroundImage = 'url("' + targetBg + '")';
+					section.style.backgroundSize = 'cover';
+					section.style.backgroundPosition = 'center center';
+					section.style.backgroundRepeat = 'no-repeat';
+				}
+			}
+		});
+	};
+
+	// Initialize on load with a small delay to ensure DOM is ready
+	const initBannerBackgrounds = function() {
+		setTimeout(updateBannerBackgrounds, 100);
+	};
+
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', initBannerBackgrounds);
+	} else {
+		initBannerBackgrounds();
+	}
+
+	window.addEventListener('resize', function() {
+		// Lightweight debounce
+		if (window.__bannerBgResizeTimer) {
+			clearTimeout(window.__bannerBgResizeTimer);
+		}
+		window.__bannerBgResizeTimer = setTimeout(updateBannerBackgrounds, 200);
+	});
+})();
+ 
+ 
+
+
+
+
+
+
+
+// Services Swiper - Disable on mobile (below 768px)
+(function() {
+	const initServicesSwiper = function() {
+		if (typeof Swiper === 'undefined') {
+			return;
+		}
+
+		const swiperElement = document.querySelector(".mySwiper-services");
+		if (!swiperElement) {
+			return;
+		}
+
+		// Check if already initialized
+		if (swiperElement.swiper) {
+			return;
+		}
+
+		// Function to check if mobile
+		const isMobile = function() {
+			return window.innerWidth < 768;
+		};
+
+		// Initialize Swiper only if not mobile
+		if (!isMobile()) {
+			var swiper = new Swiper(".mySwiper-services", {
+				slidesPerView: 1,
+				spaceBetween: 10,
+				breakpoints: {
+				  640: {
+					slidesPerView: 2,
+					spaceBetween: 2,
+				  },
+				  768: {
+					slidesPerView: 3,
+					spaceBetween: 5,
+				  },
+				  1024: {
+					slidesPerView: 4,
+					spaceBetween:5,
+				  },
+				  1920: {
+					slidesPerView: 5,
+					spaceBetween:5,
+				  },
+				},
+			});
+
+			// Handle resize to enable/disable Swiper
+			let resizeTimer;
+			window.addEventListener('resize', function() {
+				clearTimeout(resizeTimer);
+				resizeTimer = setTimeout(function() {
+					if (swiper && swiperElement.swiper) {
+						if (isMobile()) {
+							swiper.destroy(true, true);
+						} else if (!swiperElement.swiper) {
+							// Reinitialize if destroyed and not mobile
+							swiper = new Swiper(".mySwiper-services", {
+								slidesPerView: 1,
+								spaceBetween: 10,
+								breakpoints: {
+								  640: {
+									slidesPerView: 2,
+									spaceBetween: 2,
+								  },
+								  768: {
+									slidesPerView: 3,
+									spaceBetween: 5,
+								  },
+								  1024: {
+									slidesPerView: 4,
+									spaceBetween:5,
+								  },
+								  1920: {
+									slidesPerView: 5,
+									spaceBetween:5,
+								  },
+								},
+							});
+						}
+					}
+				}, 250);
+			});
+		}
+	};
+
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', initServicesSwiper);
+	} else {
+		initServicesSwiper();
+	}
+})();
 
 // Projects Swiper - Initialize when DOM is ready
 (function() {
@@ -486,8 +612,8 @@ var swiper = new Swiper(".mySwiper-clients", {
 
 		try {
 			new Swiper(swiperElement, {
-				slidesPerView: 1,
-				spaceBetween: 30,
+				slidesPerView: 1.3,
+				spaceBetween: 10,
 				loop: true,
 				navigation: {
 					nextEl: nextButton,
@@ -499,7 +625,7 @@ var swiper = new Swiper(".mySwiper-clients", {
 				// },
 				breakpoints: {
 					480: {
-						slidesPerView: 1,
+						slidesPerView: 1.3,
 						spaceBetween: 20,
 					},
 					768: {
@@ -1538,6 +1664,52 @@ var swiper = new Swiper(".mySwiper-clients", {
 	}
 })();
 
+// About stats Swiper (4 per view on desktop)
+(function() {
+	const initAboutStatsSwiper = function() {
+		if (typeof Swiper === 'undefined') {
+			console.warn('AboutStats: Swiper library is not loaded');
+			return;
+		}
+
+		const swiperElement = document.querySelector('.about_4_cl_swiper');
+		if (!swiperElement) {
+			return;
+		}
+		if (swiperElement.swiper) {
+			return;
+		}
+
+		try {
+			new Swiper(swiperElement, {
+				slidesPerView: 1.2,
+				spaceBetween: 16,
+				loop: false,
+				breakpoints: {
+					768: {
+						slidesPerView: 2,
+						spaceBetween: 20,
+					},
+					1024: {
+						slidesPerView: 4,
+						spaceBetween: 24,
+					},
+				},
+			});
+		} catch (error) {
+			console.error('AboutStats: Error initializing Swiper', error);
+		}
+	};
+
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', function() {
+			setTimeout(initAboutStatsSwiper, 100);
+		});
+	} else {
+		setTimeout(initAboutStatsSwiper, 100);
+	}
+})();
+
 // Same Month Events Swiper
 var sameMonthEventsSwiper = new Swiper(".same_month_events_swiper", {
 	slidesPerView: 2,
@@ -1781,8 +1953,8 @@ var swiper = new Swiper(".brochures_list_swiper", {
 			return;
 		}
 
-		// Get the login popup link - check multiple times to ensure it's loaded
-		const loginPopupLink = document.querySelector('[data-fancybox="login-popup"]');
+		// Get any login popup link (career or training) - check multiple times to ensure it's loaded
+		const loginPopupLink = document.querySelector('[data-fancybox="login-popup"], [data-fancybox="login-popup-training"], [data-fancybox="login-popup-training-submit"]');
 		
 		if (!loginPopupLink) {
 			if (retryCount < maxRetries) {
@@ -1804,8 +1976,8 @@ var swiper = new Swiper(".brochures_list_swiper", {
 			// Mark as initialized
 			loginPopupLink.setAttribute('data-fancybox-initialized', 'true');
 			
-			// Initialize Fancybox for the login popup
-			const fancyboxInstance = Fancybox.bind('[data-fancybox="login-popup"]', {
+			// Initialize Fancybox for the login popups (career + training views)
+			const fancyboxInstance = Fancybox.bind('[data-fancybox="login-popup"], [data-fancybox="login-popup-training"], [data-fancybox="login-popup-training-submit"]', {
 				Toolbar: {
 					display: {
 						left: [],
@@ -2189,6 +2361,70 @@ var swiper = new Swiper(".mySwiper-02", {});
 		});
 	} else {
 		setTimeout(initOurJourneyGallerySwiper, 100);
+	}
+})();
+
+// Vendor Registration - File Upload Functionality
+(function() {
+	const initVendorFileUpload = function() {
+		// Generic handler: any file input with data-fill-target will populate that input with filename
+		const mappedFileInputs = document.querySelectorAll('input[type="file"][data-fill-target]');
+		if (mappedFileInputs && mappedFileInputs.length) {
+			mappedFileInputs.forEach(function(fileInput) {
+				fileInput.addEventListener('change', function(e) {
+					const targetSelector = fileInput.getAttribute('data-fill-target');
+					const target = targetSelector ? document.querySelector(targetSelector) : null;
+					if (!target) {
+						return;
+					}
+					const file = e.target && e.target.files ? e.target.files[0] : null;
+					target.value = file ? file.name : '';
+				});
+			});
+		}
+
+		// CR Number file upload
+		const crNumberInput = document.getElementById('cr-number-upload');
+		const crNumberTextField = document.getElementById('cr-number-input');
+		
+		if (crNumberInput && crNumberTextField) {
+			crNumberInput.addEventListener('change', function(e) {
+				const file = e.target.files[0];
+				
+				if (file) {
+					// Display file name in the input field
+					crNumberTextField.value = file.name;
+				} else {
+					crNumberTextField.value = '';
+				}
+			});
+		}
+
+		// VAT Number file upload
+		const vatNumberInput = document.getElementById('vat-number-upload');
+		const vatNumberTextField = document.getElementById('vat-number-input');
+		
+		if (vatNumberInput && vatNumberTextField) {
+			vatNumberInput.addEventListener('change', function(e) {
+				const file = e.target.files[0];
+				
+				if (file) {
+					// Display file name in the input field
+					vatNumberTextField.value = file.name;
+				} else {
+					vatNumberTextField.value = '';
+				}
+			});
+		}
+	};
+
+	// Initialize when DOM is ready
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', function() {
+			setTimeout(initVendorFileUpload, 100);
+		});
+	} else {
+		setTimeout(initVendorFileUpload, 100);
 	}
 })();
 

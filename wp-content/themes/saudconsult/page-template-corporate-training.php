@@ -59,14 +59,14 @@ get_header();
 				'posted_date' => 'Posted 18 Hours Ago',
 				'location' => 'Riyadh, Saudi Arabia',
 				'job_id' => 'ID: 54294',
-				'details_link' => esc_url( home_url( '/job-details' ) )
+				'details_link' => esc_url( home_url( '/Job-details-training' ) )
 			),
 			array(
 				'title' => 'Senior Civil Engineer',
 				'posted_date' => 'Posted 1 Day Ago',
 				'location' => 'Jeddah, Saudi Arabia',
 				'job_id' => 'ID: 54295',
-				'details_link' => esc_url( home_url( '/job-details' ) )
+				'details_link' => esc_url( home_url( '/Job-details-training' ) )
 			) 
 		),
 		'show_load_more' => true

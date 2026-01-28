@@ -129,12 +129,6 @@
 					<img src="<?php echo get_template_directory_uri(); ?>/assets/images/service-02.jpg" alt="Services">
 				</div>
 			</div>
-
-
-
-
-
-			
 		</div>
 		<div class="swiper-pagination"></div>
 	</div>

@@ -73,7 +73,7 @@ html{
    &.buttion_line{ border: solid 1px #293977;}
 
    @media (max-width: 1300px) {
-      padding: 0 20px;
+      padding: 0 20px; height: 40px !important;
    }
 
    @media (max-width: 700px) {
@@ -124,7 +124,7 @@ html{
    span{ color: #000; font-weight: 400;}
 
    @media screen and (max-width:700px) {
-      @include px-rem(65);
+      @include px-rem(95);
    }
 }
 
@@ -179,7 +179,7 @@ html{
    span{ color: #000; font-weight: 400;}
 
    @media screen and (max-width:700px) {
-      @include px-rem(75);
+      @include px-rem(100);
    }
 }
 
@@ -262,3 +262,20 @@ position: relative;
 .no_banner_section{ margin-top: 100px;}
 
 .flex-align-right{ justify-content: flex-end; display: flex  ; flex-wrap: wrap;}
+
+.or_span{   font-size: 18px; color: #000; font-weight: 400;}
+
+.mobile_hide{
+   @media screen and (max-width: 700px) {
+      display: none;
+   }
+}
+
+
+.mobile_show{ display: none !important;
+@media screen and (max-width: 700px) {
+   display: flex;
+}
+}
+
+.mobile_show_block{ width: 100%; display: flex; justify-content: center; align-items: center; padding-top: 20px;}

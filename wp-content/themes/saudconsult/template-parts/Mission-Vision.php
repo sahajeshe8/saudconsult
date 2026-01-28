@@ -27,7 +27,7 @@ $section_class = isset( $args['section_class'] ) ? $args['section_class'] : '';
 	<div class="wrap">
 		<div class="mission_vision_container">
 			<?php if ( $vision_title || $vision_content ) : ?>
-				<div class="mission_vision_item mission_vision_vision">
+				<div class="mission_vision_item mission_vision_vision" data-aos="fade-up" data-aos-duration="800" data-aos-delay="0">
 					<?php if ( $vision_icon ) : ?>
 						<div class="mission_vision_icon">
 							<img src="<?php echo esc_url( $vision_icon ); ?>" alt="<?php echo esc_attr( $vision_title ); ?>">
@@ -54,7 +54,7 @@ $section_class = isset( $args['section_class'] ) ? $args['section_class'] : '';
 			<?php endif; ?>
 
 			<?php if ( $mission_title || $mission_content ) : ?>
-				<div class="mission_vision_item mission_vision_mission">
+				<div class="mission_vision_item mission_vision_mission" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
 					<?php if ( $mission_icon ) : ?>
 						<div class="mission_vision_icon">
 							<img src="<?php echo esc_url( $mission_icon ); ?>" alt="<?php echo esc_attr( $mission_title ); ?>">

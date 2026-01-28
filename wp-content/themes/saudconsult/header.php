@@ -267,7 +267,7 @@
 
 
 						<li class="nav-item">
-                            <a class="nav-link" href="<?php echo esc_url( home_url( '/media-center' ) ); ?>">
+                            <a class="nav-link" href="<?php echo esc_url( home_url( '/vendor-registration' ) ); ?>">
 							Vendor Registration
                             </a>
                         </li>
@@ -353,7 +353,7 @@
                     <li class="mobile_menu_item"><a href="<?php echo esc_url( home_url( '/careers' ) ); ?>">Careers</a></li>
                     
                     <!-- Vendor Registration -->
-                    <li class="mobile_menu_item"><a href="<?php echo esc_url( home_url( '/media-center' ) ); ?>">Vendor Registration</a></li>
+                    <li class="mobile_menu_item"><a href="<?php echo esc_url( home_url( '/vendor-registration' ) ); ?>">Vendor Registration</a></li>
                     
                     <!-- Contact -->
                     <li class="mobile_menu_item"><a href="<?php echo esc_url( home_url( '/contact' ) ); ?>">Contact</a></li>
@@ -364,6 +364,92 @@
 
     </div>
 </header>
+
+
+
+<!-- Login Popup -->
+<div id="login-popup-training" class="job-form-popup" style="display: none;">
+	<span class="form-close-icon">
+		<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/pop-close.svg' ); ?>" alt="Close">
+	</span>
+	<h3 class="h3_title_50 pb_10 text_center mb_20">Sign In</h3>
+
+	<div class="related_jobs_section_content">
+		<h5>Have an account?</h5>
+		<p>Enter your email address and password</p>
+	</div>
+
+	<ul class="career-form-list-ul">
+		<li><input class="input" type="email" placeholder="Email address" required></li>
+		<li>
+			<input class="input" type="password" placeholder="Password" required>
+			<span class="form-icon">
+				<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/eye-icn.svg' ); ?>" alt="Eye">
+			</span>
+		</li>
+		<li class="login-options">
+			<label class="keep-logged-in">
+				<input type="checkbox" checked>
+				<span>Keep me logged in</span>
+			</label>
+			<a href="#" class="forget-password-link">Forget password?</a>
+		</li>
+		<li><a href="<?php echo esc_url( home_url( '/my-profile-training' ) ); ?>" class="input-buttion btn_style btn_transparent but_black" type="submit">Sign In</a></li>
+	</ul>
+
+	<div class="form-bottom-txt">
+		<h5>Not a registered user yet?</h5>
+		<p><a href="#job-form-popup" class="text_black" data-fancybox="job-form">Create an account</a>  to apply for our career opportunities.</p>
+		<span class="or_span">or</span><br>
+		<p><a href="<?php echo esc_url( home_url( '/apply-as-a-guest' ) ); ?>" class="text_black">Apply as a Guest</a></p>
+	</div>
+</div>
+
+
+
+
+
+<div id="login-popup-training-submit" class="job-form-popup" style="display: none;">
+	<span class="form-close-icon">
+		<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/pop-close.svg' ); ?>" alt="Close">
+	</span>
+	<h3 class="h3_title_35 pb_10 text_center mb_20">Training Program Enrollment</h3>
+
+	 
+
+	<ul class="career-form-list-ul">
+		<li>
+			<div class="select-wrapper">
+				<select class="input select-input" name="training_start_date" required>
+					<option value="">Start Date *</option>
+					<option value="2026-01">January 2026</option>
+					<option value="2026-02">February 2026</option>
+					<option value="2026-03">March 2026</option>
+					<option value="2026-04">April 2026</option>
+				</select>
+				<span class="select-arrow"></span>
+			</div>
+		</li>
+		<li>
+			<div class="select-wrapper">
+				<select class="input select-input" name="training_duration" required>
+					<option value="">Duration Time *</option>
+					<option value="1-month">1 Month</option>
+					<option value="3-months">3 Months</option>
+					<option value="6-months">6 Months</option>
+					<option value="12-months">12 Months</option>
+				</select>
+				<span class="select-arrow"></span>
+			</div>
+		</li>
+	 
+		<li><a href="<?php echo esc_url( home_url( '/application-received' ) ); ?>" class="input-buttion btn_style btn_transparent but_black" type="submit">Submit</a></li>
+	</ul>
+ 
+</div>
+
+
+
 
 <!-- Login Popup -->
 <div id="login-popup" class="job-form-popup" style="display: none;">

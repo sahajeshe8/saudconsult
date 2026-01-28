@@ -15,7 +15,7 @@
 
 }
 .profile-photo-block{ width:12.5%; aspect-ratio: 1/1; border-radius: 50%; overflow: hidden; background: #E0E0E0;}
-.profile-view-block-01-item-01{ width: 100%;
+.profile-view-block-01-item-01{   width: calc(100% - 154px)	;
 
     h5{ margin-bottom: 10px;}
 }
@@ -251,3 +251,9 @@
 		}
 	}
 }
+
+.h3_title_35{ @include px-rem(35); color: #0D6A37; font-weight: 400;
+}
+
+
+#login-popup-training-submit{ max-width: 570px; margin: 0 auto;}

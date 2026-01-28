@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: My Profile
+ * Template Name: My Profile training
  *
  * The template for displaying the My Profile page
  *
@@ -247,9 +247,12 @@ get_header();
 						</div>
 					</div>
 
+
+
 					<div class="form-buttion-row flex-align-right">
 						<a href="#login-popup-training-submit" class="btn_style but_black" data-fancybox="login-popup-training">Submit Application</a>
 					</div>
+
 				</div>
 			</div>
 		</div>

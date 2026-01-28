@@ -83,7 +83,7 @@
 
 
 
-<div class="leadership_section_inner_right  ">
+<div class="leadership_section_inner_right  " data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
   
     <h4 class="h4_title_35 pb_20">
     Our Executive <span>Team</span>
@@ -93,7 +93,7 @@
 
 
                 <ul class="leadership_section_inner_left_list ">
-                <li>
+                <li data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
      <div class="leadership_block">
         <div class="leadership_img">
          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/l3.jpg" alt="Leadership Image">

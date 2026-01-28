@@ -33,7 +33,7 @@ $section_class_string = implode( ' ', array_map( 'esc_attr', $section_classes ) 
 		<div class="inner_banner_overlay"></div>
 	</div>
 	<div class="wrap">
-		<div class="inner_banner_content">
+		<div class="inner_banner_content" data-aos="fade-up" data-aos-duration="800" data-aos-delay="0">
 			<?php if ( $title ) : ?>
 				<h1 class="inner_banner_title">
 					<?php echo esc_html( $title ); ?>

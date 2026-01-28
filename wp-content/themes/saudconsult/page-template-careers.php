@@ -54,7 +54,7 @@ get_header();
 		'title_span' => 'Engineering in Saudi Arabia',
 		'content' => '<p>At Saud Consult, you don\'t just take a job; you join a 50-year legacy of engineering excellence. We recognize that our over 2,000 professionals are our greatest asset, and we offer dynamic opportunities to work on the Kingdom\'s most ambitious and defining projects. We are dedicated to the development of local talent, providing the foundation for a challenging, rewarding, and deeply impactful career where your technical skills will directly contribute to the nation\'s growth.</p>',
 		'button_text' => 'Corporate Trainings',
-		'button_link' => esc_url( home_url( '/' ) ),
+		'button_link' => esc_url( home_url( '/corporate-training' ) ),
 	 
         'section_class' => 'row_reverse', // Multiple classes separated by space
 		'bg_style' => 'bg-style', // Background style class

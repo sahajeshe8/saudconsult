@@ -115,7 +115,7 @@ $projects = isset( $args['projects'] ) ? $args['projects'] : array(
 			</div>
 
 			<?php if ( $button_text && $button_link ) : ?>
-				<div class="title_block_right" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+				<div class="title_block_right mobile_hide" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
 					<a class="btn_style btn_transparent but_black" href="<?php echo esc_url( $button_link ); ?>">
 						<?php echo esc_html( $button_text ); ?> 
 						<span><img src="<?php echo get_template_directory_uri(); ?>/assets/images/buttion-arrow.svg" alt="<?php echo esc_attr( $button_text ); ?>"></span>
@@ -211,7 +211,17 @@ $projects = isset( $args['projects'] ) ? $args['projects'] : array(
 						$project_index++;
 					endforeach; ?>
 				</div>
+
+
+				
 			</div>
-		</div>
+		</div><div class="mobile_show_block mobile_show">
+				<div class="title_block_right " data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+					<a class="btn_style btn_transparent but_black" href="<?php echo esc_url( $button_link ); ?>">
+						<?php echo esc_html( $button_text ); ?> 
+						<span><img src="<?php echo get_template_directory_uri(); ?>/assets/images/buttion-arrow.svg" alt="<?php echo esc_attr( $button_text ); ?>"></span>
+					</a>
+				</div>
+				</div>
 	<?php endif; ?>
 </section>

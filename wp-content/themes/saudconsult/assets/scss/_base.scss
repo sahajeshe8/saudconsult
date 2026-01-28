@@ -175,7 +175,7 @@ a,
 }
 
 .w_100 {
-  width: 100%;
+  width: 100% !important;
 }
 
 .h_100 {
@@ -285,6 +285,9 @@ a,
   justify-content: space-between;
 }
 
+.btn_green_02{   background: #0d6a37; color: #fff;
+  &:hover{ background: #09582d; color: #fff;}
+}
 // --------   O V E R F L O W -----------
 
 .overflow_hide {

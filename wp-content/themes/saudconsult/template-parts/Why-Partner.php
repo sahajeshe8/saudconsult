@@ -54,7 +54,7 @@ $items = isset( $args['items'] ) ? $args['items'] : array(
 
 <section class="why_partner_section pb_80 <?php echo esc_attr( $section_class ); ?> <?php echo $section_wrapper_class; ?>">
 	<div class="wrap d_flex align_center justify_space_between">
-		<div class="w_50">
+		<div class="w_50" data-aos="fade-right" data-aos-duration="800" data-aos-delay="0">
 			<?php if ( $title || $title_span ) : ?>
 				<h3 class="h3_title_50">
 					<?php if ( $title ) : ?>
@@ -66,16 +66,18 @@ $items = isset( $args['items'] ) ? $args['items'] : array(
 				</h3>
 			<?php endif; ?>
 		</div>
-		<div class="w_50">
+		<div class="w_50" data-aos="fade-left" data-aos-duration="800" data-aos-delay="100">
 			<?php if ( ! empty( $items ) ) : ?>
 				<ul class="why_partner_list">
-					<?php foreach ( $items as $item ) : 
+					<?php 
+					$delay = 200;
+					foreach ( $items as $item ) : 
 						$item_icon = isset( $item['icon'] ) ? $item['icon'] : '';
 						$item_icon_alt = isset( $item['icon_alt'] ) ? $item['icon_alt'] : '';
 						$item_title = isset( $item['title'] ) ? $item['title'] : '';
 						$item_text = isset( $item['text'] ) ? $item['text'] : '';
 					?>
-						<li class="why_partner_item">
+						<li class="why_partner_item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="<?php echo esc_attr( $delay ); ?>">
 							<?php if ( $item_icon ) : ?>
 								<div class="why_partner_icon">
 									<img src="<?php echo esc_url( $item_icon ); ?>" alt="<?php echo esc_attr( $item_icon_alt ); ?>">
@@ -90,7 +92,9 @@ $items = isset( $args['items'] ) ? $args['items'] : array(
 								<?php endif; ?>
 							</div>
 						</li>
-					<?php endforeach; ?>
+					<?php 
+						$delay += 100;
+					endforeach; ?>
 				</ul>
 			<?php endif; ?>
 		</div>

@@ -1,6 +1,7 @@
 .insights_resources_section {
 	width: 100%;
 	position: relative;
+	overflow: hidden;
 	background: #fff;
 
 	.insights_section_header {
@@ -29,6 +30,12 @@
         @media screen and (max-width:700px) {
             margin-bottom: 15px;
         }
+
+		.slider_arrow_block {
+			@media screen and (max-width: 700px) {
+				display: none;
+			}
+		}
 	}
 
 
@@ -138,3 +145,9 @@ a{ color: #000  ;}
 }
 
 .slider_arrow_block_02{ justify-content: center; display: flex; flex-wrap: wrap; gap: 10px; padding-bottom: 0px; width: 100%; margin-top: 35px;}
+
+.mySwiper-insights{
+	@media screen and (max-width: 700px) {
+		 overflow: visible !important;
+	}
+}

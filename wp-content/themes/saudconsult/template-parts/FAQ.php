@@ -33,19 +33,20 @@ $faq_items = isset( $args['faq_items'] ) ? $args['faq_items'] : array();
 	<div class="wrap">
 		<div class="faq_wrapper">
 			<?php if ( !empty( $faq_items ) ) : ?>
-				<h3 class="h3_title_50">
+				<h3 class="h3_title_50" data-aos="fade-up" data-aos-delay="0">
 					 Frequently 
 					<span  >Asked Questions</span>
 				</h3>
 				
 				<ul class="faq_list pt_80">
-					<?php foreach ( $faq_items as $index => $item ) : 
+					<?php foreach ( $faq_items as $index => $item ) :
+						$delay = 100 + ($index * 50); 
 						$question = isset( $item['question'] ) ? $item['question'] : '';
 						$answer = isset( $item['answer'] ) ? $item['answer'] : '';
 						$is_open = isset( $item['is_open'] ) && $item['is_open'] ? true : ( $index === 0 ? true : false );
 						$faq_id = 'faq-' . $index;
 					?>
-						<li class="faq_item <?php echo $is_open ? 'faq_item_open' : ''; ?>">
+						<li class="faq_item <?php echo $is_open ? 'faq_item_open' : ''; ?>" data-aos="fade-up" data-aos-delay="<?php echo esc_attr( $delay ); ?>">
 							<button class="faq_question" type="button" aria-expanded="<?php echo $is_open ? 'true' : 'false'; ?>" aria-controls="<?php echo esc_attr( $faq_id ); ?>">
 								<span class="faq_question_text"><?php echo esc_html( $question ); ?></span>
 								<span class="faq_icon">

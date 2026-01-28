@@ -144,12 +144,14 @@ get_header();
 
 
 	  <div class="slider_arrow_block">
-						<span class="slider_buttion but_next-aw" tabindex="0" role="button" aria-label="Next slide" aria-controls="swiper-wrapper-e3f72735436d4394">
-							<img src="http://localhost/saudconsult/wp-content/themes/saudconsult/assets/images/slider-arrow.svg" alt="Next Project">
+						<span class="slider_buttion but_prev-aw icon-rotate-01" tabindex="0" role="button" aria-label="Previous slide" aria-controls="swiper-wrapper-e3f72735436d4394">
+						<img src="http://localhost/saudconsult/wp-content/themes/saudconsult/assets/images/slider-arrow.svg" alt="Previous Project">
 						</span>
-						<span class="slider_buttion but_prev-aw" tabindex="0" role="button" aria-label="Previous slide" aria-controls="swiper-wrapper-e3f72735436d4394">
-							<img src="http://localhost/saudconsult/wp-content/themes/saudconsult/assets/images/slider-arrow.svg" alt="Previous Project">
+						<span class="slider_buttion but_next-aw icon-rotate-02" tabindex="0" role="button" aria-label="Next slide" aria-controls="swiper-wrapper-e3f72735436d4394">
+						<img src="http://localhost/saudconsult/wp-content/themes/saudconsult/assets/images/slider-arrow.svg" alt="Next Project">
+						
 						</span>
+						
 					</div>
 
 

@@ -4,6 +4,8 @@
 		display: flex;
 		gap: 10px;
 		align-items: center;
+		justify-content: flex-end;
+		margin-bottom: 0;
 
 		@media screen and (max-width: 768px) {
 			margin-top: 20px;
@@ -22,7 +24,7 @@
 
 			&:hover {
 				background: #0D6A37;
-				transform: scale(1.05);
+			 
 			}
 
 			// &.but_prev {

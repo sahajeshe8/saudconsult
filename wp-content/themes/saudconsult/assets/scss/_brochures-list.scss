@@ -37,6 +37,8 @@
 	.swiper-wrapper {
 		.swiper-slide {
 			&:nth-child(even) {
+
+				.brochures_download_link{    top: 40px;}
 .brochures_item{
     flex-direction: column-reverse;
 }			

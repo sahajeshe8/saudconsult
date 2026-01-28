@@ -14,11 +14,30 @@
 					src="<?php echo get_template_directory_uri(); ?>/assets/images/footer-logo.svg"
 					alt="Footer Logo"
 				>
+
+				<ul class="footer_social_ul mobile_show">
+						<li>
+							<a href="#">
+								<img
+									src="<?php echo get_template_directory_uri(); ?>/assets/images/in-f.svg"
+									alt="Footer Icon"
+								>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<img
+									src="<?php echo get_template_directory_uri(); ?>/assets/images/x-f.svg"
+									alt="Footer Icon"
+								>
+							</a>
+						</li>
+					</ul>
 			</div>
 
 			<div class="footer_right">
 				<div class="footer_row_01">
-					<ul class="footer_social_ul desktop_show">
+					<ul class="footer_social_ul mobile_hide">
 						<li>
 							<a href="#">
 								<img

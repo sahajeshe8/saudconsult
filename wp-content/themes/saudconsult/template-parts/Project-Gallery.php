@@ -32,7 +32,7 @@ $wrapper_class_string = implode( ' ', array_map( 'esc_attr', $wrapper_classes ) 
 		<div class="project_gallery_container">
             <div class="wrap">
 			<?php if ( $title ) : ?>
-				<h2 class="project_gallery_title"><?php echo esc_html( $title ); ?></h2>
+				<h2 class="project_gallery_title" data-aos="fade-up" data-aos-delay="0"><?php echo esc_html( $title ); ?></h2>
 			<?php endif; ?>
             </div>
 
@@ -40,14 +40,15 @@ $wrapper_class_string = implode( ' ', array_map( 'esc_attr', $wrapper_classes ) 
 				<div class="project_gallery_slider_wrapper">
 					<div class="swiper project_gallery_swiper">
 						<div class="swiper-wrapper">
-							<?php foreach ( $gallery_items as $item ) : 
+							<?php foreach ( $gallery_items as $index => $item ) : 
 								$image = isset( $item['image'] ) ? $item['image'] : '';
 								$image_alt = isset( $item['image_alt'] ) ? $item['image_alt'] : '';
 								$is_video = isset( $item['is_video'] ) ? $item['is_video'] : false;
 								$video_url = isset( $item['video_url'] ) ? $item['video_url'] : '';
+								$delay = 100 + ($index * 50);
 							?>
 								<?php if ( $image ) : ?>
-									<div class="swiper-slide">
+									<div class="swiper-slide" data-aos="fade-up" data-aos-delay="<?php echo esc_attr( $delay ); ?>">
 										<div class="project_gallery_slide">
 											<?php if ( $is_video && $video_url ) : 
 												// Convert YouTube URL to embed format for Fancybox

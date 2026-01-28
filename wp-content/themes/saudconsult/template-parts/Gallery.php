@@ -33,7 +33,7 @@ $gallery_items = isset( $args['gallery_items'] ) ? $args['gallery_items'] : arra
 	<div class="gallery_wrapper">
 		<div class="wrap">
 			<?php if ( $title || $title_span ) : ?>
-				<div class="title_block">
+				<div class="title_block" data-aos="fade-up" data-aos-delay="0">
 					<div class="title_block_left">
 						<h3 class="h3_title_50">
 							<?php if ( $title ) : ?>
@@ -58,12 +58,13 @@ $gallery_items = isset( $args['gallery_items'] ) ? $args['gallery_items'] : arra
 			<div class="gallery_content">
 				<div class="gallery_masonry" id="gallery-masonry">
 					<?php if ( ! empty( $gallery_items ) ) : ?>
-						<?php foreach ( $gallery_items as $item ) : 
+						<?php foreach ( $gallery_items as $index => $item ) :
+							$delay = 100 + ($index * 50); 
 							$image = isset( $item['image'] ) ? $item['image'] : '';
 							$alt = isset( $item['alt'] ) ? $item['alt'] : 'Gallery Image';
 							$size_class = isset( $item['size'] ) ? $item['size'] : 'normal'; // normal, wide, tall, large
 						?>
-							<div class="gallery_item <?php echo esc_attr( $size_class ); ?>">
+							<div class="gallery_item <?php echo esc_attr( $size_class ); ?>" data-aos="fade-up" data-aos-delay="<?php echo esc_attr( $delay ); ?>">
 								<div class="gallery_item_image">
 									<img src="<?php echo esc_url( $image ); ?>" alt="<?php echo esc_attr( $alt ); ?>">
 								</div>
@@ -71,81 +72,30 @@ $gallery_items = isset( $args['gallery_items'] ) ? $args['gallery_items'] : arra
 						<?php endforeach; ?>
 					<?php else : ?>
 						<!-- Default gallery items - 3x4 grid layout matching the image order -->
-						<!-- Row 1: Top (Column 1, 2, 3) -->
-						<div class="gallery_item normal">
+						<?php 
+						$default_gallery_items = array(
+							array('image' => 'gallery-01.jpg', 'alt' => 'Gallery Image 1 - Conference Meeting'),
+							array('image' => 'gallery-02.jpg', 'alt' => 'Gallery Image 2 - Award Presentation'),
+							array('image' => 'gallery-03.jpg', 'alt' => 'Gallery Image 3 - Conference Stage'),
+							array('image' => 'gallery-04.jpg', 'alt' => 'Gallery Image 4 - Exhibition Booth'),
+							array('image' => 'gallery-05.jpg', 'alt' => 'Gallery Image 5 - Document Exchange'),
+							array('image' => 'gallery-06.jpg', 'alt' => 'Gallery Image 6 - Architectural Rendering'),
+							array('image' => 'gallery-07.jpg', 'alt' => 'Gallery Image 7 - Red Sea Development'),
+							array('image' => 'gallery-08.jpg', 'alt' => 'Gallery Image 8 - Document Handover'),
+							array('image' => 'gallery-09.jpg', 'alt' => 'Gallery Image 9 - Award Ceremony'),
+							array('image' => 'gallery-10.jpg', 'alt' => 'Gallery Image 10 - Company Booth'),
+							array('image' => 'gallery-11.jpg', 'alt' => 'Gallery Image 11 - Business Discussion'),
+							array('image' => 'gallery-12.jpg', 'alt' => 'Gallery Image 12 - Meeting with Presentation'),
+						);
+						foreach ( $default_gallery_items as $index => $gallery_item ) : 
+							$delay = 100 + ($index * 50);
+						?>
+						<div class="gallery_item normal" data-aos="fade-up" data-aos-delay="<?php echo esc_attr( $delay ); ?>">
 							<div class="gallery_item_image">
-								<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/gallery-01.jpg' ); ?>" alt="Gallery Image 1 - Conference Meeting">
+								<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/' . $gallery_item['image'] ); ?>" alt="<?php echo esc_attr( $gallery_item['alt'] ); ?>">
 							</div>
 						</div>
-
-						<div class="gallery_item normal">
-							<div class="gallery_item_image">
-								<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/gallery-02.jpg' ); ?>" alt="Gallery Image 2 - Award Presentation">
-							</div>
-						</div>
-
-						<div class="gallery_item normal">
-							<div class="gallery_item_image">
-								<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/gallery-03.jpg' ); ?>" alt="Gallery Image 3 - Conference Stage">
-							</div>
-						</div>
-
-						<!-- Row 2: Mid (Column 1, 2, 3) -->
-						<div class="gallery_item normal">
-							<div class="gallery_item_image">
-								<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/gallery-04.jpg' ); ?>" alt="Gallery Image 4 - Exhibition Booth">
-							</div>
-						</div>
-
-						<div class="gallery_item normal">
-							<div class="gallery_item_image">
-								<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/gallery-05.jpg' ); ?>" alt="Gallery Image 5 - Document Exchange">
-							</div>
-						</div>
-
-						<div class="gallery_item normal">
-							<div class="gallery_item_image">
-								<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/gallery-06.jpg' ); ?>" alt="Gallery Image 6 - Architectural Rendering">
-							</div>
-						</div>
-
-						<!-- Row 3: Third-Row (Column 1, 2, 3) -->
-						<div class="gallery_item normal">
-							<div class="gallery_item_image">
-								<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/gallery-07.jpg' ); ?>" alt="Gallery Image 7 - Red Sea Development">
-							</div>
-						</div>
-
-						<div class="gallery_item normal">
-							<div class="gallery_item_image">
-								<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/gallery-08.jpg' ); ?>" alt="Gallery Image 8 - Document Handover">
-							</div>
-						</div>
-
-						<div class="gallery_item normal">
-							<div class="gallery_item_image">
-								<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/gallery-09.jpg' ); ?>" alt="Gallery Image 9 - Award Ceremony">
-							</div>
-						</div>
-
-						<!-- Row 4: Bottom (Column 1, 2, 3) -->
-						<div class="gallery_item normal">
-							<div class="gallery_item_image">
-								<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/gallery-10.jpg' ); ?>" alt="Gallery Image 10 - Company Booth">
-							</div>
-						</div>
-
-						<div class="gallery_item normal">
-							<div class="gallery_item_image">
-								<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/gallery-11.jpg' ); ?>" alt="Gallery Image 11 - Business Discussion">
-							</div>
-						</div>
-
-						<div class="gallery_item normal">
-							<div class="gallery_item_image">
-								<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/gallery-12.jpg' ); ?>" alt="Gallery Image 12 - Meeting with Presentation">
-							</div>
-						</div>
+						<?php endforeach; ?>
 					<?php endif; ?>
 				</div>
 			</div>

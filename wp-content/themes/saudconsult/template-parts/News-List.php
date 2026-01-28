@@ -38,7 +38,7 @@ $news_url = $news_page ? get_permalink( $news_page->ID ) : home_url( '/news' );
 		<div class="news_list_wrapper">
             <div class="wrap">
 			<?php if ( $title || $title_span ) : ?>
-				<div class="title_block">
+				<div class="title_block" data-aos="fade-up" data-aos-delay="0">
 					<div class="title_block_left">
 						<h3 class="h3_title_50">News</h3>
 					</div>
@@ -56,7 +56,19 @@ $news_url = $news_page ? get_permalink( $news_page->ID ) : home_url( '/news' );
 			<div class="news_list_content pt_30">
 				<div class="swiper news_list_swiper">
 					<div class="swiper-wrapper">
-						<div class="swiper-slide">
+						<?php 
+						$news_slides = array(
+							array('image' => 'news-img-01.jpg'),
+							array('image' => 'news-img-02.jpg'),
+							array('image' => 'news-img-03.jpg'),
+							array('image' => 'news-img-04.jpg'),
+							array('image' => 'news-img-05.jpg'),
+							array('image' => 'news-img-06.jpg'),
+						);
+						foreach ( $news_slides as $index => $slide ) : 
+							$delay = 100 + ($index * 50);
+						?>
+						<div class="swiper-slide" data-aos="fade-up" data-aos-delay="<?php echo esc_attr( $delay ); ?>">
 							<div class="insights_item">
 								<div class="insights_item_text">
 									<span class="latest_news_text_lable_new">Latest News</span>
@@ -67,102 +79,12 @@ $news_url = $news_page ? get_permalink( $news_page->ID ) : home_url( '/news' );
 								</div>
 								<div class="insights_item_image">
 									<a href="<?php echo esc_url( $news_detail_url ); ?>">
-										<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/news-img-01.jpg' ); ?>" alt="News">
+										<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/' . $slide['image'] ); ?>" alt="News">
 									</a>
 								</div>
 							</div>
 						</div>
-
-						<div class="swiper-slide">
-							<div class="insights_item">
-								<div class="insights_item_text">
-									<span class="latest_news_text_lable_new">Latest News</span>
-									<a href="<?php echo esc_url( $news_detail_url ); ?>">
-										<h5>Saud Consult Secures Design Contract for Jeddah's New Central Utility Plant.</h5>
-									</a>
-									<span class="latest_news_text_date_new">05 August 2025</span>
-								</div>
-								<div class="insights_item_image">
-									<a href="<?php echo esc_url( $news_detail_url ); ?>">
-										<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/news-img-02.jpg' ); ?>" alt="News">
-									</a>
-								</div>
-							</div>
-						</div>
-
-						<div class="swiper-slide">
-							<div class="insights_item">
-								<div class="insights_item_text">
-									<span class="latest_news_text_lable_new">Latest News</span>
-									<a href="<?php echo esc_url( $news_detail_url ); ?>">
-										<h5>Saud Consult Secures Design Contract for Jeddah's New Central Utility Plant.</h5>
-									</a>
-									<span class="latest_news_text_date_new">05 August 2025</span>
-								</div>
-								<div class="insights_item_image">
-									<a href="<?php echo esc_url( $news_detail_url ); ?>">
-										<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/news-img-03.jpg' ); ?>" alt="News">
-									</a>
-								</div>
-							</div>
-						</div>
-
-						<div class="swiper-slide">
-							<div class="insights_item">
-								<div class="insights_item_text">
-									<span class="latest_news_text_lable_new">Latest News</span>
-									<a href="<?php echo esc_url( $news_detail_url ); ?>">
-										<h5>Saud Consult Secures Design Contract for Jeddah's New Central Utility Plant.</h5>
-									</a>
-									<span class="latest_news_text_date_new">05 August 2025</span>
-								</div>
-								<div class="insights_item_image">
-									<a href="<?php echo esc_url( $news_detail_url ); ?>">
-										<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/news-img-04.jpg' ); ?>" alt="News">
-									</a>
-								</div>
-							</div>
-						</div>
-
-
-
-                        <div class="swiper-slide">
-							<div class="insights_item">
-								<div class="insights_item_text">
-									<span class="latest_news_text_lable_new">Latest News</span>
-									<a href="<?php echo esc_url( $news_detail_url ); ?>">
-										<h5>Saud Consult Secures Design Contract for Jeddah's New Central Utility Plant.</h5>
-									</a>
-									<span class="latest_news_text_date_new">05 August 2025</span>
-								</div>
-								<div class="insights_item_image">
-									<a href="<?php echo esc_url( $news_detail_url ); ?>">
-										<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/news-img-05.jpg' ); ?>" alt="News">
-									</a>
-								</div>
-							</div>
-						</div>
-
-
-
-
-
-                        <div class="swiper-slide">
-							<div class="insights_item">
-								<div class="insights_item_text">
-									<span class="latest_news_text_lable_new">Latest News</span>
-									<a href="<?php echo esc_url( $news_detail_url ); ?>">
-										<h5>Saud Consult Secures Design Contract for Jeddah's New Central Utility Plant.</h5>
-									</a>
-									<span class="latest_news_text_date_new">05 August 2025</span>
-								</div>
-								<div class="insights_item_image">
-									<a href="<?php echo esc_url( $news_detail_url ); ?>">
-										<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/news-img-06.jpg' ); ?>" alt="News">
-									</a>
-								</div>
-							</div>
-						</div>
+						<?php endforeach; ?>
 
 
 

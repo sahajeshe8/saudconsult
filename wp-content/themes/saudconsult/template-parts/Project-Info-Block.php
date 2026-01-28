@@ -31,19 +31,20 @@ $wrapper_class_string = implode( ' ', array_map( 'esc_attr', $wrapper_classes ) 
 	<div class="wrap">
 		<div class="project_info_block_container">
 			<?php if ( $description ) : ?>
-				<div class="project_info_description">
+				<div class="project_info_description" data-aos="fade-up" data-aos-delay="0">
 					<p><?php echo wp_kses_post( $description ); ?></p>
 				</div>
 			<?php endif; ?>
 
 			<?php if ( ! empty( $info_items ) ) : ?>
 				<ul class="project_info_grid">
-					<?php foreach ( $info_items as $item ) : 
+					<?php foreach ( $info_items as $index => $item ) : 
 						$label = isset( $item['label'] ) ? $item['label'] : '';
 						$value = isset( $item['value'] ) ? $item['value'] : '';
+						$delay = $index * 100;
 					?>
 						<?php if ( $label && $value ) : ?>
-							<li class="project_info_item">
+							<li class="project_info_item" data-aos="fade-up" data-aos-delay="<?php echo esc_attr( $delay ); ?>">
 								<h5 class="project_info_label"><?php echo esc_html( $label ); ?></h5>
 								<div class="project_info_value"><?php echo wp_kses_post( $value ); ?></div>
 							</li>

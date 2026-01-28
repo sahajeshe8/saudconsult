@@ -291,12 +291,28 @@
 
             </div>
 
-            <div class="menu_toggle">
-                <button id="menuIcon" class="menu_icon" aria-label="Toggle navigation">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
+            <div class="mobile_header_actions">
+                <div class="menu_right_block menu_right_block_mobile">
+<a href="#login-popup" class="user-login-trigger" data-fancybox="login-popup">
+                      <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/user-logon.svg' ); ?>" alt="User Icon">
+                    </a>
+
+                    <a class="language_button button_link" href="">
+					عربي
+                    </a>
+                    <a class="btn_style btn_transparent <?php echo $is_black_header ? 'btn_green' : ''; ?>" href="<?php echo esc_url( home_url( '/contact' ) ); ?>">
+                        Contact
+                    </a>
+
+                </div>
+
+                <div class="menu_toggle">
+                    <button id="menuIcon" class="menu_icon" aria-label="Toggle navigation">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
             </div>
 
             <div id="mobileMenuOverlay" class="mobile_menu_overlay">
@@ -310,13 +326,13 @@
                         <div class="mobile_menu_submenu" id="mobile-submenu-company">
                             <div class="mobile_submenu_content">
                                 <ul class="mobile_submenu_list">
-                                    <li><a href="<?php echo esc_url( home_url( '/about-us' ) ); ?>">Who We Are</a></li>
-                                    <li><a href="<?php echo esc_url( home_url( '/our-team' ) ); ?>">Our Team</a></li>
-                                    <li><a href="<?php echo esc_url( home_url( '/leadership' ) ); ?>">Leadership</a></li>
-                                    <li><a href="<?php echo esc_url( home_url( '/our-journey-legacy' ) ); ?>">Our Journey & Legacy</a></li>
+                                    <li><a href="<?php echo esc_url( home_url( '/about-us' ) ); ?>">Who We Are <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/menu-arrow.svg' ); ?>" alt="Toggle"></a></li>
+                                    <li><a href="<?php echo esc_url( home_url( '/our-team' ) ); ?>">Our Team <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/menu-arrow.svg' ); ?>" alt="Toggle"></a></li>
+                                    <li><a href="<?php echo esc_url( home_url( '/leadership' ) ); ?>">Leadership <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/menu-arrow.svg' ); ?>" alt="Toggle"></a></li>
+                                    <li><a href="<?php echo esc_url( home_url( '/our-journey-legacy' ) ); ?>">Our Journey & Legacy <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/menu-arrow.svg' ); ?>" alt="Toggle"></a></li>
                                     <li><a href="<?php echo esc_url( home_url( '/vision-mission-values' ) ); ?>">Vision, Mission & Values</a></li>
-                                    <li><a href="<?php echo esc_url( home_url( '/company-milestones' ) ); ?>">Company Milestones</a></li>
-                                    <li><a href="<?php echo esc_url( home_url( '/awards' ) ); ?>">Awards & Certifications</a></li>
+                                    <li><a href="<?php echo esc_url( home_url( '/company-milestones' ) ); ?>">Company Milestones <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/menu-arrow.svg' ); ?>" alt="Toggle"></a></li>
+                                    <li><a href="<?php echo esc_url( home_url( '/awards' ) ); ?>">Awards & Certifications <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/menu-arrow.svg' ); ?>" alt="Toggle"></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -331,10 +347,10 @@
                         <div class="mobile_menu_submenu" id="mobile-submenu-services">
                             <div class="mobile_submenu_content">
                                 <ul class="mobile_submenu_list">
-                                    <li><a href="<?php echo esc_url( home_url( '/engineering-design' ) ); ?>">Engineering Design</a></li>
-                                    <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Construction Supervision</a></li>
-                                    <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Project Management</a></li>
-                                    <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Specialized Studies</a></li>
+                                    <li><a href="<?php echo esc_url( home_url( '/engineering-design' ) ); ?>">Engineering Design <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/menu-arrow.svg' ); ?>" alt="Toggle"></a></li>
+                                    <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Construction Supervision <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/menu-arrow.svg' ); ?>" alt="Toggle"></a></li>
+                                    <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Project Management <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/menu-arrow.svg' ); ?>" alt="Toggle"></a></li>
+                                    <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Specialized Studies <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/menu-arrow.svg' ); ?>" alt="Toggle"></a></li>
                                 </ul>
                             </div>
                         </div>

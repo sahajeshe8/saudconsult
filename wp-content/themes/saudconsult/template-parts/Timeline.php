@@ -1,4 +1,17 @@
- 
+<?php
+/**
+ * Timeline Section Component Template
+ *
+ * @package tasheel
+ */
+
+// Extract data from args array passed from get_template_part()
+$args = isset( $args ) ? $args : array();
+
+// Set default values or use passed values
+$section_class = isset( $args['section_class'] ) ? $args['section_class'] : '';
+
+?>
 
 <section class="timeline_section pt_80 pb_80 <?php echo esc_attr( $section_class ); ?>">
 	<div class="wrap">

@@ -36,7 +36,7 @@ $wrapper_class_string = implode( ' ', array_map( 'esc_attr', $wrapper_classes ) 
 	<div class="wrap">
 		<div class="design_scope_container">
 			<?php if ( $title || $title_span ) : ?>
-				<div class="design_scope_title_wrapper">
+				<div class="design_scope_title_wrapper" data-aos="fade-up" data-aos-delay="0">
 					<h2 class="design_scope_title">
 						<?php if ( $title ) : ?>
 							<span class="design_scope_title_bold"><?php echo wp_kses_post( $title ); ?></span>
@@ -49,7 +49,7 @@ $wrapper_class_string = implode( ' ', array_map( 'esc_attr', $wrapper_classes ) 
 			<?php endif; ?>
 
 			<?php if ( $image ) : ?>
-				<div class="design_scope_image_wrapper">
+				<div class="design_scope_image_wrapper" data-aos="fade-up" data-aos-delay="100">
 					<?php if ( $show_play_button && $video_url ) : ?>
 						<a href="<?php echo esc_url( $video_url ); ?>" class="design_scope_video_link" data-fancybox="design-scope-video" data-type="video">
 							<img src="<?php echo esc_url( $image ); ?>" alt="<?php echo esc_attr( $image_alt ); ?>" class="design_scope_image">
@@ -73,15 +73,16 @@ $wrapper_class_string = implode( ' ', array_map( 'esc_attr', $wrapper_classes ) 
 
 			<?php if ( ! empty( $scope_items ) ) : ?>
 				<ul class="design_scope_items_grid">
-					<?php foreach ( $scope_items as $item ) : 
+					<?php foreach ( $scope_items as $index => $item ) : 
 						$icon = isset( $item['icon'] ) ? $item['icon'] : '';
 						$icon_alt = isset( $item['icon_alt'] ) ? $item['icon_alt'] : '';
 						$title_item = isset( $item['title'] ) ? $item['title'] : '';
 						$title_span = isset( $item['title_span'] ) ? $item['title_span'] : '';
 						$description = isset( $item['description'] ) ? $item['description'] : '';
+						$delay = 200 + ($index * 100);
 					?>
 						<?php if ( $title_item ) : ?>
-							<li class="design_scope_item">
+							<li class="design_scope_item" data-aos="fade-up" data-aos-delay="<?php echo esc_attr( $delay ); ?>">
 								<?php if ( $icon ) : ?>
 									<div class="design_scope_item_icon">
 										<img src="<?php echo esc_url( $icon ); ?>" alt="<?php echo esc_attr( $icon_alt ); ?>">

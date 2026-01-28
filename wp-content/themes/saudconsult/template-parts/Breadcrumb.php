@@ -47,8 +47,9 @@ $section_class = isset( $args['section_class'] ) ? $args['section_class'] : '';
 				$item_icon = isset( $item['icon'] ) ? $item['icon'] : false;
 				$is_last = ( $index === count( $breadcrumb_items ) - 1 );
 				$is_active = $is_last || empty( $item_url );
+				$delay = $index * 50;
 			?>
-				<li class="breadcrumb_item <?php echo $is_active ? 'active' : ''; ?>">
+				<li class="breadcrumb_item <?php echo $is_active ? 'active' : ''; ?>" data-aos="fade-up" data-aos-delay="<?php echo esc_attr( $delay ); ?>">
 					<?php if ( $is_active ) : ?>
 						<span class="breadcrumb_text">
 							<?php if ( $item_icon && $index === 0 ) : ?>

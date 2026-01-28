@@ -405,7 +405,7 @@ var swiper = new Swiper(".mySwiper-clients", {
 			spaceBetween: 30,
 			centeredSlides: true,
 			centeredSlidesBounds: !canLoopBase, // Disable bounds when looping
-			loop: canLoopBase,
+			loop: true,
 			loopAdditionalSlides: 1,
 			loopedSlides: canLoopBase ? Math.max(2, Math.ceil(slideCount / 2)) : 0,
 			slideToClickedSlide: true,
@@ -1692,7 +1692,7 @@ var swiper = new Swiper(".mySwiper-clients", {
 					},
 					1024: {
 						slidesPerView: 4,
-						spaceBetween: 24,
+						spaceBetween: 8,
 					},
 				},
 			});
@@ -2318,6 +2318,7 @@ var swiper = new Swiper(".mySwiper-02", {});
 				spaceBetween: 0,
 				slidesPerView:3.5,
 				freeMode: true,
+				loop: true,
 				watchSlidesProgress: true,
 				breakpoints: {
 					640: {
@@ -2339,6 +2340,7 @@ var swiper = new Swiper(".mySwiper-02", {});
 			const mainSwiper = new Swiper(mainSwiperEl, {
 				spaceBetween: 10,
 				slidesPerView: 1,
+				loop: true,
 				thumbs: {
 					swiper: thumbSwiper,
 				},

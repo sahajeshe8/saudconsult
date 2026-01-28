@@ -36,7 +36,7 @@ $milestones  = isset( $args['milestones'] ) ? $args['milestones'] : array(
 	<div class="wrap">
 
 
-   <div class="p-relative d_flex_wrap  align-items-center justify-content-between" data-aos="fade-up" data-aos-duration="800" data-aos-delay="0">
+   <div class="p-relative d_flex_wrap  align-items-center justify-content-between align_end" data-aos="fade-up" data-aos-duration="800" data-aos-delay="0">
    <h3 class="h3_title_50">Our Journey & <br><span>Legacy</span></h3>
    <div class="slider_arrow_block pb_0" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
 					<span class="slider_buttion but_next news_but_next but_black">

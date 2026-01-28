@@ -7,7 +7,7 @@
 
 ?>
 
-<section class="leadership_section pt_80">
+<section class="leadership_section pt_80" style="background: url('<?php echo get_template_directory_uri(); ?>/assets/images/leadershiop_bg_01.svg') no-repeat top left; background-size: 35%;">
 	<div class="wrap">
 
 <div class="leadership_section_inner_content pb_50">

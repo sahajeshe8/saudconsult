@@ -22,6 +22,28 @@
 		let isScrolled = false;
 		let isMenuOpen = false;
 		const isHomePage = document.body.classList.contains('home');
+		
+		// Check if black-header is already set by page template (before any scroll)
+		const hasBlackHeaderFromTemplate = headerSection.classList.contains('black-header');
+
+		// Get logo and contact buttons
+		const logoImg = headerSection.querySelector('.logo_desktop .navbar-brand img');
+		const contactButtons = headerSection.querySelectorAll('.btn_style.btn_transparent[href*="contact"]');
+		
+		// Store original logo src (captured on page load)
+		const originalLogoSrc = logoImg ? logoImg.getAttribute('src') : '';
+		
+		// Determine logo paths (swap between regular and black)
+		const getLogoPath = function(isBlack) {
+			if (!originalLogoSrc) return '';
+			if (isBlack) {
+				// Return black logo path
+				return originalLogoSrc.replace('saudconsult-logo.svg', 'saudconsult-logo-black.svg');
+			} else {
+				// Return regular logo path
+				return originalLogoSrc.replace('saudconsult-logo-black.svg', 'saudconsult-logo.svg');
+			}
+		};
 
 		// Show header immediately on non-home pages (pages without Banner component)
 		if (!isHomePage) {
@@ -30,18 +52,52 @@
 		}
 
 		/**
+		 * Update logo and buttons for sticky header
+		 */
+		const updateStickyHeaderElements = function(isSticky) {
+			// Update logo
+			if (logoImg && originalLogoSrc) {
+				const newLogoSrc = getLogoPath(isSticky);
+				if (newLogoSrc && newLogoSrc !== logoImg.getAttribute('src')) {
+					logoImg.setAttribute('src', newLogoSrc);
+				}
+			}
+			
+			// Update contact buttons
+			contactButtons.forEach(function(btn) {
+				if (isSticky) {
+					// Add btn_green, remove btn_transparent
+					btn.classList.remove('btn_transparent');
+					btn.classList.add('btn_green');
+				} else {
+					// Remove btn_green, add btn_transparent
+					btn.classList.remove('btn_green');
+					btn.classList.add('btn_transparent');
+				}
+			});
+		};
+
+		/**
 		 * Handle scroll event
 		 */
 		const handleScroll = function() {
 			if (window.scrollY > 1) {
 				if (!isScrolled) {
 					isScrolled = true;
-					headerSection.classList.add('scrolled');
+					// Only add if not already present from template
+					if (!hasBlackHeaderFromTemplate) {
+						headerSection.classList.add('black-header');
+						updateStickyHeaderElements(true);
+					}
 				}
 			} else {
 				if (isScrolled) {
 					isScrolled = false;
-					headerSection.classList.remove('scrolled');
+					// Only remove if it wasn't there from template
+					if (!hasBlackHeaderFromTemplate) {
+						headerSection.classList.remove('black-header');
+						updateStickyHeaderElements(false);
+					}
 				}
 			}
 		};
@@ -60,6 +116,17 @@
 			if (menuIcon) {
 				if (isMenuOpen) {
 					menuIcon.classList.add('menu_open');
+					// Scroll header to top when menu opens (mobile view)
+					if (window.innerWidth <= 1024 && headerSection) {
+						window.scrollTo({
+							top: 0,
+							behavior: 'smooth'
+						});
+						// Also ensure header is at top after scroll
+						setTimeout(function() {
+							headerSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+						}, 100);
+					}
 				} else {
 					menuIcon.classList.remove('menu_open');
 				}

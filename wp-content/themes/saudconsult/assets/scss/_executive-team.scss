@@ -60,10 +60,12 @@
 					transform: scale(1.1);
 				}
 			}
+
+		 
 		}
 
 		.leadership_content {
-			padding: 3% 6%;
+			padding:23px 6%;
 			width: 100%;
 			background: #f6f6f6 url('../images/leadershiop_bg_01.png') no-repeat center center;
 			background-size: contain;
@@ -73,7 +75,7 @@
 				font-size: 22px;
 				font-weight: 400;
 				color:#222222;
-				font-family: 'RB';
+				 line-height: 1;
 			}
 
 			p {
@@ -94,7 +96,7 @@
 			flex-wrap: wrap;
 			align-items: center;
 			justify-content: space-between;
-			margin-top: 10px;
+			margin-top: 3px;
 
 			a {
 				display: inline-flex;

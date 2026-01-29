@@ -27,6 +27,15 @@
 			transform: scale(1);
 		}
     }
+
+	.leadership_content{
+		transition: background-color 0.35s ease, background-image 0.35s ease, color 0.35s ease;
+
+		h4{ transition: color 0.35s ease; }
+		p{ transition: color 0.35s ease; }
+
+		svg rect{ transition: fill 0.35s ease; }
+	}
 	
 	&:hover {
 		.leadership_img {
@@ -34,6 +43,19 @@
 				transform: scale(1.1);
 			}
 		}
+
+
+		.leadership_content{ background: #A9D159 url('../images/leadershiop_bg_01_h.png') no-repeat center center !important; background-size: contain  !important;}
+
+		.leadership_content{
+			h4{ color: #fff !important;}
+			p{ color: #fff !important;
+				rect{ fill: #fff !important;}
+			}
+			 
+		}
+
+		rect{ fill: #2388FF;}
 	}
     .leadership_content{ padding:4% 6%; width: 100%; background: #f6f6f6 url('../images/leadershiop_bg_01.png') no-repeat center center; background-size: contain;
         h4{ margin: 0;  font-size: 22px; font-weight: 400; color: #101922;}
@@ -46,7 +68,9 @@
 .custom-leadership-list{
 justify-content: space-between;
 	li{ width: 48%; margin-bottom:80px; 
-	
+		@media screen and (max-width:1024px) {  margin-bottom: 20px; width: 49%; }
 		@media screen and (max-width:700px) { width: 100%; padding-left:1%; padding-right:1%; margin-bottom: 20px; }
+
+	
 	}
 }

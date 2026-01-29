@@ -7,11 +7,15 @@
       }
    }
    .services_section_01_item_02{ width: 33%;
-      p{ font-size: 18px; margin: 0;
+      p{ font-size: 18px; margin: 0; line-height: 1.4; color: #101922;
 	
 	
 	@media screen and (max-width:700px) {
 		font-size: 16px; 
+	}
+
+	b {
+		font-weight: 700;
 	}
 	}
    
@@ -53,8 +57,9 @@
 	
 	img{ 
 		width: 100%; 
-		height: auto;
+		height: 100%;
 		display: block;
+		object-fit: cover;
 		transition: transform 0.5s ease, opacity 0.3s ease;
 		transform: scale(1);
 	}
@@ -68,8 +73,20 @@
 	}
 }
 
-.services_section_item_01_content{ position: absolute; bottom: 0; left: 0; width: 100%;  z-index: 10; padding: 10%;
- h3{ margin: 0; color: #fff; @include px-rem(33); font-weight: 700; line-height: 100%; margin-bottom: 10px;
+.services_section_item_01_content{ 
+	position: absolute; 
+	bottom: 0; 
+	left: 0; 
+	width: 100%;  
+	z-index: 10; 
+	padding: 10%;
+	pointer-events: none; // Disable pointer events on container
+	
+	// Enable pointer events on buttons
+	.btn_style {
+		pointer-events: auto; // Allow clicks on buttons
+	}
+ h3{ margin: 0; color: #fff; @include px-rem(33); font-weight: 700; line-height: 110%; margin-bottom: 15px;
 
    @media screen and (max-width:700px) {
       @include px-rem(73);
@@ -84,7 +101,7 @@
 
 
 }
- p{ margin: 0; color: #fff; line-height: 100%; font-size: 16px;} 
+ p{ margin: 0; color: #fff; line-height: 130%; font-size: 16px; margin-top: 7px;} 
 
 
  .btn_style{ margin-top: 45px;
@@ -413,6 +430,23 @@
 
 // Services Swiper - Static grid on mobile
 .mySwiper-services {
+	height: 577px;
+
+	.swiper-slide {
+		position: relative;
+		&::after {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+            linear-gradient(180deg, rgba(0, 0, 0, 0) 36.57%, rgba(0, 0, 0, 0.6) 100%);
+		}
+	}
+
+
 	@media screen and (max-width: 767px) {
 		.swiper-wrapper {
 			display: flex;

@@ -6,10 +6,33 @@ border-bottom: solid 1px #E1E4ED;
  
 	width: 100%;
 	position: relative;
- 
 
 	.page_tabs_container {
 		width: 100%;
+
+		@media screen and (max-width: 700px) {
+			overflow-x: auto;
+			overflow-y: hidden;
+			-webkit-overflow-scrolling: touch;
+			scrollbar-width: thin;
+			margin-left: -4%;
+			margin-right: -4%;
+			padding-left: 4%;
+			padding-right: 4%;
+
+			&::-webkit-scrollbar {
+				height: 4px;
+			}
+
+			&::-webkit-scrollbar-track {
+				background: transparent;
+			}
+
+			&::-webkit-scrollbar-thumb {
+				background: #A8D05A;
+				border-radius: 2px;
+			}
+		}
 
 		.page_tabs_nav {
 			display: flex;
@@ -17,6 +40,16 @@ border-bottom: solid 1px #E1E4ED;
 			padding: 0;
             justify-content: center;
             margin: 0;
+			list-style: none;
+
+			@media screen and (max-width: 700px) {
+				flex-wrap: nowrap !important;
+				justify-content: flex-start;
+				padding: 0;
+				width: max-content;
+				min-width: 100%;
+				white-space: nowrap;
+			}
 		 
 			.page_tabs_item {
 				margin: 0;
@@ -27,8 +60,25 @@ border-bottom: solid 1px #E1E4ED;
 				margin-top: 3px;
 				margin-bottom: 3px;
 
+				@media screen and (max-width: 700px) {
+					flex-shrink: 0 !important;
+					flex-grow: 0;
+					margin-left: 5px;
+					margin-right: 5px;
+					white-space: nowrap;
+
+					&:first-child {
+						margin-left: 0;
+					}
+
+					&:last-child {
+						margin-right: 0;
+					}
+				}
+
 				.page_tabs_link {
 					display: inline-flex;
+					white-space: nowrap;
                     
 					padding: 10px;
                     color: #000;
@@ -51,7 +101,11 @@ border-bottom: solid 1px #E1E4ED;
                     }
 
 					@media screen and (max-width: 700px) {
-						font-size: 13px; background: #eef1e8; padding: 7px; border-radius: 6px;
+						font-size: 13px; 
+						background: #eef1e8; 
+						padding: 7px; 
+						border-radius: 6px;
+						white-space: nowrap;
 					}
 				 
 				}

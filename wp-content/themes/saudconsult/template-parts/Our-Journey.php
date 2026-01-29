@@ -32,7 +32,7 @@ $milestones  = isset( $args['milestones'] ) ? $args['milestones'] : array(
 
 ?>
 
-<section class="our_journey_section pt_80 pb_80 bg-style">
+<section class="our_journey_section pt_120 pb_120 bg-style">
 	<div class="wrap">
 
 

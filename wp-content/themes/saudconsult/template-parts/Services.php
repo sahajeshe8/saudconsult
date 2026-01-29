@@ -7,7 +7,7 @@
 
 ?>
 
-<section class="services_section pt_80 pb_80">
+<section class="services_section pt_80  ">
 	<div class="wrap">
 		<span class="lable_text green_text" data-aos="fade-up" data-aos-duration="800" data-aos-delay="0">
 			<img src="<?php echo get_template_directory_uri(); ?>/assets/images/dot-02.svg" alt="Our Comprehensive Services">
@@ -15,7 +15,7 @@
 		</span>
 
 		<div class="services_section_01">
-			<div class="services_section_01_item_01 pt_40" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+			<div class="services_section_01_item_01 pt_20" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
 				<h3 class="h3_title_50">
 					Explore Our Full Range <br>of <span>Professional Services</span>
 				</h3>
@@ -61,7 +61,7 @@
 					<p>
 					Providing on-site assurance and quality management to ensure execution..
 					</p>
-					<a class="btn_style btn_transparent" href="<?php echo esc_url( home_url( '/contact' ) ); ?>">
+					<a class="btn_style btn_transparent short" href="<?php echo esc_url( home_url( '/engineering-design' ) ); ?>">
 						View more <span><img src="<?php echo get_template_directory_uri(); ?>/assets/images/arrow-buttion.svg" alt="View more"></span>
 					</a>
 				</div>
@@ -81,7 +81,7 @@
 					<p>
 					Offering end-to-end management consultancy (PMC) to control scope.
 					</p>
-					<a class="btn_style btn_transparent" href="<?php echo esc_url( home_url( '/contact' ) ); ?>">
+					<a class="btn_style btn_transparent short" href="<?php echo esc_url( home_url( '/engineering-design' ) ); ?>">
 						View more <span><img src="<?php echo get_template_directory_uri(); ?>/assets/images/arrow-buttion.svg" alt="View more"></span>
 					</a>
 				</div>
@@ -101,12 +101,12 @@
 					<p>
 					Conducting essential pre-design work, including feasibility studies..
 					</p>
-					<a class="btn_style btn_transparent" href="<?php echo esc_url( home_url( '/contact' ) ); ?>">
+					<a class="btn_style btn_transparent short" href="<?php echo esc_url( home_url( '/engineering-design' ) ); ?>">
 						View more <span><img src="<?php echo get_template_directory_uri(); ?>/assets/images/arrow-buttion.svg" alt="View more"></span>
 					</a>
 				</div>
 				<div class="services_section_item_01">
-					<img src="<?php echo get_template_directory_uri(); ?>/assets/images/service-04.jpg" alt="Services">
+					<img src="<?php echo get_template_directory_uri(); ?>/assets/imagesservice-04.jpg" alt="Services">
 				</div>
 			</div>
 
@@ -118,10 +118,10 @@
 					<h5>
 					Quality Assurance
 					</h5>
-					<p>
+					<p>/
 					Providing on-site assurance and quality management to ensure execution..
 					</p>
-					<a class="btn_style btn_transparent" href="<?php echo esc_url( home_url( '/contact' ) ); ?>">
+					<a class="btn_style btn_transparent short" href="<?php echo esc_url( home_url( '/engineering-design' ) ); ?>">
 						View more <span><img src="<?php echo get_template_directory_uri(); ?>/assets/images/arrow-buttion.svg" alt="View more"></span>
 					</a>
 				</div>

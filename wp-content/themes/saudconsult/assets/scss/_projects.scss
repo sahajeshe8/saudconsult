@@ -131,7 +131,7 @@
     .slider_buttion{ cursor: pointer;  width: 58px; height: 58px; border-radius: 100%; background: #A9D159; display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
         &.but_prev{ transform: rotate(180deg);}
         &:hover{ background: #fff;
-            img{ filter: invert(1); }
+            // img{ filter: invert(1); }
         }
 
        

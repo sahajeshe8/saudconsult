@@ -28,12 +28,24 @@
 			padding: 30px;
 		}
 
-		 
+		&:hover {
+			.mission_vision_icon {
+				.icon-default {
+					opacity: 0;
+				}
+
+				.icon-hover {
+					opacity: 1;
+				}
+			}
+		}
 	}
 
 	.mission_vision_icon {
 		margin-bottom: 24px;
 		width: 123px;
+		height: 120px;
+		position: relative;
 	 
 		display: flex;
 		align-items: center;
@@ -43,6 +55,20 @@
 			width: 100%;
 			height: 100%;
 			object-fit: contain;
+			transition: opacity 0.3s ease;
+		}
+
+		.icon-default {
+			opacity: 1;
+		}
+
+		.icon-hover {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			opacity: 0;
 		}
 
 		@media screen and (max-width: 768px) {

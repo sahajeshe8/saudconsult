@@ -240,20 +240,5 @@
 	}
 }
 
-// Fancybox Custom Styles (optional overrides)
-.fancybox__container {
-	z-index: 99999;
-}
-
-.fancybox__backdrop {
-	background: rgba(0, 0, 0, 0.95);
-}
-
-.fancybox__caption {
-	background: rgba(0, 0, 0, 0.7);
-	padding: 10px 20px;
-	border-radius: 5px;
-	font-size: 16px;
-	color: #fff;
-}
+// Fancybox styles moved to assets/scss/_fancybox.scss
 

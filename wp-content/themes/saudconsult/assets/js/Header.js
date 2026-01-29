@@ -60,6 +60,17 @@
 			if (menuIcon) {
 				if (isMenuOpen) {
 					menuIcon.classList.add('menu_open');
+					// Scroll header to top when menu opens (mobile view)
+					if (window.innerWidth <= 1024 && headerSection) {
+						window.scrollTo({
+							top: 0,
+							behavior: 'smooth'
+						});
+						// Also ensure header is at top after scroll
+						setTimeout(function() {
+							headerSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+						}, 100);
+					}
 				} else {
 					menuIcon.classList.remove('menu_open');
 				}

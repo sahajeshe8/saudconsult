@@ -316,6 +316,7 @@
             </div>
 
             <div id="mobileMenuOverlay" class="mobile_menu_overlay">
+				<div class="mobile_menu_overlay_inner">
                 <ul class="mobile_menu_list">
                     <!-- Company with submenu -->
                     <li class="mobile_menu_item mobile_menu_item_has_submenu">
@@ -374,6 +375,7 @@
                     <!-- Contact -->
                     <li class="mobile_menu_item"><a href="<?php echo esc_url( home_url( '/contact' ) ); ?>">Contact</a></li>
                 </ul>
+			</div>
             </div>
 
             </div>

@@ -4355,8 +4355,35 @@ a,
   transition: transform 0.5s ease;
   transform: scale(1);
 }
+.leadership_block .leadership_content {
+  transition: background-color 0.35s ease, background-image 0.35s ease, color 0.35s ease;
+}
+.leadership_block .leadership_content h4 {
+  transition: color 0.35s ease;
+}
+.leadership_block .leadership_content p {
+  transition: color 0.35s ease;
+}
+.leadership_block .leadership_content svg rect {
+  transition: fill 0.35s ease;
+}
 .leadership_block:hover .leadership_img img {
   transform: scale(1.1);
+}
+.leadership_block:hover .leadership_content {
+  background: #A9D159 url("../images/leadershiop_bg_01_h.png") no-repeat center center;
+}
+.leadership_block:hover .leadership_content h4 {
+  color: #fff;
+}
+.leadership_block:hover .leadership_content p {
+  color: #fff;
+}
+.leadership_block:hover .leadership_content p rect {
+  fill: #fff;
+}
+.leadership_block:hover rect {
+  fill: #2388FF;
 }
 .leadership_block .leadership_content {
   padding: 4% 6%;

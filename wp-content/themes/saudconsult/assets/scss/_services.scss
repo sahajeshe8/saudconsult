@@ -73,8 +73,20 @@
 	}
 }
 
-.services_section_item_01_content{ position: absolute; bottom: 0; left: 0; width: 100%;  z-index: 10; padding: 10%;
- h3{ margin: 0; color: #fff; @include px-rem(33); font-weight: 700; line-height: 100%; margin-bottom: 10px;
+.services_section_item_01_content{ 
+	position: absolute; 
+	bottom: 0; 
+	left: 0; 
+	width: 100%;  
+	z-index: 10; 
+	padding: 10%;
+	pointer-events: none; // Disable pointer events on container
+	
+	// Enable pointer events on buttons
+	.btn_style {
+		pointer-events: auto; // Allow clicks on buttons
+	}
+ h3{ margin: 0; color: #fff; @include px-rem(33); font-weight: 700; line-height: 110%; margin-bottom: 15px;
 
    @media screen and (max-width:700px) {
       @include px-rem(73);
@@ -89,7 +101,7 @@
 
 
 }
- p{ margin: 0; color: #fff; line-height: 130%; font-size: 16px; margin-top: 5px;} 
+ p{ margin: 0; color: #fff; line-height: 130%; font-size: 16px; margin-top: 7px;} 
 
 
  .btn_style{ margin-top: 45px;

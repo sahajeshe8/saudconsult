@@ -30,7 +30,7 @@ $about_button_link = get_theme_mod( 'about_button_link', '#' );
 			 <p>Saud Consult has been integral to shaping the nation's built environment. Our foundation is built on deep local understanding, navigating the complexities of the Saudi landscape, coupled with advanced international technical expertise.</p>
 		 
 			 <a class="btn_style btn_transparent" href="<?php echo esc_url( home_url( '/contact' ) ); ?>">
-Explore Our Expertise <span><img src="<?php echo get_template_directory_uri(); ?>/assets/images/buttion-arrow.svg" alt="Explore Our Expertise"></span>        
+			 Learn more about us <span><img src="<?php echo get_template_directory_uri(); ?>/assets/images/buttion-arrow.svg" alt="Explore Our Expertise"></span>        
                     </a>
 			
 			</div>

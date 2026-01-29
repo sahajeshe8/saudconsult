@@ -192,10 +192,6 @@ html{
 
    p{ margin: 0;} 
 
-   .title_block_left{
-      p{ color: #000;}
-   }
-
    // .title_block_left{ width: 50%;}
    // .title_block_right{ width: 50%;}
 
@@ -259,8 +255,6 @@ position: relative;
 
 }
 
-.align_end{ align-items: flex-end;}
-
 .font-light{ font-weight: 300 !important ; display: block !important;}
 
 .bg_img_02{ background: url(../images/bg-img-03.svg) no-repeat center left; background-size: contain;}
@@ -273,14 +267,14 @@ position: relative;
 
 .mobile_hide{
    @media screen and (max-width: 700px) {
-      display: none !important;
+      display: none;
    }
 }
 
 
 .mobile_show{ display: none !important;
 @media screen and (max-width: 700px) {
-   display: flex  !important;
+   display: flex;
 }
 }
 

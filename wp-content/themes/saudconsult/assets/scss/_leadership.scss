@@ -45,12 +45,12 @@
 		}
 
 
-		.leadership_content{ background: #A9D159 url('../images/leadershiop_bg_01_h.png') no-repeat center center; background-size: contain ;}
+		.leadership_content{ background: #A9D159 url('../images/leadershiop_bg_01_h.png') no-repeat center center !important; background-size: contain  !important;}
 
 		.leadership_content{
-			h4{ color: #fff;}
-			p{ color: #fff;
-				rect{ fill: #fff;}
+			h4{ color: #fff !important;}
+			p{ color: #fff !important;
+				rect{ fill: #fff !important;}
 			}
 			 
 		}

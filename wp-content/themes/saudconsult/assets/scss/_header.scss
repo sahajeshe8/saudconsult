@@ -1,22 +1,60 @@
+
+.header_activated{ overflow: hidden;}
 .header-main {
-  position: absolute; width:100%; top:0; z-index:100; padding-top: 25px; padding-bottom: 25px;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+  padding-top: 46px;
+  padding-bottom: 25px;
+  transition: background 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease, transform 0.3s ease;
 
+  .logo_desktop {
+    width: 233px;
 
-   .logo_desktop{ width: 221px;
+    @media (max-width: 1024px) {
+      width: 150px;
+      position: relative;
+      z-index: 100;
+    }
+  }
+
+  .btn_style {
+    border-radius: 100px;
+    background: #fff;
+    color: #000;
+  }
+}
+
+// Sticky header on scroll (using black-header class)
+.header-main.black-header {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 120;
+  background: #fff !important;
+  padding-top: 20px !important;
+  padding-bottom: 15px !important;
   
-  @media (max-width: 1024px) {
-    width: 150px; position: relative; z-index: 100;
+  .logo_desktop {
+    width: 180px;
+    
+    @media (max-width: 1024px) {
+      width: 120px;
+    }
   }
-  }
-
-   .btn_style{ border-radius: 100px; background: #fff; color: #000;}
 }
 
 
 .header_main_wrapper{ display: flex; flex-wrap: wrapl; justify-content: space-between; position: relative;}
 
 .desk_nav_right { width:calc(100% - 221px);  display: flex; flex-wrap: wrap; justify-content: flex-end;
+.language_button{
 
+  @media (min-width: 1024px) { margin-bottom: 10px;}
+}
 
 // @media (max-width: 1440px) {
 
@@ -31,7 +69,7 @@
 
 }
 
-.nav-link{ display: flex; flex-wrap: wrap; align-items: center; gap: 5px;}
+.nav-link{ display: flex; flex-wrap: wrap; align-items: center; gap: 8px;}
 
 .menu_right_block{ display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center; gap: 20px; }
 
@@ -46,7 +84,16 @@
 .list-unstyled{ display: flex; flex-wrap:wrap; margin-bottom: 0; padding: 0; margin-top: 0;}
 
  
-.button_link, .list-unstyled li a { font-family: 'RB'; color: #fff; font-size: 16px; font-weight: 400;}
+.button_link, .list-unstyled li a { font-family: 'RB'; color: #fff; font-size: 16px; font-weight: 400;
+
+  &:hover{ color: #A9D159;}
+  
+  &.active{ color: #A9D159; font-weight: 500;}
+}
+
+.list-unstyled li.nav-item.active{
+  .nav-link{ color: #A9D159; font-weight: 500;}
+}
 
 .list-unstyled li{ padding: 0 15px;
   
@@ -104,6 +151,19 @@
 		display: block; 
 		padding: 8px 0; 
 		flex: 1; // Allow link to take available space
+		transition: color 0.3s ease;
+		
+		&.active{ 
+			color: #A9D159; 
+			font-weight: 600;
+		}
+	}
+	
+	&.active{
+		a{ 
+			color: #A9D159; 
+			font-weight: 600;
+		}
 	}
 	
 	&.mobile_menu_item_has_submenu{
@@ -281,16 +341,16 @@
   background: linear-gradient(
     83.71deg,
     rgba(13, 106, 55, 1) 25%,
-    rgba(169, 209, 89, 1) 100%
+    rgba(117 174 78) 100%
   );
   .sub_menu_block_inner{ align-items: center; padding: 5% 9%; display: flex; flex-wrap: wrap; width: 100%; height: 100%; background: url('../images/megamenu-bg.svg') no-repeat 90% center; background-size: contain;
   
-    .sub_menu_block_left_block{ width: 35%; padding-top: 50px; padding-bottom: 50px;   padding-right: 4%; border-right: 1px solid  rgba(255, 255, 255, 0.3);
+    .sub_menu_block_left_block{ width:38%; padding-top: 50px; padding-bottom: 50px;   padding-right: 4%; border-right: 1px solid  rgba(255, 255, 255, 0.3);
     
       h3{ color: #fff;   font-size: 34px; font-weight: 500; line-height: 100%; margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 20px;}
     p{ color: #fff;  font-size: 18px; line-height: 28px;  font-weight: 300;  margin: 0; line-height: 145%;}
     }
-    .sub_menu_block_right_block{ width: 65%; padding-left: 4%; padding-right: 4%; 
+    .sub_menu_block_right_block{ width: 57%; padding-left: 4%; padding-right: 4%; 
     
       .list-submenu{ margin: 0; padding: 0;
 
@@ -331,6 +391,13 @@
 
 .header_activated{
   .menu_toggle{ background: #A9D159;}
+}
+
+// Prevent body scroll when menu is open
+.overflow_body_hidden {
+  overflow: hidden !important;
+  height: 100vh;
+  position: relative;
 }
 
 .mobile_menu_overlay_inner{ width: 100%; height: 100%; overflow: auto;}

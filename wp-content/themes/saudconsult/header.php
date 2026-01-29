@@ -120,6 +120,69 @@
 	$logo_filename = $is_black_header ? 'saudconsult-logo-black.svg' : 'saudconsult-logo.svg';
 	$logo_path = get_template_directory() . '/assets/images/' . $logo_filename;
 	$logo_url = get_template_directory_uri() . '/assets/images/' . $logo_filename;
+	
+	// Helper function to check if a URL matches the current page
+	if ( ! function_exists( 'is_current_menu_item' ) ) {
+		function is_current_menu_item( $url ) {
+			// Get menu URL path
+			$menu_url = esc_url( $url );
+			$menu_path = parse_url( $menu_url, PHP_URL_PATH );
+			$menu_path = untrailingslashit( $menu_path );
+			$menu_slug = basename( $menu_path );
+			
+			// Get current request URI
+			$request_uri = isset( $_SERVER['REQUEST_URI'] ) ? $_SERVER['REQUEST_URI'] : '';
+			$request_path = untrailingslashit( parse_url( $request_uri, PHP_URL_PATH ) );
+			
+			// Check if request path matches menu path
+			if ( $request_path === $menu_path || $request_path === $menu_path . '/' ) {
+				return true;
+			}
+			
+			// Check using WordPress functions
+			if ( is_page() ) {
+				global $post;
+				if ( $post ) {
+					$page_slug = $post->post_name;
+					$page_uri = get_page_uri( $post->ID );
+					
+					// Check by slug
+					if ( $menu_slug === $page_slug ) {
+						return true;
+					}
+					
+					// Check by URI
+					if ( $page_uri && ( $menu_path === '/' . $page_uri || $menu_path === '/' . basename( $page_uri ) ) ) {
+						return true;
+					}
+					
+					// Check by permalink
+					$page_permalink = get_permalink( $post->ID );
+					$page_permalink_path = untrailingslashit( parse_url( $page_permalink, PHP_URL_PATH ) );
+					if ( $page_permalink_path === $menu_path ) {
+						return true;
+					}
+				}
+			}
+			
+			// Check if current page is a child of the menu URL
+			if ( $menu_path && $request_path && strpos( $request_path, $menu_path ) === 0 ) {
+				return true;
+			}
+			
+			// Final check: compare current URL with menu URL
+			$current_url = home_url( $request_uri );
+			$current_path = untrailingslashit( parse_url( $current_url, PHP_URL_PATH ) );
+			if ( $current_path === $menu_path ) {
+				return true;
+			}
+			
+			return false;
+		}
+	}
+	
+	// Get current page URL for comparison
+	$current_page_url = home_url( $_SERVER['REQUEST_URI'] );
 	?>
 	<header class="<?php echo esc_attr( $header_class_string ); ?>" id="headerMainSection">
    <div class="wrap">
@@ -137,8 +200,19 @@
  <div class="desk_nav_right">
                 <div class="navbar nav_desk">
                     <ul class="list-unstyled">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link" >
+                        <?php
+                        // Check if Company menu should be active
+                        $company_pages = array( '/about-us', '/our-team', '/leadership', '/our-journey-legacy', '/vision-mission-values', '/company-milestones', '/awards' );
+                        $is_company_active = false;
+                        foreach ( $company_pages as $page ) {
+                            if ( strpos( $_SERVER['REQUEST_URI'], $page ) !== false ) {
+                                $is_company_active = true;
+                                break;
+                            }
+                        }
+                        ?>
+                        <li class="nav-item <?php echo $is_company_active ? 'active' : ''; ?>">
+                            <a href="#" class="nav-link <?php echo $is_company_active ? 'active' : ''; ?>" >
 							Company  <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/menu-arrow-01.svg' ); ?>" alt="Arrow Down">
                             </a>
 
@@ -153,43 +227,69 @@
 									</div>
 								 <div class="sub_menu_block_right_block">
 									 <ul class="list-submenu colom-2">
-										<li>
-											<a href="<?php echo esc_url( home_url( '/about-us' ) ); ?>">
+										<?php
+										$about_us_url = home_url( '/about-us' );
+										$about_us_active = is_current_menu_item( $about_us_url );
+										?>
+										<li class="<?php echo $about_us_active ? 'active' : ''; ?>">
+											<a href="<?php echo esc_url( $about_us_url ); ?>" class="<?php echo $about_us_active ? 'active' : ''; ?>">
 											Who We Are <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/menu-arrow.svg' ); ?>" alt="Arrow Down">
 											</a>
 										</li>
-										<li>
-										<a href="<?php echo esc_url( home_url( '/our-team' ) ); ?>">
-										Our Team  <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/menu-arrow.svg' ); ?>" alt="Arrow Down">
+										<?php
+										$our_team_url = home_url( '/our-team' );
+										$our_team_active = is_current_menu_item( $our_team_url );
+										?>
+										<li class="<?php echo $our_team_active ? 'active' : ''; ?>">
+										<a href="<?php echo esc_url( $our_team_url ); ?>" class="<?php echo $our_team_active ? 'active' : ''; ?>">
+										Our Team  <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/menu-arrow.svg' ); ?>" alt="Arrow Down">
 											</a>
 										</li>
-										<li>
-										<a href="<?php echo esc_url( home_url( '/leadership' ) ); ?>">
+										<?php
+										$leadership_url = home_url( '/leadership' );
+										$leadership_active = is_current_menu_item( $leadership_url );
+										?>
+										<li class="<?php echo $leadership_active ? 'active' : ''; ?>">
+										<a href="<?php echo esc_url( $leadership_url ); ?>" class="<?php echo $leadership_active ? 'active' : ''; ?>">
 										Leadership <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/menu-arrow.svg' ); ?>" alt="Arrow Down">
 											</a>
 										</li>
-										<li>
-										<a href="<?php echo esc_url( home_url( '/our-journey-legacy' ) ); ?>">
+										<?php
+										$journey_url = home_url( '/our-journey-legacy' );
+										$journey_active = is_current_menu_item( $journey_url );
+										?>
+										<li class="<?php echo $journey_active ? 'active' : ''; ?>">
+										<a href="<?php echo esc_url( $journey_url ); ?>" class="<?php echo $journey_active ? 'active' : ''; ?>">
 										Our Journey & Legacy <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/menu-arrow.svg' ); ?>" alt="Arrow Down">
 											</a>
 										</li>
 
-
-										<li>
-										<a href="<?php echo esc_url( home_url( '/vision-mission-values' ) ); ?>">
+										<?php
+										$vision_url = home_url( '/vision-mission-values' );
+										$vision_active = is_current_menu_item( $vision_url );
+										?>
+										<li class="<?php echo $vision_active ? 'active' : ''; ?>">
+										<a href="<?php echo esc_url( $vision_url ); ?>" class="<?php echo $vision_active ? 'active' : ''; ?>">
 										Vision, Mission & Values <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/menu-arrow.svg' ); ?>" alt="Arrow Down">
 											</a>
 										</li>
 
-
-										<li>
-										<a href="<?php echo esc_url( home_url( '/company-milestones' ) ); ?>">
+										<?php
+										$milestones_url = home_url( '/company-milestones' );
+										$milestones_active = is_current_menu_item( $milestones_url );
+										?>
+										<li class="<?php echo $milestones_active ? 'active' : ''; ?>">
+										<a href="<?php echo esc_url( $milestones_url ); ?>" class="<?php echo $milestones_active ? 'active' : ''; ?>">
 										Company Milestones <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/menu-arrow.svg' ); ?>" alt="Arrow Down">
 											</a>
 										</li>
 
-										<li>
-										<a href="<?php echo esc_url( home_url( '/awards' ) ); ?>">
+										<?php
+										$awards_url = home_url( '/awards' );
+										$awards_active = is_current_menu_item( $awards_url );
+										?>
+										<li class="<?php echo $awards_active ? 'active' : ''; ?>">
+										<a href="<?php echo esc_url( $awards_url ); ?>" class="<?php echo $awards_active ? 'active' : ''; ?>">
 										Awards & Certifications <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/menu-arrow.svg' ); ?>" alt="Arrow Down">
 											</a>
 										</li>
@@ -199,8 +299,13 @@
 							</div>
 							 
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="<?php echo esc_url( home_url( '/products' ) ); ?>">
+                        <?php
+                        // Check if Services menu should be active
+                        $services_url = home_url( '/products' );
+                        $services_active = is_current_menu_item( $services_url ) || strpos( $_SERVER['REQUEST_URI'], '/services' ) !== false || strpos( $_SERVER['REQUEST_URI'], '/engineering-design' ) !== false;
+                        ?>
+                        <li class="nav-item <?php echo $services_active ? 'active' : ''; ?>">
+                            <a class="nav-link <?php echo $services_active ? 'active' : ''; ?>" href="<?php echo esc_url( $services_url ); ?>">
 							Services  <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/menu-arrow-01.svg' ); ?>" alt="Arrow Down">
                             </a>
 							<div class="sub_menu_block">
@@ -214,23 +319,42 @@
 									</div>
 								 <div class="sub_menu_block_right_block">
 									 <ul class="list-submenu  ">
-										<li>
-											<a href="<?php echo esc_url( home_url( '/engineering-design' ) ); ?>">
+										<?php
+										$engineering_url = home_url( '/engineering-design' );
+										$engineering_active = is_current_menu_item( $engineering_url );
+										?>
+										<li class="<?php echo $engineering_active ? 'active' : ''; ?>">
+											<a href="<?php echo esc_url( $engineering_url ); ?>" class="<?php echo $engineering_active ? 'active' : ''; ?>">
 											Engineering Design <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/menu-arrow.svg' ); ?>" alt="Arrow Down">
 											</a>
 										</li>
-										<li>
-										<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+										<?php
+										$construction_url = home_url( '/#' );
+										// Don't check active class if URL is just a hash placeholder
+										$construction_active = false;
+										?>
+										<li class="<?php echo $construction_active ? 'active' : ''; ?>">
+										<a href="<?php echo esc_url( $construction_url ); ?>" class="<?php echo $construction_active ? 'active' : ''; ?>">
 										Construction Supervision <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/menu-arrow.svg' ); ?>" alt="Arrow Down">
 											</a>
 										</li>
-										<li>
-										<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+										<?php
+										$project_mgmt_url = home_url( '/#' );
+										// Don't check active class if URL is just a hash placeholder
+										$project_mgmt_active = false;
+										?>
+										<li class="<?php echo $project_mgmt_active ? 'active' : ''; ?>">
+										<a href="<?php echo esc_url( $project_mgmt_url ); ?>" class="<?php echo $project_mgmt_active ? 'active' : ''; ?>">
 										Project Management <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/menu-arrow.svg' ); ?>" alt="Arrow Down">
 											</a>
 										</li>
-										<li>
-										<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+										<?php
+										$specialized_url = home_url( '/#' );
+										// Don't check active class if URL is just a hash placeholder
+										$specialized_active = false;
+										?>
+										<li class="<?php echo $specialized_active ? 'active' : ''; ?>">
+										<a href="<?php echo esc_url( $specialized_url ); ?>" class="<?php echo $specialized_active ? 'active' : ''; ?>">
 										Specialized Studies <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/menu-arrow.svg' ); ?>" alt="Arrow Down">
 											</a>
 										</li>
@@ -241,23 +365,42 @@
 							</div>
 							
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="<?php echo esc_url( home_url( '/projects' ) ); ?>">
+                        <?php
+                        $projects_url = home_url( '/projects' );
+                        $projects_active = is_current_menu_item( $projects_url );
+                        ?>
+                        <li class="nav-item <?php echo $projects_active ? 'active' : ''; ?>">
+                            <a class="nav-link <?php echo $projects_active ? 'active' : ''; ?>" href="<?php echo esc_url( $projects_url ); ?>">
 							Projects
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="<?php echo esc_url( home_url( '/clients' ) ); ?>">
+                        <?php
+                        $clients_url = home_url( '/clients' );
+                        // Check if on clients page using multiple methods
+                        $clients_active = is_current_menu_item( $clients_url ) || 
+                                         ( is_page() && ( get_page_uri() === 'clients' || basename( get_permalink() ) === 'clients' ) ) ||
+                                         ( isset( $_SERVER['REQUEST_URI'] ) && strpos( $_SERVER['REQUEST_URI'], '/clients' ) !== false );
+                        ?>
+                        <li class="nav-item <?php echo $clients_active ? 'active' : ''; ?>">
+                            <a class="nav-link <?php echo $clients_active ? 'active' : ''; ?>" href="<?php echo esc_url( $clients_url ); ?>">
 							Clients
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="<?php echo esc_url( home_url( '/media-center' ) ); ?>">
+                        <?php
+                        $media_center_url = home_url( '/media-center' );
+                        $media_center_active = is_current_menu_item( $media_center_url );
+                        ?>
+                        <li class="nav-item <?php echo $media_center_active ? 'active' : ''; ?>">
+                            <a class="nav-link <?php echo $media_center_active ? 'active' : ''; ?>" href="<?php echo esc_url( $media_center_url ); ?>">
 							Media Center 
                             </a>
                         </li>
-						<li class="nav-item">
-                            <a class="nav-link" href="<?php echo esc_url( home_url( '/careers' ) ); ?>">
+						<?php
+                        $careers_url = home_url( '/careers' );
+                        $careers_active = is_current_menu_item( $careers_url );
+                        ?>
+						<li class="nav-item <?php echo $careers_active ? 'active' : ''; ?>">
+                            <a class="nav-link <?php echo $careers_active ? 'active' : ''; ?>" href="<?php echo esc_url( $careers_url ); ?>">
 							Careers
                             </a>
                         </li>
@@ -266,8 +409,12 @@
 
 
 
-						<li class="nav-item">
-                            <a class="nav-link" href="<?php echo esc_url( home_url( '/vendor-registration' ) ); ?>">
+						<?php
+                        $vendor_url = home_url( '/vendor-registration' );
+                        $vendor_active = is_current_menu_item( $vendor_url );
+                        ?>
+						<li class="nav-item <?php echo $vendor_active ? 'active' : ''; ?>">
+                            <a class="nav-link <?php echo $vendor_active ? 'active' : ''; ?>" href="<?php echo esc_url( $vendor_url ); ?>">
 							Vendor Registration
                             </a>
                         </li>
@@ -319,8 +466,8 @@
 				<div class="mobile_menu_overlay_inner">
                 <ul class="mobile_menu_list">
                     <!-- Company with submenu -->
-                    <li class="mobile_menu_item mobile_menu_item_has_submenu">
-                        <a href="<?php echo esc_url( home_url( '/about-us' ) ); ?>">Company</a>
+                    <li class="mobile_menu_item mobile_menu_item_has_submenu <?php echo $is_company_active ? 'active' : ''; ?>">
+                        <a href="<?php echo esc_url( home_url( '/about-us' ) ); ?>" class="<?php echo $is_company_active ? 'active' : ''; ?>">Company</a>
                         <span class="mobile_menu_submenu_toggle" data-submenu="mobile-submenu-company">
                             <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/menu-arrow-01.svg' ); ?>" alt="Toggle">
                         </span>
@@ -340,8 +487,8 @@
                     </li>
                     
                     <!-- Services with submenu -->
-                    <li class="mobile_menu_item mobile_menu_item_has_submenu">
-                        <a href="<?php echo esc_url( home_url( '/services' ) ); ?>">Services</a>
+                    <li class="mobile_menu_item mobile_menu_item_has_submenu <?php echo $services_active ? 'active' : ''; ?>">
+                        <a href="<?php echo esc_url( home_url( '/services' ) ); ?>" class="<?php echo $services_active ? 'active' : ''; ?>">Services</a>
                         <span class="mobile_menu_submenu_toggle" data-submenu="mobile-submenu-services">
                             <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/menu-arrow-01.svg' ); ?>" alt="Toggle">
                         </span>
@@ -358,22 +505,32 @@
                     </li>
                     
                     <!-- Projects -->
-                    <li class="mobile_menu_item"><a href="<?php echo esc_url( home_url( '/projects' ) ); ?>">Projects</a></li>
+                    <li class="mobile_menu_item <?php echo $projects_active ? 'active' : ''; ?>"><a href="<?php echo esc_url( home_url( '/projects' ) ); ?>" class="<?php echo $projects_active ? 'active' : ''; ?>">Projects</a></li>
                     
                     <!-- Clients -->
-                    <li class="mobile_menu_item"><a href="<?php echo esc_url( home_url( '/clients' ) ); ?>">Clients</a></li>
+                    <?php
+                    // Re-check clients active state for mobile (same logic)
+                    $clients_active_mobile = is_current_menu_item( $clients_url ) || 
+                                             ( is_page() && ( get_page_uri() === 'clients' || basename( get_permalink() ) === 'clients' ) ) ||
+                                             ( isset( $_SERVER['REQUEST_URI'] ) && strpos( $_SERVER['REQUEST_URI'], '/clients' ) !== false );
+                    ?>
+                    <li class="mobile_menu_item <?php echo $clients_active_mobile ? 'active' : ''; ?>"><a href="<?php echo esc_url( home_url( '/clients' ) ); ?>" class="<?php echo $clients_active_mobile ? 'active' : ''; ?>">Clients</a></li>
                     
                     <!-- Media Center -->
-                    <li class="mobile_menu_item"><a href="<?php echo esc_url( home_url( '/media-center' ) ); ?>">Media Center</a></li>
+                    <li class="mobile_menu_item <?php echo $media_center_active ? 'active' : ''; ?>"><a href="<?php echo esc_url( home_url( '/media-center' ) ); ?>" class="<?php echo $media_center_active ? 'active' : ''; ?>">Media Center</a></li>
                     
                     <!-- Careers -->
-                    <li class="mobile_menu_item"><a href="<?php echo esc_url( home_url( '/careers' ) ); ?>">Careers</a></li>
+                    <li class="mobile_menu_item <?php echo $careers_active ? 'active' : ''; ?>"><a href="<?php echo esc_url( home_url( '/careers' ) ); ?>" class="<?php echo $careers_active ? 'active' : ''; ?>">Careers</a></li>
                     
                     <!-- Vendor Registration -->
-                    <li class="mobile_menu_item"><a href="<?php echo esc_url( home_url( '/vendor-registration' ) ); ?>">Vendor Registration</a></li>
+                    <li class="mobile_menu_item <?php echo $vendor_active ? 'active' : ''; ?>"><a href="<?php echo esc_url( home_url( '/vendor-registration' ) ); ?>" class="<?php echo $vendor_active ? 'active' : ''; ?>">Vendor Registration</a></li>
                     
                     <!-- Contact -->
-                    <li class="mobile_menu_item"><a href="<?php echo esc_url( home_url( '/contact' ) ); ?>">Contact</a></li>
+                    <?php
+                    $contact_url = home_url( '/contact' );
+                    $contact_active = is_current_menu_item( $contact_url );
+                    ?>
+                    <li class="mobile_menu_item <?php echo $contact_active ? 'active' : ''; ?>"><a href="<?php echo esc_url( $contact_url ); ?>" class="<?php echo $contact_active ? 'active' : ''; ?>">Contact</a></li>
                 </ul>
 			</div>
             </div>

@@ -3509,7 +3509,7 @@ a,
 .about_section {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(241.85deg, rgb(162, 200, 86) 0%, rgb(105, 154, 71) 34.999999404%, rgb(19, 107, 55) 69.9999988079%);
+  background: linear-gradient(241.85deg, #A2C856 0.59%, #699A47 35.38%, #136B37 70.18%);
   background-size: cover;
 }
 .about_section::before {

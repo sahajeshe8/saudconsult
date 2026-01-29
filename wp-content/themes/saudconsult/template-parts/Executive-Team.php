@@ -34,7 +34,7 @@ $team_members = isset( $args['team_members'] ) ? $args['team_members'] : array(
 
 ?>
 
-<section class="executive_team_section pt_80 pb_80">
+<section class="executive_team_section pt_100 pb_80">
 	<div class="wrap">
 		<div class="executive_team_section_inner">
 			<?php if ( $title || $title_span ) : ?>

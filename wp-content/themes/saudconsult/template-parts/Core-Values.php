@@ -37,7 +37,7 @@ $values      = isset( $args['values'] ) ? $args['values'] : array(
 
 ?>
 
-<section class="core_values_section pt_80 pb_80 " style="background:url(<?php echo get_template_directory_uri(); ?>/assets/images/vision-miossion-bg.svg) no-repeat left top;  ">
+<section class="core_values_section pt_120 pb_120 " style="background:url(<?php echo get_template_directory_uri(); ?>/assets/images/vision-miossion-bg.svg) no-repeat left top; background-size: 50%; ">
 	<div class="wrap d_flex_wrap">
 		<div class="core_values_header pb_40" data-aos="fade-up" data-aos-duration="800" data-aos-delay="0">
 			<?php if ( $title || $title_span ) : ?>

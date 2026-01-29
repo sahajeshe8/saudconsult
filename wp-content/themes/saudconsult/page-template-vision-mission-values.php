@@ -37,14 +37,16 @@ get_header();
 
 	<?php 
 	$mission_vision_data = array(
-		'vision_title' => 'Our Vision',
+		'vision_title' => 'Our Vision:',
 		'vision_title_span' => 'To Pioneer the Future.',
-		'vision_content' => '<p> To be the leading engineering consultancy firm that enables the realization of Saudi Arabia’s national development vision through enduring, innovative, and sustainable solutions that set global benchmarks for quality and resilience.</p>',
+		'vision_content' => '<p> To be the leading engineering consultancy firm that enables the realization of Saudi Arabia\'s national development vision through enduring, innovative, and sustainable solutions that set global benchmarks for quality and resilience.</p>',
 		'vision_icon' => get_template_directory_uri() . '/assets/images/vision-icn.svg',
-		'mission_title' => 'Our Mission',
+		'vision_icon_hover' => get_template_directory_uri() . '/assets/images/vision-icn-h.svg',
+		'mission_title' => 'Our Mission:',
 		'mission_title_span' => 'Delivering Comprehensive Success.',
 		'mission_content' => '<p>To deliver comprehensive, high-quality engineering and architectural services that seamlessly integrate modern technical know-how with deep local sensitivity, ensuring client success across the full project lifecycle and maximizing positive national impact.</p>',
 		'mission_icon' => get_template_directory_uri() . '/assets/images/mission-icn.svg',
+		'mission_icon_hover' => get_template_directory_uri() . '/assets/images/mission-icn-h.svg',
 		'section_class' => 'bg_color_01'
 	);
 	get_template_part( 'template-parts/Mission-Vision', null, $mission_vision_data ); 

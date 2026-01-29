@@ -22,7 +22,7 @@ $image_container_class = isset( $args['image_container_class'] ) ? $args['image_
 $text_container_class = isset( $args['text_container_class'] ) ? $args['text_container_class'] : '';
 
 // Build section classes
-$section_classes = 'image_text_block_section pt_80 pb_80';
+$section_classes = 'image_text_block_section pt_120 pb_120';
 if ( $section_class ) {
 	$section_classes .= ' ' . esc_attr( $section_class );
 }

@@ -61,7 +61,7 @@
 					<p>
 					Providing on-site assurance and quality management to ensure execution..
 					</p>
-					<a class="btn_style btn_transparent" href="<?php echo esc_url( home_url( '/contact' ) ); ?>">
+					<a class="btn_style btn_transparent short" href="<?php echo esc_url( home_url( '/contact' ) ); ?>">
 						View more <span><img src="<?php echo get_template_directory_uri(); ?>/assets/images/arrow-buttion.svg" alt="View more"></span>
 					</a>
 				</div>
@@ -81,7 +81,7 @@
 					<p>
 					Offering end-to-end management consultancy (PMC) to control scope.
 					</p>
-					<a class="btn_style btn_transparent" href="<?php echo esc_url( home_url( '/contact' ) ); ?>">
+					<a class="btn_style btn_transparent short" href="<?php echo esc_url( home_url( '/contact' ) ); ?>">
 						View more <span><img src="<?php echo get_template_directory_uri(); ?>/assets/images/arrow-buttion.svg" alt="View more"></span>
 					</a>
 				</div>
@@ -101,7 +101,7 @@
 					<p>
 					Conducting essential pre-design work, including feasibility studies..
 					</p>
-					<a class="btn_style btn_transparent" href="<?php echo esc_url( home_url( '/contact' ) ); ?>">
+					<a class="btn_style btn_transparent short" href="<?php echo esc_url( home_url( '/contact' ) ); ?>">
 						View more <span><img src="<?php echo get_template_directory_uri(); ?>/assets/images/arrow-buttion.svg" alt="View more"></span>
 					</a>
 				</div>
@@ -121,7 +121,7 @@
 					<p>
 					Providing on-site assurance and quality management to ensure execution..
 					</p>
-					<a class="btn_style btn_transparent" href="<?php echo esc_url( home_url( '/contact' ) ); ?>">
+					<a class="btn_style btn_transparent short" href="<?php echo esc_url( home_url( '/contact' ) ); ?>">
 						View more <span><img src="<?php echo get_template_directory_uri(); ?>/assets/images/arrow-buttion.svg" alt="View more"></span>
 					</a>
 				</div>

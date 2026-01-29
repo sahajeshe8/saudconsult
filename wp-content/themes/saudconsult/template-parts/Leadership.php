@@ -17,7 +17,7 @@
 <ul class="leadership_section_inner_left_list"> 
  
 <li data-aos="fade-up" data-aos-duration="800" data-aos-delay="0">
-<span class="lable_text green_text mb_50">
+<span class="lable_text green_text  ">
 					<img src="<?php echo get_template_directory_uri(); ?>/assets/images/dot-02.svg" alt="Our Projects">
 					Our Projects
 				</span>

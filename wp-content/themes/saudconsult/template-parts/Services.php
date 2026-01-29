@@ -7,7 +7,7 @@
 
 ?>
 
-<section class="services_section pt_80 pb_80">
+<section class="services_section pt_80  ">
 	<div class="wrap">
 		<span class="lable_text green_text" data-aos="fade-up" data-aos-duration="800" data-aos-delay="0">
 			<img src="<?php echo get_template_directory_uri(); ?>/assets/images/dot-02.svg" alt="Our Comprehensive Services">
@@ -15,7 +15,7 @@
 		</span>
 
 		<div class="services_section_01">
-			<div class="services_section_01_item_01 pt_40" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+			<div class="services_section_01_item_01 pt_20" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
 				<h3 class="h3_title_50">
 					Explore Our Full Range <br>of <span>Professional Services</span>
 				</h3>

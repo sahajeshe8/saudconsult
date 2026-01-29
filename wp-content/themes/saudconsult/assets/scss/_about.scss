@@ -63,7 +63,7 @@
 
 
         @media screen and (max-width:700px) {
-            @include px-rem(115);
+            @include px-rem(100);
         }
     }
 }
@@ -75,7 +75,7 @@
 
 
 
-.lable_text{ display: flex; flex-wrap: wrap; align-items: center;  gap: 10px; color: #fff; font-size: 18px; font-weight:400;}
+.lable_text{ display: flex; flex-wrap: wrap; align-items: center;  gap: 10px; color: #fff; font-size: 18px; font-weight:400; padding-bottom: 20px;}
 
 
 

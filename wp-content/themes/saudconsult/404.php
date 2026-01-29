@@ -49,13 +49,13 @@ get_template_part( 'template-parts/breadcrumb' );
 			</div>
 
 			<div class="error_404_actions">
-				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="btn_style me-1 buttion_blue">Go Back Home</a>
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="  me-1 btn_style btn_green">Go Back Home</a>
 			</div>
 
-			<div class="error_404_search">
+			<!-- <div class="error_404_search">
 				<h4>Or try searching for what you need:</h4>
-				<?php get_search_form(); ?>
-			</div>
+				<?php //get_search_form(); ?>
+			</div> -->
 		</div>
 	</div>
 </section>

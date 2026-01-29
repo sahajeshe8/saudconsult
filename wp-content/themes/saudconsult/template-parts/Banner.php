@@ -90,6 +90,76 @@
                </div>
             </div>
          </div>
+
+         <div class="swiper-slide banner_slide"
+              data-desktop-bg="<?php echo esc_url( $banner_desktop_default ); ?>"
+              data-mobile-bg="<?php echo esc_url( $banner_mobile_default ); ?>"
+              style="background-image: url('<?php echo esc_url( $banner_desktop_default ); ?>');">
+            <div class="wrap">
+               <div class="banner_slide_content">
+                  <div class="banner_slide_content_02">
+                     <div class="banner_slide_content_02_cl_01" data-aos="fade-up" data-aos-duration="800" data-aos-delay="0">
+                        <h2>
+                           Engineering Excellence. Building  <span>the Future of Saudi Arabia.</span>
+                        </h2>
+                        <h5> For over five decades, Saud Consult has stood as the Kingdom's foremost multidisciplinary engineering and architectural consultancy.</h5>
+                     </div>
+                     <div class="banner_slide_content_02_cl_02" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                        <a class="btn_style btn_transparent" href="http://localhost/saudconsult/contact">
+                        Explore Our Expertise <span><img src="<?php echo get_template_directory_uri(); ?>/assets/images/buttion-arrow.svg" alt="Explore Our Expertise"></span>        
+                        </a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <div class="swiper-slide banner_slide"
+              data-desktop-bg="<?php echo esc_url( $banner_desktop_default ); ?>"
+              data-mobile-bg="<?php echo esc_url( $banner_mobile_default ); ?>"
+              style="background-image: url('<?php echo esc_url( $banner_desktop_default ); ?>');">
+            <div class="wrap">
+               <div class="banner_slide_content">
+                  <div class="banner_slide_content_02">
+                     <div class="banner_slide_content_02_cl_01" data-aos="fade-up" data-aos-duration="800" data-aos-delay="0">
+                        <h2>
+                           Engineering Excellence. Building  <span>the Future of Saudi Arabia.</span>
+                        </h2>
+                        <h5> For over five decades, Saud Consult has stood as the Kingdom's foremost multidisciplinary engineering and architectural consultancy.</h5>
+                     </div>
+                     <div class="banner_slide_content_02_cl_02" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                        <a class="btn_style btn_transparent" href="http://localhost/saudconsult/contact">
+                        Explore Our Expertise <span><img src="<?php echo get_template_directory_uri(); ?>/assets/images/buttion-arrow.svg" alt="Explore Our Expertise"></span>        
+                        </a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <div class="swiper-slide banner_slide"
+              data-desktop-bg="<?php echo esc_url( $banner_desktop_default ); ?>"
+              data-mobile-bg="<?php echo esc_url( $banner_mobile_default ); ?>"
+              style="background-image: url('<?php echo esc_url( $banner_desktop_default ); ?>');">
+            <div class="wrap">
+               <div class="banner_slide_content">
+                  <div class="banner_slide_content_02">
+                     <div class="banner_slide_content_02_cl_01" data-aos="fade-up" data-aos-duration="800" data-aos-delay="0">
+                        <h2>
+                           Engineering Excellence. Building  <span>the Future of Saudi Arabia.</span>
+                        </h2>
+                        <h5> For over five decades, Saud Consult has stood as the Kingdom's foremost multidisciplinary engineering and architectural consultancy.</h5>
+                     </div>
+                     <div class="banner_slide_content_02_cl_02" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                        <a class="btn_style btn_transparent" href="http://localhost/saudconsult/contact">
+                        Explore Our Expertise <span><img src="<?php echo get_template_directory_uri(); ?>/assets/images/buttion-arrow.svg" alt="Explore Our Expertise"></span>        
+                        </a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+
       </div>
       <div class="swiper-pagination banner-pagination"></div>
    </div>

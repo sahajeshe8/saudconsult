@@ -7,7 +7,7 @@
         }
     
     }
-    .about_sectioncl_02{ width: 34%;
+    .about_sectioncl_02{ width: 34%; padding-top: 130px;
     
     h5{   font-size: 20px; font-weight: 500;  color: #fff; line-height: 130%;  max-width: 85%; margin: 0; margin-bottom:15px; font-family: 'RB';  }
     p{  font-size: 16px; color: #fff; line-height: 130%; font-weight: 300; font-family: 'RB'; margin: 0; }   
@@ -22,6 +22,7 @@
 
         @media screen and (max-width:700px) {
             width: 100%;
+            padding-top: 0px;
         }
 
 }
@@ -71,11 +72,11 @@
 
 
 
-.lable_text{ display: flex; flex-wrap: wrap; align-items: center;  gap: 10px; color: #fff; font-size: 18px; font-weight:400; padding-bottom: 20px;}
+.lable_text{ display: flex; flex-wrap: wrap; align-items: center;  gap: 10px; color: #fff; font-size: 18px; font-weight:400; padding-bottom: 40px; @media (max-width: 700px) { padding-bottom: 0px;}}
 
 
 
-.about_4_cl_blocks { margin: 0 -0.5%; display: flex; flex-wrap: wrap; padding: 0; margin-top: 50px;
+.about_4_cl_blocks { margin: 0 -0.5%; display: flex; flex-wrap: wrap; padding: 0; margin-top: 80px;
     li{ list-style: none; width: 25%; padding: 0 0.5%;
 .about_4_cl_blocks_item_01{  background: #F5F9EE; padding:11%;
 
@@ -90,6 +91,8 @@
             rgba(105, 154, 71, 1) 37.04043626785278%,
             rgba(19, 107, 55, 1) 70.00691890716553%
           );
+          width: max-content;
+          
           background-clip: text;
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;

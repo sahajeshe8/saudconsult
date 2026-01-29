@@ -5127,6 +5127,7 @@ a,
   font-size: 5.625rem;
   font-weight: 300;
   line-height: 100%;
+  padding-right: 18%;
   padding-top: 45px;
 }
 .our_journey_thumb_swiper .swiper-slide.swiper-slide-thumb-active {
@@ -6692,33 +6693,9 @@ a,
 .fancybox__container .fancybox__button--next {
   display: none !important;
 }
-.fancybox__container .fancybox__button {
-  display: none !important;
-}
-.fancybox__container .fancybox__button--close,
-.fancybox__container .fancybox__button--zoom,
-.fancybox__container .fancybox__button--slideshow,
-.fancybox__container .fancybox__button--fullscreen,
-.fancybox__container .fancybox__button--thumbs {
-  display: none !important;
-}
-.fancybox__container .fancybox__footer {
-  display: none !important;
-}
-.fancybox__container .fancybox__footer {
-  display: none !important;
-}
-.fancybox__container .fancybox__button svg,
-.fancybox__container .fancybox__nav svg {
-  display: none !important;
-}
 
 .fancybox__backdrop {
   background: rgba(0, 0, 0, 0.8);
-}
-
-#login-popup .form-icon {
-  display: none !important;
 }
 
 .file-upload-section-wrapper {

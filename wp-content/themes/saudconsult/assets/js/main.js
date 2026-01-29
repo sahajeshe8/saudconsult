@@ -2417,6 +2417,11 @@ var swiper = new Swiper(".mySwiper-02", {});
 				spaceBetween: 10,
 				slidesPerView: 1,
 				loop: true,
+				speed: 800,
+				effect: 'fade',
+				fadeEffect: {
+					crossFade: true
+				},
 				thumbs: {
 					swiper: thumbSwiper,
 				},

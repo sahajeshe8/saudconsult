@@ -1,0 +1,145 @@
+// Fancybox (v5) overrides
+// Keep it simple: control popup size, backdrop darkness, and nav arrows.
+
+.fancybox__backdrop {
+	// user request: overlay too dark -> make it lighter
+	background: rgba(0, 0, 0, 0.6) !important;
+}
+
+// Default popup size (initial)
+.fancybox__content {
+	width: 535px !important;
+	height: 658px !important;
+	max-width: calc(100vw - 32px) !important;
+	max-height: calc(100vh - 32px) !important;
+	padding: 0 !important;
+	background: transparent !important;
+	position: relative !important; // Make it a positioning context for arrows
+}
+
+// Ensure media fits inside the fixed ratio container
+.fancybox__content :is(img, video, iframe) {
+	width: 100% !important;
+	height: 100% !important;
+	object-fit: cover;
+	display: block;
+}
+
+.fancybox__caption {
+	display: none !important;
+}
+
+// Custom navigation buttons injected into fancybox__content
+.fancybox__content {
+	position: relative;
+
+
+	&::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(0, 0, 0, 0.2);
+	}
+
+	.fancybox-custom-nav {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		pointer-events: none;
+		z-index: 10;
+		
+		button {
+			width: 38px;
+			height: 38px;
+			border: none;
+			background: rgba(255, 255, 255, 0.3);
+			backdrop-filter: blur(2px);
+			-webkit-backdrop-filter: blur(2px);
+			border-radius: 50%;
+			overflow: hidden;
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			cursor: pointer;
+			pointer-events: all;
+			transition: background 0.3s ease;
+			
+			&:hover {
+				background: rgba(255, 255, 255, 0.5);
+			}
+			
+			svg {
+				width: 13px;
+				height: 12px;
+				display: block;
+			}
+		}
+		
+		.fancybox-custom-prev {
+			left: 16px;
+		}
+		
+		.fancybox-custom-next {
+			right: 16px;
+			
+			svg {
+				transform: rotate(180deg);
+			}
+		}
+	}
+	
+	// Custom close button injected into fancybox__content
+	.fancybox-custom-close {
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		width: 40px;
+		height: 40px;
+		border: none;
+		background: transparent;
+		border-radius: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+		z-index: 20;
+		transition: background 0.3s ease;
+	
+		
+		svg {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+			display: block;
+		}
+	}
+}
+
+// Hide default Fancybox navigation and close button for project gallery (we use custom ones)
+.fancybox-project-gallery {
+	.fancybox__nav {
+		display: none !important;
+	}
+	
+	// Hide all possible default close button variations
+	.fancybox__button--close,
+	.f-button.is-close-btn,
+	.f-button.is-close,
+	button[data-fancybox-close],
+	.fancybox__toolbar .fancybox__button--close {
+		display: none !important;
+		visibility: hidden !important;
+		opacity: 0 !important;
+		pointer-events: none !important;
+	}
+}
+
+

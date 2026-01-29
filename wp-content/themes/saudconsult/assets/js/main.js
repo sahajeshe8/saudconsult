@@ -1488,10 +1488,13 @@ var swiper = new Swiper(".mySwiper-clients", {
 		Fancybox.bind('[data-fancybox="project-gallery"]', {
 			Toolbar: {
 				display: {
-					left: ['infobar'],
+					left: [],
 					middle: [],
-					right: ['slideshow', 'download', 'thumbs', 'close'],
+					right: [], // Hide default toolbar
 				},
+			},
+			Carousel: {
+				Navigation: false, // Disable default navigation
 			},
 			Thumbs: {
 				autoStart: false,
@@ -1517,6 +1520,79 @@ var swiper = new Swiper(".mySwiper-clients", {
 				title: false,
 				transparent: false,
 			},
+			on: {
+				'reveal': function(fancybox, slide) {
+					// Add class to container to identify project gallery
+					const container = fancybox.container;
+					if (container) {
+						container.classList.add('fancybox-project-gallery');
+					}
+					
+					// Inject custom navigation and close buttons into the content
+					const content = slide.el.querySelector('.fancybox__content');
+					if (!content) return;
+					
+					// Check if buttons already exist to avoid duplicates
+					if (content.querySelector('.fancybox-custom-nav') || content.querySelector('.fancybox-custom-close')) {
+						return;
+					}
+					
+					// Create navigation wrapper
+					const navWrapper = document.createElement('div');
+					navWrapper.className = 'fancybox-custom-nav';
+					
+					// Create prev button
+					const prevBtn = document.createElement('button');
+					prevBtn.type = 'button';
+					prevBtn.className = 'fancybox-custom-prev';
+					prevBtn.setAttribute('aria-label', 'Previous');
+					prevBtn.innerHTML = '<svg width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.44159 0.499817L0.499668 5.58294M0.499668 5.58294L5.44159 10.6661M0.499668 5.58294L12.3603 5.58294" stroke="white" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+					prevBtn.addEventListener('click', function(e) {
+						e.preventDefault();
+						e.stopPropagation();
+						fancybox.prev();
+					});
+					
+					// Create next button
+					const nextBtn = document.createElement('button');
+					nextBtn.type = 'button';
+					nextBtn.className = 'fancybox-custom-next';
+					nextBtn.setAttribute('aria-label', 'Next');
+					nextBtn.innerHTML = '<svg width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.44159 0.499817L0.499668 5.58294M0.499668 5.58294L5.44159 10.6661M0.499668 5.58294L12.3603 5.58294" stroke="white" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+					nextBtn.addEventListener('click', function(e) {
+						e.preventDefault();
+						e.stopPropagation();
+						fancybox.next();
+					});
+					
+					navWrapper.appendChild(prevBtn);
+					navWrapper.appendChild(nextBtn);
+					content.appendChild(navWrapper);
+					
+					// Create close button
+					const closeBtn = document.createElement('button');
+					closeBtn.type = 'button';
+					closeBtn.className = 'fancybox-custom-close';
+					closeBtn.setAttribute('aria-label', 'Close');
+					closeBtn.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 6L6 18M18 18L6 6" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>';
+					closeBtn.addEventListener('click', function(e) {
+						e.preventDefault();
+						e.stopPropagation();
+						fancybox.close();
+					});
+					content.appendChild(closeBtn);
+				},
+				'destroy': function(fancybox, slide) {
+					// Clean up injected buttons when closing
+					const content = slide.el.querySelector('.fancybox__content');
+					if (content) {
+						const customNav = content.querySelector('.fancybox-custom-nav');
+						const customClose = content.querySelector('.fancybox-custom-close');
+						if (customNav) customNav.remove();
+						if (customClose) customClose.remove();
+					}
+				}
+			}
 		});
 
 		console.log('ProjectGallery: Fancybox initialized successfully');

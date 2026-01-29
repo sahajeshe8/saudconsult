@@ -32,7 +32,7 @@ get_header();
 
 
 
-				<div class="project_filter_title" data-aos="fade-up" data-aos-delay="0">
+				<div class="project_filter_title">
 					<h3 class="h3_title_50">
 					Our
 							<span>Clients</span>
@@ -40,7 +40,7 @@ get_header();
 					</h3>
 				</div>
 
-				<div class="clients-filter-block" data-aos="fade-up" data-aos-delay="100">
+				<div class="clients-filter-block">
 					 <ul class="clients-filter-list">
 						<li><a  class="active"  href="#">All</a></li>
 						<li><a href="#">Government & Semi-Government sectors</a></li>

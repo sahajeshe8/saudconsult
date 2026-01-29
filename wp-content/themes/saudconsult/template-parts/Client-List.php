@@ -50,7 +50,7 @@ $load_more_label = isset( $args['load_more_label'] ) ? $args['load_more_label'] 
 <div class="client_list_section pt_50 pb_80 <?php echo esc_attr( $section_class ); ?>">
  
 		<?php if ( $title || $title_span ) : ?>
-			<h4 class="h4_title_35 pb_20" data-aos="fade-up" data-aos-delay="0">
+			<h4 class="h4_title_35 pb_20">
 				<?php if ( $title ) : ?>
 					<?php echo esc_html( $title ); ?>
 				<?php endif; ?>
@@ -64,13 +64,12 @@ $load_more_label = isset( $args['load_more_label'] ) ? $args['load_more_label'] 
 			<?php if ( $display_type === 'slider' ) : ?>
 				<div class="swiper mySwiper-clients">
 					<div class="swiper-wrapper">
-						<?php foreach ( $clients as $index => $client ) : 
+						<?php foreach ( $clients as $client ) : 
 							$client_logo = isset( $client['logo'] ) ? $client['logo'] : '';
 							$client_name = isset( $client['name'] ) ? $client['name'] : '';
 							$client_link = isset( $client['link'] ) ? $client['link'] : '#';
-							$delay = 100 + ($index * 50);
 						?>
-							<div class="swiper-slide" data-aos="fade-up" data-aos-delay="<?php echo esc_attr( $delay ); ?>">
+							<div class="swiper-slide">
 								<?php if ( $client_link && $client_link !== '#' ) : ?>
 									<a href="<?php echo esc_url( $client_link ); ?>" class="client_item_link">
 										<img src="<?php echo esc_url( $client_logo ); ?>" alt="<?php echo esc_attr( $client_name ); ?>">
@@ -85,13 +84,12 @@ $load_more_label = isset( $args['load_more_label'] ) ? $args['load_more_label'] 
 				</div>
 			<?php else : ?>
 				<ul class="client_list_grid" <?php if ( $grid_id ) : ?>id="<?php echo esc_attr( $grid_id ); ?>"<?php endif; ?>>
-					<?php foreach ( $clients as $index => $client ) : 
+					<?php foreach ( $clients as $client ) : 
 						$client_logo = isset( $client['logo'] ) ? $client['logo'] : '';
 						$client_name = isset( $client['name'] ) ? $client['name'] : '';
 						$client_link = isset( $client['link'] ) ? $client['link'] : '#';
-						$delay = 100 + ($index * 50);
 					?>
-						<li class="client_item" data-aos="fade-up" data-aos-delay="<?php echo esc_attr( $delay ); ?>">
+						<li class="client_item">
 							<?php if ( $client_link && $client_link !== '#' ) : ?>
 								<a href="<?php echo esc_url( $client_link ); ?>" class="client_item_link">
 									<img src="<?php echo esc_url( $client_logo ); ?>" alt="<?php echo esc_attr( $client_name ); ?>">
@@ -103,7 +101,7 @@ $load_more_label = isset( $args['load_more_label'] ) ? $args['load_more_label'] 
 					<?php endforeach; ?>
 				</ul>
 				<?php if ( $enable_load_more ) : ?>
-					<div class="load_more_container" data-aos="fade-up" data-aos-delay="200">
+					<div class="load_more_container">
 						<button
 							type="button"
 							class="load_more_btn"

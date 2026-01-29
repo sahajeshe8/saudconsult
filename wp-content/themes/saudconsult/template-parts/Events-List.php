@@ -37,7 +37,7 @@ $events_url = $events_page ? get_permalink( $events_page->ID ) : home_url( '/eve
 	<div class="events_list_wrapper">
 		<div class="wrap">
 			<?php if ( $title || $title_span ) : ?>
-				<div class="title_block" data-aos="fade-up" data-aos-delay="0">
+				<div class="title_block">
 					<div class="title_block_left">
 						<h3 class="h3_title_50 white_txt">
 							<?php if ( $title ) : ?>
@@ -68,7 +68,7 @@ $events_url = $events_page ? get_permalink( $events_page->ID ) : home_url( '/eve
 			<div class="events_list_content pt_50">
 				<div class="events_list_container">
 					<ul class="events_list_ul">
-						<li data-aos="fade-up" data-aos-delay="100">
+						<li>
 							<a href="<?php echo esc_url( $event_detail_url ); ?>">
 								<div class="events_list_item">
 									<span class="events_list_item_date">30 <span>Jun</span></span>
@@ -96,7 +96,7 @@ $events_url = $events_page ? get_permalink( $events_page->ID ) : home_url( '/eve
 							</a>
 						</li>
 
-						<li data-aos="fade-up" data-aos-delay="150">
+						<li>
 
                         <a href="#">
 							<div class="events_list_item">
@@ -125,7 +125,7 @@ $events_url = $events_page ? get_permalink( $events_page->ID ) : home_url( '/eve
                             </a>
 						</li>
 
-						<li data-aos="fade-up" data-aos-delay="200">
+						<li>
 							<a href="<?php echo esc_url( $event_detail_url ); ?>">
 								<div class="events_list_item">
 									<span class="events_list_item_date">30 <span>Jun</span></span>
@@ -153,7 +153,7 @@ $events_url = $events_page ? get_permalink( $events_page->ID ) : home_url( '/eve
 							</a>
 						</li>
 
-						<li data-aos="fade-up" data-aos-delay="250">
+						<li>
 							<a href="<?php echo esc_url( $event_detail_url ); ?>">
 								<div class="events_list_item">
 									<span class="events_list_item_date">30 <span>Jun</span></span>
@@ -181,7 +181,7 @@ $events_url = $events_page ? get_permalink( $events_page->ID ) : home_url( '/eve
 							</a>
 						</li>
 
-						<li data-aos="fade-up" data-aos-delay="300">
+						<li>
 							<a href="<?php echo esc_url( $event_detail_url ); ?>">
 								<div class="events_list_item">
 									<span class="events_list_item_date">30 <span>Jun</span></span>
@@ -209,7 +209,7 @@ $events_url = $events_page ? get_permalink( $events_page->ID ) : home_url( '/eve
 							</a>
 						</li>
 
-						<li data-aos="fade-up" data-aos-delay="350">
+						<li>
 							<a href="<?php echo esc_url( $event_detail_url ); ?>">
 								<div class="events_list_item">
 									<span class="events_list_item_date">30 <span>Jun</span></span>
@@ -237,7 +237,7 @@ $events_url = $events_page ? get_permalink( $events_page->ID ) : home_url( '/eve
 							</a>
 						</li>
 
-						<li data-aos="fade-up" data-aos-delay="400">
+						<li>
 							<a href="<?php echo esc_url( $event_detail_url ); ?>">
 								<div class="events_list_item">
 									<span class="events_list_item_date">30 <span>Jun</span></span>
@@ -265,7 +265,7 @@ $events_url = $events_page ? get_permalink( $events_page->ID ) : home_url( '/eve
 							</a>
 						</li>
 
-						<li data-aos="fade-up" data-aos-delay="450">
+						<li>
 							<a href="<?php echo esc_url( $event_detail_url ); ?>">
 								<div class="events_list_item">
 									<span class="events_list_item_date">30 <span>Jun</span></span>

@@ -216,47 +216,11 @@
 	.fancybox__button--next {
 		display: none !important;
 	}
-	
-	// Hide all Fancybox buttons and icons
-	.fancybox__button {
-		display: none !important;
-	}
-	
-	.fancybox__button--close,
-	.fancybox__button--zoom,
-	.fancybox__button--slideshow,
-	.fancybox__button--fullscreen,
-	.fancybox__button--thumbs {
-		display: none !important;
-	}
-	
-	// Hide Fancybox footer with unwanted SVG icons
-	.fancybox__footer {
-		display: none !important;
-	}
-	
-	// Hide Fancybox footer with unwanted SVG icons
-	.fancybox__footer {
-		display: none !important;
-	}
-	
-	// Hide any SVG icons from Fancybox
-	.fancybox__button svg,
-	.fancybox__nav svg {
-		display: none !important;
-	}
 
 }
 
 .fancybox__backdrop {
 	background: rgba(0, 0, 0, 0.8);
-}
-
-// Hide unwanted SVG icons in login popup
-#login-popup {
-	.form-icon {
-		display: none !important;
-	}
 }
 
 // File Upload Styles

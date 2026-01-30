@@ -1031,7 +1031,7 @@ p {
   font-size: 18px;
   line-height: 1.2;
   color: #101922;
-  margin-top: 5px;
+  margin-top: 5px !important;
 }
 
 .justify-content-between-02 {
@@ -4277,6 +4277,17 @@ a,
 
 .projects_grid {
   position: relative;
+  padding-top: 40px;
+}
+@media screen and (max-width: 1200px) {
+  .projects_grid {
+    padding-top: 30px;
+  }
+}
+@media screen and (max-width: 700px) {
+  .projects_grid {
+    padding-top: 20px;
+  }
 }
 .projects_grid .projects_item {
   position: relative;
@@ -6250,16 +6261,6 @@ a,
   width: 100%;
   margin-bottom: 0;
 }
-@media screen and (max-width: 1024px) {
-  .what_to_expect_section .what_to_expect_header {
-    padding: 50px 60px;
-  }
-}
-@media screen and (max-width: 768px) {
-  .what_to_expect_section .what_to_expect_header {
-    padding: 40px 30px;
-  }
-}
 .what_to_expect_section .what_to_expect_header .what_to_expect_title {
   margin: 0;
   margin-bottom: 20px;
@@ -7776,6 +7777,7 @@ a,
     margin-bottom: 20px;
     flex-direction: column;
     align-items: flex-start;
+    padding: 0 15px 15px 15px;
   }
 }
 .why_partner_section .why_partner_list .why_partner_item .why_partner_icon {

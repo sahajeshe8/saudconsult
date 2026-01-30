@@ -2050,7 +2050,7 @@ var swiper = new Swiper(".brochures_list_swiper", {
 				},
 				closeButton: false, // Disable default close button
 				backdrop: 'auto',
-				placeFocusBack: true,
+				placeFocusBack: false, // Disable focus restoration to prevent reopening
 				trapFocus: true,
 				autoFocus: true,
 				preventCaptionOverlap: false,
@@ -2064,15 +2064,56 @@ var swiper = new Swiper(".brochures_list_swiper", {
 							}, 100);
 						}
 						
-						// Add click handler to custom close button
+						// Add click handler to custom close button (remove any existing first)
 						const closeButton = slide.el.querySelector('.form-close-icon');
 						if (closeButton) {
-							closeButton.addEventListener('click', function(e) {
+							// Remove existing listeners by cloning
+							const newCloseButton = closeButton.cloneNode(true);
+							closeButton.parentNode.replaceChild(newCloseButton, closeButton);
+							
+							newCloseButton.addEventListener('click', function(e) {
 								e.preventDefault();
 								e.stopPropagation();
+								e.stopImmediatePropagation();
 								fancybox.close();
+								return false;
 							});
 						}
+						
+						// Fix mobile scrolling when keyboard opens
+						if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+							const container = document.querySelector('.fancybox__container');
+							const viewport = document.querySelector('.fancybox__viewport');
+							const content = slide.el;
+							
+							if (container && viewport) {
+								// Allow scrolling on mobile
+								container.style.overflow = 'visible';
+								viewport.style.overflowY = 'auto';
+								viewport.style.webkitOverflowScrolling = 'touch';
+								viewport.style.touchAction = 'pan-y';
+								
+								// Handle input focus to ensure scrolling works
+								const inputs = content.querySelectorAll('input, textarea, select');
+								inputs.forEach(function(input) {
+									input.addEventListener('focus', function() {
+										// Ensure container allows scrolling
+										if (viewport) {
+											viewport.style.overflowY = 'auto';
+											viewport.style.webkitOverflowScrolling = 'touch';
+										}
+										// Scroll input into view if needed
+										setTimeout(function() {
+											input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+										}, 300);
+									});
+								});
+							}
+						}
+					},
+					'destroy': function(fancybox, slide) {
+						// Prevent any reopening when popup is destroyed
+						return false;
 					}
 				}
 			});
@@ -2147,7 +2188,7 @@ var swiper = new Swiper(".brochures_list_swiper", {
 				},
 				closeButton: false, // Disable default close button
 				backdrop: 'auto',
-				placeFocusBack: true,
+				placeFocusBack: false, // Disable focus restoration to prevent reopening
 				trapFocus: true,
 				autoFocus: true,
 				preventCaptionOverlap: false,
@@ -2161,15 +2202,56 @@ var swiper = new Swiper(".brochures_list_swiper", {
 							}, 100);
 						}
 						
-						// Add click handler to custom close button
+						// Add click handler to custom close button (remove any existing first)
 						const closeButton = slide.el.querySelector('.form-close-icon');
 						if (closeButton) {
-							closeButton.addEventListener('click', function(e) {
+							// Remove existing listeners by cloning
+							const newCloseButton = closeButton.cloneNode(true);
+							closeButton.parentNode.replaceChild(newCloseButton, closeButton);
+							
+							newCloseButton.addEventListener('click', function(e) {
 								e.preventDefault();
 								e.stopPropagation();
+								e.stopImmediatePropagation();
 								fancybox.close();
+								return false;
 							});
 						}
+						
+						// Fix mobile scrolling when keyboard opens
+						if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+							const container = document.querySelector('.fancybox__container');
+							const viewport = document.querySelector('.fancybox__viewport');
+							const content = slide.el;
+							
+							if (container && viewport) {
+								// Allow scrolling on mobile
+								container.style.overflow = 'visible';
+								viewport.style.overflowY = 'auto';
+								viewport.style.webkitOverflowScrolling = 'touch';
+								viewport.style.touchAction = 'pan-y';
+								
+								// Handle input focus to ensure scrolling works
+								const inputs = content.querySelectorAll('input, textarea, select');
+								inputs.forEach(function(input) {
+									input.addEventListener('focus', function() {
+										// Ensure container allows scrolling
+										if (viewport) {
+											viewport.style.overflowY = 'auto';
+											viewport.style.webkitOverflowScrolling = 'touch';
+										}
+										// Scroll input into view if needed
+										setTimeout(function() {
+											input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+										}, 300);
+									});
+								});
+							}
+						}
+					},
+					'destroy': function(fancybox, slide) {
+						// Prevent any reopening when popup is destroyed
+						return false;
 					}
 				}
 			});
@@ -2188,6 +2270,34 @@ var swiper = new Swiper(".brochures_list_swiper", {
 	} else {
 		setTimeout(initLoginPopupFancybox, 100);
 	}
+})();
+
+// Global handler to prevent popup reopening on close
+(function() {
+	document.addEventListener('DOMContentLoaded', function() {
+		// Prevent links inside popups from triggering other popups when clicked
+		document.addEventListener('click', function(e) {
+			const target = e.target.closest('[data-fancybox]');
+			if (target && Fancybox.getInstance()) {
+				// If a Fancybox is already open, close it first before opening a new one
+				const currentInstance = Fancybox.getInstance();
+				if (currentInstance && currentInstance.isVisible) {
+					// Small delay to ensure current popup closes before opening new one
+					setTimeout(function() {
+						// The click will naturally trigger the new popup after current one closes
+					}, 50);
+				}
+			}
+		}, true); // Use capture phase
+		
+		// Listen for Fancybox close events and prevent reopening
+		if (typeof Fancybox !== 'undefined') {
+			document.addEventListener('fancybox:close', function(e) {
+				// Prevent any automatic reopening
+				e.stopPropagation();
+			});
+		}
+	});
 })();
 
 // Design Scope Video Fancybox Initialization
@@ -2636,5 +2746,70 @@ var swiper = new Swiper(".mySwiper-02", {});
 		});
 	} else {
 		setTimeout(initPasswordToggle, 100);
+	}
+})();
+
+// Password Toggle for Form Icon (Header Popups)
+(function() {
+	const initFormIconPasswordToggle = function() {
+		// Find all form-icon elements that are next to password inputs
+		const formIcons = document.querySelectorAll('.form-icon');
+		
+		if (!formIcons.length) {
+			return;
+		}
+
+		formIcons.forEach(function(iconSpan) {
+			// Check if this icon is next to a password input
+			const parentLi = iconSpan.closest('li');
+			if (!parentLi) {
+				return;
+			}
+			
+			const passwordInput = parentLi.querySelector('input[type="password"]');
+			if (!passwordInput) {
+				return;
+			}
+
+			// Make the icon clickable
+			iconSpan.style.cursor = 'pointer';
+			
+			// Remove existing listeners by checking if already initialized
+			if (iconSpan.hasAttribute('data-password-toggle-initialized')) {
+				return;
+			}
+			iconSpan.setAttribute('data-password-toggle-initialized', 'true');
+
+			// Add click event listener
+			iconSpan.addEventListener('click', function(e) {
+				e.preventDefault();
+				e.stopPropagation();
+				
+				// Toggle password visibility
+				if (passwordInput.type === 'password') {
+					passwordInput.type = 'text';
+					// Optionally change icon image if you have a "hide" version
+					// For now, we'll just toggle the type
+				} else {
+					passwordInput.type = 'password';
+				}
+			});
+		});
+	};
+
+	// Initialize when DOM is ready
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', function() {
+			setTimeout(initFormIconPasswordToggle, 100);
+		});
+	} else {
+		setTimeout(initFormIconPasswordToggle, 100);
+	}
+
+	// Re-initialize when Fancybox opens (for dynamically loaded popups)
+	if (typeof Fancybox !== 'undefined') {
+		document.addEventListener('fancybox:reveal', function() {
+			setTimeout(initFormIconPasswordToggle, 100);
+		});
 	}
 })();

@@ -24,6 +24,10 @@
      
     color: #000  ;
   }
+  @media screen and (max-width: 700px) {
+    padding-top: 20px;
+ 
+  }
 }
 
 // Sticky header on scroll (using black-header class)
@@ -54,7 +58,7 @@
 
 .header_main_wrapper{ display: flex; flex-wrap: wrapl; justify-content: space-between; position: relative;}
 
-.desk_nav_right { width:calc(100% - 221px);  display: flex; flex-wrap: wrap; justify-content: flex-end;
+.desk_nav_right { width:calc(100% - 185px);  display: flex; flex-wrap: wrap; justify-content: flex-end;
 .language_button{
 
   @media (min-width: 1024px) { margin-bottom: 10px;}
@@ -64,18 +68,31 @@
 
 //    width: calc(79% - 150px);                                                                           
 // }
+@media (max-width: 1440px) {
+  width: calc(100% - 40px);
+}
+
+
 
 @media (max-width: 1300px) {
-   width: calc(79% - 40px);
+   width: calc(100% - 40px);
 }
 
  
+
+
 
 }
 
 .nav-link{ display: flex; flex-wrap: wrap; align-items: center; gap: 8px;}
 
-.menu_right_block{ display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center; gap: 20px; }
+.menu_right_block{ display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center; gap: 20px;
+
+
+  @media (max-width: 1440px) {
+    gap: 15px;
+  }
+}
 
 .menu_right_block_mobile{ 
   display: none; 
@@ -88,11 +105,21 @@
 .list-unstyled{ display: flex; flex-wrap:wrap; margin-bottom: 0; padding: 0; margin-top: 0;}
 
  
-.button_link, .list-unstyled li a { font-family: 'RB'; color: #fff; font-size: 16px; font-weight: 400;
+.button_link, .list-unstyled li a {  color: #fff; font-size: 16px; font-weight: 400;
 
   &:hover{ color: #A9D159;}
   
   &.active{ color: #A9D159; font-weight: 500;}
+
+
+  
+  @media (max-width: 1410px) {
+    font-size: 16px;
+  }
+  
+  @media (max-width: 1300px) {
+    font-size: 14px;
+  }
 }
 
 .list-unstyled li.nav-item.active{

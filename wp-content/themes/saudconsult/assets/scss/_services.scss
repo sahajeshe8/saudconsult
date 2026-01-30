@@ -1,9 +1,9 @@
  .services_section_01{ padding-bottom: 50px;  display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between;
    .services_section_01_item_01{ width: 50%;
    
-      @media screen and (max-width:700px) {
+      @media screen and (max-width:820px) {
 
-        width: 100%;
+        width: 100%; padding-top: 0;
       }
    }
    .services_section_01_item_02{ width: 33%;
@@ -32,6 +32,11 @@
          width: 100%;
          margin-top: 10px;
        }
+
+	   @media screen and (max-width:820px) {
+		 width: 100%;
+		 margin-top: 10px;
+	   }
    }
 }
 
@@ -470,5 +475,9 @@
 
 	@media screen and (max-width: 700px) {
 		 padding-left: 4%; padding-right: 4%;
+	}
+
+	@media screen and (max-width: 820px) {
+		height: 400px;
 	}
 }

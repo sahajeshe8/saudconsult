@@ -7292,6 +7292,16 @@ a,
   overflow: hidden;
   background: #000;
 }
+.engineering_expertise_content_01 .expertise_image_wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background: linear-gradient(241.46deg, rgba(162, 200, 86, 0.2) 2.13%, rgba(105, 154, 71, 0.2) 49.11%, rgba(19, 107, 55, 0.2) 77.81%), linear-gradient(180deg, rgba(0, 0, 0, 0) 7.89%, rgba(0, 0, 0, 0.4) 100%);
+}
 @media screen and (max-width: 1024px) {
   .engineering_expertise_content_01 .expertise_image_wrapper {
     max-height: 600px;
@@ -7359,6 +7369,14 @@ a,
     padding: 20px 0;
   }
 }
+.engineering_expertise_content_01 .expertise_thumb_row_content .wrap {
+  margin-top: 70px;
+}
+@media screen and (max-width: 1200px) {
+  .engineering_expertise_content_01 .expertise_thumb_row_content .wrap {
+    margin-top: 0px;
+  }
+}
 .engineering_expertise_content_01 .expertise_thumb_row_content .wrap .expertise_content_wrapper .expertise_active_title {
   margin: 0;
   margin-bottom: 15px;
@@ -7366,7 +7384,7 @@ a,
   font-weight: 700;
   color: #fff;
   line-height: 1.2;
-  transition: opacity 0.3s ease;
+  transition: all 0.5s ease;
   opacity: 1;
 }
 @media screen and (max-width: 480px) {
@@ -7382,7 +7400,7 @@ a,
   line-height: 1.6;
   color: #fff;
   max-width: 600px;
-  transition: opacity 0.3s ease;
+  transition: all 0.5s ease;
   opacity: 1;
 }
 @media screen and (max-width: 480px) {
@@ -7392,7 +7410,7 @@ a,
 }
 .engineering_expertise_content_01 .expertise_thumb_row_content .wrap .expertise_content_wrapper .expertise_active_button {
   margin-top: 10px;
-  transition: opacity 0.3s ease;
+  transition: all 0.5s ease;
   opacity: 1;
 }
 .engineering_expertise_content_01 .expertise_thumb_row {
@@ -7411,7 +7429,7 @@ a,
   justify-content: center;
   width: 100%;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1200px) {
   .engineering_expertise_content_01 .expertise_thumb_row ul {
     flex-wrap: nowrap;
     overflow-x: auto;
@@ -7453,7 +7471,7 @@ a,
   text-align: center;
   flex-shrink: 0;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1200px) {
   .engineering_expertise_content_01 .expertise_thumb_row ul li {
     width: auto;
     min-width: fit-content;

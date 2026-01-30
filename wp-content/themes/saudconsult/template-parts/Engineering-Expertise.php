@@ -139,7 +139,7 @@ $active_item = ! empty( $content_items ) ? $content_items[0] : array();
 <section style="background:url(<?php echo get_template_directory_uri(); ?>/assets/images/design-section-bg.png) #F5F9EE no-repeat  85% center; background-size: contain;" class="engineering_expertise_section  pt_80 pb_80 <?php echo esc_attr( $section_class ); ?> <?php echo $section_wrapper_class; ?>">
 	<div class="wrap">
 		<?php if ( $title || $title_span ) : ?>
-			<div class="engineering_expertise_header pb_40">
+			<div class="engineering_expertise_header pb_50">
 				<h3 class="h3_title_50">
 					<?php if ( $title ) : ?>
 						<?php echo esc_html( $title ); ?>

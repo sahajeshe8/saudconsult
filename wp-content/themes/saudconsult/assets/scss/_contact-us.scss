@@ -193,8 +193,8 @@
 	transition: all 0.3s ease;
 
 	&:hover {
-		background: #0D6A37;
-		transform: translateY(-2px);
+		background: #a8d05a;
+	 
 	}
 
 	img {
@@ -284,6 +284,7 @@
 .form_textarea {
 	width: 100%;
 	padding: 12px 18px;
+	font-weight: 300;
 	font-size: 16px;
 	line-height: 1.5;
 	color: #333;

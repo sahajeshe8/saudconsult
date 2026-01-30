@@ -1242,10 +1242,26 @@ var swiper = new Swiper(".mySwiper-clients", {
 		}
 
 		let currentImage = 1; // Track which image is currently visible
+		let currentActiveIndex = null; // Track which tab is currently active
+
+		// Set initial active index from the item with 'active' class
+		listItems.forEach(function(item) {
+			if (item.classList.contains('active')) {
+				currentActiveIndex = item.getAttribute('data-index');
+			}
+		});
 
 		listItems.forEach(function(item) {
 			item.addEventListener('click', function(e) {
 				e.preventDefault();
+				
+				// Get the index of the clicked item
+				const clickedIndex = this.getAttribute('data-index');
+				
+				// If clicking the same tab that's already active, do nothing
+				if (clickedIndex === currentActiveIndex) {
+					return;
+				}
 				
 				// Remove active class from all items
 				listItems.forEach(function(li) {
@@ -1254,6 +1270,9 @@ var swiper = new Swiper(".mySwiper-clients", {
 
 				// Add active class to clicked item
 				this.classList.add('active');
+
+				// Update current active index
+				currentActiveIndex = clickedIndex;
 
 				// Get data from clicked item
 				const newImage = this.getAttribute('data-image');

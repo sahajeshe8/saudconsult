@@ -66,8 +66,8 @@ html{
 
 
 
-&.btn_green{ background: #A9D159; border:none; color : #fff;
-    &:hover{ background:#8eb346; 
+   &.btn_green{ background: #A9D159; border:none; color: #fff !important;
+    &:hover{ background:#fdfdfd; color: #000000 !important;
       img{ filter: invert(1);  }
    }
     
@@ -205,6 +205,7 @@ html{
    }
 }
 
+.text-center{ text-align: center;}
  
 .title_block{
    display: flex;
@@ -246,8 +247,11 @@ p{ color: #444444; font-weight: 300;}
 
 
 .bg-style{ background: #F5F9EE url(../images/about-bg.png) no-repeat center center; background-size: contain;}
+   .bg-style-2{ background: #F5F9EE url(../images/journey-bg.svg) no-repeat top center; background-size: 45%;}
 .bg_02{ background: #F5F9EE url(../images/vision-miossion-bg.svg) no-repeat center center; background-size: contain;}
 
+
+ 
 .bg_collor_green{ background: #F5F9EE !important;}
 
 .bg_color_01{ background: #F5F9EE !important;}
@@ -312,3 +316,13 @@ line-height: 1.2;
 color: #101922;
 margin-top: 5px;
 }
+
+.justify-content-between-02{ justify-content: space-between  ;}
+
+.input{
+   @media screen and (max-width: 700px) {
+      font-size: 16px !important;
+   }
+}
+
+.fancybox__footer{ display: none !important;}

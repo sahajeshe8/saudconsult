@@ -56,7 +56,7 @@ $projects = isset( $args['projects'] ) ? $args['projects'] : array(
 		)
 	),
 	array(
-		'background_image' => get_template_directory_uri() . '/assets/images/pro-img.jpg',
+		'background_image' => get_template_directory_uri() . '/assets/images/home slide.jpg',
 		'background_image_alt' => 'Project Background',
 		'title' => 'Rayadah Housing Project',
 		'description' => 'Detailed Infrastructure Design, Construction Supervision, Environmental Impact Study, and Value Engineering for the complete mixed-use development.',
@@ -104,13 +104,13 @@ $projects = isset( $args['projects'] ) ? $args['projects'] : array(
 							<?php echo esc_html( $title ); ?>
 						<?php endif; ?>
 						<?php if ( $title_span ) : ?>
-							<span><?php echo esc_html( $title_span ); ?></span>
+							<span cla><?php echo esc_html( $title_span ); ?></span>
 						<?php endif; ?>
 					</h3>
 				<?php endif; ?>
 
 				<?php if ( $description ) : ?>
-					<p><?php echo esc_html( $description ); ?></p>
+					<p class="project_description"><?php echo esc_html( $description ); ?></p>
 				<?php endif; ?>
 			</div>
 
@@ -161,7 +161,7 @@ $projects = isset( $args['projects'] ) ? $args['projects'] : array(
 							<?php endif; ?>
 							
 							<div class="wrap">
-								<div class="projects_item pt_80 pb_80">
+								<div class="projects_item pt_80 pb_110">
 									<div class="projects_item_content_blck_01">
 										<div class="projects_item_content_blck_01_left">
 											<?php if ( $project_title ) : ?>

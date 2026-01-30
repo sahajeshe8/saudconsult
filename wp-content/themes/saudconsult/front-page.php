@@ -54,10 +54,10 @@ get_header();
 					)
 				),
 				array(
-					'background_image' => get_template_directory_uri() . '/assets/images/pro-img.jpg',
+					'background_image' => get_template_directory_uri() . '/assets/images/home slide 2.jpg',
 					'background_image_alt' => 'Project Background',
-					'title' => 'Rayadah Housing Project',
-					'description' => 'Detailed Infrastructure Design, Construction Supervision, Environmental Impact Study, and Value Engineering for the complete mixed-use development.',
+					'title' => 'Development Of King Abdullah Road',
+					'description' => 'Support for Urban Planning, Detailed Design of Infrastructure and preparation of Tender Documents for the 22 km long inner-city freeway',
 					'button_text' => 'Explore More',
 					'button_link' => '#',
 					'stats' => array(

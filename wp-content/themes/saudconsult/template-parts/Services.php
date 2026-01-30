@@ -41,7 +41,7 @@
 					<p>
 						Translating vision into robust, buildable plans, including architectural, structural.
 					</p>
-					<a class="btn_style btn_transparent" href="<?php echo esc_url( home_url( '/contact' ) ); ?>">
+					<a class="btn_style btn_transparent" href="<?php echo esc_url( home_url( '/engineering-design' ) ); ?>">
 						View more <span><img src="<?php echo get_template_directory_uri(); ?>/assets/images/arrow-buttion.svg" alt="View more"></span>
 					</a>
 				</div>
@@ -106,7 +106,7 @@
 					</a>
 				</div>
 				<div class="services_section_item_01">
-					<img src="<?php echo get_template_directory_uri(); ?>/assets/imagesservice-04.jpg" alt="Services">
+					<img src="<?php echo get_template_directory_uri(); ?>/assets/images/service-04.jpg" alt="Services">
 				</div>
 			</div>
 
@@ -118,7 +118,7 @@
 					<h5>
 					Quality Assurance
 					</h5>
-					<p>/
+					<p>
 					Providing on-site assurance and quality management to ensure execution..
 					</p>
 					<a class="btn_style btn_transparent short" href="<?php echo esc_url( home_url( '/engineering-design' ) ); ?>">

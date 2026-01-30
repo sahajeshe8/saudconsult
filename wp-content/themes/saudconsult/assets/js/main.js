@@ -330,10 +330,10 @@ var swiper = new Swiper(".mySwiper-partners", {
 	slidesPerView: 2,
 	 
 	loop: true,
-	autoplay: {
-		delay: 3000,
-		disableOnInteraction: false,
-	},
+	// autoplay: {
+	// 	delay: 3000,
+	// 	disableOnInteraction: false,
+	// },
  
 	breakpoints: {
 		640: {

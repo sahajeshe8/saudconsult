@@ -4448,7 +4448,6 @@ a,
   width: 33.3%;
   padding-left: 0.5%;
   padding-right: 0.5%;
-  margin-bottom: 20px;
 }
 @media screen and (max-width: 700px) {
   .leadership_section_inner_left_list li {
@@ -4686,6 +4685,9 @@ a,
   height: 100%;
   background: linear-gradient(241.46deg, rgba(162, 200, 86, 0.5) 0%, rgba(105, 154, 71, 0.5) 48.0007708073%, rgba(19, 107, 55, 0.5) 77.3304998875%);
 }
+.ready_to_partner_section .subtitle_span {
+  font-weight: 300;
+}
 .ready_to_partner_section .wrap {
   position: relative;
   z-index: 10;
@@ -4695,11 +4697,11 @@ a,
 }
 .ready_to_partner_section p {
   color: #fff;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 300;
   line-height: 130%;
   margin: 0;
-  max-width: 36%;
+  max-width: 40%;
   margin-bottom: 20px;
 }
 @media screen and (max-width: 800px) {
@@ -4774,9 +4776,14 @@ a,
 }
 
 .insights_item {
-  padding: 2%;
   display: flex;
   flex-wrap: wrap;
+  text-decoration: none;
+  color: inherit;
+}
+.insights_item:hover {
+  text-decoration: none;
+  color: inherit;
 }
 .insights_item .insights_item_content {
   margin-top: 20px;

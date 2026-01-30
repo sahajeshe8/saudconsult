@@ -6,18 +6,13 @@
  *
  * @package tasheel
  */
-
+global $header_custom_class;
+$header_custom_class = 'black-header';
 get_header();
 ?>
 
-<main id="primary" class="site-main" style="background: #EDF3E4;">
-	<?php 
-	$inner_banner_data = array(
-		'background_image' => get_template_directory_uri() . '/assets/images/careers-banner.jpg',
-		'title' => 'Create Profile',
-	);
-	get_template_part( 'template-parts/inner-banner', null, $inner_banner_data ); 
-	?>
+<main id="primary" class="site-main no_banner_section" style="background: #EDF3E4;">
+ 
 
 	<section class="create_profile_section pt_80 pb_80">
 		<div class="wrap">

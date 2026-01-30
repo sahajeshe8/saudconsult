@@ -12,7 +12,7 @@
 
 
 <div class="wrap">
-<h4 class="h4_title_35 pb_20" data-aos="fade-up" data-aos-duration="800" data-aos-delay="0">
+<h4 class="h4_title_35 pb_30" data-aos="fade-up" data-aos-duration="800" data-aos-delay="0">
 Our Success <span>Partners</span>
 				</h4>
 </div>

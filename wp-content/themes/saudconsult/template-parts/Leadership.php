@@ -7,7 +7,7 @@
 
 ?>
 
-<section class="leadership_section pt_80" style="background: url('<?php echo get_template_directory_uri(); ?>/assets/images/leadershiop_bg_01.svg') no-repeat top left; background-size: 35%;">
+<section class="leadership_section pt_100" style="background: url('<?php echo get_template_directory_uri(); ?>/assets/images/leadershiop_bg_01.svg') no-repeat top left; background-size: 35%;">
 	<div class="wrap">
 
 <div class="leadership_section_inner_content pb_50">
@@ -19,7 +19,7 @@
 <li data-aos="fade-up" data-aos-duration="800" data-aos-delay="0">
 <span class="lable_text green_text  ">
 					<img src="<?php echo get_template_directory_uri(); ?>/assets/images/dot-02.svg" alt="Our Projects">
-					Our Projects
+					Our Leadership Team
 				</span>
 
 				<h3 class="h3_title_50">
@@ -30,7 +30,7 @@
 <li data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
     <div class="leadership_block">
        <div class="leadership_img">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/l1.jpg" alt="Leadership Image">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/l1.png" alt="Leadership Image">
        </div>
        <div class="leadership_content">
         <h4>Sami Sidawi</h4>
@@ -54,7 +54,7 @@
 <li data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
     <div class="leadership_block">
        <div class="leadership_img">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/l2.jpg" alt="Leadership Image">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/l2.png" alt="Leadership Image">
        </div>
        <div class="leadership_content">
         <h4>John N Helou</h4>
@@ -107,7 +107,7 @@
                 <li data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
      <div class="leadership_block">
         <div class="leadership_img">
-         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/l3.jpg" alt="Leadership Image">
+         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/l3.png" alt="Leadership Image">
         </div>
         <div class="leadership_content">
          <h4>Hadi Sha</h4>
@@ -130,7 +130,7 @@
  <li data-aos="fade-up" data-aos-duration="800" data-aos-delay="500">
      <div class="leadership_block">
         <div class="leadership_img">
-         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/l4.jpg" alt="Leadership Image">
+         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/l4.png" alt="Leadership Image">
         </div>
         <div class="leadership_content">
          <h4>Mohammed El D</h4>
@@ -153,7 +153,7 @@
  <li data-aos="fade-up" data-aos-duration="800" data-aos-delay="600">
      <div class="leadership_block">
         <div class="leadership_img">
-         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/l5.jpg" alt="Leadership Image">
+         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/l5.png" alt="Leadership Image">
         </div>
         <div class="leadership_content">
          <h4>Jihad Khoury</h4>

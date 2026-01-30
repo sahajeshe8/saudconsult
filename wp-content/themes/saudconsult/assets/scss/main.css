@@ -621,8 +621,8 @@ p {
   color: #fff !important;
 }
 .btn_style.btn_green:hover {
-  background: #8eb346;
-  color: #fff !important;
+  background: #fdfdfd;
+  color: #000000 !important;
 }
 .btn_style.btn_green:hover img {
   filter: invert(1);
@@ -976,6 +976,29 @@ p {
   justify-content: center;
   align-items: center;
   padding-top: 20px;
+}
+
+.project_description {
+  font-family: "RB";
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.2;
+  color: #101922;
+  margin-top: 5px;
+}
+
+.justify-content-between-02 {
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 700px) {
+  .input {
+    font-size: 16px !important;
+  }
+}
+
+.fancybox__footer {
+  display: none !important;
 }
 
 * {
@@ -3776,7 +3799,6 @@ a,
   position: absolute;
   top: 0;
   left: 0;
-  background: linear-gradient(to left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
   z-index: 1;
   transition: opacity 0.3s ease;
 }
@@ -4214,7 +4236,7 @@ a,
   max-width: 50%;
 }
 .projects_grid .projects_item p {
-  max-width: 42%;
+  max-width: 70%;
 }
 @media screen and (max-width: 700px) {
   .projects_grid .projects_item p {
@@ -4247,11 +4269,13 @@ a,
   -o-object-fit: cover;
      object-fit: cover;
   display: block;
-  transition: transform 0.6s ease, opacity 0.3s ease;
+  transition: all 1s ease;
   transform: scale(1);
+  -o-object-position: bottom;
+     object-position: bottom;
 }
 .projects_grid .swiper-slide:hover .projects_slide_bg img {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 .projects_grid .swiper-slide::after {
   content: "";
@@ -4261,7 +4285,7 @@ a,
   width: 100%;
   height: 100%;
   background: #003417;
-  opacity: 0.4;
+  opacity: 0.5;
   z-index: 1;
 }
 .projects_grid .swiper-slide h3 {
@@ -4460,7 +4484,6 @@ a,
   width: 33.3%;
   padding-left: 0.5%;
   padding-right: 0.5%;
-  margin-bottom: 20px;
 }
 @media screen and (max-width: 700px) {
   .leadership_section_inner_left_list li {
@@ -4519,7 +4542,7 @@ a,
   fill: #2388FF;
 }
 .leadership_block .leadership_content {
-  padding: 4% 6%;
+  padding: 3.3% 6%;
   width: 100%;
   background: #f6f6f6 url("../images/leadershiop_bg_01.png") no-repeat center center;
   background-size: contain;
@@ -4700,6 +4723,9 @@ a,
   height: 100%;
   background: linear-gradient(241.46deg, rgba(162, 200, 86, 0.5) 0%, rgba(105, 154, 71, 0.5) 48.0007708073%, rgba(19, 107, 55, 0.5) 77.3304998875%);
 }
+.ready_to_partner_section .subtitle_span {
+  font-weight: 300;
+}
 .ready_to_partner_section .wrap {
   position: relative;
   z-index: 10;
@@ -4709,11 +4735,11 @@ a,
 }
 .ready_to_partner_section p {
   color: #fff;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 300;
   line-height: 130%;
   margin: 0;
-  max-width: 36%;
+  max-width: 40%;
   margin-bottom: 20px;
 }
 @media screen and (max-width: 800px) {
@@ -4788,9 +4814,14 @@ a,
 }
 
 .insights_item {
-  padding: 2%;
   display: flex;
   flex-wrap: wrap;
+  text-decoration: none;
+  color: inherit;
+}
+.insights_item:hover {
+  text-decoration: none;
+  color: inherit;
 }
 .insights_item .insights_item_content {
   margin-top: 20px;
@@ -5281,11 +5312,11 @@ a,
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(241.46deg, rgba(162, 200, 86, 0.4) 0%, rgba(105, 154, 71, 0.4) 48.0007708073%, rgba(19, 107, 55, 0.4) 77.3304998875%);
+  background: linear-gradient(241.46deg, rgba(162, 200, 86, 0.5) 2.13%, rgba(105, 154, 71, 0.5) 49.11%, rgba(19, 107, 55, 0.5) 77.81%);
 }
 
 .image_image_block_container {
-  width: 50%;
+  width: 50.7%;
 }
 @media screen and (max-width: 700px) {
   .image_image_block_container {
@@ -10950,7 +10981,7 @@ a,
 .awards_slider_section .mySwiper-awards .swiper-slide.swiper-slide-active img {
   opacity: 1 !important;
 }
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1200px) {
   .awards_slider_section .mySwiper-awards .swiper-slide.swiper-slide-active {
     transform: scale(1.8);
     z-index: 100;
@@ -11018,6 +11049,7 @@ a,
   padding: 7px;
   background: #fff;
   text-align: center;
+  display: none;
 }
 .awards_slider_section .mySwiper-awards .swiper-slide .award_item .award_item_info .award_title {
   transform: scale(0.8);
@@ -11097,6 +11129,13 @@ a,
   width: 30px;
   border-radius: 6px;
 }
+.awards_slider_section .mySwiper-awards.swiper-slide-active .award_item_info {
+  display: block;
+}
+
+.mySwiper-awards .swiper-slide-active .award_item_info {
+  display: block !important;
+}
 
 .slider-block-01 {
   width: 100%;
@@ -11115,7 +11154,7 @@ a,
 }
 
 .slider-block-03 {
-  width: 55%;
+  width: 56%;
   position: relative;
 }
 @media screen and (max-width: 768px) {
@@ -11180,9 +11219,12 @@ a,
     width: 100%;
   }
 }
+.slider-block-03 .slider_arrow_block {
+  margin-bottom: 0;
+}
 
 .swiper-slide-inner-img {
-  width: 45%;
+  width: 50%;
 }
 @media screen and (max-width: 700px) {
   .swiper-slide-inner-img {
@@ -11240,6 +11282,10 @@ a,
   .award_slider_block_01 {
     width: 100%;
   }
+}
+.award_slider_block_01 p {
+  font-size: 18px;
+  color: #000;
 }
 
 .mb_auto {
@@ -11339,7 +11385,7 @@ a,
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   .award-row-02 {
     display: none;
   }
@@ -11499,10 +11545,18 @@ a,
   }
 }
 .footer .subscribe_form .btn_green {
-  color: #fff !important;
+  color: #fff;
 }
 .footer .subscribe_form .btn_green img {
   filter: invert(1);
+}
+.footer .subscribe_form .btn_green:hover img {
+  filter: invert(0);
+}
+@media screen and (max-width: 1300px) {
+  .footer .subscribe_form {
+    height: 40px;
+  }
 }
 .footer .footer_email_input {
   width: calc(100% - 154px);

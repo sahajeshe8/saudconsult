@@ -62,7 +62,17 @@
 }
 
 
-.insights_item{   padding:2%; display: flex; flex-wrap: wrap; 
+.insights_item{   
+	display: flex; 
+	flex-wrap: wrap;
+	text-decoration: none;
+	color: inherit;
+	
+	// When insights_item is an anchor tag
+	&:hover {
+		text-decoration: none;
+		color: inherit;
+	} 
 .insights_item_content{ margin-top: 20px;}
     .latest_news_text_lable{ color: #0D6A37; font-size: 15px; font-weight: 400;}
     .insights_item_content{

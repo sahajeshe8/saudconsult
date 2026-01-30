@@ -54,10 +54,10 @@ get_header();
 					)
 				),
 				array(
-					'background_image' => get_template_directory_uri() . '/assets/images/pro-img.jpg',
+					'background_image' => get_template_directory_uri() . '/assets/images/home slide 2.jpg',
 					'background_image_alt' => 'Project Background',
-					'title' => 'Rayadah Housing Project',
-					'description' => 'Detailed Infrastructure Design, Construction Supervision, Environmental Impact Study, and Value Engineering for the complete mixed-use development.',
+					'title' => 'Development Of King Abdullah Road',
+					'description' => 'Support for Urban Planning, Detailed Design of Infrastructure and preparation of Tender Documents for the 22 km long inner-city freeway',
 					'button_text' => 'Explore More',
 					'button_link' => '#',
 					'stats' => array(
@@ -91,9 +91,9 @@ get_header();
 			'mobile_image' => get_template_directory_uri() . '/assets/images/ready-to-partner-one-mobile.jpg',
 			'title' => 'Ready to Partner',
 			'subtitle' => 'on Your Vision?',
-			'description' => 'Leverage our five decades of pioneering excellence to ensure the success of your next ambitious venture.',
-			'button_text' => 'Explore More',
-			'button_link' => '#'
+			'description' => 'Leverage our five decades of pioneering excellence to ensure the <br /> success of your next ambitious venture.',
+			'button_text' => 'Vendor Registration',
+			'button_link' => home_url( '/vendor-registration' )
 		);
 		get_template_part( 'template-parts/banner-add', null, $banner_add_data ); 
 		?>
@@ -110,7 +110,7 @@ get_header();
 			'subtitle' => 'With Us',
 			'description' => 'We don\'t just fill positions—we cultivate talent. Explore opportunities where your skills lead to transformative impact across the region.',
 			'button_text' => 'Join our Team',
-			'button_link' => '#'
+			'button_link' => home_url( '/careers-page' )
 		);
 		get_template_part( 'template-parts/banner-add', null, $banner_add_data ); 
 		?>

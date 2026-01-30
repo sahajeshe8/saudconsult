@@ -678,7 +678,7 @@ var swiper = new Swiper(".mySwiper-clients", {
 					},
 					1280: {
 						slidesPerView: 4,
-						spaceBetween: 30,
+						spaceBetween: 20,
 					},
 				},
 			});

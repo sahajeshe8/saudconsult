@@ -150,12 +150,25 @@
      }
 
      .btn_green{
-color: #fff !important;
+color: #fff  ;
       img{
         filter:  invert(1);
       }
+
+
+      &:hover{
+        img{
+          filter:  invert(0);
+        } 
+      }
+
      }
 
+
+
+     @media screen and (max-width: 1300px) {
+      height: 40px;
+     }
    }
 
    .footer_email_input {

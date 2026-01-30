@@ -67,7 +67,7 @@ html{
 
 
    &.btn_green{ background: #A9D159; border:none; color: #fff !important;
-    &:hover{ background:#8eb346; color: #fff !important;
+    &:hover{ background:#fdfdfd; color: #000000 !important;
       img{ filter: invert(1);  }
    }
     
@@ -287,3 +287,24 @@ position: relative;
 }
 
 .mobile_show_block{ width: 100%; display: flex; justify-content: center; align-items: center; padding-top: 20px;}
+
+
+
+.project_description {
+font-family: "RB";
+font-weight: 400;
+;font-size: 18px;
+line-height: 1.2;
+color: #101922;
+margin-top: 5px;
+}
+
+.justify-content-between-02{ justify-content: space-between  ;}
+
+.input{
+   @media screen and (max-width: 700px) {
+      font-size: 16px !important;
+   }
+}
+
+.fancybox__footer{ display: none !important;}

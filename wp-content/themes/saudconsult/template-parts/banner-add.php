@@ -30,17 +30,17 @@ $button_link = isset( $args['button_link'] ) ? $args['button_link'] : '#';
 					<?php echo esc_html( $title ); ?>
 				<?php endif; ?>
 				<?php if ( $subtitle ) : ?>
-					<br><span><?php echo esc_html( $subtitle ); ?></span>
+					<br><span class="subtitle_span"><?php echo esc_html( $subtitle ); ?></span>
 				<?php endif; ?>
 			</h3>
 		<?php endif; ?>
 		
 		<?php if ( $description ) : ?>
-			<p data-aos="fade-up" data-aos-duration="800" data-aos-delay="100"><?php echo esc_html( $description ); ?></p>
+			<p data-aos="fade-up" data-aos-duration="800" data-aos-delay="100"><?php echo wp_kses_post( $description ); ?></p>
 		<?php endif; ?>
 		
 		<?php if ( $button_text && $button_link ) : ?>
-			<a class="btn_style btn_transparent" href="<?php echo esc_url( $button_link ); ?>" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+			<a class="btn_style btn_transparent short" href="<?php echo esc_url( $button_link ); ?>" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
 				<?php echo esc_html( $button_text ); ?> <span><img src="<?php echo get_template_directory_uri(); ?>/assets/images/buttion-arrow.svg" alt="<?php echo esc_attr( $button_text ); ?>"></span>
 			</a>
 		<?php endif; ?>

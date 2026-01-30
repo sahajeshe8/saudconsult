@@ -73,7 +73,7 @@
 				img{ opacity: 1 !important;}
 			}
 
-			@media screen and (min-width: 1024px) {
+			@media screen and (min-width: 1200px) {
 			&.swiper-slide-active {
 				transform: scale(1.8);
 				z-index: 100;
@@ -148,6 +148,7 @@
 					padding: 7px;
 					background: #fff;
 					text-align: center;
+					display: none;
 					 
 
 					.award_title {
@@ -236,9 +237,21 @@
 				}
 			}
 		}
+
+		&.swiper-slide-active{
+			.award_item_info{ display: block;}
+		}
 	}
 }
 
+
+
+.mySwiper-awards{
+.swiper-slide-active{
+
+	.award_item_info{ display: block !important;}
+}
+}
  
 .slider-block-01{  width:100%;  display: flex; flex-wrap: wrap; align-items: flex-end;}
 .slider-block-02{ width:26%;  
@@ -247,7 +260,7 @@
 }
 
 }
-.slider-block-03{ width:55%; position: relative;
+.slider-block-03{ width:56%; position: relative;
 @media screen and (max-width: 768px) {
 	width: 100%;
 }
@@ -273,9 +286,11 @@
 @media screen and (max-width: 1024px) {
 	 width:100%;  
 }
+
+.slider_arrow_block{margin-bottom: 0;}
 }
 
-.swiper-slide-inner-img{  width: 45%; 
+.swiper-slide-inner-img{  width: 50%; 
 @media screen and (max-width: 700px) {
 	width: 100%;
 }
@@ -307,6 +322,10 @@
 
 @media screen and (max-width: 1024px) {
 	width: 100%;  
+}
+
+p{ 
+	font-size: 18px; color: #000;
 }
 }
 
@@ -401,7 +420,7 @@
 
 
 .award-row-02{
-	@media screen and (max-width: 768px) {
+	@media screen and (max-width: 1024px) {
 	 display: none;
 	}
 }

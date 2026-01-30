@@ -2,7 +2,7 @@
 background: #F5F9EE;
 padding-top: 15px;
 padding-bottom: 15px;
-border-bottom: solid 1px #E1E4ED;
+// border-bottom: solid 1px #E1E4ED;
  
 	width: 100%;
 	position: relative;
@@ -15,10 +15,10 @@ border-bottom: solid 1px #E1E4ED;
 			overflow-y: hidden;
 			-webkit-overflow-scrolling: touch;
 			scrollbar-width: thin;
-			margin-left: -4%;
-			margin-right: -4%;
-			padding-left: 4%;
-			padding-right: 4%;
+			// margin-left: -4%;
+			// margin-right: -4%;
+			// padding-left: 4%;
+			// padding-right: 4%;
 
 			&::-webkit-scrollbar {
 				height: 4px;
@@ -44,7 +44,6 @@ border-bottom: solid 1px #E1E4ED;
 
 			@media screen and (max-width: 700px) {
 				flex-wrap: nowrap !important;
-				justify-content: flex-start;
 				padding: 0;
 				width: max-content;
 				min-width: 100%;

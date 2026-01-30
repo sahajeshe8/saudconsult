@@ -1,7 +1,7 @@
 // Breadcrumb Template Part
 .breadcrumb_section {
 	width: 100%;
- padding-top: 25px;
+    padding-top: 25px;
 	position: relative;
 
 	@media screen and (max-width: 768px) {
@@ -16,7 +16,7 @@
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
-	gap: 5px;
+	gap: 8px;
 
 	@media screen and (max-width: 480px) {
 		gap: 5px;
@@ -29,23 +29,20 @@
 	list-style: none;
 	display: flex;
 	align-items: center;
-	gap: 8px;
+	gap: 10px;
 
 	@media screen and (max-width: 480px) {
 		gap: 5px;
 	}
 
 	.breadcrumb_home_icon {
-		width: 16px;
-		height: 16px;
+		width: 20px;
 		display: inline-block;
 		vertical-align: middle;
-		margin-right: 4px;
 		object-fit: contain;
 
 		@media screen and (max-width: 480px) {
-			width: 14px;
-			height: 14px;
+			width: 16px;
 		}
 	}
 
@@ -90,14 +87,13 @@
 	}
 
 	.breadcrumb_separator {
-		margin-left: 8px;
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
 
 		.breadcrumb_separator_icon {
-			width: 16px;
-			height: 10px;
+			width: 6px;
+			height: auto;
 			display: block;
 			object-fit: contain;
 		}
@@ -106,8 +102,7 @@
 			margin-left: 5px;
 
 			.breadcrumb_separator_icon {
-				width: 14px;
-				height: 14px;
+				width: 5px;
 			}
 		}
 
@@ -115,8 +110,7 @@
 			margin-left: 4px;
 
 			.breadcrumb_separator_icon {
-				width: 12px;
-				height: 12px;
+				width: 4px;
 			}
 		}
 	}

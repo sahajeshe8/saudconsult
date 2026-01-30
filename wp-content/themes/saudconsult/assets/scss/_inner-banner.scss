@@ -31,14 +31,19 @@
 		left: 0;
 		width: 100%;
 		height: 100%;
-		background: linear-gradient(
-			to bottom,
-			rgba(162, 200, 86, 0) 0%,
-			rgba(162, 200, 86, 0) 27%,
-			rgba(50, 61, 26, 0.65) 99%,
-			rgba(162, 200, 86, 0.65) 100%
-		);
-		opacity: 0.7;
+		// background: linear-gradient(
+		// 	to bottom,
+		// 	rgba(162, 200, 86, 0) 0%,
+		// 	rgba(162, 200, 86, 0) 27%,
+		// 	rgba(50, 61, 26, 0.65) 99%,
+		// 	rgba(162, 200, 86, 0.65) 100%
+		// );
+		background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+linear-gradient(180deg, rgba(50, 50, 50, 0.4) 0%, rgba(13, 106, 55, 0) 18.87%),
+linear-gradient(208.63deg, rgba(22, 107, 55, 0.3) 5.94%, rgba(24, 108, 55, 0.298308) 10.07%, rgba(169, 209, 89, 0.18) 23.08%, rgba(169, 209, 89, 0) 45.18%),
+linear-gradient(180deg, rgba(13, 106, 55, 0) 51.35%, rgba(5, 40, 21, 0.6) 100%);
+
+		opacity: 1;
 		z-index: 2;
 	}
 
@@ -121,7 +126,7 @@
 		min-height: 350px;
 
 		.inner_banner_content {
-			padding: 80px 0 50px;
+			// padding: 80px 0 50px;
 
 			.inner_banner_title {
 				@include px-rem(45);
@@ -133,7 +138,7 @@
 		min-height: 300px;
 
 		.inner_banner_content {
-			padding: 60px 0 40px;
+			// padding: 60px 0 40px;
 
 			.inner_banner_title {
 				@include px-rem(55);
@@ -155,7 +160,7 @@
 		min-height: 250px;
 
 		.inner_banner_content {
-			padding: 50px 0 30px;
+			// padding: 50px 0 30px;
 
 			.inner_banner_title {
 				@include px-rem(85);

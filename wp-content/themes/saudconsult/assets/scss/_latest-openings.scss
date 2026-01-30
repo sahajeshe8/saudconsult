@@ -14,7 +14,7 @@
 			gap: 30px;
 			list-style: none;
 
-			@media screen and (max-width: 768px) {
+			@media screen and (max-width: 600px) {
 				grid-template-columns: 1fr;
 			}
 
@@ -34,6 +34,10 @@
 		border: solid 1px #D2D2D2;
 		transition: all 0.3s ease;
 		position: relative;
+
+		@media screen and (max-width: 1200px) {
+			flex-direction: column;
+		}
 
 		.opening_icon {
             position: absolute;
@@ -63,6 +67,11 @@
 			flex: 1;
 			display: flex;
 			flex-direction: column;
+
+			@media screen and (max-width: 1200px) {
+				align-items: flex-start;
+				width: 100%;
+			}
 		 
 
 			h3 {
@@ -95,7 +104,7 @@ p{ margin: 0;
 				font-size: 16px;
 				color:#353535;
 				font-family: 'RB';
-				margin-bottom: 10px;
+				margin-bottom: 18px;
                 @media screen and (max-width: 768px) {
                     font-size: 14px;
                 }
@@ -109,27 +118,36 @@ p{ margin: 0;
 			.opening_id {
 				display: flex;
 				align-items: center;
-				gap: 8px;
+				gap: 25px;
 				font-size: 16px;
 				color: #353535;
                 font-weight: 400;
 				font-family: 'RB';
                 @media screen and (max-width: 768px) {
                     font-size: 14px;
+					gap: 15px;
                 }
                 @media screen and (max-width: 700px) {
                     font-size: 13px;
                 }
 				img {
-					width: 19px;
+					width: 24px;
 					height: auto;
 					display: block;
 					object-fit: contain;
+
+					@media screen and (max-width: 768px) {
+						width: 16px;
+					}
 				}
 
 				span {
 					display: inline-block;
 				}
+			}
+
+			.opening_id {
+				margin-top: 8px;
 			}
 		}
 
@@ -161,8 +179,16 @@ p{ margin: 0;
 		width: 100%;
 		display: flex;
 		justify-content: center;
-		margin-top: 40px;
-		padding-top: 40px;
+		margin-top: 80px;
+		// padding-top: 40px;
+
+		@media screen and (max-width: 1024px) {
+			margin-top: 60px;
+		}
+
+		@media screen and (max-width: 600px) {
+			margin-top: 30px;
+		}
 
 		.load_more_btn {
 			&.loading {
@@ -174,6 +200,18 @@ p{ margin: 0;
 	}
 }
 
+.opening_location {
+	svg {
+		width: 24px;
+		height: 24px;
+		object-fit: contain;
+
+		@media screen and (max-width: 768px) {
+			width: 16px;
+			height: 16px;
+		}
+	}
+}
 
 
 .opening_location,  .opening_id{  margin-bottom:5px; }

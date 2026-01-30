@@ -4729,6 +4729,9 @@ a,
   height: 100%;
   background: linear-gradient(241.46deg, rgba(162, 200, 86, 0.5) 0%, rgba(105, 154, 71, 0.5) 48.0007708073%, rgba(19, 107, 55, 0.5) 77.3304998875%);
 }
+.ready_to_partner_section.dark::after {
+  background: linear-gradient(241.46deg, rgba(162, 200, 86, 0.5) 2.13%, rgba(105, 154, 71, 0.5) 49.11%, rgba(19, 107, 55, 0.5) 77.81%), linear-gradient(90deg, #0D6A37 11.07%, rgba(13, 106, 55, 0) 30.16%);
+}
 .ready_to_partner_section .subtitle_span {
   font-weight: 300;
 }
@@ -7384,7 +7387,6 @@ a,
   font-weight: 700;
   color: #fff;
   line-height: 1.2;
-  transition: all 0.5s ease;
   opacity: 1;
 }
 @media screen and (max-width: 480px) {
@@ -7400,7 +7402,6 @@ a,
   line-height: 1.6;
   color: #fff;
   max-width: 600px;
-  transition: all 0.5s ease;
   opacity: 1;
 }
 @media screen and (max-width: 480px) {
@@ -7410,7 +7411,6 @@ a,
 }
 .engineering_expertise_content_01 .expertise_thumb_row_content .wrap .expertise_content_wrapper .expertise_active_button {
   margin-top: 10px;
-  transition: all 0.5s ease;
   opacity: 1;
 }
 .engineering_expertise_content_01 .expertise_thumb_row {
@@ -7438,7 +7438,6 @@ a,
     -webkit-overflow-scrolling: touch;
     scrollbar-width: thin;
     scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
-    padding: 0 10px;
   }
   .engineering_expertise_content_01 .expertise_thumb_row ul::-webkit-scrollbar {
     height: 4px;

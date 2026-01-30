@@ -79,14 +79,15 @@ get_header();
 
 
 <?php 
-		$banner_add_data = array(
-			'background_image' => get_template_directory_uri() . '/assets/images/design-bg-img.jpg',
-			'title' => 'Need help choosing the',
-			'subtitle' => 'right service?',
-			'description' => 'Let’s discuss how we can align our technology with your goals.',
-			'button_text' => 'Get in Touch',
-			'button_link' => '#'
-		);
+	$banner_add_data = array(
+		'background_image' => get_template_directory_uri() . '/assets/images/design-bg-img.jpg',
+		'title' => 'Need help choosing the',
+		'subtitle' => 'right service?',
+		'description' => 'Let\'s discuss how we can align our technology with your goals.',
+		'button_text' => 'Get in Touch',
+		'button_link' => '#',
+		'dark' => true
+	);
 		get_template_part( 'template-parts/banner-add', null, $banner_add_data ); 
 		?>
 

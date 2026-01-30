@@ -912,7 +912,7 @@ p {
 }
 
 .bg_gradient {
-  background: linear-gradient(90deg, #599143 0%, #136b36 100%);
+  background: linear-gradient(115.07deg, #A2C856 -41.49%, #699A47 8.03%, #136B37 71.7%);
   position: relative;
 }
 .bg_gradient h3 {
@@ -4246,7 +4246,7 @@ a,
   max-width: 50%;
 }
 .projects_grid .projects_item p {
-  max-width: 70%;
+  max-width: 57%;
 }
 @media screen and (max-width: 700px) {
   .projects_grid .projects_item p {
@@ -4403,6 +4403,7 @@ a,
 
 .slider_arrow_block {
   width: 20%;
+  top: 20px;
   position: absolute;
   right: 0;
   margin-left: auto;
@@ -6225,9 +6226,9 @@ a,
 }
 .what_to_expect_section .what_to_expect_header .what_to_expect_description {
   margin: 0;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.6;
-  color: #000;
+  color: #444444;
   font-family: "RB";
 }
 @media screen and (max-width: 768px) {
@@ -6247,12 +6248,17 @@ a,
 }
 @media screen and (max-width: 1024px) {
   .what_to_expect_section .what_to_expect_content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 700px) {
+  .what_to_expect_section .what_to_expect_content {
     grid-template-columns: 1fr;
   }
 }
 .what_to_expect_section .what_to_expect_content .what_to_expect_item {
   margin: 0;
-  padding: 6%;
+  padding: 6% 6% 70px 6%;
   position: relative;
   background: #fff;
   list-style: none;
@@ -6260,10 +6266,6 @@ a,
 @media screen and (max-width: 1024px) {
   .what_to_expect_section .what_to_expect_content .what_to_expect_item {
     padding: 50px 60px;
-    border-bottom: 1px solid #000;
-  }
-  .what_to_expect_section .what_to_expect_content .what_to_expect_item:last-child {
-    border-bottom: none;
   }
 }
 @media screen and (max-width: 768px) {
@@ -6274,7 +6276,7 @@ a,
 .what_to_expect_section .what_to_expect_content .what_to_expect_item .what_to_expect_icon {
   margin-bottom: 30px;
   width: auto;
-  height: 60px;
+  height: 80px;
   display: flex;
   align-items: center;
 }
@@ -6282,27 +6284,28 @@ a,
   width: auto;
   height: 100%;
   object-fit: contain;
-  filter: brightness(0) saturate(100%) invert(27%) sepia(95%) saturate(1352%) hue-rotate(106deg) brightness(95%) contrast(88%);
 }
 @media screen and (max-width: 768px) {
   .what_to_expect_section .what_to_expect_content .what_to_expect_item .what_to_expect_icon {
     height: 50px;
-    margin-bottom: 24px !important;
+    margin-bottom: 50px !important;
   }
 }
 .what_to_expect_section .what_to_expect_content .what_to_expect_item .what_to_expect_item_title {
   margin: 0;
   margin-bottom: 20px;
-  font-size: 28px;
+  font-size: 33px;
   font-weight: 700;
   color: #0D6A37;
   font-family: "RB";
   line-height: 1.3;
+  height: 80px;
 }
 @media screen and (max-width: 768px) {
   .what_to_expect_section .what_to_expect_content .what_to_expect_item .what_to_expect_item_title {
     font-size: 24px;
     margin-bottom: 16px;
+    height: 65px;
   }
 }
 .what_to_expect_section .what_to_expect_content .what_to_expect_item .what_to_expect_item_title span {

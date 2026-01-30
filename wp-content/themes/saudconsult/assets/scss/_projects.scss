@@ -5,7 +5,7 @@
  .projects_item{
     position: relative; z-index: 4; min-height: 944px; display: flex; flex-wrap: wrap;
     > h3{ margin: 0; color: #000; font-size: 20px; font-weight: 700; line-height: 100%; margin-bottom: 10px; max-width: 50%;}
-    p{ max-width: 70%;
+    p{ max-width: 57%;
     
         @media screen and (max-width:700px) { max-width: 100%; }
     }
@@ -127,7 +127,7 @@
 }
 
  
-.slider_arrow_block{ width: 20%; position: absolute; right: 0; margin-left: auto; display: flex; flex-wrap: wrap; gap: 10px; padding-bottom:90px;
+.slider_arrow_block{ width: 20%; top: 20px; position: absolute; right: 0; margin-left: auto; display: flex; flex-wrap: wrap; gap: 10px; padding-bottom:90px;
 
     .slider_buttion{ cursor: pointer;  width: 58px; height: 58px; border-radius: 100%; background: #A9D159; display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
         &.but_prev{ transform: rotate(180deg);}

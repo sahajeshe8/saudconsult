@@ -396,28 +396,28 @@ var swiper = new Swiper(".mySwiper-clients", {
 		const slides = awardsSwiperEl.querySelectorAll('.swiper-slide');
 		const slideCount = slides.length;
 		
-		// For loop to work, we need more slides than slidesPerView
-		// Base config: slidesPerView: 1, so need at least 2 slides
-		const canLoopBase = shouldLoop && slideCount >= 2;
+		// For loop to work, we need at least 2 slides
+		// Swiper will automatically duplicate slides for infinite loop
+		const canLoop = shouldLoop && slideCount >= 2;
 		
 		var swiper = new Swiper(".mySwiper-awards", {
 			slidesPerView: 1,
 			spaceBetween: 30,
 			centeredSlides: true,
-			centeredSlidesBounds: !canLoopBase, // Disable bounds when looping
-			loop: true,
-			loopAdditionalSlides: 1,
-			loopedSlides: canLoopBase ? Math.max(2, Math.ceil(slideCount / 2)) : 0,
+			centeredSlidesBounds: !canLoop, // Disable bounds when looping
+			loop: canLoop, // Enable infinite loop
+			loopAdditionalSlides: 2, // Add extra slides for smoother looping
+			loopedSlides: canLoop ? Math.max(2, slideCount) : 0, // Set to slide count for proper looping
 			slideToClickedSlide: true,
 			watchSlidesProgress: true,
-			autoplay: canLoopBase ? {
+			autoplay: canLoop ? {
 				delay: 3000,
 				disableOnInteraction: false,
 			} : false,
-			// navigation: {
-			// 	nextEl: ".swiper-button-next",
-			// 	prevEl: ".swiper-button-prev",
-			// },
+			navigation: {
+				nextEl: ".swiper-button-next",
+				prevEl: ".swiper-button-prev",
+			},
 			pagination: {
 				el: ".swiper-pagination",
 				clickable: true,
@@ -426,43 +426,83 @@ var swiper = new Swiper(".mySwiper-clients", {
 				640: {
 					slidesPerView: 2,
 					spaceBetween: 5,
-					centeredSlidesBounds: !(shouldLoop && slideCount >= 4),
-					loop: shouldLoop && slideCount >= 4,
+					centeredSlidesBounds: !canLoop,
+					loop: canLoop, // Always loop if enabled
 				},
 				768: {
 					slidesPerView: 2,
 					spaceBetween:  5,
-					centeredSlidesBounds: !(shouldLoop && slideCount >= 4),
-					loop: shouldLoop && slideCount >= 4,
+					centeredSlidesBounds: !canLoop,
+					loop: canLoop, // Always loop if enabled
 				},
 				1024: {
 					slidesPerView: 3,
 					spaceBetween: 10,
-					centeredSlidesBounds: !(shouldLoop && slideCount >= 6),
-					loop: shouldLoop && slideCount >= 6,
+					centeredSlidesBounds: !canLoop,
+					loop: canLoop, // Always loop if enabled
 				},
 				1280: {
 					slidesPerView: 5,
 					spaceBetween: 10,
-					centeredSlidesBounds: !(shouldLoop && slideCount >= 10),
-					loop: shouldLoop && slideCount >= 10,
+					centeredSlidesBounds: !canLoop,
+					loop: canLoop, // Always loop if enabled (Swiper will duplicate slides automatically)
 				},
 			},
 		});
 
 		// Add click handlers for active state on slides
-		if (slides.length > 0) {
-			slides.forEach(function(slide, index) {
-				slide.style.cursor = 'pointer';
-				slide.addEventListener('click', function() {
-					if (swiper && swiper.slideTo) {
-						swiper.slideTo(index);
-					}
-				});
-			});
-		}
+		// if (slides.length > 0) {
+		// 	slides.forEach(function(slide, index) {
+		// 		slide.style.cursor = 'pointer';
+		// 		slide.addEventListener('click', function() {
+		// 			if (swiper && swiper.slideTo) {
+		// 				swiper.slideTo(index);
+		// 			}
+		// 		});
+		// 	});
+		// }
 	}
 })();
+
+
+
+
+
+
+
+
+
+
+
+
+// var swiper = new Swiper(".mySwiper-awards", {
+// 	slidesPerView: 5,
+// 	spaceBetween: 30,
+// 	centeredSlides: true,
+// 	loop: true,
+// 	pagination: {
+// 	  el: ".swiper-pagination",
+// 	  clickable: true,
+// 	},
+// 	navigation: {
+// 	  nextEl: ".swiper-button-next",
+// 	  prevEl: ".swiper-button-prev",
+// 	},
+//   });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Awards Bot Swiper initialization - Slider 2: 1 slide per view
 (function() {
@@ -742,6 +782,17 @@ var swiper = new Swiper(".mySwiper-clients", {
 		let currentPage = 1;
 		const itemsPerPage = 3; // Number of items to load each time
 
+		// Function to activate timeline dot
+		const activateTimelineDot = function(timelineItem) {
+			if (timelineItem) {
+				timelineItem.classList.add('active');
+				const timelineDot = timelineItem.querySelector('.timeline-dot');
+				if (timelineDot) {
+					timelineDot.classList.add('active');
+				}
+			}
+		};
+
 		// Initialize AOS for timeline if not already initialized
 		if (typeof AOS !== 'undefined') {
 			// Refresh AOS to detect new elements
@@ -749,21 +800,42 @@ var swiper = new Swiper(".mySwiper-clients", {
 				AOS.refresh();
 			}, 100);
 
-			// Add active class to li when timeline item appears
+			// Add active class to li and timeline-dot when timeline item appears
 			document.addEventListener('aos:in', function(e) {
 				const animatedElement = e.detail;
 				// Check if the animated element is part of timeline
 				if (animatedElement && animatedElement.closest && animatedElement.closest('.timeline_section')) {
 					const timelineItem = animatedElement.closest('.tileline_ul > li');
 					if (timelineItem) {
-						// Add active class when the first child (image) starts animating
-						if (animatedElement.classList.contains('timeline_item_img')) {
-							timelineItem.classList.add('active');
+						// Add active class when either image or content starts animating
+						if (animatedElement.classList.contains('timeline_item_img') || 
+							animatedElement.classList.contains('timeline_item_content')) {
+							activateTimelineDot(timelineItem);
 						}
 					}
 				}
 			});
 		}
+
+		// Use IntersectionObserver as a fallback to ensure all visible items get active class
+		const timelineObserver = new IntersectionObserver(function(entries) {
+			entries.forEach(function(entry) {
+				if (entry.isIntersecting) {
+					const timelineItem = entry.target;
+					activateTimelineDot(timelineItem);
+					// Keep observing in case item goes out of view and comes back
+				}
+			});
+		}, {
+			root: null,
+			rootMargin: '0px',
+			threshold: 0.1
+		});
+
+		// Observe all timeline items
+		timelineItems.forEach(function(item) {
+			timelineObserver.observe(item);
+		});
 
 		// Infinite scroll functionality
 		const loadMoreItems = function() {
@@ -803,6 +875,9 @@ var swiper = new Swiper(".mySwiper-clients", {
 							contentBlock.setAttribute('data-aos', 'fade-up');
 							contentBlock.setAttribute('data-aos-delay', '100');
 						}
+
+						// Observe the newly shown item
+						timelineObserver.observe(allItems[i]);
 					}
 				}
 
@@ -854,6 +929,12 @@ var swiper = new Swiper(".mySwiper-clients", {
 		timelineItems.forEach(function(item, index) {
 			if (index >= itemsPerPage) {
 				item.style.display = 'none';
+			} else {
+				// For initially visible items, activate their dots after a short delay
+				// This ensures they get the active class even if AOS hasn't triggered yet
+				setTimeout(function() {
+					activateTimelineDot(item);
+				}, 500);
 			}
 		});
 	};

@@ -30,7 +30,7 @@
 
             <li>
                <div class="timeline_item_img" data-aos="fade-up" data-aos-delay="0">
-              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/timeline-img-01.jpg" alt="Timeline Image">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/timeline-img-02.jpg" alt="Timeline Image">
                </div>
                   <div class="timeline_item_content" data-aos="fade-up" data-aos-delay="100">
                 <span class="timeline_item_content_year">1965
@@ -44,7 +44,7 @@
 
            <li>
                <div class="timeline_item_img" data-aos="fade-up" data-aos-delay="0">
-              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/timeline-img-01.jpg" alt="Timeline Image">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/timeline-img-03.jpg" alt="Timeline Image">
                </div>
                   <div class="timeline_item_content" data-aos="fade-up" data-aos-delay="100">
                 <span class="timeline_item_content_year">1965
@@ -58,7 +58,7 @@
 
            <li>
                <div class="timeline_item_img" data-aos="fade-up" data-aos-delay="0">
-              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/timeline-img-01.jpg" alt="Timeline Image">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/timeline-img-04.jpg" alt="Timeline Image">
                </div>
                   <div class="timeline_item_content" data-aos="fade-up" data-aos-delay="100">
                 <span class="timeline_item_content_year">1965
@@ -71,7 +71,7 @@
 
            <li>
                <div class="timeline_item_img" data-aos="fade-up" data-aos-delay="0">
-              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/timeline-img-01.jpg" alt="Timeline Image">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/timeline-img-05.jpg" alt="Timeline Image">
                </div>
                   <div class="timeline_item_content" data-aos="fade-up" data-aos-delay="100">
                 <span class="timeline_item_content_year">1965
@@ -84,7 +84,7 @@
 
            <li>
                <div class="timeline_item_img" data-aos="fade-up" data-aos-delay="0">
-              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/timeline-img-01.jpg" alt="Timeline Image">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/timeline-img-06.jpg" alt="Timeline Image">
                </div>
                   <div class="timeline_item_content" data-aos="fade-up" data-aos-delay="100">
                 <span class="timeline_item_content_year">1965
@@ -108,13 +108,14 @@
                </div>
            </li>
          </ul>
-
-
-         <span class="timeline-load-more">
-         load-more
-         </span>
-        
+ 
          </div>
+
+         <div class="w_100 text-center mt_100">
+         <button type="button" class="btn_style btn_transparent btn_green timeline-load-more">
+         Load more
+         </button>
+</div>   
 	</div>
 </section>
 

@@ -66,7 +66,7 @@ html{
 
 
 
-   &.btn_green{ background: #A9D159; border:none; 
+   &.btn_green{ background: #A9D159; border:none; color: #fff !important;
     &:hover{ background:#8eb346; color: #fff !important;
       img{ filter: invert(1);  }
    }
@@ -180,13 +180,14 @@ html{
 
 
 .h3_title_50{ @include px-rem(50); line-height: 100%; font-weight: 700; color: #136B37; line-height: 120%; margin: 0;
-   span{ color: #000; font-weight: 400;}
+   span{ color: #101922; font-weight: 400;}
 
    @media screen and (max-width:700px) {
       @include px-rem(100);
    }
 }
 
+.text-center{ text-align: center;}
  
 .title_block{
    display: flex;
@@ -228,8 +229,11 @@ p{ color: #444444; font-weight: 300;}
 
 
 .bg-style{ background: #F5F9EE url(../images/about-bg.png) no-repeat center center; background-size: contain;}
+   .bg-style-2{ background: #F5F9EE url(../images/journey-bg.svg) no-repeat top center; background-size: 45%;}
 .bg_02{ background: #F5F9EE url(../images/vision-miossion-bg.svg) no-repeat center center; background-size: contain;}
 
+
+ 
 .bg_collor_green{ background: #F5F9EE !important;}
 
 .bg_color_01{ background: #F5F9EE !important;}

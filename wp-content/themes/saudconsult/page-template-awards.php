@@ -91,6 +91,47 @@ get_header();
                     'year' => 'ISO 9001:2015 ',
                     'link' => 'Ensures consistent quality management and service excellence.'
                 ),
+				array(
+                    'image' => get_template_directory_uri() . '/assets/images/awards.jpg',
+                    'alt' => 'Awards & Certifications',
+                    'title' => 'Awards & Certifications',
+                    'year' => 'ISO 9001:2015',
+                    'link' => ''
+                ),
+                array(
+                    'image' => get_template_directory_uri() . '/assets/images/awards.jpg',
+                    'alt' => 'Awards & Certifications',
+                    'title' => 'Awards & Certifications',
+                    'year' => 'ISO 9001:2015 ',
+                    'link' => 'Ensures consistent quality management and service excellence.'
+                ),
+                array(
+                    'image' => get_template_directory_uri() . '/assets/images/awards.jpg',
+                    'alt' => 'Awards & Certifications',
+                    'title' => 'Awards & Certifications',
+                    'year' => 'ISO 9001:2015 ',
+                    'link' => 'Ensures consistent quality management and service excellence.'
+                ),
+                array(
+                    'image' => get_template_directory_uri() . '/assets/images/awards.jpg',
+                    'alt' => 'Awards & Certifications',
+                    'year' => 'ISO 9001:2015 ',
+                    'link' => 'Ensures consistent quality management and service excellence.'
+                ),
+                array(
+                    'image' => get_template_directory_uri() . '/assets/images/awards.jpg',
+                    'alt' => 'Awards & Certifications',
+                    'title' => 'Awards & Certifications',
+                    'year' => 'ISO 9001:2015 ',
+                    'link' => 'Ensures consistent quality management and service excellence.'
+                ),
+                array(
+                    'image' => get_template_directory_uri() . '/assets/images/awards.jpg',
+                    'alt' => 'Awards & Certifications',
+                    'title' => 'Awards & Certifications',
+                    'year' => 'ISO 9001:2015 ',
+                    'link' => 'Ensures consistent quality management and service excellence.'
+                ),
 		)
 	);
 	// Slider 1: 3 slides per view
@@ -276,7 +317,8 @@ document.addEventListener('DOMContentLoaded', function() {
 					thumbs: {
 						swiper: thumbSwiper,
 					},
-					loop: false,
+					loop: true, // Enable infinite loop
+					loopAdditionalSlides: 2, // Add extra slides for smoother looping
 					effect: 'slide',
 					speed: 300,
 					navigation: {
@@ -299,8 +341,8 @@ document.addEventListener('DOMContentLoaded', function() {
 							
 							// Ensure main swiper exists and is ready
 							if (mainSwiper && mainSwiper.initialized) {
-								// Navigate to the clicked slide
-								mainSwiper.slideTo(index, 300);
+								// Navigate to the clicked slide (use realIndex for loop compatibility)
+								mainSwiper.slideToLoop(index, 300);
 								
 								// Also update thumbnail swiper to show active state
 								if (thumbSwiper && thumbSwiper.initialized) {
@@ -314,13 +356,23 @@ document.addEventListener('DOMContentLoaded', function() {
 						slide.addEventListener('click', handleThumbClick);
 					});
 
+					// Listen to main swiper slideChange to sync thumbnails
+					mainSwiper.on('slideChange', function() {
+						if (thumbSwiper && thumbSwiper.initialized) {
+							// Use realIndex to get the actual slide index (accounts for loop)
+							const realIndex = mainSwiper.realIndex;
+							if (thumbSwiper.activeIndex !== realIndex) {
+								thumbSwiper.slideTo(realIndex, 300);
+							}
+						}
+					});
+
 					// Backup: Listen to thumbnail swiper slideChange
 					thumbSwiper.on('slideChange', function() {
 						if (mainSwiper && mainSwiper.initialized) {
 							const activeIndex = thumbSwiper.activeIndex;
-							if (mainSwiper.activeIndex !== activeIndex) {
-								mainSwiper.slideTo(activeIndex, 300);
-							}
+							// Use slideToLoop for proper loop handling
+							mainSwiper.slideToLoop(activeIndex, 300);
 						}
 					});
 

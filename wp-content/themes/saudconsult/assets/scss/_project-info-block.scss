@@ -91,10 +91,10 @@
 }
 
 .project_info_label {
-	font-size: 16px;
-	font-weight: 600;
+	font-size: 18px;
+	font-weight: 500;
 	color: #0d6a37;
-	margin: 0 0 12px 0;
+	margin: 0 0 5px 0;
 	padding-top: 10px;
 	border-top: 1px solid #8dc540;
 	line-height: 1.2;
@@ -115,7 +115,7 @@
 .project_info_value {
 	font-size: 16px;
 	line-height: 1.6;
-	color: #999;
+	color: #101922;
 	margin: 0;
 
 	@media screen and (max-width: 768px) {

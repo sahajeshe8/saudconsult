@@ -33,18 +33,18 @@ $events_page = get_page_by_path( 'events' );
 $events_url = $events_page ? get_permalink( $events_page->ID ) : home_url( '/events' );
 ?>
 
-<div style="background:  #272A2A url(<?php echo esc_url( get_template_directory_uri() . '/assets/images/event-bg.svg' ) ; ?>) no-repeat left top;  " class="pt_100 pb_100 events_list_section <?php echo esc_attr( $section_class ); ?> <?php echo $section_wrapper_class; ?>">
+<div style="background:  #272A2A url(<?php echo esc_url( get_template_directory_uri() . '/assets/images/event-bg.svg' ) ; ?>) no-repeat left top;  " class="pt_100 events_list_section <?php echo esc_attr( $section_class ); ?> <?php echo $section_wrapper_class; ?>">
 	<div class="events_list_wrapper">
 		<div class="wrap">
 			<?php if ( $title || $title_span ) : ?>
 				<div class="title_block">
 					<div class="title_block_left">
-						<h3 class="h3_title_50 white_txt">
+						<h3 class="h3_title_50 white_txt text-white">
 							<?php if ( $title ) : ?>
 								<?php echo esc_html( $title ); ?>
 							<?php endif; ?>
 							<?php if ( $title_span ) : ?>
-								<span><?php echo esc_html( $title_span ); ?></span>
+								 <?php echo esc_html( $title_span ); ?> 
 							<?php endif; ?>
 						</h3>
 					</div>
@@ -105,7 +105,7 @@ $events_url = $events_page ? get_permalink( $events_page->ID ) : home_url( '/eve
 									<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/event-img-02.jpg' ); ?>" alt="Events">
 								</div>
 								<div class="events_list_item_content">
-									<h4>Tour of the exhibition hall with Eng.Faisal AlShawaf and the SCE board</h4>
+									<h4>Tour of the exhibition hall with Eng. Faisal AlShawaf and the SCE board</h4>
 									<ul class="events_detail_list">
 										<li>
 											<span class="events_detail_list_item_icon">

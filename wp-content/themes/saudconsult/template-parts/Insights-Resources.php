@@ -14,6 +14,8 @@ $title = isset($args['title']) ? $args['title'] : 'Elevate Your';
 $title_span = isset($args['title_span']) ? $args['title_span'] : 'Understanding';
 $title_break = isset($args['title_break']) ? $args['title_break'] : true; // Whether to add <br> before span
 $section_class = isset($args['section_class']) ? $args['section_class'] : '';
+$show_view_all_button = isset($args['show_view_all_button']) ? $args['show_view_all_button'] : false;
+$view_all_url = isset($args['view_all_url']) ? $args['view_all_url'] : home_url('/news');
 
 // Get news detail page URL
 $news_detail_page = get_page_by_path('news-detail');
@@ -21,7 +23,7 @@ $news_detail_url = $news_detail_page ? get_permalink($news_detail_page->ID) : ho
 
 ?>
 
-<section class="insights_resources_section pt_80 pb_80 <?php echo esc_attr($section_class); ?>">
+<section class="insights_resources_section pt_100 pb_100 <?php echo esc_attr($section_class); ?>">
     <div class="wrap">
         <?php if (!empty($label)): ?>
             <span class="lable_text green_text">
@@ -42,7 +44,7 @@ $news_detail_url = $news_detail_page ? get_permalink($news_detail_page->ID) : ho
 
 
 
-            <div class="slider_arrow_block pb_0">
+            <div class="slider_arrow_block pb_0 <?php echo $show_view_all_button ? 'hidden-navigation' : ''; ?>">
                 <span class="slider_buttion but_next news_but_next">
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/slider-arrow.svg"
                         alt="Next Project">
@@ -52,6 +54,13 @@ $news_detail_url = $news_detail_page ? get_permalink($news_detail_page->ID) : ho
                         alt="Previous Project">
                 </span>
             </div>
+            <?php if ($show_view_all_button): ?>
+                <div class="view-all-button-wrapper">
+                    <a href="<?php echo esc_url($view_all_url); ?>" class="btn_style but_black">
+                        View All
+                    </a>
+                </div>
+            <?php endif; ?>
 
 
 

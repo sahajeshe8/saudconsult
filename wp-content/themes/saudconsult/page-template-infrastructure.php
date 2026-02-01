@@ -268,7 +268,7 @@ get_header();
 		'button_link' => esc_url( home_url( '' ) ),
 		'section_class' => 'row_reverse ',
 		'bg_style' => 'bg_gradient',
-		'image_container_class' => '',
+		'image_container_class' => 'image_overlay_02',
 		'text_container_class' => ''
 	);
 	get_template_part( 'template-parts/image-text-block', null, $image_text_data ); 
@@ -320,7 +320,9 @@ get_header();
 			'subtitle' => 'right service?',
 			'description' => 'Let’s discuss how we can align our technology with your goals.',
 			'button_text' => 'Get in Touch',
-			'button_link' => '#'
+			'button_link' => '#',
+			'dark' => true
+
 		);
 		get_template_part( 'template-parts/banner-add', null, $banner_add_data ); 
 		?>

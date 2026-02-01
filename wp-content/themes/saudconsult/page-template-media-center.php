@@ -19,7 +19,7 @@ get_header();
 	get_template_part( 'template-parts/inner-banner', null, $inner_banner_data ); 
 	?>
 
-	<section class="media_center_section pt_80 pb_80">
+	<section class="media_center_section pt_100 pb_50">
 		<?php 
 		$news_list_data = array(
 			'title' => 'News',
@@ -31,7 +31,7 @@ get_header();
 		?>
 	</section>
 
-	<section class="media_center_events_section pt_80 pb_80">
+	<section class="media_center_events_section pt_50 pb_100">
 		<?php 
 		$events_list_data = array(
 			'title' => '',
@@ -56,7 +56,7 @@ get_header();
 		?>
 	</section>
 
-	<section class="media_center_gallery_section pt_80 ">
+	<section class="media_center_gallery_section   ">
 		<?php 
 		$gallery_data = array(
 			'title' => 'Gallery',

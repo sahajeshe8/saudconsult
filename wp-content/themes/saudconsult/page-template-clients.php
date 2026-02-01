@@ -14,7 +14,7 @@ get_header();
 	<?php 
 	$inner_banner_data = array(
 		'background_image' => get_template_directory_uri() . '/assets/images/client-img.jpg',
-		'title' => 'Our Clients',
+		'title' => 'Clients',
 	);
 	get_template_part( 'template-parts/inner-banner', null, $inner_banner_data ); 
 	?>

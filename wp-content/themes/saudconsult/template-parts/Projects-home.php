@@ -126,7 +126,7 @@ $projects = isset( $args['projects'] ) ? $args['projects'] : array(
 	</div>
 
 	<?php if ( ! empty( $projects ) ) : ?>
-		<div class="projects_grid pt_40">
+		<div class="projects_grid ">
 			<div class="projects_grid_inner_navigation">
 				<div class="wrap">
 					<div class="slider_arrow_block">

@@ -28,7 +28,7 @@ get_header();
 	get_template_part( 'template-parts/Content-Block-Service', null, $content_block_service_data ); 
 	?>
 
-	<section class="services_items_section pb_80 bg_collor_green">
+	<section class="services_items_section pb_100 bg_collor_green">
 		<div class="wrap">
 			<ul class="services_items_grid">
 				<li>

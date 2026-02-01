@@ -61,7 +61,7 @@ $clear_filter_link = isset( $args['clear_filter_link'] ) ? $args['clear_filter_l
 
 ?>
 
-<section class="project_filter_section pt_80  <?php echo esc_attr( $section_class ); ?> <?php echo $section_wrapper_class; ?>">
+<section class="project_filter_section pt_100  <?php echo esc_attr( $section_class ); ?> <?php echo $section_wrapper_class; ?>">
 	<div class="wrap">
 		<div class="project_filter_container">
 			<?php if ( $title || $title_span ) : ?>

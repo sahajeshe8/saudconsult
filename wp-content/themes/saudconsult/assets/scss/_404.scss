@@ -50,13 +50,7 @@
 		}
 	}
 
-	.error_404_actions {
-		margin-bottom: 50px;
 
-		.btn_style {
-			margin: 0 auto;
-		}
-	}
 
 	.error_404_search {
 		margin-top: 50px;
@@ -157,6 +151,17 @@
 		padding-top: 40px;
 		padding-bottom: 40px;
 		min-height: auto;
+	}
+}
+
+
+
+.error_404_actions {
+	margin-bottom: 50px;
+
+	.btn_style {
+		margin: 0 auto;
+		&:hover{ background: #0D6A37; border-color: #0D6A37; color: #fff;}
 	}
 }
 

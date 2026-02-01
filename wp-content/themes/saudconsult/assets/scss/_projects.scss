@@ -2,6 +2,16 @@
  
  .projects_grid{ 
     position: relative;
+    padding-top: 40px;
+
+    @media screen and (max-width: 1200px) {
+        padding-top: 30px;
+    }
+
+    @media screen and (max-width: 700px) {
+        padding-top: 20px;
+    }
+
  .projects_item{
     position: relative; z-index: 4; min-height: 944px; display: flex; flex-wrap: wrap;
     > h3{ margin: 0; color: #000; font-size: 20px; font-weight: 700; line-height: 100%; margin-bottom: 10px; max-width: 50%;}

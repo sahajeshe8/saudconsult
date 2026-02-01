@@ -1,4 +1,9 @@
-.profile-title-block{ position: relative;}
+.profile-title-block{ position: relative;
+ @media screen and (max-width: 820px) {
+	margin-bottom: 25px;
+ }
+
+}
 .my_profile_content{
 
     .but-position{right: 0; top: 0;
@@ -14,24 +19,39 @@
 
 
 }
-.profile-photo-block{ width:12.5%; aspect-ratio: 1/1; border-radius: 50%; overflow: hidden; background: #E0E0E0;}
+.profile-photo-block{ width:12.5%; aspect-ratio: 1/1; border-radius: 50%; overflow: hidden; background: #E0E0E0;
+
+	@media screen and (max-width: 820px) {
+		width: 20.5%
+	}
+}
 .profile-view-block-01-item-01{   width: calc(100% - 154px)	;
 
     h5{ margin-bottom: 10px;}
 }
+
+
+.my_profile_container{ max-width: 1073px; margin-left: auto; margin-right: auto;}
 
 @media screen and (max-width: 768px){
 	.profile-view-block-01{
 		align-items: flex-start;
 	}
 	.profile-photo-block{
-		width: 80px;
+		width:20%;
 		margin-bottom: 15px;
 	}
+	 
+}
+
+@media screen and (max-width: 700px){
+
 	.profile-view-block-01-item-01{
 		width: 100%;
 	}
+	.profile-photo-block{ width: 35%;}
 }
+
 
 .profile-view-block-01-list{ margin: 0; padding: 0; list-style: none;
     li{ margin: 0; padding: 0; margin-bottom: 15px; list-style: none;
@@ -42,7 +62,23 @@
         }
         
         }
-        p{  font-size: 16px;}
+        p{  
+			font-size: 16px;
+			
+			a {
+				color: inherit;
+				text-decoration: none;
+				transition: opacity 0.3s ease;
+				
+				&:hover {
+					opacity: 0.7;
+				}
+				
+				&.resume-download-link {
+					cursor: pointer;
+				}
+			}
+		}
     }
 }
 
@@ -187,12 +223,14 @@
 // License / Saudi Council blocks
 .license-block {
 	display: flex;
+	padding-top: 25px;
 	flex-wrap: wrap;
 	align-items: center;
 	gap: 30px;
 
 	.license-image {
 		width: 194px;
+		 
 		max-width: 30%;
 		img {
 			width: 100%;
@@ -204,6 +242,8 @@
 
 	.license-content {
 		flex: 1 1 auto;
+		padding-left: 3%;
+
 
 		h5 {
 			margin-bottom: 15px;
@@ -233,6 +273,7 @@
 @media screen and (max-width: 768px){
 	.license-block{
 		align-items: flex-start;
+		gap: 0;
 
 		.license-image{
 			width: 100%;
@@ -257,3 +298,11 @@
 
 
 #login-popup-training-submit{ max-width: 570px; margin: 0 auto;}
+
+
+.colm-rev-mobile{
+
+	@media screen and (max-width: 700px) {
+		flex-direction: column-reverse;
+	}
+}

@@ -143,9 +143,10 @@
 					}
 
 					.expertise_active_description {
+						p { 
 						margin: 0;
 						margin-bottom: 25px;
-						font-size: 18px;
+						font-size: 16px;
 						line-height: 1.6;
 						color: #fff;
 						max-width: 600px;
@@ -154,7 +155,7 @@
 					 @media screen and (max-width: 480px) {
 						font-size: 14px;
 					 }
- 
+					}
 					}
 
 					.expertise_active_button {
@@ -190,7 +191,7 @@
 				justify-content: flex-start;
 				-webkit-overflow-scrolling: touch;
 				scrollbar-width: thin;
-				scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+				scrollbar-color: rgba(255, 255, 255, 0.4) transparent;
 
 				&::-webkit-scrollbar {
 					height: 4px;
@@ -212,7 +213,8 @@
 
 			li {
 				margin: 0;
-				padding: 30px 20px;
+				padding: 30px 5px;
+				line-height: 100%;
 				background: rgba(255, 255, 255, 0.2);
                 border-image: linear-gradient(
                     169.25deg,

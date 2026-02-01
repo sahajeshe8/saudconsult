@@ -40,7 +40,7 @@ get_header();
 	get_template_part( 'template-parts/Breadcrumb', null, $breadcrumb_data ); 
 	?>
 
-	<section class="news_detail_section pt_80 pb_80">
+	<section class="news_detail_section pt_40 pb_80">
 		<div class="wrap">
 			<div class="news_detail_container">
 				
@@ -81,6 +81,33 @@ get_header();
                         </li>
                      </ul>
                   </div>
+
+				  <ul class="news_detail_share_list">
+                    <li>
+                    Share:
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/fb-n.svg' ); ?>" alt="News">
+                        </a>    
+                    </li><li>
+                    </li><li>
+                        <a href="#">
+                            <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/insta-n.svg' ); ?>" alt="News">
+                        </a>    
+                    </li><li>
+                    </li><li>
+                        <a href="#">
+                            <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/x-n.svg' ); ?>" alt="News">
+                        </a>    
+                    </li><li>
+                    </li><li>
+                        <a href="#">
+                            <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/in-n.svg' ); ?>" alt="News">
+                        </a>    
+                    </li><li>
+                    
+                </li></ul>
             </div>
             <div class="news_detail_right_block">
                 <h5>Riyadh, KSA, 13 September 2024</h5>
@@ -152,7 +179,6 @@ get_header();
 	<?php
 	// Map Configuration
 	$map_api_key = get_theme_mod( 'google_maps_api_key', 'AIzaSyAZY9WW5ucJZLvBYxY4cAeZYY8AvmjZygg' );
-	$marker_icon = get_template_directory_uri() . '/assets/images/marker-map.png';
 	
 	// Default location: Riyadh, KSA
 	$event_latitude = '24.7136';
@@ -167,7 +193,6 @@ get_header();
 				longitude: '<?php echo esc_js( $event_longitude ); ?>',
 				zoom: 15,
 				apiKey: '<?php echo esc_js( $map_api_key ); ?>',
-				markerIcon: '<?php echo esc_url( $marker_icon ); ?>',
 				title: '<?php echo esc_js( $event_location ); ?>'
 			};
 		})();
@@ -204,7 +229,7 @@ get_header();
 
 		),
 		'section_wrapper_class' => array(),
-		'section_class' => 'pt_80 pb_80'
+		'section_class' => 'pt_90 pb_80'
 	);
 	get_template_part( 'template-parts/Same-Month-Events', null, $same_month_events_data ); 
 	?>

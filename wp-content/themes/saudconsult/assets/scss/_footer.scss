@@ -152,13 +152,15 @@
      .btn_green{
 color: #fff  ;
       img{
-        filter:  invert(1);
+        -webkit-filter: invert(1);
+        filter: invert(1);
       }
 
 
       &:hover{
         img{
-          filter:  invert(0);
+          -webkit-filter: invert(0);
+          filter: invert(0);
         } 
       }
 

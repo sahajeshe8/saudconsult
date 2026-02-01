@@ -21,7 +21,7 @@ get_header();
 
 	 
 
-	<section class="contact_us_section pt_80 pb_80">
+	<section class="contact_us_section pt_120 pb_80">
 		<div class="wrap">
 			<div class="contact_us_container">
 				<div class="contact_us_content">

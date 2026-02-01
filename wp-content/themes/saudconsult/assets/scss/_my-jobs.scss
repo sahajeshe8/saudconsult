@@ -1,16 +1,31 @@
 .my_jobs_section {
+	padding-top: 50px !important;
+	padding-bottom: 50px !important;
+
+	@media screen and (max-width: 1024px) {
+		padding-top: 40px !important;
+		padding-bottom: 40px !important;
+	}
+
+	@media screen and (max-width: 600px) {
+		padding-top: 20px !important;
+		padding-bottom: 20px !important;
+	}
+
 	.wrap {
 		width: 100%;
 	}
 
 	.my_jobs_container {
-		max-width: 1400px;
+		max-width: 1074px;
 		margin: 0 auto;
 	}
 
 	.my_jobs_content {
 		.profile-title-block {
 			margin-bottom: 30px;
+		  
+			
 		}
 	}
 
@@ -151,7 +166,7 @@
 			thead {
 				tr {
 					th {
-						padding: 10px 8px;
+						padding: 10px 21px;
 						font-size: 13px;
 					}
 				}

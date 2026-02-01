@@ -16,7 +16,13 @@
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
-	gap: 8px;
+	gap: 12px;
+
+	@media screen and (max-width: 768px) {
+		flex-wrap: nowrap;
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+	}
 
 	@media screen and (max-width: 480px) {
 		gap: 5px;
@@ -29,10 +35,10 @@
 	list-style: none;
 	display: flex;
 	align-items: center;
-	gap: 10px;
+	gap: 12px;
 
 	@media screen and (max-width: 480px) {
-		gap: 5px;
+		gap: 3px;
 	}
 
 	.breadcrumb_home_icon {
@@ -49,7 +55,7 @@
 	.breadcrumb_link {
 		color: #666;
 		text-decoration: none;
-		font-size: 16px;
+		font-size: 14px;
 		font-weight: 400;
 		transition: color 0.3s ease;
 		display: inline-flex;
@@ -70,8 +76,8 @@
 	}
 
 	.breadcrumb_text {
-		color: #47A01A;
-		font-size: 16px;
+		color: #0D6A37;
+		font-size: 14px;
 		font-weight:500;
 		display: inline-flex;
 		align-items: center;
@@ -79,10 +85,23 @@
 
 		@media screen and (max-width: 768px) {
 			font-size: 14px;
+			max-width: 200px;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			display: inline-block;
+			
+			// Keep icon visible
+			.breadcrumb_home_icon {
+				display: inline-block;
+				vertical-align: middle;
+				flex-shrink: 0;
+			}
 		}
 
 		@media screen and (max-width: 480px) {
 			font-size: 12px;
+			max-width: 150px;
 		}
 	}
 

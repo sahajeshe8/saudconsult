@@ -18,7 +18,7 @@ get_header();
 		<div class="wrap">
 			<div class="create_profile_container">
 				<div class="create_profile_content">
-					<h3 class="h3_title_50 pb_10 text_center mb_20">Create Profile</h3>
+					<h3 class="h3_title_50 pb_5 text_center mb_20">Create Profile</h3>
 
 
                     <div class="form-group">
@@ -47,7 +47,7 @@ get_header();
 						<li><input class="input" type="text" placeholder="Last Name *"></li>
 						<li><input class="input" type="text" placeholder="Middle Name"></li>
 						<li><input class="input" type="text" placeholder="Last Name *"></li>
-						<li><input class="input" type="email" placeholder="Email Address *" value="shafin@mail.com"></li>
+						<li><input class="input" type="email" placeholder="Email Address *"></li>
 						<li><input class="input" type="tel" placeholder="Phone Number *"></li>
 					</ul>
 					</div>
@@ -84,7 +84,7 @@ get_header();
 							</li>
 							<li>
 								<div class="select-wrapper date-input-wrapper">
-									<input class="input date-input" type="text" placeholder="Date of Birth *" onfocus="(this.type='date')" onblur="if(!this.value) this.type='text'" required>
+									<input class="input date-input" type="date" placeholder="Date of Birth *" required>
 								</div>
 							</li>
 							<li>
@@ -101,6 +101,41 @@ get_header();
 					</div>
 
 					<div class="form-group">
+						<div class="related_jobs_section_content">
+							<h5>Training Program Enrollment</h5>
+						</div>
+
+						<ul class="career-form-list-ul form-col-2">
+							<li>
+								<div class="select-wrapper">
+									<select class="input select-input" name="training_country" required>
+										<option value="">Country *</option>
+										<option value="saudi">Saudi Arabia</option>
+										<option value="usa">United States</option>
+										<option value="uk">United Kingdom</option>
+									</select>
+									<span class="select-arrow"></span>
+								</div>
+							</li>
+							<li>
+								<input class="input" type="text" placeholder="City *" required>
+							</li>
+							<li>
+								<input class="input" type="text" placeholder="Address Line 1">
+							</li>
+							<li>
+								<input class="input" type="text" placeholder="Address Line 2">
+							</li>
+							<li>
+								<input class="input" type="text" placeholder="PO Box">
+							</li>
+							<li>
+								<input class="input" type="text" placeholder="Postal Code">
+							</li>
+						</ul>
+					</div>
+
+					<div class="form-group supporting-documents-section">
 						<div class="related_jobs_section_content">
 							<h5>Supporting Documents and URLs</h5>
 						</div>
@@ -124,7 +159,7 @@ get_header();
 
 					<div class="form-group">
 						<div class="related_jobs_section_content">
-							<h5>Education *</h5>
+							<h5>Education</h5>
 							<p>Please provide details about your education.</p>
 						</div>
 
@@ -164,12 +199,12 @@ get_header();
 							</li>
 							<li>
 								<div class="select-wrapper date-input-wrapper">
-									<input class="input date-input" type="text" placeholder="End Date *" onfocus="(this.type='date')" onblur="if(!this.value) this.type='text'" required>
+									<input class="input date-input" type="date" placeholder="End Date *" required>
 								</div>
 							</li>
 							<li>
 								<div class="select-wrapper date-input-wrapper">
-									<input class="input date-input" type="text" placeholder="Start Date *" onfocus="(this.type='date')" onblur="if(!this.value) this.type='text'" required>
+									<input class="input date-input" type="date" placeholder="Start Date *" required>
 								</div>
 							</li>
 							<li>
@@ -233,12 +268,12 @@ get_header();
 							</li>
 							<li>
 								<div class="select-wrapper date-input-wrapper">
-									<input class="input date-input" type="text" placeholder="Start Date *" onfocus="(this.type='date')" onblur="if(!this.value) this.type='text'" required>
+									<input class="input date-input" type="date" placeholder="Start Date *" required>
 								</div>
 							</li>
 							<li>
 								<div class="select-wrapper date-input-wrapper">
-									<input class="input date-input" type="text" placeholder="End Date *" onfocus="(this.type='date')" onblur="if(!this.value) this.type='text'" required>
+									<input class="input date-input" type="date" placeholder="End Date *" required>
 								</div>
 							</li>
 							<li>
@@ -304,12 +339,12 @@ get_header();
 							</li>
 							<li>
 								<div class="select-wrapper date-input-wrapper">
-									<input class="input date-input" type="text" placeholder="Issue Date *" onfocus="(this.type='date')" onblur="if(!this.value) this.type='text'" required>
+									<input class="input date-input" type="date" placeholder="Issue Date *" required>
 								</div>
 							</li>
 							<li>
 								<div class="select-wrapper date-input-wrapper">
-									<input class="input date-input" type="text" placeholder="Expiration Date" onfocus="(this.type='date')" onblur="if(!this.value) this.type='text'">
+									<input class="input date-input" type="date" placeholder="Expiration Date">
 								</div>
 							</li>
 							<li>
@@ -566,7 +601,7 @@ get_header();
 					</div>
 
 					 <div class="form-buttion-row flex-align-right">
-                        <a href="<?php echo esc_url( home_url( '/application-received' ) ); ?>" type="button" class="btn_style btn_transparent but_black">Submit Application</a>
+                        <a href="<?php echo esc_url( home_url( '/my-profile' ) ); ?>" type="button" class="btn_style btn_transparent but_black">Save Profile</a>
                      </div>
 				</div>
 			</div>

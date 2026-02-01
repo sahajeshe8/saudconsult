@@ -547,7 +547,7 @@
 	<span class="form-close-icon">
 		<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/pop-close.svg' ); ?>" alt="Close">
 	</span>
-	<h3 class="h3_title_50 pb_10 text_center mb_20">Sign In</h3>
+	<h3 class="h3_title_50 pb_5 text_center mb_20">Sign In</h3>
 
 	<div class="related_jobs_section_content">
 		<h5>Have an account?</h5>
@@ -631,7 +631,7 @@
 	<span class="form-close-icon">
 		<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/pop-close.svg' ); ?>" alt="Close">
 	</span>
-	<h3 class="h3_title_50 pb_10 text_center mb_20">Sign In</h3>
+	<h3 class="h3_title_50 pb_5 text_center mb_20">Sign In</h3>
 
 	<div class="related_jobs_section_content">
 		<h5>Have an account?</h5>
@@ -667,7 +667,7 @@
 	<span class="form-close-icon">
 		<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/pop-close.svg' ); ?>" alt="Close">
 	</span>
-	<h3 class="h3_title_50 pb_10 text_center mb_20">Sign Up</h3>
+	<h3 class="h3_title_50 pb_5 text_center mb_20">Sign Up</h3>
 
 	<div class="related_jobs_section_content">
 		<h5>Create an account</h5>

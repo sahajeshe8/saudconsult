@@ -15,7 +15,7 @@ $section_class = isset( $args['section_class'] ) ? $args['section_class'] : '';
 $gallery_items = isset( $args['gallery_items'] ) ? $args['gallery_items'] : array();
 
 // Build section wrapper classes
-$wrapper_classes = array( 'project_gallery_section' );
+$wrapper_classes = array( 'project_gallery_section pt_100 pb_100' );
 if ( $section_wrapper_class ) {
 	if ( is_array( $section_wrapper_class ) ) {
 		$wrapper_classes = array_merge( $wrapper_classes, $section_wrapper_class );

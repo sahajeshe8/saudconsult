@@ -12,9 +12,12 @@ get_header();
 
 <main id="primary" class="site-main">
 	<?php 
+	// Project title - can be extracted from post/page title or set here
+	$project_title = 'King Abdullah Road – Phase 2';
+	
 	$inner_banner_data = array(
 		'background_image' => get_template_directory_uri() . '/assets/images/project-detail-banner.jpg',
-		'title' => 'Project Details',
+		'title' => $project_title,
 		'section_class' => 'banner-type-02'
 	);
 	get_template_part( 'template-parts/inner-banner', null, $inner_banner_data ); 
@@ -32,7 +35,7 @@ get_header();
 				'url' => esc_url( home_url( '/projects' ) )
 			),
 			array(
-				'title' => 'King Abdullah Road – Phase 2',
+				'title' => $project_title,
 				'url' => '' // Empty URL makes it active
 			)
 		),
@@ -44,7 +47,7 @@ get_header();
 
 	<?php 
 	$project_info_data = array(
-		'description' => 'Detailed design of King Abdullah Road as <strong>Freeway including Underpasses and Bridges</strong>, Infrastructure of whole <strong>King Abdullah corridor consists of Roads, Underpasses, Water, Wastewater, Storm Drainage, Power, Telecom, Irrigation, Comprehensive soft and hard-scaping</strong>. This project is the land mark in the urban context of Riyadh city as it carries the Light Rail also in the median.',
+		'description' => 'Detailed design of King Abdullah Road as <strong>Freeway including Underpasses and Bridges</strong>, Infrastructure of whole <strong>King Abdullah corridor consists of Roads, Underpasses, Water, Wastewater, Storm Drainage, Power, Telecom, Irrigation, Comprehensive soft and hard-scaping.</strong> This project is the land mark in the urban context of Riyadh city as it carries the Light Rail also in the median.',
 		'section_wrapper_class' => array(),
 		'section_class' => '',
 		'info_items' => array(

@@ -44,14 +44,6 @@ $gallery_items = isset( $args['gallery_items'] ) ? $args['gallery_items'] : arra
 							<?php endif; ?>
 						</h3>
 					</div>
-					<?php if ( $show_view_all ) : ?>
-						<div class="title_block_right">
-							<a class="btn_style btn_transparent but_black" href="#">
-								View all
-								<span><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/buttion-arrow.svg' ); ?>" alt="View All Gallery"></span>
-							</a>
-						</div>
-					<?php endif; ?>
 				</div>
 			<?php endif; ?>
 

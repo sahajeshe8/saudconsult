@@ -43,12 +43,12 @@ get_header();
 			<div class="my_profile_container">
 				<div class="my_profile_content">
                     <div class="profile-title-block text-center-title">
-					<h3 class="h3_title_50 pb_10 text_center mb_20">Review Profile</h3>
+					<h3 class="h3_title_50 pb_5 text_center mb_20">Review Profile</h3>
 
                     <a href="<?php echo esc_url( home_url( '/create-profile' ) ); ?>#" class="btn_style but_black but-position">Edit Profile</a>
                     </div>
 					<div class="form-group">
-						<div class="profile-view-block-01 related_jobs_section_content">
+						<div class="profile-view-block-01 colm-rev-mobile related_jobs_section_content">
 							<div class="profile-view-block-01-item-01">
 								<h5>Contact Information</h5>
 								<ul class="profile-view-block-01-list">
@@ -102,24 +102,6 @@ get_header();
 					<div class="form-group">
 						<div class="profile-view-block-01 related_jobs_section_content">
 							<div class="profile-view-block-01-item-01">
-								<h5>Supporting Documents and URLs</h5>
-								<ul class="profile-view-block-01-list">
-									<li>
-										<h6>LinkedIn Profile</h6>
-										<p>https://www.linkedin.com/share?profile</p>
-									</li>
-									<li>
-										<h6>Resume</h6>
-										<p>shafin.pdf</p>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-
-					<div class="form-group">
-						<div class="profile-view-block-01 related_jobs_section_content">
-							<div class="profile-view-block-01-item-01">
 								<h5>Address</h5>
 								<ul class="profile-view-block-01-list">
 									<li>
@@ -138,6 +120,26 @@ get_header();
 							</div>
 						</div>
 					</div>
+
+					<div class="form-group">
+						<div class="profile-view-block-01 related_jobs_section_content">
+							<div class="profile-view-block-01-item-01">
+								<h5>Supporting Documents and URLs</h5>
+								<ul class="profile-view-block-01-list">
+									<li>
+										<h6>LinkedIn Profile</h6>
+										<p><a href="https://www.linkedin.com/share?profile" target="_blank" rel="noopener noreferrer">https://www.linkedin.com/share?profile</a></p>
+									</li>
+									<li>
+										<h6>Resume</h6>
+										<p><a href="#" class="resume-download-link">shafin.pdf</a></p>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					
 
 					<div class="form-group">
 						<div class="profile-view-block-01 related_jobs_section_content">
@@ -183,36 +185,6 @@ get_header();
 						</div>
 					</div>
 
-					<div class="form-group">
-						<div class="profile-view-block-01 related_jobs_section_content">
-							<div class="profile-view-block-01-item-01">
-								<h5>Additional Information</h5>
-								<ul class="profile-view-block-01-list">
-									<li>
-										<h6>Years of Experience</h6>
-										<p>7 Years</p>
-									</li>
-									<li>
-										<h6>Notice Period</h6>
-										<p>90 Days</p>
-									</li>
-									<li>
-										<h6>Current Salary</h6>
-										<p>10,000 SAR</p>
-									</li>
-									<li>
-										<h6>Expected Salary</h6>
-										<p>15,000 SAR</p>
-									</li>
-									<li>
-										<h6>Visa Status</h6>
-										<p>Visit Visa</p>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-
 					<div class="form-group  related_jobs_section_content ">
                     <h5>Licenses and Certificates</h5>
 						<div class="profile-view-block-01 related_jobs_section_content license-block">
@@ -243,6 +215,36 @@ get_header();
 							</div>
 							<div class="license-duration">
 								<span>August 2015 - July 2017</span>
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="profile-view-block-01 related_jobs_section_content">
+							<div class="profile-view-block-01-item-01">
+								<h5>Additional Information</h5>
+								<ul class="profile-view-block-01-list">
+									<li>
+										<h6>Years of Experience</h6>
+										<p>7 Years</p>
+									</li>
+									<li>
+										<h6>Notice Period</h6>
+										<p>90 Days</p>
+									</li>
+									<li>
+										<h6>Current Salary</h6>
+										<p>10,000 SAR</p>
+									</li>
+									<li>
+										<h6>Expected Salary</h6>
+										<p>15,000 SAR</p>
+									</li>
+									<li>
+										<h6>Visa Status</h6>
+										<p>Visit Visa</p>
+									</li>
+								</ul>
 							</div>
 						</div>
 					</div>

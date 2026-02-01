@@ -14,7 +14,7 @@ get_header();
 	<?php 
 	$inner_banner_data = array(
 		'background_image' => get_template_directory_uri() . '/assets/images/news-banner-01.jpg',
-		'title' => 'News',
+		'title' => 'Media Center',
 	);
 	get_template_part( 'template-parts/inner-banner', null, $inner_banner_data ); 
 	?>
@@ -47,7 +47,7 @@ get_header();
 	$news_detail_url = $news_detail_page ? get_permalink( $news_detail_page->ID ) : home_url( '/news-detail' );
 	?>
 
-	<section class="news_page_section pt_80 pb_80">
+	<section class="news_page_section pt_60 pb_80">
 		<div class="wrap">
 			<div class="title_block mb_20">
 				<div class="title_block_left">
@@ -395,7 +395,7 @@ get_header();
 			</ul>
 
 			<div class="load_more_container" style="text-align: center; margin-top: 40px;">
-				<button type="button" class="load_more_btn btn_style but_black" id="load-more-news">
+				<button type="button" class="load_more_btn btn_style btn_green" id="load-more-news">
 					<span>Load More</span>
 				</button>
 			</div>

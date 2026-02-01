@@ -6,18 +6,13 @@
  *
  * @package tasheel
  */
-
+global $header_custom_class;
+$header_custom_class = 'black-header';
 get_header();
 ?>
 
-<main id="primary" class="site-main">
-	<?php 
-	$inner_banner_data = array(
-		'background_image' => get_template_directory_uri() . '/assets/images/news-banner-01.jpg',
-		'title' => 'News Detail',
-	);
-	get_template_part( 'template-parts/inner-banner', null, $inner_banner_data ); 
-	?>
+<main id="primary" class="site-main  no_banner_section news-detail-page">
+ 
 
 	<?php 
 	$breadcrumb_data = array(
@@ -45,7 +40,7 @@ get_header();
 	get_template_part( 'template-parts/Breadcrumb', null, $breadcrumb_data ); 
 	?>
 
-	<section class="news_detail_section pt_80 pb_80">
+	<section class="news_detail_section pt_40 pb_80">
 		<div class="wrap">
 			<div class="news_detail_container">
 				
@@ -114,7 +109,9 @@ get_header();
 		'title' => 'Related Posts',
 		'title_span' => '',
 		'title_break' => true,
-		'section_class' => 'bg_color_01' // Add custom CSS classes here, e.g., 'custom-class another-class'
+		'section_class' => 'bg_color_01 related-news', // Add custom CSS classes here, e.g., 'custom-class another-class'
+		'show_view_all_button' => true, // Show View All button instead of slider arrows
+		'view_all_url' => esc_url( home_url( '/news' ) ) // URL for View All button
 	);
 	get_template_part( 'template-parts/Insights-Resources', null, $insights_resources_data ); 
 	?>

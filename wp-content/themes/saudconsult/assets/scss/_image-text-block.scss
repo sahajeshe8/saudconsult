@@ -18,8 +18,12 @@
     background: linear-gradient(241.46deg, rgba(162, 200, 86, 0.5) 2.13%, rgba(105, 154, 71, 0.5) 49.11%, rgba(19, 107, 55, 0.5) 77.81%);
 
     }
+
+    @media screen and (max-width: 768px) {
+        width: 100%;
+    }
 }
- .image_image_block_container{ width: 50.7%;
+ .image_image_block_container{ width: 53.7%;
 
     @media screen and (max-width: 700px) {
         width: 100%; 
@@ -31,8 +35,21 @@
         }
     }
 
-    h5{ margin: 0; font-size: 16px; font-weight: 600; }
+    h5{ margin: 0; font-size: 16px; font-weight: 600; margin-top: 5px; margin-bottom: 5px; }
+
+    @media screen and (max-width: 768px) {
+        width: 100%;
+        margin-top: 25px;
+    }
 }
 
 
 .bg_style_01{ background: #F5F9EE url('../images/bg_sectiopn.svg') no-repeat center center;  background-size: contain;}
+
+
+.image_text_block_section{
+    @media screen and (max-width: 768px) {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+}

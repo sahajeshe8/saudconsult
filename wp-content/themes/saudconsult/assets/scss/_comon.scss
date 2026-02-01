@@ -29,14 +29,20 @@ html{
 
 
 }
-.btn_style{ gap: 10px; cursor: pointer;    border-radius: 100px; background: #fff; color: #000;  border: solid 1px #ffffff; height: 51px; padding: 0 30px; display: inline-flex; flex-wrap: wrap; align-items: center; justify-content: center; font-size: 16px;  font-weight: 400; transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease; line-height: 1;
+.btn_style{ min-width: 171px; gap: 10px; cursor: pointer;    border-radius: 100px; background: #fff; color: #000;  border: solid 1px #ffffff; height: 51px; padding: 0 30px; display: inline-flex; flex-wrap: wrap; align-items: center; justify-content: center; font-size: 16px;  font-weight: 300; transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease; line-height: 1;
    &:hover{ background: #A8D05A; color: #fff;
 
-      img{ filter: invert(1); }
+      img{ 
+         -webkit-filter: invert(1);
+         filter: invert(1); 
+      }
    
          .buttion_blue_icn{
 
-            img{ filter: invert(0.8); }
+            img{ 
+               -webkit-filter: invert(0.8);
+               filter: invert(0.8); 
+            }
          }  
    }
 
@@ -56,7 +62,10 @@ html{
       
          .buttion_blue_icn{
 
-            img{ filter: invert(0.8); }
+            img{ 
+               -webkit-filter: invert(0.8);
+               filter: invert(0.8); 
+            }
          }
       }
 
@@ -67,8 +76,11 @@ html{
 
 
    &.btn_green{ background: #A9D159; border:none; color: #fff !important;
-    &:hover{ background:#fdfdfd; color: #000000 !important;
-      img{ filter: invert(1);  }
+    &:hover{ background:#0f0f0f; color: #ffffff !important;
+      img{ 
+         -webkit-filter: invert(1);
+         filter: invert(1);  
+      }
    }
     
    // img{ filter: invert(1); }
@@ -81,14 +93,18 @@ html{
    }
 
    @media (max-width: 700px) {
-      height: 40px !important;
+      height: 35px !important;
       padding: 0 20px;
       font-size: 14px !important;
+      min-width: unset;
    }
 
 
    &.but_black{ background: #000; color: #fff;
-    img{ filter: invert(1); }
+    img{ 
+       -webkit-filter: invert(1);
+       filter: invert(1); 
+    }
 
 
 &:hover{ background: #A8D05A; color: #fff;}
@@ -101,6 +117,9 @@ html{
    @media screen and (max-width: 800px) {
       height: 42px;
    }
+
+
+
 
 }
 .h3_title{ font-weight: 500; color: #000;  margin: 0;  @include px-rem(70) ;  line-height: 100%; }
@@ -135,7 +154,7 @@ html{
    }
 
    @media screen and (max-width:700px) {
-      @include px-rem(95);
+      @include px-rem(75);
    }
 }
 
@@ -201,7 +220,7 @@ html{
    }
 
    @media screen and (max-width:700px) {
-      @include px-rem(90);
+      @include px-rem(85); line-height: 100%; margin-bottom: 10px;
    }
 }
 
@@ -219,9 +238,9 @@ html{
    // .title_block_right{ width: 50%;}
 
    .title_block_right{
-      @media screen and (max-width:700px) {
-         width: 100%; margin-top: 20px;
-      }
+      // @media screen and (max-width:700px) {
+      //    width: 100%; margin-top: 20px;
+      // }
    }
 }
 
@@ -287,7 +306,12 @@ position: relative;
 
 .bg_img_02{ background: url(../images/bg-img-03.svg) no-repeat center left; background-size: contain;}
 
-.no_banner_section{ margin-top: 100px;}
+.no_banner_section{ margin-top: 100px;
+
+@media screen and (max-width: 700px) {
+   margin-top: 50px;
+}
+}
 
 .flex-align-right{ justify-content: flex-end; display: flex  ; flex-wrap: wrap;}
 
@@ -316,7 +340,7 @@ font-weight: 400;
 ;font-size: 18px;
 line-height: 1.2;
 color: #101922;
-margin-top: 5px;
+margin-top: 5px !important;
 }
 
 .justify-content-between-02{ justify-content: space-between  ;}
@@ -332,3 +356,35 @@ margin-top: 5px;
 
 .fancybox__viewport.is-draggable, .fancybox__viewport{ background:rgb(175 175 175 /0.8);}
 .fancybox__backdrop{  background: transparent !important;}
+
+.error_404_content{
+
+	.btn_style {
+	  
+		&:hover{ background: #0D6A37 !important; border-color: #0D6A37 !important; color: #fff !important ;}
+	}
+}
+
+
+.error_404_section{ min-height: 650px;}
+
+.position-unset{ position: unset !important;}
+.btn_green {
+   img{ 
+      -webkit-filter: invert(1);
+      filter: invert(1); 
+   }
+
+   &:hover{
+      img{ 
+         -webkit-filter: invert(0) !important;
+         filter: invert(0) !important; 
+      }
+   }
+}
+
+.image_overlay_02{
+   &::after{
+      opacity: 0.6;
+   }
+}

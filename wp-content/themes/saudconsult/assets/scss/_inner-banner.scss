@@ -23,6 +23,27 @@
 			object-fit: cover;
 			display: block;
 		}
+
+		&::after{content: ""; opacity: 0.3; position: absolute; top: 0; left: 0; width: 100%; height: 100%;  z-index: 4;
+			background: linear-gradient(
+				180deg,
+				rgba(13, 106, 55, 0) 39.85554873943329%,
+				rgba(5, 40, 21, 0.6) 100%
+			  ),
+			  linear-gradient(
+				208.63deg,
+				rgba(22, 107, 55, 0.3) 0%,
+				rgba(24, 108, 55, 0.3) 10.54358184337616%,
+				rgba(169, 209, 89, 0.18) 43.68221461772919%,
+				rgba(169, 209, 89, 0) 100%
+			  ),
+			  linear-gradient(
+				180deg,
+				rgba(50, 50, 50, 0.4) 0%,
+				rgba(13, 106, 55, 0) 55.000001192092896%
+			  ),
+			  linear-gradient(to left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+		}
 	}
 
 	.inner_banner_overlay {

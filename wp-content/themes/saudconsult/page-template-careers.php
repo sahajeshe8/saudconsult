@@ -81,7 +81,7 @@ get_header();
 		'title_span' => 'Pioneers of Saudi Engineering.',
 		'content' => '<p>The SAUDCONSULT Academic Internship Program offers highly motivated university students and new graduates a rigorous 6-month training experience at the forefront of the Kingdom\'s engineering sector. This is more than a placement; it\'s a direct immersion into real-world project delivery.</p><p>You will work side-by-side with our 2,000+ professionals, applying your academic knowledge to challenging projects in vital sectors like Infrastructure, Oil & Gas, and Transportation. We are committed to nurturing the next generation of Saudi talent, providing the hands-on skills and mentorship needed to succeed in a complex, high-stakes environment.</p>',
 		'button_text' => 'Academic Programs',
-		'button_link' => esc_url( home_url( '/' ) ),
+		'button_link' => esc_url( home_url( '/academic-program' ) ),
 		'section_class' => '',
 		'image_container_class' => '',
 		'text_container_class' => ''

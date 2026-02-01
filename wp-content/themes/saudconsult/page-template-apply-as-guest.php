@@ -18,7 +18,7 @@ get_header();
 		<div class="wrap">
 			<div class="create_profile_container">
 				<div class="create_profile_content">
-					<h3 class="h3_title_50 pb_10 text_center mb_20">Apply as a Guest</h3>
+					<h3 class="h3_title_50 pb_5 text_center mb_20">Apply as a Guest</h3>
 
 					<div class="form-group">
 						<div class="related_jobs_section_content">
@@ -118,7 +118,7 @@ get_header();
 							<div class="resume-upload-area">
 								<input type="file" id="resume-upload" name="resume" accept=".pdf,.doc,.docx" class="file-input-hidden">
 								<label for="resume-upload" class="resume-upload-button">
-									Upload resume here
+								Upload portfolio here
 								</label>
 								<div class="resume-file-name" style="display: none;"></div>
 							</div>
@@ -132,7 +132,7 @@ get_header();
 
 					<div class="form-group">
 						<div class="related_jobs_section_content">
-							<h5>Education *</h5>
+							<h5>Education</h5>
 							<p>Please provide details about your education.</p>
 						</div>
 
@@ -172,12 +172,12 @@ get_header();
 							</li>
 							<li>
 								<div class="select-wrapper date-input-wrapper">
-									<input class="input date-input" type="text" placeholder="End Date *" onfocus="(this.type='date')" onblur="if(!this.value) this.type='text'" required>
+									<input class="input date-input" type="date" placeholder="End Date *" required>
 								</div>
 							</li>
 							<li>
 								<div class="select-wrapper date-input-wrapper">
-									<input class="input date-input" type="text" placeholder="Start Date *" onfocus="(this.type='date')" onblur="if(!this.value) this.type='text'" required>
+									<input class="input date-input" type="date" placeholder="Start Date *" required>
 								</div>
 							</li>
 							<li>

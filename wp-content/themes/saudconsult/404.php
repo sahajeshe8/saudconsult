@@ -4,18 +4,14 @@
  *
  * @package tasheel
  */
+global $header_custom_class;
+$header_custom_class = 'black-header';
 
 get_header();
 ?>
 
-<main id="primary" class="site-main">
-<?php
-// Set banner for 404 page
-set_query_var( 'inner_banner_image', get_template_directory_uri() . '/assets/images/projects-banner.jpg' );
-set_query_var( 'inner_banner_title', '404 - Page Not Found' );
-
-get_template_part( 'template-parts/inner-banner' );
-?>
+<main id="primary" class="site-main no_banner_section">
+ 
 
 <?php
 // Breadcrumb for 404 page

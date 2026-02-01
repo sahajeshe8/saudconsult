@@ -137,7 +137,7 @@ get_header();
 								<label class="vendor_form_label">Area of expertise for your company (Select all that applied) *</label>
 								<div class="select-wrapper">
 									<select class="input select-input" name="area_expertise" required>
-										<option value="">Select</option>
+										<option value="">(Select all that applied) *</option>
 										<option value="engineering">Engineering</option>
 										<option value="construction">Construction</option>
 										<option value="consulting">Consulting</option>
@@ -150,7 +150,7 @@ get_header();
 								<label class="vendor_form_label">In Which sectors the company contribute in (Select all that applied) *</label>
 								<div class="select-wrapper">
 									<select class="input select-input" name="sectors" required>
-										<option value="">Select</option>
+										<option value="">(Select all that applied) *</option>
 										<option value="infrastructure">Infrastructure</option>
 										<option value="construction">Construction</option>
 										<option value="engineering">Engineering</option>
@@ -227,6 +227,59 @@ get_header();
 							</ul>
 					</div>
 
+					<div class="vendor_registration_title">
+						<h3  > <span>Secondary Contact Person</span> </h3>
+					</div>
+
+					<div class="vendor_registration_form_group">
+						<ul class="career-form-list-ul form-col-2">
+								<li>
+									<label class="vendor_form_label">Name *</label>
+									<div class="select-wrapper">
+										<select class="input select-input" name="secondary_contact_name" required>
+											<option value="">Select</option>
+											<option value="name1">Name 1</option>
+											<option value="name2">Name 2</option>
+										</select>
+										<span class="select-arrow"></span>
+									</div>
+								</li>
+								<li>
+									<label class="vendor_form_label">Position *</label>
+									<div class="select-wrapper">
+										<select class="input select-input" name="secondary_contact_position" required>
+											<option value="">Select</option>
+											<option value="position1">Position 1</option>
+											<option value="position2">Position 2</option>
+										</select>
+										<span class="select-arrow"></span>
+									</div>
+								</li>
+								<li>
+									<label class="vendor_form_label">Phone *</label>
+									<div class="select-wrapper">
+										<select class="input select-input" name="secondary_contact_phone" required>
+											<option value="">Select</option>
+											<option value="phone1">Phone 1</option>
+											<option value="phone2">Phone 2</option>
+										</select>
+										<span class="select-arrow"></span>
+									</div>
+								</li>
+								<li>
+									<label class="vendor_form_label">Email *</label>
+									<div class="select-wrapper">
+										<select class="input select-input" name="secondary_contact_email" required>
+											<option value="">Select</option>
+											<option value="email1">Email 1</option>
+											<option value="email2">Email 2</option>
+										</select>
+										<span class="select-arrow"></span>
+									</div>
+								</li>
+							</ul>
+					</div>
+
 					<!-- Additional Information Group -->
 					<div class="vendor_registration_title">
 						<h3  > <span>Company Information and experience </span> </h3>
@@ -236,7 +289,17 @@ get_header();
 						<ul class="career-form-list-ul form-col-2">
 								<li>
 									<label class="vendor_form_label">Number of Company Employees *</label>
-									<input class="input" type="url" name="company_website" >
+									<div class="select-wrapper">
+										<select class="input select-input" name="number_of_employees">
+											<option value="">Select</option>
+											<option value="1-10">1-10</option>
+											<option value="11-50">11-50</option>
+											<option value="51-200">51-200</option>
+											<option value="201-500">201-500</option>
+											<option value="500+">500+</option>
+										</select>
+										<span class="select-arrow"></span>
+									</div>
 								</li>
 								<li>
 									<label class="vendor_form_label">Company website *</label>
@@ -343,7 +406,7 @@ get_header();
 							<div class="vendor_registration_form_col">
 								<ul class="career-form-list-ul">
 									<li>
-										<label class="vendor_form_label">Do you have valid ISO Certificates? *</label>
+										<label class="vendor_form_label">Do you have valid ISO Certificates?</label>
 										<div class="vendor_input_with_button">
 											<input class="input" type="text" id="iso-cert-input" name="iso_cert_file_name" required>
 											<input type="file" id="iso-cert-upload" name="iso_cert_file" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" class="file-input-hidden" data-fill-target="#iso-cert-input">
@@ -367,6 +430,10 @@ get_header();
 								</ul>
 							</div>
 						</div>
+
+					<div class="vendor_registration_title">
+						<h3><span>Local Content</span></h3>
+					</div>
 
 						<div class="vendor_registration_form_wrapper">
 							<!-- Left Column -->
@@ -409,7 +476,7 @@ get_header();
 					</div>
 
 					<div class="vendor_registration_form_actions">
-						<button type="submit" class="btn_style but_black">Submit</button>
+						<button type="submit" class="btn_style but_black">Submit <span><img src="<?php echo get_template_directory_uri(); ?>/assets/images/buttion-arrow.svg" alt="Submit"></span></button>
 					</div>
 				</form>
 			</div>

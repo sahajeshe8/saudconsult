@@ -40,9 +40,9 @@ get_header();
 	);
 	get_template_part( 'template-parts/Breadcrumb', null, $breadcrumb_data ); 
 	?>
-<section class="events_page_section pt_80 pb_80"    >
+<section class="events_page_section pt_50 pb_80"    >
 	<div class="wrap">
-		<div class="title_block mb_40">
+		<div class="title_block mb_30">
 			<div class="title_block_left">
 				<h3 class="h3_title_50 ">Events</h3>
 			</div>

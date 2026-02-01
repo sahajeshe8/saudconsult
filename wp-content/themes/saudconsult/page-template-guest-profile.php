@@ -23,7 +23,7 @@ get_header();
 			<div class="my_profile_container">
 				<div class="my_profile_content">
                     <div class="profile-title-block text-center-title">
-						<h3 class="h3_title_50 pb_10 text_center mb_20">Apply as a Guest</h3>
+						<h3 class="h3_title_50 pb_5 text_center mb_20">Apply as a Guest</h3>
                      </div>
 
 					<div class="form-group">

@@ -1297,7 +1297,7 @@ var swiper = new Swiper(".mySwiper-clients", {
 				}
 
 				if (activeDescription && newDescription) {
-					activeDescription.innerHTML = newDescription;
+					activeDescription.innerHTML = '<p>' + newDescription + '</p>';
 				}
 
 				// Update button without flashing - preserve the span structure
@@ -1888,14 +1888,10 @@ var swiper = new Swiper(".mySwiper-clients", {
 
 // Same Month Events Swiper
 var sameMonthEventsSwiper = new Swiper(".same_month_events_swiper", {
-	slidesPerView: 2,
-	spaceBetween: 30,
+	slidesPerView: 1,
+	spaceBetween: 20,
 	loop: true,
 	breakpoints: {
-		480: {
-			slidesPerView: 1,
-			spaceBetween: 20,
-		},
 		768: {
 			slidesPerView: 2,
 			spaceBetween: 30,
@@ -1903,35 +1899,105 @@ var sameMonthEventsSwiper = new Swiper(".same_month_events_swiper", {
 	},
 });
 
-var swiper = new Swiper(".brochures_list_swiper", {
-	slidesPerView:2,
-	spaceBetween:5,
-	loop: true,
-	navigation: {
-		nextEl: ".brochures_list_but_next",
-		prevEl: ".brochures_list_but_prev",
-	},
-	breakpoints: {
-
-		500: {
-			slidesPerView:3,
-			spaceBetween:5,
-		},
-
-
-
-		768: {
-			slidesPerView: 4,
-			spaceBetween:5,
-		},
-
+// Brochures List Swiper - Enable autoplay on mobile
+(function() {
+	const initBrochuresListSwiper = function() {
+		if (typeof Swiper === 'undefined') {
+			console.warn('BrochuresList: Swiper library is not loaded');
+			return;
+		}
 		
-		1024: {
-			slidesPerView: 6,
-			spaceBetween: 10,
-		},
-	},
-});
+		const swiperElement = document.querySelector(".brochures_list_swiper");
+		if (!swiperElement) {
+			return; // Element not found, might not be on this page
+		}
+		
+		// Check if already initialized
+		if (swiperElement.swiper) {
+			return; // Already initialized
+		}
+		
+		// Check if viewport is under 1024px
+		const isUnder1024 = window.innerWidth < 1024;
+		
+		try {
+			var swiper = new Swiper(swiperElement, {
+				slidesPerView: 2,
+				spaceBetween: 5,
+				loop: true,
+				autoplay: isUnder1024 ? {
+					delay: 3000,
+					disableOnInteraction: false,
+					pauseOnMouseEnter: true,
+				} : false,
+				navigation: {
+					nextEl: ".brochures_list_but_next",
+					prevEl: ".brochures_list_but_prev",
+				},
+				breakpoints: {
+					500: {
+						slidesPerView: 3,
+						spaceBetween: 5,
+						autoplay: {
+							delay: 3000,
+							disableOnInteraction: false,
+							pauseOnMouseEnter: true,
+						},
+					},
+					768: {
+						slidesPerView: 4,
+						spaceBetween: 5,
+						autoplay: {
+							delay: 3000,
+							disableOnInteraction: false,
+							pauseOnMouseEnter: true,
+						},
+					},
+					1024: {
+						slidesPerView: 5,
+						spaceBetween: 10,
+						autoplay: false, // Disable autoplay at 1024px and above
+					},
+				},
+				on: {
+					// Handle autoplay on window resize
+					init: function(swiper) {
+						const handleResize = function() {
+							const isUnder1024Now = window.innerWidth < 1024;
+							
+							if (isUnder1024Now && !swiper.autoplay.running) {
+								swiper.autoplay.start();
+							} else if (!isUnder1024Now && swiper.autoplay.running) {
+								swiper.autoplay.stop();
+							}
+						};
+						
+						window.addEventListener('resize', handleResize);
+						// Store cleanup function
+						swiper.destroy = (function(originalDestroy) {
+							return function() {
+								window.removeEventListener('resize', handleResize);
+								if (originalDestroy) originalDestroy.call(this);
+							};
+						})(swiper.destroy);
+					}
+				}
+			});
+			console.log('BrochuresList: Swiper initialized successfully', isUnder1024 ? 'with autoplay' : 'without autoplay');
+		} catch (error) {
+			console.error('BrochuresList: Error initializing Swiper', error);
+		}
+	};
+	
+	// Initialize when DOM is ready
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', function() {
+			setTimeout(initBrochuresListSwiper, 100);
+		});
+	} else {
+		setTimeout(initBrochuresListSwiper, 100);
+	}
+})();
 
 // Gallery Masonry Initialization
 (function() {
@@ -2099,6 +2165,22 @@ var swiper = new Swiper(".brochures_list_swiper", {
 							});
 						}
 						
+						// Add click handler to form-bottom-txt to close popup
+						const formBottomTxt = slide.el.querySelector('.form-bottom-txt');
+						if (formBottomTxt) {
+							formBottomTxt.addEventListener('click', function(e) {
+								// Don't close if clicking on a link inside (let the link handle its own action)
+								if (e.target.closest('a[data-fancybox]')) {
+									return; // Let the link handle the popup switch
+								}
+								// Close the popup when clicking anywhere else in form-bottom-txt
+								e.preventDefault();
+								e.stopPropagation();
+								fancybox.close();
+								return false;
+							});
+						}
+						
 						// Fix mobile scrolling when keyboard opens
 						if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
 							const container = document.querySelector('.fancybox__container');
@@ -2237,6 +2319,22 @@ var swiper = new Swiper(".brochures_list_swiper", {
 							});
 						}
 						
+						// Add click handler to form-bottom-txt to close popup
+						const formBottomTxt = slide.el.querySelector('.form-bottom-txt');
+						if (formBottomTxt) {
+							formBottomTxt.addEventListener('click', function(e) {
+								// Don't close if clicking on a link inside (let the link handle its own action)
+								if (e.target.closest('a[data-fancybox]')) {
+									return; // Let the link handle the popup switch
+								}
+								// Close the popup when clicking anywhere else in form-bottom-txt
+								e.preventDefault();
+								e.stopPropagation();
+								fancybox.close();
+								return false;
+							});
+						}
+						
 						// Fix mobile scrolling when keyboard opens
 						if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
 							const container = document.querySelector('.fancybox__container');
@@ -2291,31 +2389,102 @@ var swiper = new Swiper(".brochures_list_swiper", {
 	}
 })();
 
-// Global handler to prevent popup reopening on close
+// Global handler to ensure only one popup is open at a time
 (function() {
 	document.addEventListener('DOMContentLoaded', function() {
-		// Prevent links inside popups from triggering other popups when clicked
-		document.addEventListener('click', function(e) {
-			const target = e.target.closest('[data-fancybox]');
-			if (target && Fancybox.getInstance()) {
-				// If a Fancybox is already open, close it first before opening a new one
-				const currentInstance = Fancybox.getInstance();
-				if (currentInstance && currentInstance.isVisible) {
-					// Small delay to ensure current popup closes before opening new one
-					setTimeout(function() {
-						// The click will naturally trigger the new popup after current one closes
-					}, 50);
-				}
+		// Wait for Fancybox to be available
+		function initPopupHandler() {
+			if (typeof Fancybox === 'undefined') {
+				setTimeout(initPopupHandler, 100);
+				return;
 			}
-		}, true); // Use capture phase
-		
-		// Listen for Fancybox close events and prevent reopening
-		if (typeof Fancybox !== 'undefined') {
-			document.addEventListener('fancybox:close', function(e) {
-				// Prevent any automatic reopening
-				e.stopPropagation();
+
+			// Store pending popup to open after current one closes
+			let pendingPopup = null;
+
+			// Handle clicks on popup triggers - ensure only one popup is open at a time
+			document.addEventListener('click', function(e) {
+				const target = e.target.closest('[data-fancybox]');
+				if (target) {
+					const targetHref = target.getAttribute('href');
+					const currentInstance = Fancybox.getInstance();
+					
+					// Check if there's already an open popup
+					if (currentInstance && currentInstance.isVisible) {
+						const currentSlide = currentInstance.getSlide();
+						const currentPopupId = currentSlide && currentSlide.el ? currentSlide.el.id : null;
+						
+						// Check if clicking inside the current popup or if it's a different popup
+						const isInsideCurrentPopup = currentSlide && currentSlide.el && currentSlide.el.contains(target);
+						const isDifferentPopup = currentPopupId && targetHref && targetHref !== '#' + currentPopupId;
+						
+						// If there's an open popup and we're clicking a different popup trigger, close current first
+						if (isInsideCurrentPopup || isDifferentPopup) {
+							e.preventDefault();
+							e.stopImmediatePropagation();
+							
+							// Store the target popup information
+							pendingPopup = {
+								href: targetHref,
+								element: target
+							};
+							
+							// Close the current popup
+							currentInstance.close();
+							
+							return false;
+						}
+					}
+				}
+			}, true); // Use capture phase to intercept before Fancybox handlers
+
+			// Listen for Fancybox close event to open pending popup
+			document.addEventListener('fancybox:close', function() {
+				if (pendingPopup && pendingPopup.href && pendingPopup.element) {
+					setTimeout(function() {
+						// Double-check no popup is currently open before opening new one
+						const currentInstance = Fancybox.getInstance();
+						if (currentInstance && currentInstance.isVisible) {
+							// If somehow a popup is still open, close it first
+							currentInstance.close();
+							// Try again after another delay
+							setTimeout(function() {
+								// Check if the target popup element exists
+								const targetElement = document.querySelector(pendingPopup.href);
+								if (targetElement && pendingPopup.element && document.body.contains(pendingPopup.element)) {
+									// Trigger click on the stored element to use the bound Fancybox configuration
+									const clickEvent = new MouseEvent('click', {
+										bubbles: true,
+										cancelable: true,
+										view: window
+									});
+									pendingPopup.element.dispatchEvent(clickEvent);
+								}
+								pendingPopup = null;
+							}, 200);
+						} else {
+							// Check if the target popup element exists
+							const targetElement = document.querySelector(pendingPopup.href);
+							if (targetElement && pendingPopup.element && document.body.contains(pendingPopup.element)) {
+								// Trigger click on the stored element to use the bound Fancybox configuration
+								const clickEvent = new MouseEvent('click', {
+									bubbles: true,
+									cancelable: true,
+									view: window
+								});
+								pendingPopup.element.dispatchEvent(clickEvent);
+							}
+							pendingPopup = null;
+						}
+					}, 200); // Delay to ensure previous popup is fully closed
+				} else {
+					// Clear pending popup if it's invalid
+					pendingPopup = null;
+				}
 			});
 		}
+
+		initPopupHandler();
 	});
 })();
 
@@ -2829,6 +2998,268 @@ var swiper = new Swiper(".mySwiper-02", {});
 	if (typeof Fancybox !== 'undefined') {
 		document.addEventListener('fancybox:reveal', function() {
 			setTimeout(initFormIconPasswordToggle, 100);
+		});
+	}
+})();
+
+// Fix for Project Filter Select Dropdowns - Prevent double-click issue
+(function() {
+	const fixProjectFilterSelects = function() {
+		const projectFilterSelects = document.querySelectorAll('.project_filter_select');
+		
+		if (projectFilterSelects.length === 0) {
+			return;
+		}
+		
+		projectFilterSelects.forEach(function(select) {
+			// Prevent event propagation on mousedown to avoid interference from global handlers
+			select.addEventListener('mousedown', function(e) {
+				e.stopPropagation();
+			}, true);
+			
+			// Also prevent click propagation
+			select.addEventListener('click', function(e) {
+				e.stopPropagation();
+			}, true);
+			
+			// Focus the select on mousedown to ensure it opens immediately
+			select.addEventListener('mousedown', function(e) {
+				// Only focus if not already focused
+				if (document.activeElement !== this) {
+					this.focus();
+				}
+			});
+		});
+	};
+	
+	// Initialize when DOM is ready
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', fixProjectFilterSelects);
+	} else {
+		fixProjectFilterSelects();
+	}
+})();
+
+// Fix for Date Input - Open calendar on first click and add placeholder support
+(function() {
+	const fixDateInputs = function() {
+		const dateInputs = document.querySelectorAll('.date-input');
+		
+		if (dateInputs.length === 0) {
+			return;
+		}
+		
+		dateInputs.forEach(function(input) {
+			// Remove inline handlers if they exist
+			if (input.getAttribute('onfocus')) {
+				input.removeAttribute('onfocus');
+			}
+			if (input.getAttribute('onblur')) {
+				input.removeAttribute('onblur');
+			}
+			
+			// Mark as initialized to prevent duplicate handlers
+			if (input.hasAttribute('data-date-input-initialized')) {
+				return;
+			}
+			input.setAttribute('data-date-input-initialized', 'true');
+			
+			// Get placeholder text from placeholder attribute
+			const placeholderText = input.getAttribute('placeholder') || '';
+			
+			// Create placeholder element if it doesn't exist
+			let placeholderEl = input.parentElement.querySelector('.date-placeholder');
+			if (!placeholderEl && placeholderText) {
+				placeholderEl = document.createElement('span');
+				placeholderEl.className = 'date-placeholder';
+				placeholderEl.textContent = placeholderText;
+				input.parentElement.appendChild(placeholderEl);
+			}
+			
+			// Function to check if input has a value
+			const hasValue = function() {
+				// For date inputs, check if value exists and is not empty
+				// Don't rely on validity.valid for optional fields (like Expiration Date)
+				return input.value && input.value.trim() !== '' && input.value !== '';
+			};
+			
+			// Function to update placeholder visibility
+			const updatePlaceholder = function() {
+				if (placeholderEl) {
+					const hasVal = hasValue();
+					// Update data attribute for CSS targeting
+					if (hasVal) {
+						input.setAttribute('data-has-value', 'true');
+					} else {
+						input.removeAttribute('data-has-value');
+					}
+					
+					// Hide if input has value or is focused
+					if (hasVal || document.activeElement === input) {
+						placeholderEl.style.opacity = '0';
+						placeholderEl.style.visibility = 'hidden';
+						placeholderEl.style.display = 'none';
+					} else {
+						placeholderEl.style.opacity = '1';
+						placeholderEl.style.visibility = 'visible';
+						placeholderEl.style.display = 'flex';
+					}
+				}
+			};
+			
+			// Get wrapper element
+			const wrapper = input.parentElement;
+			
+			// Update placeholder on input events
+			input.addEventListener('input', updatePlaceholder);
+			input.addEventListener('change', updatePlaceholder);
+			input.addEventListener('focus', updatePlaceholder);
+			input.addEventListener('blur', updatePlaceholder);
+			
+			// Also listen for DOMAttrModified for value changes (for programmatic changes)
+			const observer = new MutationObserver(function(mutations) {
+				updatePlaceholder();
+			});
+			
+			// Observe the input for attribute changes
+			observer.observe(input, {
+				attributes: true,
+				attributeFilter: ['value']
+			});
+			
+			// Hide placeholder on hover (same behavior as CSS)
+			wrapper.addEventListener('mouseenter', function() {
+				if (placeholderEl && !hasValue()) {
+					placeholderEl.style.opacity = '0';
+					placeholderEl.style.visibility = 'hidden';
+					placeholderEl.style.display = 'none';
+				}
+			});
+			
+			wrapper.addEventListener('mouseleave', function() {
+				if (placeholderEl && !hasValue() && document.activeElement !== input) {
+					placeholderEl.style.opacity = '1';
+					placeholderEl.style.visibility = 'visible';
+					placeholderEl.style.display = 'flex';
+				}
+			});
+			
+			// Also handle input hover directly
+			input.addEventListener('mouseenter', function() {
+				if (placeholderEl && !hasValue()) {
+					placeholderEl.style.opacity = '0';
+					placeholderEl.style.visibility = 'hidden';
+					placeholderEl.style.display = 'none';
+				}
+			});
+			
+			input.addEventListener('mouseleave', function() {
+				if (placeholderEl && !hasValue() && document.activeElement !== input) {
+					placeholderEl.style.opacity = '1';
+					placeholderEl.style.visibility = 'visible';
+					placeholderEl.style.display = 'flex';
+				}
+			});
+			
+			// Initial update with a small delay to ensure DOM is ready
+			setTimeout(updatePlaceholder, 100);
+			
+			// Also check periodically to catch any edge cases (but less frequently)
+			const checkValueInterval = setInterval(function() {
+				if (hasValue() && placeholderEl) {
+					placeholderEl.style.opacity = '0';
+					placeholderEl.style.visibility = 'hidden';
+					placeholderEl.style.display = 'none';
+				}
+			}, 500);
+			
+			// Store interval ID on input for cleanup if needed
+			input._datePlaceholderInterval = checkValueInterval;
+			
+			// Handle click - open calendar picker
+			input.addEventListener('click', function(e) {
+				// Use showPicker() if available (modern browsers)
+				if (typeof this.showPicker === 'function') {
+					setTimeout(function() {
+						try {
+							input.showPicker();
+						} catch (err) {
+							// If showPicker fails, focus should still work
+							input.focus();
+						}
+					}, 0);
+				} else {
+					// For browsers without showPicker, focus should trigger calendar
+					this.focus();
+				}
+			}, false);
+			
+			// Handle focus - try to open picker
+			input.addEventListener('focus', function(e) {
+				// Use showPicker() if available
+				if (typeof this.showPicker === 'function') {
+					setTimeout(function() {
+						try {
+							input.showPicker();
+						} catch (err) {
+							// Ignore errors
+						}
+					}, 10);
+				}
+			}, false);
+		});
+	};
+	
+	// Initialize when DOM is ready
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', fixDateInputs);
+	} else {
+		fixDateInputs();
+	}
+	
+	// Re-initialize when Fancybox opens (for dynamically loaded popups)
+	if (typeof Fancybox !== 'undefined') {
+		document.addEventListener('fancybox:reveal', function() {
+			setTimeout(fixDateInputs, 100);
+		});
+	}
+	
+	// Also re-run after a short delay to catch any late-loading elements
+	setTimeout(fixDateInputs, 500);
+	
+	// Use MutationObserver to watch for new date inputs being added to the DOM
+	const domObserver = new MutationObserver(function(mutations) {
+		let shouldReinit = false;
+		mutations.forEach(function(mutation) {
+			if (mutation.addedNodes.length > 0) {
+				mutation.addedNodes.forEach(function(node) {
+					if (node.nodeType === 1) { // Element node
+						if (node.classList && node.classList.contains('date-input')) {
+							shouldReinit = true;
+						} else if (node.querySelector && node.querySelector('.date-input')) {
+							shouldReinit = true;
+						}
+					}
+				});
+			}
+		});
+		if (shouldReinit) {
+			setTimeout(fixDateInputs, 100);
+		}
+	});
+	
+	// Start observing the document body for changes
+	if (document.body) {
+		domObserver.observe(document.body, {
+			childList: true,
+			subtree: true
+		});
+	} else {
+		document.addEventListener('DOMContentLoaded', function() {
+			domObserver.observe(document.body, {
+				childList: true,
+				subtree: true
+			});
 		});
 	}
 })();

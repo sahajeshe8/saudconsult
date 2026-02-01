@@ -1,16 +1,10 @@
 // Design Scope Template Part Styles
 
 .design_scope_section {
-	padding: 80px 0;
+ 
 	background: #F5F9EE;
 
-	@media screen and (max-width: 768px) {
-		padding: 60px 0;
-	}
-
-	@media screen and (max-width: 480px) {
-		padding: 40px 0;
-	}
+	 
 }
 
 .design_scope_container {
@@ -52,6 +46,7 @@
 .design_scope_title_bold {
 	font-weight: 700;
 	color: #0D6A37;
+	line-height: 132%;
 }
 
 .design_scope_title_regular {

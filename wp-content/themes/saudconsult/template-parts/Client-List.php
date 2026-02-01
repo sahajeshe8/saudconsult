@@ -47,7 +47,7 @@ $load_more_label = isset( $args['load_more_label'] ) ? $args['load_more_label'] 
 
 ?>
 
-<div class="client_list_section pt_50 pb_80 <?php echo esc_attr( $section_class ); ?>">
+<div class="client_list_section pt_40 pb_80 <?php echo esc_attr( $section_class ); ?>">
  
 		<?php if ( $title || $title_span ) : ?>
 			<h4 class="h4_title_35 pb_20">

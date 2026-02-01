@@ -32,7 +32,7 @@ get_header();
 			<div class="password_management_container">
 				<div class="password_management_content">
 					<div class="profile-title-block text-center-title">
-						<h3 class="h3_title_50 pb_10 text_center mb_20">Password Management</h3>
+						<h3 class="h3_title_50 pb_5 text_center mb_20">Password Management</h3>
 					</div>
 
 					<form class="password_management_form" method="post" action="">

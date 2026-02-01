@@ -54,7 +54,7 @@ get_header();
 		'title' => 'Who Should',
 		'title_span' => 'Apply?',
 		'content' => '
-        <h5>Program Highlights</h5>
+        <h5>Ideal Candidate Profile</h5>
         <ul>
             <li>Currently enrolled in the final year of study, or a recent graduate (within 12 months) from a recognized university.</li>
             <li>Majors in Civil Engineering, Structural Engineering, Mechanical Engineering, Electrical Engineering, Architecture, or related fields.</li>

@@ -173,7 +173,9 @@ $active_item = ! empty( $content_items ) ? $content_items[0] : array();
 					<?php endif; ?>
 					
 					<?php if ( ! empty( $active_item ) && isset( $active_item['description'] ) ) : ?>
-						<p class="expertise_active_description"><?php echo wp_kses_post( $active_item['description'] ); ?></p>
+						<div class="expertise_active_description">
+							<p ><?php echo wp_kses_post( $active_item['description'] ); ?></p>
+						</div>
 					<?php endif; ?>
 					
 					<?php if ( ! empty( $active_item ) && isset( $active_item['button_text'] ) && isset( $active_item['button_link'] ) ) : ?>

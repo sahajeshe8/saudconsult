@@ -25,8 +25,8 @@ if ( is_array( $section_wrapper_class ) ) {
 ?>
 <section class="<?php echo $section_wrapper_class; ?>">
 <div class="wrap <?php echo esc_attr( $wrap_class ); ?>">
-	<div class="services_section_01 <?php echo esc_attr( $section_class ); ?>">
-		<div class="services_section_01_item_01 pt_40">
+	<div class="services_section_01 pt_100 pb_60 <?php echo esc_attr( $section_class ); ?>">
+		<div class="services_section_01_item_01 ">
 			<?php if ( $title ) : ?>
 				<h3 class="h3_title_50">
 					<?php echo wp_kses_post( $title ); ?>

@@ -178,7 +178,7 @@ $news_url = $news_page ? get_permalink( $news_page->ID ) : home_url( '/news' );
 				</div>
 
 
-                <div class="slider_arrow_block pb_0 news-navigation-position">
+                <div class="slider_arrow_block pb_0 news-navigation-position position-unset">
 							<span class="slider_buttion but_next news_list_but_next">
 								<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/slider-arrow.svg' ); ?>" alt="Next News">
 							</span>

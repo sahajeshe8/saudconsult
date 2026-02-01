@@ -39,7 +39,7 @@ $show_load_more = isset( $args['show_load_more'] ) ? $args['show_load_more'] : t
 
 ?>
 
-<section class="latest_openings_section pt_80 pb_80 <?php echo esc_attr( $section_class ); ?>">
+<section class="latest_openings_section pt_120 pb_120 <?php echo esc_attr( $section_class ); ?>">
 	<div class="wrap">
 		<div class="latest_openings_section_inner  ">
 			<?php if ( $title || $title_span ) : ?>

@@ -17,6 +17,10 @@
       position: relative;
       z-index: 100;
     }
+
+    @media screen and (max-width: 1300px) {
+      width: 200px;
+    }
   }
 
   .btn_style {
@@ -51,7 +55,7 @@
   }
 
   .btn_style.btn_green{
-    color: #fff !important;
+    color: #fff  ;
   }
 }
 
@@ -75,7 +79,7 @@
 
 
 @media (max-width: 1300px) {
-   width: calc(100% - 40px);
+   width: calc(100% - 211px);
 }
 
  
@@ -88,7 +92,7 @@
 
 .menu_right_block{ display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center; gap: 20px;
 
-
+  .btn_style{ min-width: unset;}
   @media (max-width: 1440px) {
     gap: 15px;
   }
@@ -136,9 +140,21 @@
    @media (max-width: 1065px) {
     padding: 0 5px;
    }
-}
- .navbar{ justify-content: space-between; display: flex; flex-wrap: wrap; align-items: center; width: 87%;
 
+   @media screen and (max-width: 1400px) {
+    padding: 0 8px;
+   }
+   @media screen and (max-width: 1300px) {
+    padding: 0 6px;
+   }
+}
+ .navbar{ justify-content: space-between; display: flex; flex-wrap: wrap; align-items: center; width:93%;
+ @media screen and (min-width: 1300px) {
+  width:87%;
+ }
+@media screen and (max-width: 1400px) {
+  width: 96%;
+}
 
 @media (max-width: 1190px) {
   width: 100%;
@@ -400,21 +416,29 @@
   }
 }
 
-.black-header{
+.black-header{ border-bottom: solid 1px #efefef;
   .list-unstyled {
     li {
       .nav-link{ color: #000;
-      > img{ filter: invert(1);}
+      > img{ 
+         -webkit-filter: invert(1);
+         filter: invert(1);
+      }
       }
     }
   }
 
   .menu_right_block{
     a{ color: #000;}
+
+   
   }
 
   .user-login-trigger{
-    img{ filter: invert(1);}
+    img{ 
+       -webkit-filter: invert(1);
+       filter: invert(1);
+    }
   }
 }
 .mobile_menu_submenu { display: none;}
@@ -432,3 +456,6 @@
 }
 
 .mobile_menu_overlay_inner{ width: 100%; height: 100%; overflow: auto;}
+
+
+

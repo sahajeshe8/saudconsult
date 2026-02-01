@@ -72,7 +72,7 @@
 	width: 100%;
 	display: flex;
     padding:25px 0;
-    padding-bottom: 0;
+    padding-bottom: 15px;
 	align-items: center;
 	justify-content: space-between;
 	// padding: 25px 0;
@@ -153,7 +153,7 @@
 	position: absolute;
 	color: #0d6a37;
 	font-size: 24px;
-	font-weight: 300;
+	font-weight: 600;
 	line-height: 1;
 	transition: opacity 0.4s ease, transform 0.4s ease;
 
@@ -242,3 +242,6 @@
 	}
 }
 
+
+
+.faq_item.faq_item_open{ padding-bottom: 20px;}

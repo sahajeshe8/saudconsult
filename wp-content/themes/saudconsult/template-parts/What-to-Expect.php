@@ -57,7 +57,7 @@ $items = isset( $args['items'] ) ? $args['items'] : array(
 
 ?>
 
-<section class="what_to_expect_section pt_80 pb_80 <?php echo esc_attr( $section_class ); ?> <?php echo $section_wrapper_class; ?>" style="background: <?php echo esc_attr( $background_color ); ?>;">
+<section class="what_to_expect_section pt_100 pb_120 <?php echo esc_attr( $section_class ); ?> <?php echo $section_wrapper_class; ?>" style="background: <?php echo esc_attr( $background_color ); ?>;">
 	<div class="wrap">
 		<div class="what_to_expect_header">
 			<?php if ( $title || $title_span ) : ?>

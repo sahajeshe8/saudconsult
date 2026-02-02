@@ -83,7 +83,7 @@
     p{ color: #fff; font-size: 16px; line-height: 130%; font-weight: 300; margin: 0;}
 
 
-    .projects_item_content_blck_02_list{ margin: 0 -3%; padding: 0;  display: flex; flex-wrap: wrap; 
+    .projects_item_content_blck_02_list{ margin: 0 -3%; padding: 0;  display: flex; flex-wrap: wrap;  align-items: flex-end;
         li{ width: 25%; padding-left:3%; padding-right:3%;
             h3 { @include px-rem(33); font-weight: 700; line-height: 100%; margin-bottom:10px; width: 100%;
             

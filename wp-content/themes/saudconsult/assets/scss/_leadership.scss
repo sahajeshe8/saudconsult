@@ -12,6 +12,61 @@
     }
 }
 
+// Desktop/Tablet View - Show flex layout, hide slider
+.leadership-desktop-list {
+	display: flex !important;
+	
+	@media screen and (max-width: 700px) {
+		display: none !important;
+	}
+}
+
+// Mobile View - Show slider, hide flex layout
+.leadership-mobile-slider {
+	display: none;
+	
+	@media screen and (max-width: 700px) {
+		display: block;
+		width: 100%;
+	}
+	
+	.leadership-mobile-header {
+		margin-bottom: 30px;
+	}
+	
+	.mySwiper-leadership,
+	.mySwiper-leadership-list,
+	.mySwiper-executive-team {
+		width: 100%;
+		padding-bottom: 50px;
+		
+		.swiper-slide {
+			width: 100%;
+		}
+		
+		.swiper-pagination {
+			position: relative;
+			margin-top: 30px;
+			bottom: auto;
+			
+			.swiper-pagination-bullet {
+				width: 12px;
+				height: 12px;
+				background: #ccc;
+				opacity: 1;
+				margin: 0 6px;
+				transition: all 0.3s ease;
+				
+				&.swiper-pagination-bullet-active {
+					background: #333;
+					width: 30px;
+					border-radius: 6px;
+				}
+			}
+		}
+	}
+}
+
 .leadership_block{ width: 100%;
     .leadership_img{ 
 		width: 100%;

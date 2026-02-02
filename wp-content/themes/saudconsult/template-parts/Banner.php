@@ -82,8 +82,7 @@ if (empty($banner_slides)) {
                         <h5> For over five decades, Saud Consult has stood as the Kingdom's foremost multidisciplinary
                            engineering and architectural consultancy.</h5>
                      </div>
-                     <div class="banner_slide_content_02_cl_02" data-aos="fade-up" data-aos-duration="800"
-                        data-aos-delay="200">
+                     <div class="banner_slide_content_02_cl_02"  >
                         <a class="btn_style btn_transparent" href="<?php echo esc_url(home_url('/services/')); ?>">
                            Explore Our Expertise <span><img
                                  src="<?php echo get_template_directory_uri(); ?>/assets/images/buttion-arrow.svg"
@@ -136,8 +135,7 @@ if (empty($banner_slides)) {
                         <h5> For over five decades, Saud Consult has stood as the Kingdom's foremost multidisciplinary
                            engineering and architectural consultancy.</h5>
                      </div>
-                     <div class="banner_slide_content_02_cl_02" data-aos="fade-up" data-aos-duration="800"
-                        data-aos-delay="200">
+                     <div class="banner_slide_content_02_cl_02"  >
                         <a class="btn_style btn_transparent" href="<?php echo esc_url(home_url('/services/')); ?>">
                            Explore Our Expertise <span><img
                                  src="<?php echo get_template_directory_uri(); ?>/assets/images/buttion-arrow.svg"
@@ -163,8 +161,7 @@ if (empty($banner_slides)) {
                         <h5> For over five decades, Saud Consult has stood as the Kingdom's foremost multidisciplinary
                            engineering and architectural consultancy.</h5>
                      </div>
-                     <div class="banner_slide_content_02_cl_02" data-aos="fade-up" data-aos-duration="800"
-                        data-aos-delay="200">
+                     <div class="banner_slide_content_02_cl_02" >
                         <a class="btn_style btn_transparent" href="<?php echo esc_url(home_url('/services/')); ?>">
                            Explore Our Expertise <span><img
                                  src="<?php echo get_template_directory_uri(); ?>/assets/images/buttion-arrow.svg"

@@ -391,7 +391,12 @@ get_header();
 						<div class="saudi-council-section">
 							<h5 class="saudi-council-title">Saudi Council Classification</h5>
 							<div class="saudi-council-upload-wrapper">
-								<div class="saudi-council-input-wrapper">
+								<div class="mob_Show placeholder_mob_show">
+								<p class="m_0  " >
+								Saudi Council Classification Certificate (شهادة هيئة المهندسين السعوديين)
+</p>
+</div>
+								<div class="saudi-council-input-wrapper mobile_hide">
 									<input type="text" class="input saudi-council-input" placeholder="Saudi Council Classification Certificate (شهادة هيئة المهندسين السعوديين)" readonly>
 								</div>
 								<div class="saudi-council-button-wrapper">

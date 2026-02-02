@@ -120,6 +120,8 @@
 	$logo_filename = $is_black_header ? 'saudconsult-logo-black.svg' : 'saudconsult-logo.svg';
 	$logo_path = get_template_directory() . '/assets/images/' . $logo_filename;
 	$logo_url = get_template_directory_uri() . '/assets/images/' . $logo_filename;
+	$logo_white_url = get_template_directory_uri() . '/assets/images/saudconsult-logo.svg';
+	$logo_black_url = get_template_directory_uri() . '/assets/images/saudconsult-logo-black.svg';
 	
 	// Helper function to check if a URL matches the current page
 	if ( ! function_exists( 'is_current_menu_item' ) ) {
@@ -192,7 +194,12 @@
             <?php 
             if ( file_exists( $logo_path ) ) : ?>
                 <a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>">
-                    <img src="<?php echo esc_url( $logo_url ); ?>" alt="<?php bloginfo( 'name' ); ?>">
+                    <img src="<?php echo esc_url( $logo_url ); ?>" 
+                         alt="<?php bloginfo( 'name' ); ?>"
+                         id="header-logo"
+                         data-logo-white="<?php echo esc_url( $logo_white_url ); ?>"
+                         data-logo-black="<?php echo esc_url( $logo_black_url ); ?>"
+                         data-is-black-header="<?php echo $is_black_header ? 'true' : 'false'; ?>">
                 </a>
             <?php endif; ?>
            
@@ -574,7 +581,7 @@
 
 	<div class="form-bottom-txt">
 		<h5>Not a registered user yet?</h5>
-		<p><a href="#job-form-popup" class="text_black" data-fancybox="job-form">Create an account</a>  to apply for our career opportunities.</p>
+		 <p><a href="#job-form-popup" class="text_black" data-fancybox="job-form">Create an account</a>  to apply for our career opportunities.</p> 
 		<span class="or_span">or</span><br>
 		<p><a href="<?php echo esc_url( home_url( '/apply-as-a-guest' ) ); ?>" class="text_black">Apply as a Guest</a></p>
 	</div>
@@ -626,39 +633,77 @@
 
 
 
-<!-- Login Popup -->
+<!-- Login Popup (Sign In / Sign Up) -->
 <div id="login-popup" class="job-form-popup" style="display: none;">
 	<span class="form-close-icon">
 		<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/pop-close.svg' ); ?>" alt="Close">
 	</span>
-	<h3 class="h3_title_50 pb_5 text_center mb_20">Sign In</h3>
+	
+	<!-- Sign In Content -->
+	<div class="popup-content-signin" data-popup-view="signin">
+		<h3 class="h3_title_50 pb_5 text_center mb_20">Sign In</h3>
 
-	<div class="related_jobs_section_content">
-		<h5>Have an account?</h5>
-		<p>Enter your email address and password</p>
+		<div class="related_jobs_section_content">
+			<h5>Have an account?</h5>
+			<p>Enter your email address and password</p>
+		</div>
+
+		<ul class="career-form-list-ul">
+			<li><input class="input" type="email" placeholder="Email address" required></li>
+			<li>
+				<input class="input" type="password" placeholder="Password" required>
+				<span class="form-icon">
+					<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/eye-icn.svg' ); ?>" alt="Eye">
+				</span>
+			</li>
+			<li class="login-options">
+				<label class="keep-logged-in">
+					<input type="checkbox" checked>
+					<span>Keep me logged in</span>
+				</label>
+				<a href="#" class="forget-password-link">Forget password?</a>
+			</li>
+			<li><a href="<?php echo esc_url( home_url( '/my-profile' ) ); ?>" class="input-buttion btn_style btn_transparent but_black" type="submit">Sign In</a></li>
+		</ul>
+
+		<div class="form-bottom-txt">
+			<h5>Not a registered user yet?</h5>
+			<p><a href="#" class="text_black swap-to-signup" data-swap-view="signup">Create an account</a> to apply for our career opportunities.</p> 
+		</div>
 	</div>
 
-	<ul class="career-form-list-ul">
-		<li><input class="input" type="email" placeholder="Email address" required></li>
-		<li>
-			<input class="input" type="password" placeholder="Password" required>
-			<span class="form-icon">
-				<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/eye-icn.svg' ); ?>" alt="Eye">
-			</span>
-		</li>
-		<li class="login-options">
-			<label class="keep-logged-in">
-				<input type="checkbox" checked>
-				<span>Keep me logged in</span>
-			</label>
-			<a href="#" class="forget-password-link">Forget password?</a>
-		</li>
-		<li><a href="<?php echo esc_url( home_url( '/my-profile' ) ); ?>" class="input-buttion btn_style btn_transparent but_black" type="submit">Sign In</a></li>
-	</ul>
+	<!-- Sign Up Content -->
+	<div class="popup-content-signup" data-popup-view="signup" style="display: none;">
+		<h3 class="h3_title_50 pb_5 text_center mb_20">Sign Up</h3>
 
-	<div class="form-bottom-txt">
-		<h5>Not a registered user yet?</h5>
-		<p><a href="#job-form-popup" class="text_black" data-fancybox="job-form">Create an account</a>  to apply for our career opportunities.</p>
+		<div class="related_jobs_section_content">
+			<h5>Create an account</h5>
+			<p>Create your account in a seconds</p>
+		</div>
+
+		<ul class="career-form-list-ul">
+			<li><input class="input" type="text" placeholder="Email Address *"></li>
+			<li><input class="input" type="email" placeholder="Retype Email Address *"></li>
+			<li><input class="input" type="text" placeholder="First Name *"></li>
+			<li><input class="input" type="text" placeholder="Last Name *"></li>
+			<li>
+				<input class="input" type="password" placeholder="Choose Password *">
+				<span class="form-icon">
+					<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/eye-icn.svg' ); ?>" alt="Eye">
+				</span>
+			</li>
+			<li>
+				<input class="input" type="password" placeholder="Retype Password *">
+				<span class="form-icon">
+					<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/eye-icn.svg' ); ?>" alt="Eye">
+				</span>
+			</li>
+			<li><a href="<?php echo esc_url( home_url( '/create-profile' ) ); ?>" class="input-buttion btn_style btn_transparent but_black" type="submit" value="Create Account">Create Account</a></li>
+		</ul>
+
+		<div class="form-bottom-txt">
+			<p>Already a registered user? <a href="#" class="text_black swap-to-signin" data-swap-view="signin">Please sign in</a></p>
+		</div>
 	</div>
 </div>
 

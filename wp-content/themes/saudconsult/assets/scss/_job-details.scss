@@ -197,7 +197,7 @@
                 // Placeholder label overlay - matches regular input placeholder styling
                 .date-placeholder {
                     position: absolute;
-                    left: 0;
+                    left: 5px;
                     background: #fff;
 					z-index: 10;
                     color: #979797; // Match input placeholder color (same as .input color)
@@ -646,7 +646,7 @@
 	font-size: 14px;
 	color: #444444;
 	margin: 0 0 10px 0;
-	font-weight: 400;
+	font-weight: 300;
 }
 
 .certificate-upload-area {
@@ -661,6 +661,11 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+
+	@media screen and (max-width: 700px) {
+		padding: 20px 20px;
+		min-height: 100px;
+	}
 }
 
 .certificate-upload-button {
@@ -678,6 +683,11 @@
 	&:hover {
 		background: #A9D159;
 		color: #101922;
+	}
+
+
+	@media screen and (max-width: 700px) {
+		padding: 6px 40px; font-size: 14px;
 	}
 }
 
@@ -716,6 +726,11 @@
 		flex-direction: column;
 		align-items: stretch;
 		padding-top: 20px;
+	}
+
+
+	@media screen and (max-width: 700px) {
+		 border-radius: 15px;
 	}
 
 	 
@@ -766,6 +781,10 @@
 		width: 100%;
 		text-align: center;
 	}
+
+	@media screen and (max-width: 700px) {
+		padding: 8px 30px; font-size: 14px;
+	}
 }
 
 .saudi-council-file-name {
@@ -805,7 +824,7 @@
 }
 
 .employment-question-label {
-	font-size: 16px;
+	font-size: 12px;
 	color: #444444;
 	font-weight: 300;
 	margin: 0;

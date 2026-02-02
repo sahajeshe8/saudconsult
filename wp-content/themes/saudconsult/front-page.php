@@ -23,7 +23,7 @@ get_header();
 			'title_span' => 'Across Industries',
 			'description' => 'Where Our Expertise Makes an Impact.',
 			'button_text' => 'Explore More',
-			'button_link' => esc_url( home_url( '/contact' ) ),
+			'button_link' => esc_url( home_url( '/projects' ) ),
 			'section_wrapper_class' => array(),
 			'section_class' => '',
 			'projects' => array(
@@ -33,7 +33,7 @@ get_header();
 					'title' => 'Rayadah Housing Project',
 					'description' => 'Detailed Infrastructure Design, Construction Supervision, Environmental Impact Study, and Value Engineering for the complete mixed-use development.',
 					'button_text' => 'Explore More',
-					'button_link' => '#',
+					'button_link' => esc_url( home_url( '/projects-details') ),
 					'stats' => array(
 						array(
 							'value' => '2011',
@@ -59,7 +59,7 @@ get_header();
 					'title' => 'Development Of King Abdullah Road',
 					'description' => 'Support for Urban Planning, Detailed Design of Infrastructure and preparation of Tender Documents for the 22 km long inner-city freeway',
 					'button_text' => 'Explore More',
-					'button_link' => '#',
+					'button_link' => esc_url( home_url( '/projects-details') ),
 					'stats' => array(
 						array(
 							'value' => '2011',

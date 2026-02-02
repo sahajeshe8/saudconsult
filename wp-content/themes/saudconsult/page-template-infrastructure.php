@@ -84,7 +84,7 @@ get_header();
 				'title' => 'Rayadah Housing Project',
 				'description' => 'Detailed Infrastructure Design, Construction Supervision, Environmental Impact Study, and Value Engineering for the complete mixed-use development.',
 				'button_text' => 'Explore More',
-				'button_link' => esc_url( home_url( '/contact' ) ),
+				'button_link' => esc_url( home_url( '/projects-details' ) ),
 				'stats' => array(
 					array(
 						'value' => '2011',
@@ -110,7 +110,7 @@ get_header();
 				'title' => 'Urban Development Project',
 				'description' => 'Master planning and infrastructure development for sustainable urban communities, including utilities, public facilities, and transportation networks.',
 				'button_text' => 'Explore More',
-				'button_link' => esc_url( home_url( '/contact' ) ),
+				'button_link' => esc_url( home_url( '/projects-details' ) ),
 				'stats' => array(
 					array(
 						'value' => '2022',
@@ -320,7 +320,7 @@ get_header();
 			'subtitle' => 'right service?',
 			'description' => 'Let’s discuss how we can align our technology with your goals.',
 			'button_text' => 'Get in Touch',
-			'button_link' => '#',
+			'button_link' => esc_url( home_url( '/contact' ) ),
 			'dark' => true
 
 		);

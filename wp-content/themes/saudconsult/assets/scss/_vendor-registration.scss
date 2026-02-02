@@ -150,7 +150,7 @@
 		flex-shrink: 0;
 		font-size: 14px;
 		white-space: nowrap;
-		padding: 10px 24px;
+		padding: 0px 24px;
 		height: auto;
         position: absolute;
         right: 0;
@@ -182,7 +182,7 @@
 
 .vendor_radio_label {
 	display: block;
-	font-size:21px;
+	font-size:18px;
     min-width: 27%;
 	font-weight: 400;
 	color: #2c2c2c;
@@ -194,6 +194,17 @@
 	@media screen and (max-width:820px) {
 		font-size: 14px;
 		margin-bottom: 12px;
+	}
+
+	br{ 
+
+		@media screen and (max-width: 700px) {
+			display: none;
+		}
+	}
+
+	@media screen and (max-width: 700px) {
+		min-width: 100%;
 	}
 }
 

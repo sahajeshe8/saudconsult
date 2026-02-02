@@ -188,11 +188,65 @@ $projects = isset( $args['projects'] ) ? $args['projects'] : array(
 													$stat_value = isset( $stat['value'] ) ? $stat['value'] : '';
 													$stat_label = isset( $stat['label'] ) ? $stat['label'] : '';
 												?>
-													<?php if ( $stat_value || $stat_label ) : ?>
+													<?php if ( $stat_value || $stat_label ) : 
+														// Parse the stat value to extract number and suffix
+														$stat_number = '';
+														$stat_prefix = '';
+														$stat_suffix = '';
+														
+														// Extract number from various formats
+														$has_million = false;
+														if ( preg_match('/\(([^)]+)\)\s*([\d,]+)([KM]?)/i', $stat_value, $matches) ) {
+															// Format: "(SAR) 1M" or "(SAR) 1,000"
+															$stat_prefix = '(' . $matches[1] . ') ';
+															$stat_number = str_replace(',', '', $matches[2]);
+															// Check if M (million) is in the original value
+															if ( stripos($stat_value, 'M') !== false && stripos($stat_value, 'M2') === false && stripos($stat_value, 'KM') === false ) {
+																$has_million = true;
+																$stat_number = floatval($stat_number) * 1000000;
+																$stat_suffix = 'M';
+															} else {
+																$stat_suffix = isset($matches[3]) && !empty($matches[3]) ? $matches[3] : '';
+															}
+														} elseif ( preg_match('/([\d,]+)\s*([A-Z0-9]+)/i', $stat_value, $matches) ) {
+															// Format: "22,000 M2" or "20KM"
+															$stat_number = str_replace(',', '', $matches[1]);
+															$stat_suffix = ' ' . $matches[2];
+															// Handle M (million) in suffix (but not M2)
+															if ( stripos($matches[2], 'M') !== false && stripos($matches[2], 'M2') === false ) {
+																$has_million = true;
+																$stat_number = floatval($stat_number) * 1000000;
+															}
+														} elseif ( preg_match('/([\d,]+)([KM])/i', $stat_value, $matches) ) {
+															// Format: "20KM" (no space)
+															$stat_number = str_replace(',', '', $matches[1]);
+															$stat_suffix = $matches[2];
+														} elseif ( preg_match('/([\d,]+)/', $stat_value, $matches) ) {
+															// Format: "2011" (just number)
+															$stat_number = str_replace(',', '', $matches[1]);
+														}
+														
+														// If we couldn't parse, try to extract any number
+														if ( empty($stat_number) && preg_match('/(\d+)/', $stat_value, $matches) ) {
+															$stat_number = $matches[1];
+														}
+														
+														// If still empty, use 0 (won't animate)
+														if ( empty($stat_number) ) {
+															$stat_number = '0';
+														}
+														
+														// Store million flag for JavaScript
+														$data_million = $has_million ? 'true' : 'false';
+													?>
 														<li>
 															<div class="project_ul_row">
 																<?php if ( $stat_value ) : ?>
-																	<h3><?php echo esc_html( $stat_value ); ?></h3>
+																	<h3 data-count-target="<?php echo esc_attr( $stat_number ); ?>" data-count-prefix="<?php echo esc_attr( $stat_prefix ); ?>" data-count-suffix="<?php echo esc_attr( $stat_suffix ); ?>" data-count-million="<?php echo esc_attr( $data_million ); ?>">
+																		<span class="count-prefix"><?php echo esc_html( $stat_prefix ); ?></span>
+																		<span class="count-number">0</span>
+																		<span class="count-suffix"><?php echo esc_html( $stat_suffix ); ?></span>
+																	</h3>
 																<?php endif; ?>
 																<?php if ( $stat_label ) : ?>
 																	<h5><?php echo esc_html( $stat_label ); ?></h5>

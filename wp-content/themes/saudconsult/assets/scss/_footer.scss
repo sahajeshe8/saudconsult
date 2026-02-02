@@ -71,6 +71,12 @@
          }
        }
      }
+
+     &.mobile_hide{
+      @media screen and (max-width:700px) {
+        display: none !important;
+      }
+     }
    }
 
    .footer_row_02 {
@@ -99,7 +105,7 @@
        }
 
        @media screen and (max-width:820px) {
-         @include px-rem(60);
+         @include px-rem(50);
        }
        @media screen and (max-width:700px) {
         @include px-rem(75);
@@ -171,6 +177,8 @@ color: #fff  ;
      @media screen and (max-width: 1300px) {
       height: 40px;
      }
+
+     .btn_style{ min-width: unset;}
    }
 
    .footer_email_input {

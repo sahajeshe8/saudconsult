@@ -176,7 +176,7 @@ get_header();
 			'subtitle' => 'right service?',
 			'description' => 'Let’s discuss how we can align our technology with your goals.',
 			'button_text' => 'Get in Touch',
-			'button_link' => '#'
+			'button_link' => '/contact-us'
 		);
 		get_template_part( 'template-parts/banner-add', null, $banner_add_data ); 
 		?>

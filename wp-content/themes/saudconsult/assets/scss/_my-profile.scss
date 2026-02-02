@@ -192,6 +192,10 @@
 				bottom: 0;
 				font-size: 16px;
 				color: #333;
+
+				@media screen and (max-width: 700px) {
+				 width: 100%;
+				}
 			}
 		}
 
@@ -260,6 +264,10 @@
 			margin: 0;
 			font-size: 16px;
 			color: #333;
+		}
+
+		@media screen and (max-width: 700px) {
+			padding-left: 0;
 		}
 	}
 

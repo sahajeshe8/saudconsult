@@ -36,7 +36,7 @@ $section_class = isset( $args['section_class'] ) ? $args['section_class'] : '';
 		<?php if ( ! empty( $awards ) ) : ?>
 			<div class="swiper mySwiper-awards-2">
 				<div class="swiper-wrapper">
-					<?php foreach ( $awards as $award ) : 
+					<?php foreach ( $awards as $index => $award ) : 
 						$image = isset( $award['image'] ) ? $award['image'] : '';
 						$alt = isset( $award['alt'] ) ? $award['alt'] : 'Award';
 						$title_text = isset( $award['title'] ) ? $award['title'] : '';
@@ -49,6 +49,8 @@ $section_class = isset( $args['section_class'] ) ? $args['section_class'] : '';
 									 
 										<div class="award_item_2_image">
 											<img src="<?php echo esc_url( $image ); ?>" alt="<?php echo esc_attr( $alt ); ?>">
+											<a href="<?php echo esc_url( $image ); ?>" class="award_popup_trigger" data-fancybox="award-gallery" data-caption="<?php echo esc_attr( $title_text . ( $year ? ' - ' . $year : '' ) ); ?>" style="display: none;"></a>
+											<div class="award_click_overlay" data-award-index="<?php echo esc_attr( $index ); ?>"></div>
 										</div>
 										<?php if ( $title_text || $year ) : ?>
 											<div class="award_item_2_info">
@@ -65,6 +67,8 @@ $section_class = isset( $args['section_class'] ) ? $args['section_class'] : '';
 									<div class="award_item_2_wrapper">
 										<div class="award_item_2_image">
 											<img src="<?php echo esc_url( $image ); ?>" alt="<?php echo esc_attr( $alt ); ?>">
+											<a href="<?php echo esc_url( $image ); ?>" class="award_popup_trigger" data-fancybox="award-gallery" data-caption="<?php echo esc_attr( $title_text . ( $year ? ' - ' . $year : '' ) ); ?>" style="display: none;"></a>
+											<div class="award_click_overlay" data-award-index="<?php echo esc_attr( $index ); ?>"></div>
 										</div>
 										<?php if ( $title_text || $year ) : ?>
 											<div class="award_item_2_info">

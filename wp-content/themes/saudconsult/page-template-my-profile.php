@@ -9,7 +9,7 @@
 
 // Set global variable for header class
 global $header_custom_class;
-$header_custom_class = 'black-header';
+$header_custom_class = 'black-header'; 
 
 get_header();
 ?>
@@ -58,11 +58,11 @@ get_header();
 									</li>
 									<li>
 										<h6>Email</h6>
-										<p>shafin@mail.com</p>
+										<p><a href="mailto:shafin@mail.com">shafin@mail.com</a></p>
 									</li>
 									<li>
 										<h6>Phone</h6>
-										<p>+92342 1234 678</p>
+										<p><a href="tel:+923421234678">+92342 1234 678</a></p>
 									</li>
 								</ul>
 							</div>

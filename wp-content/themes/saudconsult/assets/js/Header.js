@@ -145,6 +145,24 @@
 					mobileMenuOverlay.classList.remove('mobile_menu_open');
 				}
 			}
+			
+			// Change logo to white when menu opens in mobile view (only for black-header pages)
+			const headerLogo = document.getElementById('header-logo');
+			if (headerLogo && window.innerWidth <= 1024) {
+				const isBlackHeader = headerLogo.getAttribute('data-is-black-header') === 'true';
+				const logoWhite = headerLogo.getAttribute('data-logo-white');
+				const logoBlack = headerLogo.getAttribute('data-logo-black');
+				
+				if (isBlackHeader && logoWhite && logoBlack) {
+					if (isMenuOpen) {
+						// Menu is open - change to white logo
+						headerLogo.src = logoWhite;
+					} else {
+						// Menu is closed - change back to black logo
+						headerLogo.src = logoBlack;
+					}
+				}
+			}
 		};
 
 		/**

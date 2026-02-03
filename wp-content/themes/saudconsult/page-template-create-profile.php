@@ -600,6 +600,8 @@ get_header();
 						</div>
 					</div>
 
+				 
+
 					 <div class="form-buttion-row flex-align-right">
                         <a href="<?php echo esc_url( home_url( '/my-profile' ) ); ?>" type="button" class="btn_style btn_transparent but_black">Save Profile</a>
                      </div>

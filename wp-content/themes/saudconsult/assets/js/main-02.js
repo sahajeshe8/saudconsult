@@ -98,90 +98,7 @@
 	} else {
 	  setTimeout(initLeadershipTeamSwiper, 100);
 	}
-})();
-
-// Leadership Section Inner Left List Swiper - Mobile Only
-(function() {
-	const initLeadershipListSwiper = function() {
-		// Check if Swiper is loaded
-		if (typeof Swiper === 'undefined') {
-			console.warn('LeadershipList: Swiper library is not loaded');
-			return;
-		}
-
-		// Check all possible swiper elements
-		const swiperElements = document.querySelectorAll(".mySwiper-leadership, .mySwiper-leadership-list, .mySwiper-executive-team");
-		if (swiperElements.length === 0) {
-			return; // Elements not found, might not be on this page
-		}
-
-		// Only initialize on mobile (below 700px)
-		const isMobile = window.innerWidth <= 700;
-		if (!isMobile) {
-			return; // Don't initialize on desktop/tablet
-		}
-
-		swiperElements.forEach(function(swiperElement) {
-			// Check if already initialized
-			if (swiperElement.swiper) {
-				return; // Already initialized
-			}
-
-			try {
-				var leadershipListSwiper = new Swiper(swiperElement, {
-					slidesPerView: 1,
-					spaceBetween: 20,
-					speed: 300,
-					autoplay: {
-						delay: 3000,
-						disableOnInteraction: false,
-						pauseOnMouseEnter: true,
-					},
-					loop: true,
-					breakpoints: {
-						700: {
-							slidesPerView: 1,
-							spaceBetween: 20,
-						},
-					},
-				});
-				console.log('LeadershipList: Swiper initialized successfully for mobile with autoplay');
-			} catch (error) {
-				console.error('LeadershipList: Error initializing Swiper', error);
-			}
-		});
-	};
-
-	// Initialize when DOM is ready
-	if (document.readyState === 'loading') {
-		document.addEventListener('DOMContentLoaded', function() {
-			setTimeout(initLeadershipListSwiper, 100);
-		});
-	} else {
-		setTimeout(initLeadershipListSwiper, 100);
-	}
-
-	// Re-initialize on window resize if switching to mobile
-	let resizeTimeout;
-	window.addEventListener('resize', function() {
-		clearTimeout(resizeTimeout);
-		resizeTimeout = setTimeout(function() {
-			const swiperElements = document.querySelectorAll(".mySwiper-leadership, .mySwiper-leadership-list, .mySwiper-executive-team");
-			if (swiperElements.length > 0) {
-				const isMobile = window.innerWidth <= 700;
-				swiperElements.forEach(function(swiperElement) {
-					if (isMobile && !swiperElement.swiper) {
-						// Need to initialize
-						initLeadershipListSwiper();
-					} else if (!isMobile && swiperElement.swiper) {
-						// Destroy on desktop
-						swiperElement.swiper.destroy(true, true);
-					}
-				});
-			}
-		}, 250);
-	});
-})();
+  })();
 
 
 
@@ -1338,62 +1255,60 @@ var swiper = new Swiper(".mySwiper-clients", {
 		}
 
 		let currentImage = 1; // Track which image is currently visible
-		let currentActiveIndex = null; // Track which tab is currently active
-
-		// Set initial active index from the item with 'active' class
-		listItems.forEach(function(item) {
-			if (item.classList.contains('active')) {
-				currentActiveIndex = item.getAttribute('data-index');
-			}
-		});
 
 		listItems.forEach(function(item) {
 			item.addEventListener('click', function(e) {
 				e.preventDefault();
-				
-				// Get the index of the clicked item
-				const clickedIndex = this.getAttribute('data-index');
-				
-				// If clicking the same tab that's already active, do nothing
-				if (clickedIndex === currentActiveIndex) {
-					return;
-				}
-				
+				// Always read from the <li> (tab), not the clicked child (e.g. <span>)
+				var li = e.currentTarget;
+
 				// Remove active class from all items
-				listItems.forEach(function(li) {
-					li.classList.remove('active');
+				listItems.forEach(function(listEl) {
+					listEl.classList.remove('active');
 				});
 
 				// Add active class to clicked item
-				this.classList.add('active');
+				li.classList.add('active');
 
-				// Update current active index
-				currentActiveIndex = clickedIndex;
+				// Get data from this tab – each tab has its own image/title/description
+				const newImage = li.getAttribute('data-image');
+				const newImageMobile = li.getAttribute('data-image-mobile') || newImage;
+				const newTitle = li.getAttribute('data-title');
+				const newDescription = li.getAttribute('data-description');
+				const newButtonText = li.getAttribute('data-button-text');
+				const newButtonLink = li.getAttribute('data-button-link');
 
-				// Get data from clicked item
-				const newImage = this.getAttribute('data-image');
-				const newTitle = this.getAttribute('data-title');
-				const newDescription = this.getAttribute('data-description');
-				const newButtonText = this.getAttribute('data-button-text');
-				const newButtonLink = this.getAttribute('data-button-link');
-
-				// Determine which images to use for cross-fade
+				// Determine which div to fade out and which to fade in
 				const fadeOutImage = currentImage === 1 ? image1 : image2;
 				const fadeInImage = currentImage === 1 ? image2 : image1;
 
-				// Update the fade-in image source first (before it becomes visible)
-				if (fadeInImage && newImage) {
-					fadeInImage.src = newImage;
-					fadeInImage.alt = newTitle || '';
+				// Update BOTH divs with the new tab’s image (they are background divs, not <img>)
+				// So whichever one becomes visible shows the correct image
+				var isMobile = window.innerWidth < 768;
+				var targetBg = (isMobile && newImageMobile) ? newImageMobile : (newImage || '');
+				function setDivBackground(div) {
+					if (!div) return;
+					div.setAttribute('data-desktop-bg', newImage || '');
+					div.setAttribute('data-mobile-bg', newImageMobile || '');
+					div.setAttribute('aria-label', newTitle || '');
+					if (targetBg) {
+						div.style.backgroundImage = 'url("' + targetBg + '")';
+						div.style.backgroundSize = 'cover';
+						div.style.backgroundPosition = 'center center';
+						div.style.backgroundRepeat = 'no-repeat';
+					}
 				}
+				setDivBackground(image1);
+				setDivBackground(image2);
 
-				// Update text content immediately (no fade needed for text)
+				// Update text content
 				if (activeTitle && newTitle) {
 					activeTitle.textContent = newTitle;
 				}
 
 				if (activeDescription && newDescription) {
-					activeDescription.innerHTML = '<p>' + newDescription + '</p>';
+					var desc = newDescription.replace(/^\s*<p[^>]*>/i, '').replace(/<\/p>\s*$/i, '');
+					activeDescription.innerHTML = '<p>' + desc + '</p>';
 				}
 
 				// Update button without flashing - preserve the span structure
@@ -1435,15 +1350,9 @@ var swiper = new Swiper(".mySwiper-clients", {
 					}
 				}
 
-				// Cross-fade images
-				fadeOutImage.style.transition = 'opacity 0.5s ease';
-				fadeInImage.style.transition = 'opacity 0.5s ease';
-				
-				// Start cross-fade
+				// Cross-fade: hide current image div, show the other (both now have the new background)
 				fadeOutImage.style.opacity = '0';
 				fadeInImage.style.opacity = '1';
-
-				// Switch current image reference
 				currentImage = currentImage === 1 ? 2 : 1;
 			});
 		});
@@ -1801,145 +1710,6 @@ var swiper = new Swiper(".mySwiper-clients", {
 		});
 	} else {
 		setTimeout(initProjectGalleryFancybox, 100);
-	}
-})();
-
-// Awards Gallery Fancybox Initialization
-(function() {
-	const initAwardsGalleryFancybox = function() {
-		// Check if Fancybox is loaded
-		if (typeof Fancybox === 'undefined') {
-			console.warn('AwardsGallery: Fancybox library is not loaded');
-			return;
-		}
-
-		// Get all award gallery links with data-fancybox attribute
-		const galleryLinks = document.querySelectorAll('[data-fancybox="award-gallery"]');
-		
-		if (galleryLinks.length === 0) {
-			return; // No gallery items found
-		}
-
-		// Handle clicks on award click overlay divs
-		const clickOverlays = document.querySelectorAll('.award_click_overlay');
-		clickOverlays.forEach(function(overlay) {
-			overlay.addEventListener('click', function(e) {
-				e.preventDefault();
-				e.stopPropagation();
-				// Find the corresponding hidden anchor link
-				const awardItemImage = this.closest('.award_item_image');
-				if (awardItemImage) {
-					const triggerLink = awardItemImage.querySelector('.award_popup_trigger');
-					if (triggerLink) {
-						triggerLink.click();
-					}
-				}
-			});
-		});
-
-		// Initialize Fancybox for award images
-		Fancybox.bind('[data-fancybox="award-gallery"]', {
-			Toolbar: {
-				display: {
-					left: [],
-					middle: [],
-					right: [], // Hide default toolbar
-				},
-			},
-			Carousel: {
-				Navigation: false, // Disable default navigation
-			},
-			Thumbs: {
-				autoStart: false,
-			},
-			Image: {
-				zoom: true,
-			},
-			on: {
-				'reveal': function(fancybox, slide) {
-					// Add class to container to identify award gallery
-					const container = fancybox.container;
-					if (container) {
-						container.classList.add('fancybox-award-gallery');
-					}
-					
-					// Inject custom navigation and close buttons into the content
-					const content = slide.el.querySelector('.fancybox__content');
-					if (!content) return;
-					
-					// Check if buttons already exist to avoid duplicates
-					if (content.querySelector('.fancybox-custom-nav') || content.querySelector('.fancybox-custom-close')) {
-						return;
-					}
-					
-					// Create navigation wrapper
-					const navWrapper = document.createElement('div');
-					navWrapper.className = 'fancybox-custom-nav';
-					
-					// Create prev button
-					const prevBtn = document.createElement('button');
-					prevBtn.type = 'button';
-					prevBtn.className = 'fancybox-custom-prev';
-					prevBtn.setAttribute('aria-label', 'Previous');
-					prevBtn.innerHTML = '<svg width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.44159 0.499817L0.499668 5.58294M0.499668 5.58294L5.44159 10.6661M0.499668 5.58294L12.3603 5.58294" stroke="white" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-					prevBtn.addEventListener('click', function(e) {
-						e.preventDefault();
-						e.stopPropagation();
-						fancybox.prev();
-					});
-					
-					// Create next button
-					const nextBtn = document.createElement('button');
-					nextBtn.type = 'button';
-					nextBtn.className = 'fancybox-custom-next';
-					nextBtn.setAttribute('aria-label', 'Next');
-					nextBtn.innerHTML = '<svg width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.44159 0.499817L0.499668 5.58294M0.499668 5.58294L5.44159 10.6661M0.499668 5.58294L12.3603 5.58294" stroke="white" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-					nextBtn.addEventListener('click', function(e) {
-						e.preventDefault();
-						e.stopPropagation();
-						fancybox.next();
-					});
-					
-					navWrapper.appendChild(prevBtn);
-					navWrapper.appendChild(nextBtn);
-					content.appendChild(navWrapper);
-					
-					// Create close button
-					const closeBtn = document.createElement('button');
-					closeBtn.type = 'button';
-					closeBtn.className = 'fancybox-custom-close';
-					closeBtn.setAttribute('aria-label', 'Close');
-					closeBtn.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 6L6 18M18 18L6 6" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>';
-					closeBtn.addEventListener('click', function(e) {
-						e.preventDefault();
-						e.stopPropagation();
-						fancybox.close();
-					});
-					content.appendChild(closeBtn);
-				},
-				'destroy': function(fancybox, slide) {
-					// Clean up injected buttons when closing
-					const content = slide.el.querySelector('.fancybox__content');
-					if (content) {
-						const customNav = content.querySelector('.fancybox-custom-nav');
-						const customClose = content.querySelector('.fancybox-custom-close');
-						if (customNav) customNav.remove();
-						if (customClose) customClose.remove();
-					}
-				}
-			}
-		});
-
-		console.log('AwardsGallery: Fancybox initialized successfully');
-	};
-
-	// Initialize when DOM is ready
-	if (document.readyState === 'loading') {
-		document.addEventListener('DOMContentLoaded', function() {
-			setTimeout(initAwardsGalleryFancybox, 100);
-		});
-	} else {
-		setTimeout(initAwardsGalleryFancybox, 100);
 	}
 })();
 
@@ -2407,170 +2177,6 @@ var sameMonthEventsSwiper = new Swiper(".same_month_events_swiper", {
 							}, true); // Use capture phase to ensure it runs before other handlers
 						}
 						
-						// Handle "Create an account" link to swap content within same popup
-						const createAccountLink = slide.el.querySelector('a[href="#job-form-popup"][data-fancybox="job-form"]');
-						if (createAccountLink) {
-							// Store original content if not already stored
-							if (!slide.el.hasAttribute('data-original-content')) {
-								slide.el.setAttribute('data-original-content', slide.el.innerHTML);
-							}
-							
-							// Function to swap to sign-up form
-							const swapToSignUp = function(e) {
-								if (e) {
-									e.preventDefault();
-									e.stopPropagation();
-								}
-								
-								// Get the sign-up form content
-								const signUpPopup = document.getElementById('job-form-popup');
-								if (!signUpPopup) {
-									return false;
-								}
-								
-								// Store original content if not already stored
-								if (!slide.el.hasAttribute('data-original-content')) {
-									slide.el.setAttribute('data-original-content', slide.el.innerHTML);
-								}
-								
-								// Replace the current popup content with sign-up form content
-								slide.el.innerHTML = signUpPopup.innerHTML;
-								
-								// Re-initialize close button for the new content
-								const newCloseButton = slide.el.querySelector('.form-close-icon');
-								if (newCloseButton) {
-									const clonedCloseButton = newCloseButton.cloneNode(true);
-									newCloseButton.parentNode.replaceChild(clonedCloseButton, newCloseButton);
-									
-									clonedCloseButton.addEventListener('click', function(e) {
-										e.preventDefault();
-										e.stopPropagation();
-										e.stopImmediatePropagation();
-										
-										if (window.clearPendingPopup) {
-											window.clearPendingPopup();
-										}
-										
-										fancybox.close();
-										return false;
-									}, true);
-								}
-								
-								// Handle "Please sign in" link to swap back to login
-								const signInLink = slide.el.querySelector('a[href="#login-popup"][data-fancybox="login-popup"]');
-								if (signInLink) {
-									signInLink.addEventListener('click', swapToLogin);
-								}
-								
-								// Re-initialize password toggle for new form
-								setTimeout(function() {
-									const formIcons = slide.el.querySelectorAll('.form-icon');
-									formIcons.forEach(function(iconSpan) {
-										const parentLi = iconSpan.closest('li');
-										if (parentLi) {
-											const passwordInput = parentLi.querySelector('input[type="password"]');
-											if (passwordInput && !iconSpan.hasAttribute('data-password-toggle-initialized')) {
-												iconSpan.style.cursor = 'pointer';
-												iconSpan.setAttribute('data-password-toggle-initialized', 'true');
-												
-												iconSpan.addEventListener('click', function(e) {
-													e.preventDefault();
-													e.stopPropagation();
-													
-													if (passwordInput.type === 'password') {
-														passwordInput.type = 'text';
-													} else {
-														passwordInput.type = 'password';
-													}
-												});
-											}
-										}
-									});
-								}, 100);
-								
-								// Focus on first input
-								const firstInput = slide.el.querySelector('.input');
-								if (firstInput) {
-									setTimeout(function() {
-										firstInput.focus();
-									}, 100);
-								}
-								
-								return false;
-							};
-							
-							// Function to swap back to login form
-							const swapToLogin = function(e) {
-								if (e) {
-									e.preventDefault();
-									e.stopPropagation();
-								}
-								
-								// Restore original login content
-								const originalContent = slide.el.getAttribute('data-original-content');
-								if (originalContent) {
-									slide.el.innerHTML = originalContent;
-									
-									// Re-initialize close button for login form
-									const loginCloseButton = slide.el.querySelector('.form-close-icon');
-									if (loginCloseButton) {
-										const clonedLoginCloseButton = loginCloseButton.cloneNode(true);
-										loginCloseButton.parentNode.replaceChild(clonedLoginCloseButton, loginCloseButton);
-										
-										clonedLoginCloseButton.addEventListener('click', function(e) {
-											e.preventDefault();
-											e.stopPropagation();
-											e.stopImmediatePropagation();
-											
-											if (window.clearPendingPopup) {
-												window.clearPendingPopup();
-											}
-											
-											fancybox.close();
-											return false;
-										}, true);
-									}
-									
-									// Re-attach create account link handler
-									const newCreateAccountLink = slide.el.querySelector('a[href="#job-form-popup"][data-fancybox="job-form"]');
-									if (newCreateAccountLink) {
-										newCreateAccountLink.addEventListener('click', swapToSignUp);
-									}
-									
-									// Re-initialize password toggle
-									setTimeout(function() {
-										const formIcons = slide.el.querySelectorAll('.form-icon');
-										formIcons.forEach(function(iconSpan) {
-											const parentLi = iconSpan.closest('li');
-											if (parentLi) {
-												const passwordInput = parentLi.querySelector('input[type="password"]');
-												if (passwordInput && !iconSpan.hasAttribute('data-password-toggle-initialized')) {
-													iconSpan.style.cursor = 'pointer';
-													iconSpan.setAttribute('data-password-toggle-initialized', 'true');
-													
-													iconSpan.addEventListener('click', function(e) {
-														e.preventDefault();
-														e.stopPropagation();
-														
-														if (passwordInput.type === 'password') {
-															passwordInput.type = 'text';
-														} else {
-															passwordInput.type = 'password';
-														}
-													});
-												}
-											}
-										});
-									}, 100);
-								}
-								
-								return false;
-							};
-							
-							// Attach click handler to create account link
-							createAccountLink.addEventListener('click', swapToSignUp);
-						}
-						
 						// Add click handler to form-bottom-txt to close popup
 						const formBottomTxt = slide.el.querySelector('.form-bottom-txt');
 						if (formBottomTxt) {
@@ -2701,14 +2307,6 @@ var sameMonthEventsSwiper = new Swiper(".same_month_events_swiper", {
 				preventCaptionOverlap: false,
 				on: {
 					'reveal': function(fancybox, slide) {
-						// Reset to sign-in view when popup opens (only for login-popup, not training popups)
-						const signInView = slide.el.querySelector('.popup-content-signin');
-						const signUpView = slide.el.querySelector('.popup-content-signup');
-						if (signInView && signUpView) {
-							signInView.style.display = 'block';
-							signUpView.style.display = 'none';
-						}
-						
 						// Focus on first input when popup opens
 						const firstInput = slide.el.querySelector('.input');
 						if (firstInput) {
@@ -2740,126 +2338,20 @@ var sameMonthEventsSwiper = new Swiper(".same_month_events_swiper", {
 							}, true); // Use capture phase to ensure it runs before other handlers
 						}
 						
-						// Handle content swapping between sign-in and sign-up (only for login-popup)
-						if (signInView && signUpView) {
-							const swapToSignUpLink = slide.el.querySelector('.swap-to-signup');
-							const swapToSignInLink = slide.el.querySelector('.swap-to-signin');
-							
-							// Function to swap to sign-up view
-							const swapToSignUp = function(e) {
-								if (e) {
-									e.preventDefault();
-									e.stopPropagation();
+						// Add click handler to form-bottom-txt to close popup
+						const formBottomTxt = slide.el.querySelector('.form-bottom-txt');
+						if (formBottomTxt) {
+							formBottomTxt.addEventListener('click', function(e) {
+								// Don't close if clicking on a link inside (let the link handle its own action)
+								if (e.target.closest('a[data-fancybox]')) {
+									return; // Let the link handle the popup switch
 								}
-								
-								signInView.style.display = 'none';
-								signUpView.style.display = 'block';
-								
-								// Focus on first input in sign-up form
-								setTimeout(function() {
-									const firstSignUpInput = signUpView.querySelector('.input');
-									if (firstSignUpInput) {
-										firstSignUpInput.focus();
-									}
-								}, 100);
-								
-								// Re-initialize password toggle for sign-up form
-								initPasswordToggle(signUpView);
-							};
-							
-							// Function to swap to sign-in view
-							const swapToSignIn = function(e) {
-								if (e) {
-									e.preventDefault();
-									e.stopPropagation();
-								}
-								
-								signUpView.style.display = 'none';
-								signInView.style.display = 'block';
-								
-								// Focus on first input in sign-in form
-								setTimeout(function() {
-									const firstSignInInput = signInView.querySelector('.input');
-									if (firstSignInInput) {
-										firstSignInInput.focus();
-									}
-								}, 100);
-								
-								// Re-initialize password toggle for sign-in form
-								initPasswordToggle(signInView);
-							};
-							
-							// Helper function to initialize password toggle
-							const initPasswordToggle = function(container) {
-								const formIcons = container.querySelectorAll('.form-icon');
-								formIcons.forEach(function(iconSpan) {
-									const parentLi = iconSpan.closest('li');
-									if (parentLi) {
-										const passwordInput = parentLi.querySelector('input[type="password"]');
-										if (passwordInput && !iconSpan.hasAttribute('data-password-toggle-initialized')) {
-											iconSpan.style.cursor = 'pointer';
-											iconSpan.setAttribute('data-password-toggle-initialized', 'true');
-											
-											iconSpan.addEventListener('click', function(e) {
-												e.preventDefault();
-												e.stopPropagation();
-												
-												if (passwordInput.type === 'password') {
-													passwordInput.type = 'text';
-												} else {
-													passwordInput.type = 'password';
-												}
-											});
-										}
-									}
-								});
-							};
-							
-							// Add event listeners for swap links
-							if (swapToSignUpLink) {
-								// Remove existing listeners by cloning
-								const newSwapToSignUpLink = swapToSignUpLink.cloneNode(true);
-								swapToSignUpLink.parentNode.replaceChild(newSwapToSignUpLink, swapToSignUpLink);
-								newSwapToSignUpLink.addEventListener('click', swapToSignUp);
-							}
-							
-							if (swapToSignInLink) {
-								// Remove existing listeners by cloning
-								const newSwapToSignInLink = swapToSignInLink.cloneNode(true);
-								swapToSignInLink.parentNode.replaceChild(newSwapToSignInLink, swapToSignInLink);
-								newSwapToSignInLink.addEventListener('click', swapToSignIn);
-							}
-							
-							// Initialize password toggle for initial view
-							if (signInView.style.display !== 'none') {
-								initPasswordToggle(signInView);
-							}
-						} else {
-							// Re-initialize password toggle for form icons (for training popups)
-							setTimeout(function() {
-								const formIcons = slide.el.querySelectorAll('.form-icon');
-								formIcons.forEach(function(iconSpan) {
-									const parentLi = iconSpan.closest('li');
-									if (parentLi) {
-										const passwordInput = parentLi.querySelector('input[type="password"]');
-										if (passwordInput && !iconSpan.hasAttribute('data-password-toggle-initialized')) {
-											iconSpan.style.cursor = 'pointer';
-											iconSpan.setAttribute('data-password-toggle-initialized', 'true');
-											
-											iconSpan.addEventListener('click', function(e) {
-												e.preventDefault();
-												e.stopPropagation();
-												
-												if (passwordInput.type === 'password') {
-													passwordInput.type = 'text';
-												} else {
-													passwordInput.type = 'password';
-												}
-											});
-										}
-									}
-								});
-							}, 100);
+								// Close the popup when clicking anywhere else in form-bottom-txt
+								e.preventDefault();
+								e.stopPropagation();
+								fancybox.close();
+								return false;
+							});
 						}
 						
 						// Fix mobile scrolling when keyboard opens
@@ -2960,13 +2452,13 @@ var sameMonthEventsSwiper = new Swiper(".same_month_events_swiper", {
 							e.preventDefault();
 							e.stopImmediatePropagation();
 							
-							// Store the target popup information to open after close
+							// Store the target popup information
 							pendingPopup = {
 								href: targetHref,
 								element: target
 							};
 							
-							// Close the current popup immediately
+							// Close the current popup
 							currentInstance.close();
 							
 							return false;
@@ -2974,26 +2466,6 @@ var sameMonthEventsSwiper = new Swiper(".same_month_events_swiper", {
 					}
 				}
 			}, true); // Use capture phase to intercept before Fancybox handlers
-
-			// Listen for Fancybox reveal event to close any existing popup when a new one opens
-			document.addEventListener('fancybox:reveal', function(e) {
-				const currentInstance = Fancybox.getInstance();
-				// Check if there's already a visible popup
-				if (currentInstance && currentInstance.isVisible) {
-					const slides = currentInstance.slides || [];
-					const currentSlide = currentInstance.getSlide();
-					// If there are multiple slides (multiple popups), close all except the one being revealed
-					if (slides.length > 1 && currentSlide) {
-						// Close all slides except the current one being revealed
-						const currentSlideIndex = slides.indexOf(currentSlide);
-						slides.forEach(function(slide, index) {
-							if (index !== currentSlideIndex) {
-								currentInstance.removeSlide(index);
-							}
-						});
-					}
-				}
-			});
 
 			// Listen for Fancybox close event to open pending popup
 			document.addEventListener('fancybox:close', function(e) {
@@ -3024,7 +2496,7 @@ var sameMonthEventsSwiper = new Swiper(".same_month_events_swiper", {
 									pendingPopup.element.dispatchEvent(clickEvent);
 								}
 								pendingPopup = null;
-							}, 100);
+							}, 200);
 						} else {
 							// Check if the target popup element exists
 							const targetElement = document.querySelector(pendingPopup.href);
@@ -3039,7 +2511,7 @@ var sameMonthEventsSwiper = new Swiper(".same_month_events_swiper", {
 							}
 							pendingPopup = null;
 						}
-					}, 100); // Reduced delay to open new popup faster after close
+					}, 200); // Delay to ensure previous popup is fully closed
 				} else {
 					// Clear pending popup if it's invalid
 					pendingPopup = null;
@@ -3825,299 +3297,4 @@ var swiper = new Swiper(".mySwiper-02", {});
 			});
 		});
 	}
-})();
-
-// About Section Count-Up Animation
-(function() {
-	'use strict';
-
-	// Store animated items to prevent re-animation
-	const animatedCounters = new Set();
-
-	/**
-	 * Animate number from start to end
-	 */
-	const animateNumber = function(element, start, end, duration, suffix) {
-		const startTime = performance.now();
-		const suffixText = suffix || '';
-
-		const animate = function(currentTime) {
-			const elapsed = currentTime - startTime;
-			const progress = Math.min(elapsed / duration, 1);
-
-			// Easing function (ease-out cubic)
-			const easeOut = 1 - Math.pow(1 - progress, 3);
-
-			const current = Math.floor(start + (end - start) * easeOut);
-			
-			// Format number with commas if >= 1000
-			let formattedNumber;
-			if (end >= 1000) {
-				formattedNumber = current.toLocaleString('en-US');
-			} else {
-				formattedNumber = current.toString();
-			}
-			
-			element.textContent = formattedNumber;
-
-			if (progress < 1) {
-				requestAnimationFrame(animate);
-			} else {
-				// Ensure final value is set
-				let finalFormatted;
-				if (end >= 1000) {
-					finalFormatted = Math.floor(end).toLocaleString('en-US');
-				} else {
-					finalFormatted = Math.floor(end).toString();
-				}
-				element.textContent = finalFormatted;
-			}
-		};
-
-		requestAnimationFrame(animate);
-	};
-
-	/**
-	 * Initialize About Section Count-Up
-	 */
-	const initAboutCountUp = function() {
-		const countElements = document.querySelectorAll('.about_4_cl_blocks_item_01 h3[data-count-target]');
-		if (countElements.length === 0) {
-			return;
-		}
-
-		// Create Intersection Observer
-		const observer = new IntersectionObserver(
-			function(entries) {
-				entries.forEach(function(entry) {
-					if (entry.isIntersecting && !animatedCounters.has(entry.target)) {
-						const h3Element = entry.target;
-						const targetValue = parseFloat(h3Element.getAttribute('data-count-target'));
-						const suffix = h3Element.getAttribute('data-count-suffix') || '';
-						const numberElement = h3Element.querySelector('.count-number');
-
-						if (numberElement && !isNaN(targetValue)) {
-							// Mark as animated
-							animatedCounters.add(h3Element);
-
-							// Get delay from parent swiper-slide if available
-							const swiperSlide = h3Element.closest('.swiper-slide');
-							let delay = 0;
-							if (swiperSlide) {
-								const aosDelay = swiperSlide.getAttribute('data-aos-delay');
-								if (aosDelay) {
-									delay = parseInt(aosDelay) || 0;
-								}
-							}
-
-							// Start count-up animation after delay
-							setTimeout(function() {
-								animateNumber(numberElement, 0, targetValue, 2000, suffix);
-							}, delay);
-						}
-
-						// Disconnect observer for this item
-						observer.unobserve(h3Element);
-					}
-				});
-			},
-			{
-				threshold: 0.3,
-				rootMargin: '0px 0px -50px 0px',
-			}
-		);
-
-		// Observe all count elements
-		countElements.forEach(function(element) {
-			observer.observe(element);
-		});
-	};
-
-	/**
-	 * Initialize when DOM is ready
-	 */
-	const init = function() {
-		if (document.readyState === 'loading') {
-			document.addEventListener('DOMContentLoaded', initAboutCountUp);
-		} else {
-			// DOM already loaded
-			initAboutCountUp();
-		}
-
-		// Also re-initialize when AOS animations complete (if AOS is used)
-		if (typeof AOS !== 'undefined') {
-			document.addEventListener('aos:in', function(e) {
-				if (e.target.classList.contains('about_4_cl_blocks_item_01')) {
-					initAboutCountUp();
-				}
-			});
-		}
-	};
-
-	// Start initialization
-	init();
-})();
-
-// Projects Stats Count-Up Animation
-(function() {
-	'use strict';
-
-	// Store animated items to prevent re-animation
-	const animatedProjectStats = new Set();
-
-	/**
-	 * Animate number from start to end (for project stats)
-	 */
-	const animateProjectNumber = function(element, start, end, duration, prefix, suffix, isMillion) {
-		const startTime = performance.now();
-
-		const animate = function(currentTime) {
-			const elapsed = currentTime - startTime;
-			const progress = Math.min(elapsed / duration, 1);
-
-			// Easing function (ease-out cubic)
-			const easeOut = 1 - Math.pow(1 - progress, 3);
-
-			let current = start + (end - start) * easeOut;
-			
-			// Format number based on whether it's million or regular
-			let formattedNumber;
-			if (isMillion) {
-				// For millions, divide by 1M and show as decimal if needed
-				const millions = current / 1000000;
-				if (millions >= 1) {
-					formattedNumber = millions.toFixed(millions % 1 === 0 ? 0 : 1);
-				} else {
-					formattedNumber = Math.floor(current).toLocaleString('en-US');
-				}
-			} else if (end >= 1000) {
-				formattedNumber = Math.floor(current).toLocaleString('en-US');
-			} else {
-				formattedNumber = Math.floor(current).toString();
-			}
-			
-			element.textContent = formattedNumber;
-
-			if (progress < 1) {
-				requestAnimationFrame(animate);
-			} else {
-				// Ensure final value is set
-				let finalFormatted;
-				if (isMillion) {
-					const finalMillions = end / 1000000;
-					if (finalMillions >= 1) {
-						finalFormatted = finalMillions.toFixed(finalMillions % 1 === 0 ? 0 : 1);
-					} else {
-						finalFormatted = Math.floor(end).toLocaleString('en-US');
-					}
-				} else if (end >= 1000) {
-					finalFormatted = Math.floor(end).toLocaleString('en-US');
-				} else {
-					finalFormatted = Math.floor(end).toString();
-				}
-				element.textContent = finalFormatted;
-			}
-		};
-
-		requestAnimationFrame(animate);
-	};
-
-	/**
-	 * Initialize Projects Stats Count-Up
-	 */
-	const initProjectsStatsCountUp = function() {
-		const countElements = document.querySelectorAll('.projects_item_content_blck_02_list h3[data-count-target]');
-		if (countElements.length === 0) {
-			return;
-		}
-
-		// Create Intersection Observer
-		const observer = new IntersectionObserver(
-			function(entries) {
-				entries.forEach(function(entry) {
-					if (entry.isIntersecting && !animatedProjectStats.has(entry.target)) {
-						const h3Element = entry.target;
-						const targetValue = parseFloat(h3Element.getAttribute('data-count-target'));
-						const prefix = h3Element.getAttribute('data-count-prefix') || '';
-						const suffix = h3Element.getAttribute('data-count-suffix') || '';
-						const isMillion = h3Element.getAttribute('data-count-million') === 'true';
-						const numberElement = h3Element.querySelector('.count-number');
-
-						if (numberElement && !isNaN(targetValue)) {
-							// Mark as animated
-							animatedProjectStats.add(h3Element);
-
-							// Get delay from parent swiper-slide if available
-							const swiperSlide = h3Element.closest('.swiper-slide');
-							let delay = 0;
-							if (swiperSlide) {
-								const aosDelay = swiperSlide.getAttribute('data-aos-delay');
-								if (aosDelay) {
-									delay = parseInt(aosDelay) || 0;
-								}
-							}
-
-							// Set prefix and suffix text (they don't animate)
-							const prefixElement = h3Element.querySelector('.count-prefix');
-							const suffixElement = h3Element.querySelector('.count-suffix');
-							if (prefixElement && prefix) {
-								prefixElement.textContent = prefix;
-							}
-							if (suffixElement && suffix) {
-								suffixElement.textContent = suffix;
-							}
-
-							// Start count-up animation after delay
-							setTimeout(function() {
-								animateProjectNumber(numberElement, 0, targetValue, 2000, prefix, suffix, isMillion);
-							}, delay);
-						}
-
-						// Disconnect observer for this item
-						observer.unobserve(h3Element);
-					}
-				});
-			},
-			{
-				threshold: 0.3,
-				rootMargin: '0px 0px -50px 0px',
-			}
-		);
-
-		// Observe all count elements
-		countElements.forEach(function(element) {
-			observer.observe(element);
-		});
-	};
-
-	/**
-	 * Initialize when DOM is ready
-	 */
-	const init = function() {
-		if (document.readyState === 'loading') {
-			document.addEventListener('DOMContentLoaded', initProjectsStatsCountUp);
-		} else {
-			// DOM already loaded
-			initProjectsStatsCountUp();
-		}
-
-		// Re-initialize when Swiper slides change (for dynamic content)
-		if (typeof Swiper !== 'undefined') {
-			document.addEventListener('swiperSlideChange', function() {
-				setTimeout(initProjectsStatsCountUp, 100);
-			});
-		}
-
-		// Also re-initialize when AOS animations complete (if AOS is used)
-		if (typeof AOS !== 'undefined') {
-			document.addEventListener('aos:in', function(e) {
-				if (e.target.closest('.projects_item_content_blck_02_list')) {
-					initProjectsStatsCountUp();
-				}
-			});
-		}
-	};
-
-	// Start initialization
-	init();
 })();

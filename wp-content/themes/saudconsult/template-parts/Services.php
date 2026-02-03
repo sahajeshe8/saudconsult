@@ -7,20 +7,20 @@
 
 ?>
 
-<section class="services_section pt_80  ">
+<section class="services_section pt_80 height_100vh ">
 	<div class="wrap">
-		<span class="lable_text green_text" data-aos="fade-up" data-aos-duration="800" data-aos-delay="0">
+		<span class="lable_text green_text " data-aos="fade-up" data-aos-duration="800" data-aos-delay="0">
 			<img src="<?php echo get_template_directory_uri(); ?>/assets/images/dot-02.svg" alt="Our Comprehensive Services">
 			Our Comprehensive Services
 		</span>
 
-		<div class="services_section_01">
-			<div class="services_section_01_item_01 pt_20" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+		<div class="services_section_01 pb_25">
+			<div class="services_section_01_item_01 " data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
 				<h3 class="h3_title_50">
 					Explore Our Full Range <br>of <span>Professional Services</span>
 				</h3>
 			</div>
-			<div class="services_section_01_item_02" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+			<div class="services_section_01_item_02 pt_10" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
 				<p>
 					Our multidisciplinary team is structured to deliver integrated solutions across the following critical sectors, <b>ensuring innovation and efficiency in every design.</b>
 				</p>
@@ -110,7 +110,7 @@
 				</div>
 			</div>
 
-			<div class="swiper-slide" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
+			<!-- <div class="swiper-slide" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
 				<div class="services_section_item_01_content">
 					<h3 class="h3_title_30">
 					Construction <br>Supervision
@@ -121,14 +121,14 @@
 					<p>
 					Providing on-site assurance and quality management to ensure execution..
 					</p>
-					<a class="btn_style btn_transparent short" href="<?php echo esc_url( home_url( '/engineering-design' ) ); ?>">
-						View more <span><img src="<?php echo get_template_directory_uri(); ?>/assets/images/arrow-buttion.svg" alt="View more"></span>
+					<a class="btn_style btn_transparent short" href="<?php// echo esc_url( home_url( '/engineering-design' ) ); ?>">
+						View more <span><img src="<?php //echo get_template_directory_uri(); ?>/assets/images/arrow-buttion.svg" alt="View more"></span>
 					</a>
 				</div>
 				<div class="services_section_item_01">
-					<img src="<?php echo get_template_directory_uri(); ?>/assets/images/service-02.jpg" alt="Services">
+					<img src="<?php //echo get_template_directory_uri(); ?>/assets/images/service-02.jpg" alt="Services">
 				</div>
-			</div>
+			</div> -->
 		</div>
 		<div class="swiper-pagination"></div>
 	</div>

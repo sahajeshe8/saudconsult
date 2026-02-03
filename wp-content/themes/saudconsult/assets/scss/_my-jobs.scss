@@ -189,5 +189,9 @@
 
     a{
         color: #0D6A37 ; font-size: 16px; font-weight: 500;
+
+		@media screen and (max-width: 1440px) {
+			font-size: 14px;
+		}
     }
 }

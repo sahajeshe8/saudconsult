@@ -71,6 +71,7 @@
 			opacity: 0.8;
 			&.swiper-slide-active {
 				img{ opacity: 1 !important;}
+				.award_click_overlay{  display: block;}
 			}
 
 			@media screen and (min-width: 1200px) {
@@ -140,6 +141,17 @@
 						display: block;
 						 opacity: 0.8;
 						transition: transform 0.3s ease;
+					}
+
+					.award_click_overlay {
+						position: absolute;
+						top: 0;
+						left: 0;
+						width: 100%;
+						height: 100%;
+						cursor: pointer;
+						z-index: 10;
+						background: transparent;
 					}
 				}
 
@@ -427,8 +439,8 @@ p{
 		}
 
 		@media screen and (max-width: 768px) {
-			width: 30px;
-			height: 30px;
+			width: 45px;
+			height: 45px;
 
 			img {
 				width: 20px;
@@ -457,3 +469,12 @@ p{
 		transform: rotate(180deg);
 	}
 }
+
+.award_click_overlay{ position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; background: transparent;}
+ 
+
+.award_click_overlay{ display: none;
+	.award_click_overlay{ display: block;}
+}
+
+// .award_click_overlay{ display: none !important;}

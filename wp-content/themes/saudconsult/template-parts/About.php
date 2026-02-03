@@ -15,7 +15,7 @@ $about_button_link = get_theme_mod( 'about_button_link', '#' );
 
 ?>
 
-<section class="about_section pt_80 pb_80">
+<section class="about_section pt_80 pb_80 height_100vh">
 	<div class="wrap">
 	  <div class="about_section_01">
 		 <div class="about_sectioncl_01" data-aos="fade-up" data-aos-duration="800" data-aos-delay="0">
@@ -42,7 +42,7 @@ $about_button_link = get_theme_mod( 'about_button_link', '#' );
 		<li class="swiper-slide" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
 			<div class="about_4_cl_blocks_item_01">
 				<div class="w_100 text_cl_01">
-					<h3>50+ Years</h3>
+					<h3 data-count-target="50" data-count-suffix="+ Years"><span class="count-number">0</span><span class="count-suffix">+ Years</span></h3>
 					<p>Pioneering Excellence</p>
 				</div>
 				<div class="about_4_cl_blocks_item_02">
@@ -53,7 +53,7 @@ $about_button_link = get_theme_mod( 'about_button_link', '#' );
 		<li class="swiper-slide" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
 			<div class="about_4_cl_blocks_item_01">
 				<div class="w_100 text_cl_01">
-					<h3>2000+ </h3>
+					<h3 data-count-target="2000" data-count-suffix="+"><span class="count-number">0</span><span class="count-suffix">+</span></h3>
 					<p>Professionals</p>
 				</div>
 				<div class="about_4_cl_blocks_item_02">
@@ -64,7 +64,7 @@ $about_button_link = get_theme_mod( 'about_button_link', '#' );
 		<li class="swiper-slide" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
 			<div class="about_4_cl_blocks_item_01">
 				<div class="w_100 text_cl_01">
-					<h3>9 Core</h3>
+					<h3 data-count-target="9" data-count-suffix=" Core"><span class="count-number">0</span><span class="count-suffix"> Core</span></h3>
 					<p>Sectors</p>
 				</div>
 				<div class="about_4_cl_blocks_item_02">
@@ -75,7 +75,7 @@ $about_button_link = get_theme_mod( 'about_button_link', '#' );
 		<li class="swiper-slide" data-aos="fade-up" data-aos-duration="800" data-aos-delay="500">
 			<div class="about_4_cl_blocks_item_01">
 				<div class="w_100 text_cl_01">
-					<h3>2,600+</h3>
+					<h3 data-count-target="2600" data-count-suffix="+"><span class="count-number">0</span><span class="count-suffix">+</span></h3>
 					<p>Projects Completed</p>
 				</div>
 				<div class="about_4_cl_blocks_item_02">

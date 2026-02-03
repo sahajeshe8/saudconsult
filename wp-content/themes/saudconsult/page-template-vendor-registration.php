@@ -348,7 +348,17 @@ get_header();
 								</li>
 								<li>
 									<label class="vendor_form_label">Role at that Project *</label>
-									<input class="input" type="url" name="company_website" >
+									<div class="select-wrapper">
+										<select class="input select-input" name="annual_revenue">
+											<option value="">Select</option>
+											<option value="0-1M">0 - 1M SAR</option>
+											<option value="1M-5M">1M - 5M SAR</option>
+											<option value="5M-10M">5M - 10M SAR</option>
+											<option value="10M-50M">10M - 50M SAR</option>
+											<option value="50M+">50M+ SAR</option>
+										</select>
+										<span class="select-arrow"></span>
+									</div>
 								</li>
 								<li>
 									<label class="vendor_form_label">Year of Completion *</label>

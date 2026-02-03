@@ -53,7 +53,7 @@ $items = isset( $args['items'] ) ? $args['items'] : array(
 ?>
 
 <section class="why_partner_section pb_80 <?php echo esc_attr( $section_class ); ?> <?php echo $section_wrapper_class; ?>">
-	<div class="wrap d_flex align_center justify_space_between">
+	<div class="wrap d_flex align_center justify_space_between align_top_tab">
 		<div class="w_50" data-aos="fade-up" data-aos-duration="800" data-aos-delay="0">
 			<?php if ( $title || $title_span ) : ?>
 				<h3 class="h3_title_50">

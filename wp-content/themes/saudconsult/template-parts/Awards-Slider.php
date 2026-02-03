@@ -38,15 +38,22 @@ $loop = isset( $args['loop'] ) ? $args['loop'] : true; // Default to true for lo
 			</div>
 		<?php endif; ?>
 
-		<?php if ( ! empty( $awards ) ) : ?>
+		<?php 
+		// Filter only active awards
+		$active_awards = array_filter( $awards, function( $award ) {
+			return isset( $award['active'] ) && $award['active'] === true;
+		});
+		?>
+		<?php if ( ! empty( $active_awards ) ) : ?>
 			<div class="swiper mySwiper-awards" data-loop="<?php echo $loop ? 'true' : 'false'; ?>">
 				<div class="swiper-wrapper">
-					<?php foreach ( $awards as $award ) : 
+					<?php foreach ( $active_awards as $index => $award ) : 
 						$image = isset( $award['image'] ) ? $award['image'] : '';
 						$alt = isset( $award['alt'] ) ? $award['alt'] : 'Award';
 						$title_text = isset( $award['title'] ) ? $award['title'] : '';
 						$year = isset( $award['year'] ) ? $award['year'] : '';
 						$link = isset( $award['link'] ) ? $award['link'] : '';
+						$popup_id = 'award-popup-' . $index;
 					?>
 						<div class="swiper-slide">
 							<div class="award_item">
@@ -54,6 +61,8 @@ $loop = isset( $args['loop'] ) ? $args['loop'] : true; // Default to true for lo
 									 
 										<div class="award_item_image">
 											<img src="<?php echo esc_url( $image ); ?>" alt="<?php echo esc_attr( $alt ); ?>">
+											<a href="<?php echo esc_url( $image ); ?>" class="award_popup_trigger" data-fancybox="award-gallery" data-caption="<?php echo esc_attr( $title_text . ( $year ? ' - ' . $year : '' ) ); ?>" style="display: none;"></a>
+											<div class="award_click_overlay" data-award-index="<?php echo esc_attr( $index ); ?>"></div>
 										</div>
 										<?php if ( $title_text || $year ) : ?>
 											<div class="award_item_info">
@@ -70,6 +79,8 @@ $loop = isset( $args['loop'] ) ? $args['loop'] : true; // Default to true for lo
 									<div class="award_item_wrapper">
 										<div class="award_item_image">
 											<img src="<?php echo esc_url( $image ); ?>" alt="<?php echo esc_attr( $alt ); ?>">
+											<a href="<?php echo esc_url( $image ); ?>" class="award_popup_trigger" data-fancybox="award-gallery" data-caption="<?php echo esc_attr( $title_text . ( $year ? ' - ' . $year : '' ) ); ?>" style="display: none;"></a>
+											<div class="award_click_overlay" data-award-index="<?php echo esc_attr( $index ); ?>"></div>
 										</div>
 										<?php if ( $title_text || $year ) : ?>
 											<div class="award_item_info">

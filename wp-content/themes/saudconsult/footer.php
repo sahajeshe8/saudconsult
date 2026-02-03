@@ -95,19 +95,19 @@
 			<h3>Quick Links</h3>
 			<ul class="footer_link_ul">
 				<li>
-					<a href="#">Company</a>
+					<a href="<?php echo esc_url( home_url( '/about-us' ) ); ?>">Company</a>
 				</li>
 				<li>
-					<a href="#">Projects</a>
+					<a href="<?php echo esc_url( home_url( '/projects' ) ); ?>">Projects</a>
 				</li>
 				<li>
-					<a href="#">Clients</a>
+					<a href="<?php echo esc_url( home_url( '/clients' ) ); ?>">Clients</a>
 				</li>
 				<li>
-					<a href="#">Media Center</a>
+					<a href="<?php echo esc_url( home_url( '/media-center' ) ); ?>">Media Center</a>
 				</li>
 				<li>
-					<a href="#">Careers</a>
+					<a href="<?php echo esc_url( home_url( '/careers' ) ); ?>">Careers</a>
 				</li>
 			</ul>
 		</li>
@@ -116,16 +116,16 @@
 
 		<ul class="footer_link_ul">
 				<li>
-					<a href="#">Engineering Design</a>
+					<a href="<?php echo esc_url( home_url( '/engineering-design' ) ); ?>">Engineering Design</a>
 				</li>
 				<li>
-					<a href="#">Construction Supervision</a>
+					<a href="<?php echo esc_url( home_url( '/services' ) ); ?>">Construction Supervision</a>
 				</li>
 				<li>
-					<a href="#">Specialized Studies</a>
+					<a href="<?php echo esc_url( home_url( '/services' ) ); ?>">Specialized Studies</a>
 				</li>
 				<li>
-					<a href="#">Project Management</a>
+					<a href="<?php echo esc_url( home_url( '/services' ) ); ?>">Project Management</a>
 				</li>
 				 
 			</ul>

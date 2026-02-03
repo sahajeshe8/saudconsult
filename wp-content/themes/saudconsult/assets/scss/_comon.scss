@@ -29,7 +29,7 @@ html{
 
 
 }
-.btn_style{ min-width: 171px; gap: 10px; cursor: pointer;    border-radius: 100px; background: #fff; color: #000;  border: solid 1px #ffffff; height: 51px; padding: 0 30px; display: inline-flex; flex-wrap: wrap; align-items: center; justify-content: center; font-size: 16px;  font-weight: 300; transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease; line-height: 1;
+.btn_style{ min-width: 171px; gap: 10px; cursor: pointer;    border-radius: 100px; background: #fff; color: #000;  border: solid 1px #ffffff; height: 51px; padding: 0 30px; display: inline-flex; flex-wrap: wrap; align-items: center; justify-content: center; font-size: 16px;  font-weight: 400; transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease; line-height: 1;
    &:hover{ background: #A8D05A; color: #fff;
 
       img{ 
@@ -148,7 +148,12 @@ html{
 
 
 .h4_title_35{ @include px-rem(35); line-height: 100%; font-weight: 700; color: #136B37; line-height: 120%; margin: 0;
-   span{ color: #000; font-weight: 400;}
+   span{ color: #000; font-weight: 400;
+   
+   // @media screen and (max-width: 700px) {
+   //   display: block;
+   // }
+   }
    @media screen and (max-width: 1440px) {
       @include px-rem(30);
    }
@@ -215,8 +220,20 @@ html{
 .h3_title_50{ @include px-rem(50); line-height: 100%; font-weight: 700; color: #136B37; line-height: 120%; margin: 0;
    span{ color: #000; font-weight: 400;}
 
+
+
+   
    @media screen and (max-width: 1440px) {
       @include px-rem(40);
+   }
+
+   @media screen and (max-width:820px) {
+      @include px-rem(45); line-height: 100%; margin-bottom: 10px;
+   }
+
+
+   @media screen and (max-width: 768px) {
+      @include px-rem(45);
    }
 
    @media screen and (max-width:700px) {
@@ -306,10 +323,10 @@ position: relative;
 
 .bg_img_02{ background: url(../images/bg-img-03.svg) no-repeat center left; background-size: contain;}
 
-.no_banner_section{ margin-top: 100px;
+.no_banner_section{ margin-top:85px;
 
 @media screen and (max-width: 700px) {
-   margin-top: 50px;
+   margin-top: 75px;
 }
 }
 
@@ -326,7 +343,7 @@ position: relative;
 
 .mobile_show{ display: none !important;
 @media screen and (max-width: 700px) {
-   display: flex;
+   display: flex !important   ;
 }
 }
 
@@ -386,5 +403,19 @@ margin-top: 5px !important;
 .image_overlay_02{
    &::after{
       opacity: 0.6;
+   }
+}
+
+
+.height_100vh{
+   @media screen and (min-width: 1200px) {
+      height: 100vh;
+   }
+}
+
+.align_top_tab{ 
+
+   @media screen and (max-width: 820px) {
+      align-items: flex-start  ;
    }
 }

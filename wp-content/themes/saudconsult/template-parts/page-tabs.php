@@ -18,7 +18,62 @@ $tabs = isset( $args['tabs'] ) && is_array( $args['tabs'] ) ? $args['tabs'] : ar
 	array( 'id' => 'milestones', 'title' => 'Company Milestones' ),
 	array( 'id' => 'awards', 'title' => 'Awards' )
 );
-$active_tab = isset( $args['active_tab'] ) ? $args['active_tab'] : ( !empty( $tabs ) ? $tabs[0]['id'] : 'overview' );
+
+// Auto-detect active tab based on current page URL
+$active_tab = isset( $args['active_tab'] ) ? $args['active_tab'] : null;
+if ( empty( $active_tab ) ) {
+	// Get current page URL and path
+	$request_uri = isset( $_SERVER['REQUEST_URI'] ) ? $_SERVER['REQUEST_URI'] : '';
+	$current_url = home_url( $request_uri );
+	$current_path = untrailingslashit( parse_url( $current_url, PHP_URL_PATH ) );
+	
+	// Get current page slug if available
+	$current_page_slug = '';
+	if ( is_page() ) {
+		global $post;
+		if ( $post ) {
+			$current_page_slug = $post->post_name;
+		}
+	}
+	
+	// Check each tab's link against current URL
+	foreach ( $tabs as $tab ) {
+		$tab_link = isset( $tab['link'] ) ? $tab['link'] : '';
+		if ( ! empty( $tab_link ) ) {
+			$tab_path = untrailingslashit( parse_url( $tab_link, PHP_URL_PATH ) );
+			$tab_slug = basename( $tab_path );
+			
+			// Compare paths (handle trailing slashes)
+			if ( $current_path === $tab_path || 
+				 $current_path === $tab_path . '/' || 
+				 $current_path === '/' . $tab_path ||
+				 $current_path === '/' . $tab_path . '/' ) {
+				$active_tab = isset( $tab['id'] ) ? $tab['id'] : '';
+				break;
+			}
+			
+			// Compare by slug if paths don't match
+			if ( ! empty( $current_page_slug ) && ! empty( $tab_slug ) && $current_page_slug === $tab_slug ) {
+				$active_tab = isset( $tab['id'] ) ? $tab['id'] : '';
+				break;
+			}
+			
+			// Check if current path contains tab path (for subpages)
+			if ( ! empty( $tab_path ) && strpos( $current_path, $tab_path ) === 0 ) {
+				$active_tab = isset( $tab['id'] ) ? $tab['id'] : '';
+				break;
+			}
+		}
+	}
+	
+	// If no match found, use first tab as default
+	if ( empty( $active_tab ) && !empty( $tabs ) ) {
+		$active_tab = isset( $tabs[0]['id'] ) ? $tabs[0]['id'] : 'overview';
+	} elseif ( empty( $active_tab ) ) {
+		$active_tab = 'overview';
+	}
+}
+
 $nav_class = isset( $args['nav_class'] ) ? $args['nav_class'] : '';
 
 // Build ul classes

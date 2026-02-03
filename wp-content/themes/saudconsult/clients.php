@@ -22,41 +22,47 @@ get_header();
                     'alt' => 'Awards & Certifications',
                     'title' => 'Awards & Certifications',
                     'year' => '',
-                    'link' => ''
+                    'link' => '',
+                    'active' => true
                 ),
                 array(
                     'image' => get_template_directory_uri() . '/assets/images/awards.jpg',
                     'alt' => 'Awards & Certifications',
                     'title' => 'Awards & Certifications',
                     'year' => 'ISO 9001:2015 ',
-                    'link' => 'Ensures consistent quality management and service excellence.'
+                    'link' => 'Ensures consistent quality management and service excellence.',
+                    'active' => true
                 ),
                 array(
                     'image' => get_template_directory_uri() . '/assets/images/awards.jpg',
                     'alt' => 'Awards & Certifications',
                     'title' => 'Awards & Certifications',
                     'year' => 'ISO 9001:2015 ',
-                    'link' => 'Ensures consistent quality management and service excellence.'
+                    'link' => 'Ensures consistent quality management and service excellence.',
+                    'active' => true
                 ),
                 array(
                     'image' => get_template_directory_uri() . '/assets/images/awards.jpg',
                     'alt' => 'Awards & Certifications',
                     'year' => 'ISO 9001:2015 ',
-                    'link' => 'Ensures consistent quality management and service excellence.'
-                ),
-                array(
-                    'image' => get_template_directory_uri() . '/assets/images/awards.jpg',
-                    'alt' => 'Awards & Certifications',
-                    'title' => 'Awards & Certifications',
-                    'year' => 'ISO 9001:2015 ',
-                    'link' => 'Ensures consistent quality management and service excellence.'
+                    'link' => 'Ensures consistent quality management and service excellence.',
+                    'active' => true
                 ),
                 array(
                     'image' => get_template_directory_uri() . '/assets/images/awards.jpg',
                     'alt' => 'Awards & Certifications',
                     'title' => 'Awards & Certifications',
                     'year' => 'ISO 9001:2015 ',
-                    'link' => 'Ensures consistent quality management and service excellence.'
+                    'link' => 'Ensures consistent quality management and service excellence.',
+                    'active' => true
+                ),
+                array(
+                    'image' => get_template_directory_uri() . '/assets/images/awards.jpg',
+                    'alt' => 'Awards & Certifications',
+                    'title' => 'Awards & Certifications',
+                    'year' => 'ISO 9001:2015 ',
+                    'link' => 'Ensures consistent quality management and service excellence.',
+                    'active' => true
                 ),
 		)
 	);

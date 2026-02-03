@@ -3326,52 +3326,59 @@ var swiper = new Swiper(".mySwiper-02", {});
 			return; // Already initialized
 		}
 
-		try {
-			// Find custom navigation buttons
-			const nextButton = document.querySelector('.news_but_next');
-			const prevButton = document.querySelector('.news_but_prev');
+	try {
+		// Find custom navigation buttons scoped to this section
+		const section = mainSwiperEl.closest('.our_journey_section');
+		const nextButton = section ? section.querySelector('.news_but_next') : null;
+		const prevButton = section ? section.querySelector('.news_but_prev') : null;
 
-			// Initialize thumbnail swiper first
-			const thumbSwiper = new Swiper(thumbSwiperEl, {
-				spaceBetween: 0,
-				slidesPerView:3.5,
-				freeMode: true,
-				loop: true,
-				watchSlidesProgress: true,
-				breakpoints: {
-					640: {
-						slidesPerView:3.5,
-						spaceBetween:0,
-					},
-					768: {
-						slidesPerView:3.5,
-						spaceBetween: 0,
-					},
-					1024: {
-						slidesPerView:3.1,
-						spaceBetween: 0,
-					},
-				},
-			});
+		if (!nextButton || !prevButton) {
+			console.warn('OurJourneyGallery: Navigation buttons not found');
+			return;
+		}
 
-			// Initialize main swiper with thumbnail control and custom navigation
-			const mainSwiper = new Swiper(mainSwiperEl, {
-				spaceBetween: 10,
-				slidesPerView: 1,
-				loop: true,
-				speed: 800,
-				effect: 'fade',
-				fadeEffect: {
-					crossFade: true
+		// Initialize thumbnail swiper first (without loop to avoid sync issues)
+		const thumbSwiper = new Swiper(thumbSwiperEl, {
+			spaceBetween: 0,
+			slidesPerView: 3.5,
+			freeMode: true,
+			loop: false,
+			watchSlidesProgress: true,
+			centeredSlides: false,
+			breakpoints: {
+				640: {
+					slidesPerView: 3.5,
+					spaceBetween: 0,
 				},
-				thumbs: {
-					swiper: thumbSwiper,
+				768: {
+					slidesPerView: 3.5,
+					spaceBetween: 0,
 				},
-				navigation: {
-					nextEl: nextButton,
-					prevEl: prevButton,
+				1024: {
+					slidesPerView: 3.1,
+					spaceBetween: 0,
 				},
-			});
+			},
+		});
+
+		// Initialize main swiper with thumbnail control and custom navigation
+		const mainSwiper = new Swiper(mainSwiperEl, {
+			spaceBetween: 10,
+			slidesPerView: 1,
+			loop: false,
+			speed: 800,
+			effect: 'fade',
+			fadeEffect: {
+				crossFade: true
+			},
+			thumbs: {
+				swiper: thumbSwiper,
+			},
+			navigation: {
+				nextEl: prevButton,  // Swapped to fix reversed navigation
+				prevEl: nextButton,  // Swapped to fix reversed navigation
+			},
+		});
 
 			console.log('OurJourneyGallery: Swiper initialized successfully');
 		} catch (error) {

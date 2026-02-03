@@ -266,12 +266,13 @@
       						swiper: thumbSwiper,
       					},
       					loop: true, // Enable infinite loop
-      					loopAdditionalSlides: 2, // Add extra slides for smoother looping
-      					loopedSlides: 2, // Number of slides to loop
+      					loopAdditionalSlides: 1, // Add extra slides for smoother looping
+      					loopedSlides: 1, // Number of slides to loop (minimum for 4 slides)
       					effect: 'slide',
       					speed: 300,
       					allowSlidePrev: true,
       					allowSlideNext: true,
+      					watchSlidesProgress: true,
       					navigation: {
       						nextEl: nextButton,
       						prevEl: prevButton,
@@ -280,21 +281,31 @@
       
       				// Wait for main swiper to initialize
       				setTimeout(function() {
-      					// Add custom click handlers as backup to ensure navigation works with loop
-      					if (nextButton) {
-      						nextButton.addEventListener('click', function(e) {
-      							if (mainSwiper && mainSwiper.initialized) {
-      								mainSwiper.slideNext();
-      							}
-      						}, { once: false });
-      					}
+      					// Verify loop is working and add backup handlers if needed
+      					if (mainSwiper && mainSwiper.initialized) {
+      						// Check if loop was created successfully
+      						if (mainSwiper.loopedSlides === undefined || mainSwiper.loopedSlides === 0) {
+      							console.warn('Awards Gallery: Loop may not be properly initialized');
+      						}
+      						
+      						// Add custom click handlers as backup to ensure navigation works with loop
+      						if (nextButton) {
+      							nextButton.addEventListener('click', function(e) {
+      								if (mainSwiper && mainSwiper.initialized) {
+      									// Use slideNext which handles loop automatically
+      									mainSwiper.slideNext();
+      								}
+      							}, false);
+      						}
       
-      					if (prevButton) {
-      						prevButton.addEventListener('click', function(e) {
-      							if (mainSwiper && mainSwiper.initialized) {
-      								mainSwiper.slidePrev();
-      							}
-      						}, { once: false });
+      						if (prevButton) {
+      							prevButton.addEventListener('click', function(e) {
+      								if (mainSwiper && mainSwiper.initialized) {
+      									// Use slidePrev which handles loop automatically
+      									mainSwiper.slidePrev();
+      								}
+      							}, false);
+      						}
       					}
       					// Add reliable click handlers to each thumbnail slide
       					const thumbSlides = thumbSwiperEl.querySelectorAll('.swiper-slide');
@@ -328,8 +339,11 @@
       						if (thumbSwiper && thumbSwiper.initialized) {
       							// Use realIndex to get the actual slide index (accounts for loop)
       							const realIndex = mainSwiper.realIndex;
-      							if (thumbSwiper.activeIndex !== realIndex) {
-      								thumbSwiper.slideTo(realIndex, 300);
+      							// Ensure realIndex is within valid range
+      							if (realIndex >= 0 && realIndex < thumbSwiper.slides.length) {
+      								if (thumbSwiper.activeIndex !== realIndex) {
+      									thumbSwiper.slideTo(realIndex, 300);
+      								}
       							}
       						}
       					});
@@ -339,7 +353,9 @@
       						if (mainSwiper && mainSwiper.initialized) {
       							const activeIndex = thumbSwiper.activeIndex;
       							// Use slideToLoop for proper loop handling
-      							mainSwiper.slideToLoop(activeIndex, 300);
+      							if (activeIndex >= 0 && activeIndex < mainSwiper.slides.length) {
+      								mainSwiper.slideToLoop(activeIndex, 300);
+      							}
       						}
       					});
       

@@ -46,7 +46,7 @@ $milestones  = isset( $args['milestones'] ) ? $args['milestones'] : array(
 						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/slider-arrow.svg" alt="Previous Project">
 					</span>
 				</div>
-</div>
+   </div>
 
    <div class="our_journey_gallery_wrapper" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
 
@@ -56,7 +56,7 @@ $milestones  = isset( $args['milestones'] ) ? $args['milestones'] : array(
    <div class="swiper our_journey_thumb_swiper">
          <div class="swiper-wrapper">
             <div class="swiper-slide">
-               <span class="dot-icn"></span>
+            <span class="dot-icn"></span>
             1965
             </div>
             <div class="swiper-slide">

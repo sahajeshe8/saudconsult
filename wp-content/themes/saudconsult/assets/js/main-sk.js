@@ -98,7 +98,7 @@
 	} else {
 	  setTimeout(initLeadershipTeamSwiper, 100);
 	}
-  })();
+})();
 
 // Leadership Section Inner Left List Swiper - Mobile Only
 (function() {
@@ -877,12 +877,6 @@ var swiper = new Swiper(".mySwiper-clients", {
 		let isLoading = false;
 		let currentPage = 1;
 		const itemsPerPage = 3; // Number of items to load each time
-		const totalItemsCount = timelineItems.length;
-
-		// Nothing to load: hide button (all items stay visible)
-		if (totalItemsCount <= itemsPerPage && loadMoreBtn) {
-			loadMoreBtn.classList.add('hidden');
-		}
 
 		// Function to activate timeline dot
 		const activateTimelineDot = function(timelineItem) {
@@ -1364,7 +1358,7 @@ var swiper = new Swiper(".mySwiper-clients", {
 				if (clickedIndex === currentActiveIndex) {
 					return;
 				}
-
+				
 				// Remove active class from all items
 				listItems.forEach(function(li) {
 					li.classList.remove('active');
@@ -1378,7 +1372,6 @@ var swiper = new Swiper(".mySwiper-clients", {
 
 				// Get data from clicked item
 				const newImage = this.getAttribute('data-image');
-				const newImageMobile = this.getAttribute('data-image-mobile') || newImage;
 				const newTitle = this.getAttribute('data-title');
 				const newDescription = this.getAttribute('data-description');
 				const newButtonText = this.getAttribute('data-button-text');
@@ -1388,30 +1381,10 @@ var swiper = new Swiper(".mySwiper-clients", {
 				const fadeOutImage = currentImage === 1 ? image1 : image2;
 				const fadeInImage = currentImage === 1 ? image2 : image1;
 
-				// Update the fade-in image background first (before it becomes visible)
+				// Update the fade-in image source first (before it becomes visible)
 				if (fadeInImage && newImage) {
-					// Update data attributes for responsive images
-					fadeInImage.setAttribute('data-desktop-bg', newImage);
-					fadeInImage.setAttribute('data-mobile-bg', newImageMobile);
-					fadeInImage.setAttribute('aria-label', newTitle || 'Engineering Expertise');
-					
-					// Update background image style
-					fadeInImage.style.backgroundImage = 'url(' + newImage + ')';
-					
-					// Handle responsive background images
-					const updateBackgroundForScreen = function() {
-						if (window.innerWidth <= 768) {
-							fadeInImage.style.backgroundImage = 'url(' + newImageMobile + ')';
-						} else {
-							fadeInImage.style.backgroundImage = 'url(' + newImage + ')';
-						}
-					};
-					
-					// Set initial background based on screen size
-					updateBackgroundForScreen();
-					
-					// Update on resize (optional, can be removed if not needed)
-					window.addEventListener('resize', updateBackgroundForScreen);
+					fadeInImage.src = newImage;
+					fadeInImage.alt = newTitle || '';
 				}
 
 				// Update text content immediately (no fade needed for text)
@@ -2082,7 +2055,7 @@ var swiper = new Swiper(".mySwiper-clients", {
 						spaceBetween: 8,
 					},
 					1024: {
-						slidesPerView: 2,
+						slidesPerView: 2.6,
 						spaceBetween: 10,
 					},
 				},
@@ -2797,8 +2770,8 @@ var sameMonthEventsSwiper = new Swiper(".same_month_events_swiper", {
 							// Function to swap to sign-in view
 							const swapToSignIn = function(e) {
 								if (e) {
-								e.preventDefault();
-								e.stopPropagation();
+									e.preventDefault();
+									e.stopPropagation();
 								}
 								
 								signUpView.style.display = 'none';
@@ -3353,7 +3326,7 @@ var swiper = new Swiper(".mySwiper-02", {});
 			return; // Already initialized
 		}
 
-		try {
+	try {
 		// Find custom navigation buttons scoped to this section
 		const section = mainSwiperEl.closest('.our_journey_section');
 		const nextButton = section ? section.querySelector('.news_but_next') : null;
@@ -3365,47 +3338,47 @@ var swiper = new Swiper(".mySwiper-02", {});
 		}
 
 		// Initialize thumbnail swiper first (without loop to avoid sync issues)
-			const thumbSwiper = new Swiper(thumbSwiperEl, {
-				spaceBetween: 0,
+		const thumbSwiper = new Swiper(thumbSwiperEl, {
+			spaceBetween: 0,
 			slidesPerView: 3.5,
-				freeMode: true,
+			freeMode: true,
 			loop: false,
-				watchSlidesProgress: true,
+			watchSlidesProgress: true,
 			centeredSlides: false,
-				breakpoints: {
-					640: {
+			breakpoints: {
+				640: {
 					slidesPerView: 3.5,
 					spaceBetween: 0,
-					},
-					768: {
+				},
+				768: {
 					slidesPerView: 3.5,
-						spaceBetween: 0,
-					},
-					1024: {
+					spaceBetween: 0,
+				},
+				1024: {
 					slidesPerView: 3.1,
-						spaceBetween: 0,
-					},
+					spaceBetween: 0,
 				},
-			});
+			},
+		});
 
-			// Initialize main swiper with thumbnail control and custom navigation
-			const mainSwiper = new Swiper(mainSwiperEl, {
-				spaceBetween: 10,
-				slidesPerView: 1,
+		// Initialize main swiper with thumbnail control and custom navigation
+		const mainSwiper = new Swiper(mainSwiperEl, {
+			spaceBetween: 10,
+			slidesPerView: 1,
 			loop: false,
-				speed: 800,
-				effect: 'fade',
-				fadeEffect: {
-					crossFade: true
-				},
-				thumbs: {
-					swiper: thumbSwiper,
-				},
-				navigation: {
+			speed: 800,
+			effect: 'fade',
+			fadeEffect: {
+				crossFade: true
+			},
+			thumbs: {
+				swiper: thumbSwiper,
+			},
+			navigation: {
 				nextEl: prevButton,  // Swapped to fix reversed navigation
 				prevEl: nextButton,  // Swapped to fix reversed navigation
-				},
-			});
+			},
+		});
 
 			console.log('OurJourneyGallery: Swiper initialized successfully');
 		} catch (error) {
@@ -4155,152 +4128,3 @@ var swiper = new Swiper(".mySwiper-02", {});
 	// Start initialization
 	init();
 })();
-
-
-// ---------------------awards---page----script-----
-document.addEventListener('DOMContentLoaded', function() {
-	// Check if Swiper is loaded
-	if (typeof Swiper === 'undefined') {
-		console.warn('Swiper library is not loaded');
-		return;
-	}
-
-	// Awards Page Thumbnail Gallery Setup
-	const thumbSwiperEl = document.querySelector('.mySwiper-01');
-	const mainSwiperEl = document.querySelector('.mySwiper-03');
-
-	if (thumbSwiperEl && mainSwiperEl) {
-		// Check if already initialized
-		if (thumbSwiperEl.swiper || mainSwiperEl.swiper) {
-			console.warn('Awards Gallery: Swipers already initialized');
-			return;
-		}
-
-		try {
-			// Initialize thumbnail swiper first with auto slides per view
-			const thumbSwiper = new Swiper('.mySwiper-01', {
-				slidesPerView: 'auto',
-				spaceBetween: 10,
-				freeMode: false,
-				watchSlidesProgress: true,
-				slideToClickedSlide: true,
-				centeredSlides: false,
-			});
-
-			// Wait a bit for thumbnail swiper to fully initialize
-			setTimeout(function() {
-				// Find custom navigation buttons
-				const nextButton = document.querySelector('.but_next-aw');
-				const prevButton = document.querySelector('.but_prev-aw');
-
-				// Initialize main swiper with thumbnail control and custom navigation
-				const mainSwiper = new Swiper('.mySwiper-03', {
-					slidesPerView: 1,
-					spaceBetween: 0,
-					thumbs: {
-						swiper: thumbSwiper,
-					},
-					loop: true, // Enable infinite loop
-					loopAdditionalSlides: 1, // Add extra slides for smoother looping
-					loopedSlides: 1, // Number of slides to loop (minimum for 4 slides)
-					effect: 'slide',
-					speed: 300,
-					allowSlidePrev: true,
-					allowSlideNext: true,
-					watchSlidesProgress: true,
-					navigation: {
-						nextEl: nextButton,
-						prevEl: prevButton,
-					},
-				});
-
-				// Wait for main swiper to initialize
-				setTimeout(function() {
-					// Verify loop is working and add backup handlers if needed
-					if (mainSwiper && mainSwiper.initialized) {
-						// Check if loop was created successfully
-						if (mainSwiper.loopedSlides === undefined || mainSwiper.loopedSlides === 0) {
-							console.warn('Awards Gallery: Loop may not be properly initialized');
-						}
-						
-						// Add custom click handlers as backup to ensure navigation works with loop
-						if (nextButton) {
-							nextButton.addEventListener('click', function(e) {
-								if (mainSwiper && mainSwiper.initialized) {
-									// Use slideNext which handles loop automatically
-									mainSwiper.slideNext();
-								}
-							}, false);
-						}
-
-						if (prevButton) {
-							prevButton.addEventListener('click', function(e) {
-								if (mainSwiper && mainSwiper.initialized) {
-									// Use slidePrev which handles loop automatically
-									mainSwiper.slidePrev();
-								}
-							}, false);
-						}
-					}
-					// Add reliable click handlers to each thumbnail slide
-					const thumbSlides = thumbSwiperEl.querySelectorAll('.swiper-slide');
-					thumbSlides.forEach(function(slide, index) {
-						slide.style.cursor = 'pointer';
-						
-						// Create a robust click handler
-						const handleThumbClick = function(e) {
-							e.preventDefault();
-							e.stopPropagation();
-							
-							// Ensure main swiper exists and is ready
-							if (mainSwiper && mainSwiper.initialized) {
-								// Navigate to the clicked slide (use realIndex for loop compatibility)
-								mainSwiper.slideToLoop(index, 300);
-								
-								// Also update thumbnail swiper to show active state
-								if (thumbSwiper && thumbSwiper.initialized) {
-									thumbSwiper.slideTo(index, 300);
-								}
-							}
-						};
-						
-						// Remove any existing handler and add new one
-						slide.removeEventListener('click', handleThumbClick);
-						slide.addEventListener('click', handleThumbClick);
-					});
-
-					// Listen to main swiper slideChange to sync thumbnails
-					mainSwiper.on('slideChange', function() {
-						if (thumbSwiper && thumbSwiper.initialized) {
-							// Use realIndex to get the actual slide index (accounts for loop)
-							const realIndex = mainSwiper.realIndex;
-							// Ensure realIndex is within valid range
-							if (realIndex >= 0 && realIndex < thumbSwiper.slides.length) {
-								if (thumbSwiper.activeIndex !== realIndex) {
-									thumbSwiper.slideTo(realIndex, 300);
-								}
-							}
-						}
-					});
-
-					// Backup: Listen to thumbnail swiper slideChange
-					thumbSwiper.on('slideChange', function() {
-						if (mainSwiper && mainSwiper.initialized) {
-							const activeIndex = thumbSwiper.activeIndex;
-							// Use slideToLoop for proper loop handling
-							if (activeIndex >= 0 && activeIndex < mainSwiper.slides.length) {
-								mainSwiper.slideToLoop(activeIndex, 300);
-							}
-						}
-					});
-
-					console.log('Awards Gallery: Thumbnail gallery initialized successfully');
-				}, 100);
-			}, 50);
-		} catch (error) {
-			console.error('Awards Gallery: Error initializing thumbnail gallery', error);
-		}
-	} else {
-		console.warn('Awards Gallery: Swiper elements not found');
-	}
-});

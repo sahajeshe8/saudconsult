@@ -159,11 +159,34 @@ $active_item = ! empty( $content_items ) ? $content_items[0] : array();
 
 	<div class="engineering_expertise_content_01" data-expertise-container>
 		<div class="expertise_image_wrapper">
-			<?php if ( ! empty( $active_item ) && isset( $active_item['image'] ) ) : ?>
-				<img src="<?php echo esc_url( $active_item['image'] ); ?>" alt="<?php echo esc_attr( isset( $active_item['title'] ) ? $active_item['title'] : '' ); ?>" class="expertise_active_image expertise_image_1">
-				<img src="<?php echo esc_url( $active_item['image'] ); ?>" alt="<?php echo esc_attr( isset( $active_item['title'] ) ? $active_item['title'] : '' ); ?>" class="expertise_active_image expertise_image_2" style="opacity: 0;">
-			<?php endif; ?>
+			<?php
+				// Use the first item's image for initial display
+				$initial_img = ! empty( $active_item ) && isset( $active_item['image'] ) ? $active_item['image'] : get_template_directory_uri() . '/assets/images/infrastructure.jpg';
+				$initial_img_mobile = ! empty( $active_item ) && isset( $active_item['image_mobile'] ) ? $active_item['image_mobile'] : ( ! empty( $active_item ) && isset( $active_item['image'] ) ? $active_item['image'] : get_template_directory_uri() . '/assets/images/about-img-02.jpg' );
+				$bg_style = 'background: url(' . esc_attr( $initial_img ) . ') center center / cover no-repeat;';
+			?>
+			<div class="expertise_active_image expertise_image_1" role="img" aria-label="<?php echo esc_attr( isset( $active_item['title'] ) ? $active_item['title'] : 'Engineering Expertise' ); ?>"
+				data-desktop-bg="<?php echo esc_url( $initial_img ); ?>"
+				data-mobile-bg="<?php echo esc_url( $initial_img_mobile ); ?>"
+				style="<?php echo esc_attr( $bg_style ); ?>"></div>
+			<div class="expertise_active_image expertise_image_2" role="img" aria-label="<?php echo esc_attr( isset( $active_item['title'] ) ? $active_item['title'] : 'Engineering Expertise' ); ?>"
+				data-desktop-bg="<?php echo esc_url( $initial_img ); ?>"
+				data-mobile-bg="<?php echo esc_url( $initial_img_mobile ); ?>"
+				style="<?php echo esc_attr( $bg_style ); ?>"></div>
+		
+		
+		
 		</div>
+
+
+
+
+
+
+
+
+
+		
 		
 		<div class="expertise_thumb_row_content">
 			<div class="wrap">
@@ -195,6 +218,7 @@ $active_item = ! empty( $content_items ) ? $content_items[0] : array();
 						<?php foreach ( $content_items as $index => $item ) : 
 							$item_label = isset( $item['label'] ) ? $item['label'] : '';
 							$item_image = isset( $item['image'] ) ? $item['image'] : '';
+							$item_image_mobile = isset( $item['image_mobile'] ) ? $item['image_mobile'] : $item_image;
 							$item_title = isset( $item['title'] ) ? $item['title'] : '';
 							$item_description = isset( $item['description'] ) ? $item['description'] : '';
 							$item_button_text = isset( $item['button_text'] ) ? $item['button_text'] : '';
@@ -204,6 +228,7 @@ $active_item = ! empty( $content_items ) ? $content_items[0] : array();
 							<li class="expertise_list_item <?php echo esc_attr( $is_active ); ?>" 
 								data-index="<?php echo esc_attr( $index ); ?>"
 								data-image="<?php echo esc_url( $item_image ); ?>"
+								data-image-mobile="<?php echo esc_url( $item_image_mobile ); ?>"
 								data-title="<?php echo esc_attr( $item_title ); ?>"
 								data-description="<?php echo esc_attr( $item_description ); ?>"
 								data-button-text="<?php echo esc_attr( $item_button_text ); ?>"
@@ -216,5 +241,10 @@ $active_item = ! empty( $content_items ) ? $content_items[0] : array();
 			<?php endif; ?>
 		</div>
 	</div>
+
+
+
+
+	
 </section>
 

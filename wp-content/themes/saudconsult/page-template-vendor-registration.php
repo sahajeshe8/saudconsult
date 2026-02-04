@@ -464,26 +464,46 @@ get_header();
 							<!-- Left Column -->
 							<div class="vendor_registration_form_col">
 								<ul class="career-form-list-ul">
-									<li>
-										<label class="vendor_form_label">Do you have valid ISO Certificates?</label>
-										<div class="vendor_input_with_button">
-											<input class="input" type="text" id="iso-cert-input" name="iso_cert_file_name" required>
-											<input type="file" id="iso-cert-upload" name="iso_cert_file" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" class="file-input-hidden" data-fill-target="#iso-cert-input">
-											<label for="iso-cert-upload" class="btn_style btn_green_02 vendor-attach-btn">Attach Copy</label>
+									<li class="vendor_radio_group_li vendor_radio_group_li_2">
+										<div class="vendor_radio_group">
+											<label class="vendor_radio_label">Do you have valid ISO Certificates?</label>
+											<div class="vendor_radio_options">
+												<label class="vendor_radio_option">
+													<input type="radio" name="has_iso_cert" value="yes" checked required>
+													<span class="vendor_radio_custom"></span>
+													<span class="vendor_radio_text">Yes</span>
+												</label>
+												<label class="vendor_radio_option">
+													<input type="radio" name="has_iso_cert" value="no" required>
+													<span class="vendor_radio_custom"></span>
+													<span class="vendor_radio_text">No</span>
+												</label>
+											</div>
 										</div>
 									</li>
-								</ul>
-							</div>
 
-							<!-- Right Column -->
-							<div class="vendor_registration_form_col">
-								<ul class="career-form-list-ul">
+
 									<li>
 										<label class="vendor_form_label">Please attach company profile</label>
 										<div class="vendor_input_with_button">
 											<input class="input" type="text" id="company-profile-01-input" name="company_profile_01_file_name">
 											<input type="file" id="company-profile-01-upload" name="company_profile_01_file" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" class="file-input-hidden" data-fill-target="#company-profile-01-input">
 											<label for="company-profile-01-upload" class="btn_style btn_green_02 vendor-attach-btn">Attach Copy</label>
+										</div>
+									</li>
+									
+								</ul>
+							</div>
+
+							<!-- Right Column -->
+							<div class="vendor_registration_form_col">
+								<ul class="career-form-list-ul">
+								<li>
+										<label class="vendor_form_label">If yes, please attach a valid copy</label>
+										<div class="vendor_input_with_button">
+											<input class="input" type="text" id="iso-cert-input" name="iso_cert_file_name">
+											<input type="file" id="iso-cert-upload" name="iso_cert_file" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" class="file-input-hidden" data-fill-target="#iso-cert-input">
+											<label for="iso-cert-upload" class="btn_style btn_green_02 vendor-attach-btn">Attach Copy</label>
 										</div>
 									</li>
 								</ul>

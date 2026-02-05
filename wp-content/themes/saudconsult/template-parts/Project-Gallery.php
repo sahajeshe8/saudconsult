@@ -52,11 +52,23 @@ $wrapper_class_string = implode( ' ', array_map( 'esc_attr', $wrapper_classes ) 
 											<?php if ( $is_video && $video_url ) : 
 												// Convert YouTube URL to embed format for Fancybox
 												$fancybox_video_url = $video_url;
-												// If it's a YouTube watch URL, keep it as is (Fancybox handles it)
-												if ( strpos( $video_url, 'youtube.com/watch' ) !== false ) {
-													parse_str( parse_url( $video_url, PHP_URL_QUERY ), $youtube_params );
-													if ( isset( $youtube_params['v'] ) ) {
-														$fancybox_video_url = 'https://www.youtube.com/watch?v=' . $youtube_params['v'];
+												// If it's a YouTube watch URL, ensure controls parameter is included
+												if ( strpos( $video_url, 'youtube.com/watch' ) !== false || strpos( $video_url, 'youtu.be' ) !== false ) {
+													// Extract video ID
+													$video_id = '';
+													if ( strpos( $video_url, 'youtube.com/watch' ) !== false ) {
+														parse_str( parse_url( $video_url, PHP_URL_QUERY ), $youtube_params );
+														if ( isset( $youtube_params['v'] ) ) {
+															$video_id = $youtube_params['v'];
+														}
+													} elseif ( strpos( $video_url, 'youtu.be' ) !== false ) {
+														$path = parse_url( $video_url, PHP_URL_PATH );
+														$video_id = ltrim( $path, '/' );
+													}
+													
+													if ( $video_id ) {
+														// Build URL with controls parameter
+														$fancybox_video_url = 'https://www.youtube.com/watch?v=' . $video_id . '&controls=1';
 													}
 												}
 											?>

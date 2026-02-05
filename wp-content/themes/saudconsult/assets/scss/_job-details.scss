@@ -1,5 +1,11 @@
 
-.job_main_title{ font-size: 30px; font-weight:400; margin: 0; line-height: 100%;}
+.job_main_title{ font-size: 30px; font-weight:400; margin: 0; line-height: 100%;
+
+
+@media screen and (max-width: 820px) {
+	font-size: 24px;
+}
+}
 .job_details_header{ margin-bottom:10px;}
 
 .job_info_list{margin: 0; margin-top: 25px; padding: 0; margin-bottom: 30px;
@@ -11,6 +17,10 @@
 
         span{ font-weight:600;}
     }
+
+	@media screen and (max-width: 820px) {
+		margin-top:10px;
+	}
 }
 
 .job_posted_date, .job_location{ font-size: 16px;
@@ -517,6 +527,12 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+
+	@media screen and (max-width: 700px) {
+		padding: 20px 20px;
+		min-height: 85px;
+
+	}
 }
 
 .resume-upload-button {
@@ -535,6 +551,11 @@
 	&:hover {
 		background: #A9D159;
 		color: #101922;
+	}
+
+
+	@media screen and (max-width: 700px) {
+		padding: 8px 40px; font-size: 14px;
 	}
 }
 
@@ -563,8 +584,8 @@
 }
 
 .education-checkbox {
-	width: 20px;
-	height: 20px;
+	width: 23px;
+	height: 23px;
 	cursor: pointer;
 	border-radius:5px;
 	appearance: none;
@@ -577,10 +598,10 @@
 	&:checked {
 		background-color: #0d6a37;
 		border-color: #0d6a37;
-		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23fff' d='M10 3L4.5 8.5 2 6l1.5-1.5L4.5 6l4-4z'/%3E%3C/svg%3E");
+		background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2212%22%20height%3D%2211%22%20viewBox%3D%220%200%2012%2011%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M0.839844%204.18406L3.74307%208.66406L10.8398%200.664062%22%20stroke%3D%22%23FFFDFD%22%20stroke-width%3D%222%22/%3E%3C/svg%3E");
 		background-repeat: no-repeat;
 		background-position: center;
-		background-size: 12px 12px;
+		background-size: 12px 11px;
 	}
 }
 

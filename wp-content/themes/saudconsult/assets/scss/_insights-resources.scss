@@ -48,15 +48,27 @@
 		
 		.view-all-button-wrapper {
 			width: auto;
-			
-			@media screen and (max-width: 700px) {
+		}
+
+		// Top button (desktop / larger screens)
+		.view-all-button-wrapper--top {
+			@media screen and (max-width: 820px) {
+				display: none;
+			}
+		}
+	}
+
+	// Bottom button (mobile-only) - placed under the swiper
+	.view-all-button-wrapper--bottom {
+		display: none;
+
+		@media screen and (max-width: 820px) {
+			display: block;
+			margin-top: 20px;
+
+			.btn_style {
 				width: 100%;
-				margin-top: 15px;
-				
-				.btn_style {
-					width: 100%;
-					justify-content: center;
-				}
+				justify-content: center;
 			}
 		}
 	}
@@ -96,7 +108,14 @@
 		text-decoration: none;
 		color: inherit;
 	} 
-.insights_item_content{ margin-top: 20px;}
+.insights_item_content{ margin-top: 20px;
+
+
+	 @media (max-width: 700px) {
+		margin-top: 10px !important;
+		margin-bottom: 10PX;
+	 }
+}
     .latest_news_text_lable{ color: #0D6A37; font-size: 15px; font-weight: 400;}
     .insights_item_content{
         h4{ margin: 0; font-size: 18px; color: #101922; font-weight:500; line-height: 120%;   margin-bottom:5px;
@@ -178,7 +197,7 @@ a{ color: #000  ;}
 }
 
 
-.latest_news_text_lable_new{  top: 10%; left: 10%; z-index: 2 ; display: inline-flex; color: #fff; background: #000; border-radius:25px; font-weight: 600; padding: 2px 10px; font-size: 12px; font-weight:300; 
+.latest_news_text_lable_new{  top: 10%; left: 10%; z-index: 2 ; display: inline-flex; color: #fff; background: #000; border-radius:25px; font-weight: 600; padding: 2px 10px; font-size: 13px; font-weight:300; 
 	@media screen and (max-width:768px) {
 		  font-size: 11px;
 	}

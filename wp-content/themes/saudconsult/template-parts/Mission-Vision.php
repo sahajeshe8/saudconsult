@@ -23,7 +23,7 @@ $section_class = isset( $args['section_class'] ) ? $args['section_class'] : '';
 
 ?>
 
-<section class="mission_vision_section pt_120 pb_120 <?php echo esc_attr( $section_class ); ?>">
+<section class="mission_vision_section pt_100 pb_100 <?php echo esc_attr( $section_class ); ?>">
 	<div class="wrap">
 		<div class="mission_vision_container">
 			<?php if ( $vision_title || $vision_content ) : ?>

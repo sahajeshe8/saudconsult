@@ -39,7 +39,7 @@ get_header();
 
 
 
-<section class="pt_120 pb_20">
+<section class="pt_100 pb_20">
 		<div class="wrap">
 			<h3 class="h3_title_50">
             Our Visionary <span>Leadership</span>

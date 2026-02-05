@@ -220,6 +220,11 @@
 	@media (max-width: 700px) {
 		 width: 100%;
 	}
+	.wpcf7-form-control-wrap{
+		display: flex;
+		flex-wrap: wrap;
+		gap: 45px;
+	}
 }
 
 .vendor_radio_option {

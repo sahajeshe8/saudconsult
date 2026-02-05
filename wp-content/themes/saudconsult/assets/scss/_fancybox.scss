@@ -25,6 +25,15 @@
 		height: 100% !important;
 		object-fit: cover;
 		display: block;
+		position: relative;
+		z-index: 1; // Ensure iframe is above overlays
+	}
+	
+	// Specifically for iframes (videos), ensure they're clickable and above everything
+	.fancybox__content iframe {
+		z-index: 10 !important;
+		position: relative;
+		pointer-events: auto !important;
 	}
 
 	.fancybox__caption {
@@ -35,7 +44,8 @@
 	.fancybox__content {
 		position: relative;
 
-		&::after {
+		// Overlay only for images, not videos (to allow video controls to work)
+		&:has(img):not(:has(iframe))::after {
 			content: '';
 			position: absolute;
 			top: 0;
@@ -43,6 +53,34 @@
 			width: 100%;
 			height: 100%;
 			background: rgba(0, 0, 0, 0.2);
+			pointer-events: none;
+			z-index: 1;
+		}
+		
+		// For browsers that don't support :has(), use a fallback
+		&::after {
+			content: '';
+			display: none;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba(0, 0, 0, 0.2);
+			pointer-events: none;
+			z-index: 1;
+		}
+		
+		// Completely remove overlay when iframe (video) is present
+		&:has(iframe)::after {
+			display: none !important;
+			content: none !important;
+		}
+		
+		// Also hide overlay for video slides using data attribute
+		&[data-type="video"]::after {
+			display: none !important;
+			content: none !important;
 		}
 
 		.fancybox-custom-nav {
@@ -52,7 +90,7 @@
 			width: 100%;
 			height: 100%;
 			pointer-events: none;
-			z-index: 10;
+			z-index: 5; // Lower than iframe z-index
 			
 			button {
 				width: 38px;

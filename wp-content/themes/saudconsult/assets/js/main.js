@@ -738,6 +738,11 @@ var swiper = new Swiper(".mySwiper-clients", {
 				slidesPerView: 1.3,
 				spaceBetween: 10,
 				loop: true,
+				// Autoplay on mobile only
+				autoplay: {
+					delay: 3000,
+					disableOnInteraction: false,
+				},
 				navigation: {
 					nextEl: nextButton,
 					prevEl: prevButton,
@@ -754,14 +759,17 @@ var swiper = new Swiper(".mySwiper-clients", {
 					768: {
 						slidesPerView: 2,
 						spaceBetween: 25,
+						autoplay: false, // Disable autoplay on tablet/desktop
 					},
 					1024: {
 						slidesPerView: 3,
 						spaceBetween: 30,
+						autoplay: false,
 					},
 					1280: {
 						slidesPerView: 4,
 						spaceBetween: 20,
+						autoplay: false,
 					},
 				},
 			});
@@ -1736,6 +1744,10 @@ var swiper = new Swiper(".mySwiper-clients", {
 				noCookie: false,
 				rel: 0,
 				showinfo: 0,
+				controls: 1, // Enable player controls (pause, play, etc.)
+				modestbranding: 1,
+				fs: 1, // Allow fullscreen
+				iv_load_policy: 3,
 			},
 			Vimeo: {
 				byline: false,
@@ -1755,6 +1767,9 @@ var swiper = new Swiper(".mySwiper-clients", {
 					const content = slide.el.querySelector('.fancybox__content');
 					if (!content) return;
 					
+					// Check if this is a video (has iframe)
+					const isVideo = content.querySelector('iframe') !== null;
+					
 					// Check if buttons already exist to avoid duplicates
 					if (content.querySelector('.fancybox-custom-nav') || content.querySelector('.fancybox-custom-close')) {
 						return;
@@ -1763,6 +1778,10 @@ var swiper = new Swiper(".mySwiper-clients", {
 					// Create navigation wrapper
 					const navWrapper = document.createElement('div');
 					navWrapper.className = 'fancybox-custom-nav';
+					// For videos, ensure navigation doesn't block clicks
+					if (isVideo) {
+						navWrapper.style.pointerEvents = 'none';
+					}
 					
 					// Create prev button
 					const prevBtn = document.createElement('button');
@@ -2148,15 +2167,20 @@ var swiper = new Swiper(".mySwiper-clients", {
 	}
 })();
 
-// Same Month Events Swiper
+// Same Month Events Swiper (autoplay only on mobile)
 var sameMonthEventsSwiper = new Swiper(".same_month_events_swiper", {
 	slidesPerView: 1,
 	spaceBetween: 20,
 	loop: true,
+	autoplay: {
+		delay: 3000,
+		disableOnInteraction: false,
+	},
 	breakpoints: {
 		768: {
 			slidesPerView: 2,
 			spaceBetween: 30,
+			autoplay: false, // Disable autoplay on tablet/desktop
 		},
 	},
 });

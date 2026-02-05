@@ -244,12 +244,12 @@
 											</a>
 										</li>
 										<?php
-										$our_team_url = home_url( '/our-team' );
-										$our_team_active = is_current_menu_item( $our_team_url );
+										$vision_url = home_url( '/vision-mission-values' );
+										$vision_active = is_current_menu_item( $vision_url );
 										?>
-										<li class="<?php echo $our_team_active ? 'active' : ''; ?>">
-										<a href="<?php echo esc_url( $our_team_url ); ?>" class="<?php echo $our_team_active ? 'active' : ''; ?>">
-										Our Team  <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/menu-arrow.svg' ); ?>" alt="Arrow Down">
+										<li class="<?php echo $vision_active ? 'active' : ''; ?>">
+										<a href="<?php echo esc_url( $vision_url ); ?>" class="<?php echo $vision_active ? 'active' : ''; ?>">
+										Vision, Mission & Values <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/menu-arrow.svg' ); ?>" alt="Arrow Down">
 											</a>
 										</li>
 										<?php
@@ -262,6 +262,15 @@
 											</a>
 										</li>
 										<?php
+										$our_team_url = home_url( '/our-team' );
+										$our_team_active = is_current_menu_item( $our_team_url );
+										?>
+										<li class="<?php echo $our_team_active ? 'active' : ''; ?>">
+										<a href="<?php echo esc_url( $our_team_url ); ?>" class="<?php echo $our_team_active ? 'active' : ''; ?>">
+										Our Team  <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/menu-arrow.svg' ); ?>" alt="Arrow Down">
+											</a>
+										</li>
+										<?php
 										$journey_url = home_url( '/our-journey-legacy' );
 										$journey_active = is_current_menu_item( $journey_url );
 										?>
@@ -270,17 +279,6 @@
 										Our Journey & Legacy <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/menu-arrow.svg' ); ?>" alt="Arrow Down">
 											</a>
 										</li>
-
-										<?php
-										$vision_url = home_url( '/vision-mission-values' );
-										$vision_active = is_current_menu_item( $vision_url );
-										?>
-										<li class="<?php echo $vision_active ? 'active' : ''; ?>">
-										<a href="<?php echo esc_url( $vision_url ); ?>" class="<?php echo $vision_active ? 'active' : ''; ?>">
-										Vision, Mission & Values <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/menu-arrow.svg' ); ?>" alt="Arrow Down">
-											</a>
-										</li>
-
 										<?php
 										$milestones_url = home_url( '/company-milestones' );
 										$milestones_active = is_current_menu_item( $milestones_url );
@@ -290,7 +288,6 @@
 										Company Milestones <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/menu-arrow.svg' ); ?>" alt="Arrow Down">
 											</a>
 										</li>
-
 										<?php
 										$awards_url = home_url( '/awards' );
 										$awards_active = is_current_menu_item( $awards_url );

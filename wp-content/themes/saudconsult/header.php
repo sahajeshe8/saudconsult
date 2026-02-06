@@ -426,7 +426,7 @@
                     </ul>
 
                     <div class="menu_right_block">
-<a href="#login-popup" class="user-login-trigger" data-fancybox="login-popup">
+<a href="#login-popup" class="user-login-trigger" data-fancybox="">
                       <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/user-logon.svg' ); ?>" alt="User Icon">
                     </a>
 
@@ -444,7 +444,7 @@
 
             <div class="mobile_header_actions">
                 <div class="menu_right_block menu_right_block_mobile">
-<a href="#login-popup" class="user-login-trigger" data-fancybox="login-popup">
+<a href="#login-popup" class="user-login-trigger" data-fancybox="">
                       <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/user-logon.svg' ); ?>" alt="User Icon">
                     </a>
 
@@ -578,7 +578,7 @@
 
 	<div class="form-bottom-txt">
 		<h5>Not a registered user yet?</h5>
-		 <p><a href="#job-form-popup" class="text_black" data-fancybox="job-form">Create an account</a>  to apply for our career opportunities.</p> 
+		 <p><a href="#job-form-popup" class="text_black" data-fancybox="job-form" >Create an account</a>  to apply for our career opportunities.</p> 
 		<span class="or_span">or</span><br>
 		<p><a href="<?php echo esc_url( home_url( '/apply-as-a-guest' ) ); ?>" class="text_black">Apply as a Guest</a></p>
 	</div>
@@ -665,7 +665,7 @@
 
 		<div class="form-bottom-txt">
 			<h5>Not a registered user yet?</h5>
-			<p><a href="#" class="text_black swap-to-signup" data-swap-view="signup">Create an account</a> to apply for our career opportunities.</p> 
+			<p><a href="#" class="text_black swap-to-signup" >Create an account</a> to apply for our career opportunities.</p> 
 		</div>
 	</div>
 
@@ -699,7 +699,7 @@
 		</ul>
 
 		<div class="form-bottom-txt">
-			<p>Already a registered user? <a href="#" class="text_black swap-to-signin" data-swap-view="signin">Please sign in</a></p>
+			<p>Already a registered user? <a href="#" class="text_black swap-to-signin"  >Please sign in</a></p>
 		</div>
 	</div>
 </div>

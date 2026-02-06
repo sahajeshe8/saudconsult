@@ -55,7 +55,7 @@
 		}
 
 		&:hover {
-			.leadership_img {
+			.leadership_content_bottom {  
 				img {
 					transform: scale(1.1);
 				}
@@ -76,6 +76,7 @@
 				font-weight: 400;
 				color:#222222;
 				 line-height: 1;
+				 margin-bottom: 1px;
 			}
 
 			p {
@@ -103,8 +104,14 @@
 				align-items: center;
 				transition: transform 0.3s ease;
 
-				&:hover {
-					transform: translateX(5px);
+				 
+			}
+		}
+
+		&:hover {
+			.leadership_content_bottom {
+				img {
+					transform: scale(1.1);
 				}
 			}
 		}

@@ -138,7 +138,7 @@ get_header();
 							<li>
 								<label class="vendor_form_label">Area of expertise for your company (Select all that applied) *</label>
 								<div class="select-wrapper">
-									<select class="input select-input" name="area_expertise" required>
+									<select class="input select-input" name="area_expertise[]" multiple required>
 										<option value="">(Select all that applied) *</option>
 										<option value="legal-and-law">Legal and Law</option>
 										<option value="engineering-design">Engineering – Design</option>
@@ -174,7 +174,7 @@ get_header();
 							<li>
 								<label class="vendor_form_label">In Which sectors the company contribute in (Select all that applied) *</label>
 								<div class="select-wrapper">
-									<select class="input select-input" name="sectors" required>
+									<select class="input select-input" name="sectors[]" multiple required>
 										<option value="">(Select all that applied) *</option>
 										<option value="defense-and-aviation">Defense and Aviation</option>
 										<option value="heritage-and-culture">Heritage and Culture</option>

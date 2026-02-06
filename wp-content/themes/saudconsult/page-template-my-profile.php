@@ -250,7 +250,7 @@ get_header();
 					</div>
 
 					<div class="form-buttion-row flex-align-right">
-						<a href="#login-popup-training-submit" class="btn_style but_black" data-fancybox="login-popup-training">Submit Application</a>
+						<a href="#login-popup-training-submit" class="btn_style but_black"  data-fancybox-initialized="true">Submit Application</a>
 					</div>
 				</div>
 			</div>

@@ -107,12 +107,14 @@
 			p{ color: #fff !important;
 				rect{ fill: #fff !important;}
 			}
+
+			img{  filter: invert(1); }
 			 
 		}
 
 		rect{ fill: #2388FF;}
 	}
-    .leadership_content{ padding:3.3% 6%; width: 100%; background: #f6f6f6 url('../images/leadershiop_bg_01.png') no-repeat center center; background-size: contain;
+    .leadership_content{ padding:17px 6%; width: 100%; background: #f6f6f6 url('../images/leadershiop_bg_01.png') no-repeat center center; background-size: contain;
         h4{ margin: 0;  font-size: 22px; font-weight: 400; color: #101922;}
         p{ margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 10px; font-weight: 400;
 			@media screen and (max-width:820px) {

@@ -174,14 +174,38 @@
     }
   }
 
-  .footer_email_input {
-    width: calc(100% - 154px);
+  .wpcf7-form-control-wrap{
+    width: calc(100% - 156px);
     background: transparent;
     outline: none;
     border: none;
     padding: 0 20px;
     font-size: 16px;
     color: #fff;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap; 
+ 
+    .footer_email_input {
+      width: 100%;
+    }
+  }
+
+
+
+
+  .footer_email_input {
+    width: calc(100% - 156px);
+    background: transparent;
+    outline: none;
+    border: none;
+    padding: 0 20px;
+    font-size: 16px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap; 
+ 
   }
 
   .footer_row_03_ul {

@@ -75,7 +75,11 @@ $leadership_members = isset( $args['leadership_members'] ) ? $args['leadership_m
 									<?php endif; ?>
 									<?php if ( $member_position ) : ?>
 										<div class="leadership_content_bottom">
-											<p><img src="<?php echo get_template_directory_uri(); ?>/assets/images/green-dot.svg" alt="Position"> <?php echo esc_html( $member_position ); ?></p>
+											<p>
+											<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+<rect y="7.07129" width="10" height="10" transform="rotate(-45 0 7.07129)" fill="#A9D159"/>
+</svg>
+											<?php echo esc_html( $member_position ); ?></p>
 											<?php if ( $member_linkedin ) : ?>
 												<a href="<?php echo esc_url( $member_linkedin ); ?>">
 												<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">

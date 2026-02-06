@@ -76,7 +76,7 @@ get_header();
 					</div>
 
 					<div class="job_apply_action">
-						<a href="#login-popup-training" class="btn_style btn_transparent but_black" data-fancybox="login-popup-training">
+						<a href="#login-popup-training" class="btn_style btn_transparent but_black"  >
 							Apply Now <span><img src="<?php echo get_template_directory_uri(); ?>/assets/images/buttion-arrow.svg" alt="Apply"></span>
 						</a>
 					</div>

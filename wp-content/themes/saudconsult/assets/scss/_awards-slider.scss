@@ -43,8 +43,10 @@
 		position: relative;
 
 		@media screen and (max-width: 1024px) {
-			padding: 30px 50px;
+			padding: 100px 50px;
 		}
+
+		
 
 		@media screen and (max-width: 768px) {
 			padding: 20px 40px;
@@ -74,6 +76,18 @@
 				.award_click_overlay{  display: block;}
 			}
 
+
+			@media screen and (min-width: 820px) {
+				&.swiper-slide-active {
+					transform: scale(1.2);
+					z-index: 100;
+					opacity: 1;
+	
+					img{ opacity: 1 !important;}
+				}
+
+			}
+
 			@media screen and (min-width: 1200px) {
 			&.swiper-slide-active {
 				transform: scale(1.8);
@@ -100,7 +114,7 @@
 				display: flex;
 				flex-direction: column;
 				background: #fff;
-				border-radius: 8px;
+				// border-radius: 8px;
 				overflow: hidden;
 			 
 				transition: all 0.3s ease;
@@ -273,6 +287,8 @@
 
 }
 .slider-block-03{ width:56%; position: relative;
+
+
 @media screen and (max-width: 768px) {
 	width: 100%;
 }
@@ -283,16 +299,18 @@
 
     .slider_buttion{ cursor: pointer;  width: 58px; height: 58px; border-radius: 100%; background: #A9D159; display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
         &.but_prev{ transform: rotate(180deg);}
-        &:hover{ background: #fff;
-            img{ 
-               -webkit-filter: invert(1);
-               filter: invert(1); 
-            }
+        &:hover{ background: #000;
+            // img{ 
+            //    -webkit-filter: invert(1);
+            //    filter: invert(1); 
+            // }
         }
 
        
 
         @media screen and (max-width:700px) {  width: 46px; height: 46px; }
+
+		.slider_arrow_block{margin-bottom: 0 !important;}
     }
     @media screen and (max-width:700px) {  position: unset !important; width: 100%; margin-top: 20px; padding-bottom:10px; justify-content: flex-end; }
 }
@@ -302,7 +320,9 @@
 	 width:100%;  
 }
 
-.slider_arrow_block{margin-bottom: 0; margin-bottom: 20px; top: unset;}
+.slider_arrow_block{margin-bottom: 0 !important; top: unset;}
+
+
 }
 
 .swiper-slide-inner-img{  width: 50%; 
@@ -433,8 +453,8 @@ p{
 		}
 
 		img {
-			width: 24px;
-			height: 24px;
+			width: 18px;
+			height: 18px;
 			transition: transform 0.3s ease;
 		}
 

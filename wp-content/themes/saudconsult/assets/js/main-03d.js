@@ -1747,7 +1747,6 @@ var swiper = new Swiper(".mySwiper-clients", {
 
 		// Initialize Fancybox for both images and videos in the same gallery
 		Fancybox.bind('[data-fancybox="project-gallery"]', {
-			dragToClose: false, // Disable drag to close
 			Toolbar: {
 				display: {
 					left: [],
@@ -1757,19 +1756,12 @@ var swiper = new Swiper(".mySwiper-clients", {
 			},
 			Carousel: {
 				Navigation: false, // Disable default navigation
-				Dots: false, // Disable dots navigation
-				infinite: false, // Disable infinite loop
 			},
 			Thumbs: {
 				autoStart: false,
 			},
 			Image: {
 				zoom: true,
-			},
-			Panzoom: {
-				panOnlyZoomed: false,
-				disablePan: true, // Disable panning/dragging
-				disableZoom: false, // Keep zoom enabled
 			},
 			Video: {
 				autoplay: true,
@@ -1795,11 +1787,6 @@ var swiper = new Swiper(".mySwiper-clients", {
 			},
 			on: {
 				'reveal': function(fancybox, slide) {
-					// Disable touch/swipe gestures
-					if (fancybox.container) {
-						fancybox.container.style.touchAction = 'none';
-					}
-					
 					// Add class to container to identify project gallery
 					const container = fancybox.container;
 					if (container) {
@@ -1928,7 +1915,6 @@ var swiper = new Swiper(".mySwiper-clients", {
 
 		// Initialize Fancybox for award images
 		Fancybox.bind('[data-fancybox="award-gallery"]', {
-			dragToClose: false, // Disable drag to close
 			Toolbar: {
 				display: {
 					left: [],
@@ -1938,8 +1924,6 @@ var swiper = new Swiper(".mySwiper-clients", {
 			},
 			Carousel: {
 				Navigation: false, // Disable default navigation
-				Dots: false, // Disable dots navigation
-				infinite: false, // Disable infinite loop
 			},
 			Thumbs: {
 				autoStart: false,
@@ -1947,18 +1931,8 @@ var swiper = new Swiper(".mySwiper-clients", {
 			Image: {
 				zoom: true,
 			},
-			Panzoom: {
-				panOnlyZoomed: false,
-				disablePan: true, // Disable panning/dragging
-				disableZoom: false, // Keep zoom enabled
-			},
 			on: {
 				'reveal': function(fancybox, slide) {
-					// Disable touch/swipe gestures
-					if (fancybox.container) {
-						fancybox.container.style.touchAction = 'none';
-					}
-					
 					// Add class to container to identify award gallery
 					const container = fancybox.container;
 					if (container) {
@@ -2440,8 +2414,8 @@ var sameMonthEventsSwiper = new Swiper(".same_month_events_swiper", {
 			return;
 		}
 
-		// Get the job form popup link - check for href="#job-form-popup" instead of data-fancybox group
-		const jobFormLink = document.querySelector('a[href="#job-form-popup"]');
+		// Get the job form popup link - check multiple times to ensure it's loaded
+		const jobFormLink = document.querySelector('[data-fancybox="job-form"]');
 		
 		if (!jobFormLink) {
 			if (retryCount < maxRetries) {
@@ -2463,9 +2437,8 @@ var sameMonthEventsSwiper = new Swiper(".same_month_events_swiper", {
 			// Mark as initialized
 			jobFormLink.setAttribute('data-fancybox-initialized', 'true');
 			
-			// Initialize Fancybox for the job form popup - bind to href instead of data-fancybox group
-			const fancyboxInstance = Fancybox.bind('a[href="#job-form-popup"]', {
-				dragToClose: false, // Disable drag to close
+			// Initialize Fancybox for the job form popup
+			const fancyboxInstance = Fancybox.bind('[data-fancybox="job-form"]', {
 				Toolbar: {
 					display: {
 						left: [],
@@ -2475,8 +2448,6 @@ var sameMonthEventsSwiper = new Swiper(".same_month_events_swiper", {
 				},
 				Carousel: {
 					Navigation: false, // Disable next/previous navigation buttons
-					Dots: false, // Disable dots navigation
-					infinite: false, // Disable infinite loop
 				},
 				closeButton: false, // Disable default close button
 				backdrop: 'auto',
@@ -2484,18 +2455,8 @@ var sameMonthEventsSwiper = new Swiper(".same_month_events_swiper", {
 				trapFocus: true,
 				autoFocus: true,
 				preventCaptionOverlap: false,
-				Panzoom: {
-					panOnlyZoomed: false,
-					disablePan: true, // Disable panning/dragging
-					disableZoom: true, // Disable zoom for forms
-				},
 				on: {
 					'reveal': function(fancybox, slide) {
-						// Disable touch/swipe gestures
-						if (fancybox.container) {
-							fancybox.container.style.touchAction = 'none';
-						}
-						
 						// Focus on first input when popup opens
 						const firstInput = slide.el.querySelector('.input');
 						if (firstInput) {
@@ -2528,7 +2489,7 @@ var sameMonthEventsSwiper = new Swiper(".same_month_events_swiper", {
 						}
 						
 						// Handle "Create an account" link to swap content within same popup
-						const createAccountLink = slide.el.querySelector('a[href="#job-form-popup"]');
+						const createAccountLink = slide.el.querySelector('a[href="#job-form-popup"][data-fancybox="job-form"]');
 						if (createAccountLink) {
 							// Store original content if not already stored
 							if (!slide.el.hasAttribute('data-original-content')) {
@@ -2652,7 +2613,7 @@ var sameMonthEventsSwiper = new Swiper(".same_month_events_swiper", {
 									}
 									
 									// Re-attach create account link handler
-									const newCreateAccountLink = slide.el.querySelector('a[href="#job-form-popup"]');
+									const newCreateAccountLink = slide.el.querySelector('a[href="#job-form-popup"][data-fancybox="job-form"]');
 									if (newCreateAccountLink) {
 										newCreateAccountLink.addEventListener('click', swapToSignUp);
 									}
@@ -2803,7 +2764,6 @@ var sameMonthEventsSwiper = new Swiper(".same_month_events_swiper", {
 			
 			// Initialize Fancybox for the login popups (career + training views)
 			const fancyboxInstance = Fancybox.bind('[data-fancybox="login-popup"], [data-fancybox="login-popup-training"], [data-fancybox="login-popup-training-submit"]', {
-				dragToClose: false, // Disable drag to close
 				Toolbar: {
 					display: {
 						left: [],
@@ -2813,8 +2773,6 @@ var sameMonthEventsSwiper = new Swiper(".same_month_events_swiper", {
 				},
 				Carousel: {
 					Navigation: false, // Disable next/previous navigation buttons
-					Dots: false, // Disable dots navigation
-					infinite: false, // Disable infinite loop
 				},
 				closeButton: false, // Disable default close button
 				backdrop: 'auto',
@@ -2822,11 +2780,6 @@ var sameMonthEventsSwiper = new Swiper(".same_month_events_swiper", {
 				trapFocus: true,
 				autoFocus: true,
 				preventCaptionOverlap: false,
-				Panzoom: {
-					panOnlyZoomed: false,
-					disablePan: true, // Disable panning/dragging
-					disableZoom: true, // Disable zoom for forms
-				},
 				on: {
 					'reveal': function(fancybox, slide) {
 						// Reset to sign-in view when popup opens (only for login-popup, not training popups)
@@ -3063,27 +3016,15 @@ var sameMonthEventsSwiper = new Swiper(".same_month_events_swiper", {
 			};
 
 			// Handle clicks on popup triggers - ensure only one popup is open at a time
-			// Works for both data-fancybox elements and href-based popup triggers (like job details page)
 			document.addEventListener('click', function(e) {
 				// Ignore clicks on close buttons - they handle their own closing
 				if (e.target.closest('.form-close-icon')) {
 					return; // Let the close button handler manage the close
 				}
 				
-				// Check for data-fancybox elements OR elements with href pointing to known popups
-				const target = e.target.closest('[data-fancybox]') || 
-				              e.target.closest('a[href="#job-form-popup"]') ||
-				              e.target.closest('a[href="#login-popup"]') ||
-				              e.target.closest('a[href="#login-popup-training"]') ||
-				              e.target.closest('a[href="#login-popup-training-submit"]');
-				
+				const target = e.target.closest('[data-fancybox]');
 				if (target) {
 					const targetHref = target.getAttribute('href');
-					// Skip if href is empty or just "#"
-					if (!targetHref || targetHref === '#') {
-						return;
-					}
-					
 					const currentInstance = Fancybox.getInstance();
 					
 					// Check if there's already an open popup
@@ -3210,23 +3151,12 @@ var sameMonthEventsSwiper = new Swiper(".same_month_events_swiper", {
 		try {
 			// Initialize Fancybox for the design scope video
 			Fancybox.bind('[data-fancybox="design-scope-video"]', {
-				dragToClose: false, // Disable drag to close
 				Toolbar: {
 					display: {
 						left: ['infobar'],
 						middle: [],
 						right: ['close'],
 					},
-				},
-				Carousel: {
-					Navigation: false,
-					Dots: false,
-					infinite: false,
-				},
-				Panzoom: {
-					panOnlyZoomed: false,
-					disablePan: true, // Disable panning/dragging
-					disableZoom: true, // Disable zoom for videos
 				},
 				Video: {
 					autoplay: true,
@@ -3569,50 +3499,34 @@ var swiper = new Swiper(".mySwiper-02", {});
 		// CR Number file upload
 		const crNumberInput = document.getElementById('cr-number-upload');
 		const crNumberTextField = document.getElementById('cr-number-input');
+		
 		if (crNumberInput && crNumberTextField) {
 			crNumberInput.addEventListener('change', function(e) {
 				const file = e.target.files[0];
-				crNumberTextField.value = file ? file.name : '';
+				
+				if (file) {
+					// Display file name in the input field
+					crNumberTextField.value = file.name;
+				} else {
+					crNumberTextField.value = '';
+				}
 			});
 		}
 
 		// VAT Number file upload
 		const vatNumberInput = document.getElementById('vat-number-upload');
 		const vatNumberTextField = document.getElementById('vat-number-input');
+		
 		if (vatNumberInput && vatNumberTextField) {
 			vatNumberInput.addEventListener('change', function(e) {
 				const file = e.target.files[0];
-				vatNumberTextField.value = file ? file.name : '';
-			});
-		}
-
-		// Company profile 01 file upload
-		const companyProfile01Input = document.getElementById('company-profile-01-upload');
-		const companyProfile01TextField = document.getElementById('company-profile-01-input');
-		if (companyProfile01Input && companyProfile01TextField) {
-			companyProfile01Input.addEventListener('change', function(e) {
-				const file = e.target.files[0];
-				companyProfile01TextField.value = file ? file.name : '';
-			});
-		}
-
-		// Company profile 02 (local content certificate) file upload
-		const companyProfile02Input = document.getElementById('company-profile-02-upload');
-		const companyProfile02TextField = document.getElementById('company-profile-02-input');
-		if (companyProfile02Input && companyProfile02TextField) {
-			companyProfile02Input.addEventListener('change', function(e) {
-				const file = e.target.files[0];
-				companyProfile02TextField.value = file ? file.name : '';
-			});
-		}
-
-		// ISO certificate file upload
-		const isoCertInput = document.getElementById('iso-cert-upload');
-		const isoCertTextField = document.getElementById('iso-cert-input');
-		if (isoCertInput && isoCertTextField) {
-			isoCertInput.addEventListener('change', function(e) {
-				const file = e.target.files[0];
-				isoCertTextField.value = file ? file.name : '';
+				
+				if (file) {
+					// Display file name in the input field
+					vatNumberTextField.value = file.name;
+				} else {
+					vatNumberTextField.value = '';
+				}
 			});
 		}
 	};
@@ -3624,85 +3538,6 @@ var swiper = new Swiper(".mySwiper-02", {});
 		});
 	} else {
 		setTimeout(initVendorFileUpload, 100);
-	}
-	// Re-attach when CF7 resets/replaces the form (e.g. after submit or validation)
-	['wpcf7mailsent', 'wpcf7invalid', 'wpcf7submit'].forEach(function(ev) {
-		document.addEventListener(ev, function() { setTimeout(initVendorFileUpload, 100); });
-	});
-})();
-
-// Vendor Registration - Sumo Select Initialization
-(function() {
-	const initVendorSumoSelect = function() {
-		// Check if we're on the vendor registration page
-		const vendorForm = document.querySelector('.vendor_registration_form');
-		if (!vendorForm) {
-			return; // Not on vendor registration page
-		}
-
-		// Check if SumoSelect is available
-		if (typeof jQuery === 'undefined' || typeof jQuery.fn.SumoSelect === 'undefined') {
-			// Retry after a short delay if SumoSelect hasn't loaded yet
-			setTimeout(initVendorSumoSelect, 100);
-			return;
-		}
-
-		// Get all select elements within the vendor registration form
-		const selectElements = vendorForm.querySelectorAll('select.select-input');
-		
-		if (selectElements.length === 0) {
-			return; // No select elements found
-		}
-
-		// Initialize SumoSelect for each select element
-		selectElements.forEach(function(select) {
-			// Skip if already initialized
-			if (select.hasAttribute('data-sumo-select-initialized')) {
-				return;
-			}
-
-			// Mark as initialized
-			select.setAttribute('data-sumo-select-initialized', 'true');
-
-			// Check if this select needs multi-select (has "Select all that applied" in label)
-			const label = select.closest('li') ? select.closest('li').querySelector('label') : null;
-			const labelText = label ? label.textContent : '';
-			const isMultiSelect = labelText.toLowerCase().includes('select all that applied');
-			
-			// Enable multiple selection if needed
-			if (isMultiSelect && !select.hasAttribute('multiple')) {
-				select.setAttribute('multiple', 'multiple');
-			}
-
-			// Initialize SumoSelect
-			jQuery(select).SumoSelect({
-				placeholder: select.getAttribute('multiple') ? '(Select all that applied)' : 'Select',
-				captionFormat: '{0} Selected',
-				captionFormatAllSelected: 'All selected',
-				floatWidth: 0,
-				forceCustomRendering: false,
-				nativeOnDevice: ['Android', 'BlackBerry', 'iPhone', 'iPad', 'iPod', 'Opera Mini', 'IEMobile', 'Silk'],
-				okCancelInMulti: true,
-				selectAll: isMultiSelect, // Enable "Select All" for multi-select fields
-				search: isMultiSelect, // Enable search for multi-select fields with many options
-				searchText: 'Search...',
-				noMatch: 'No matches for "{0}"',
-				prefix: 'sumo_',
-				isClickAwayOk: true,
-				triggerChangeCombined: true,
-				selectAlltext: 'Select All',
-				locale: ['OK', 'Cancel', 'Select All']
-			});
-		});
-	};
-
-	// Initialize when DOM is ready
-	if (document.readyState === 'loading') {
-		document.addEventListener('DOMContentLoaded', function() {
-			setTimeout(initVendorSumoSelect, 200);
-		});
-	} else {
-		setTimeout(initVendorSumoSelect, 200);
 	}
 })();
 

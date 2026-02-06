@@ -493,6 +493,12 @@ function tasheel_scripts()
 	if (is_singular() && comments_open() && get_option('thread_comments')) {
 		wp_enqueue_script('comment-reply');
 	}
+
+	// Enqueue Sumo Select for Vendor Registration page
+	if (is_page_template('page-template-vendor-registration.php')) {
+		wp_enqueue_style('sumo-select-css', 'https://cdn.jsdelivr.net/npm/sumoselect@3.4.8/sumoselect.min.css', array(), '3.4.8');
+		wp_enqueue_script('sumo-select-js', 'https://cdn.jsdelivr.net/npm/sumoselect@3.4.8/jquery.sumoselect.min.js', array('jquery'), '3.4.8', true);
+	}
 }
 add_action('wp_enqueue_scripts', 'tasheel_scripts');
 

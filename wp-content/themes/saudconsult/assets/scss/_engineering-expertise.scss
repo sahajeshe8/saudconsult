@@ -129,7 +129,7 @@
 					.expertise_active_title {
 						margin: 0;
 						margin-bottom: 15px;
-						font-size: 36px;
+						font-size:45px;
 						font-weight: 700;
 						color: #fff;
 						line-height: 1.2;
@@ -213,14 +213,11 @@
 
 			li {
 				margin: 0;
-				padding: 30px 5px;
+
+				padding: 30px 20px;
 				line-height: 100%;
 				background: rgba(255, 255, 255, 0.2);
-                border-image: linear-gradient(
-                    169.25deg,
-                    rgba(255, 255, 255, 0.7) 0%,
-                    rgba(238, 237, 237, 0.35) 100%
-                  );
+                border-right: solid 1px   rgb(141 141 141 / 28%);
 				width: 11.1%;
 				font-size: 16px;
 				font-weight: 300;

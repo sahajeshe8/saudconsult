@@ -13,11 +13,13 @@ $vision_title = isset( $args['vision_title'] ) ? $args['vision_title'] : 'Our Vi
 $vision_title_span = isset( $args['vision_title_span'] ) ? $args['vision_title_span'] : '';
 $vision_content = isset( $args['vision_content'] ) ? $args['vision_content'] : 'To be the leading engineering consultancy firm in Saudi Arabia, recognized for excellence, innovation, and sustainable solutions that shape the future of the built environment.';
 $vision_icon = isset( $args['vision_icon'] ) ? $args['vision_icon'] : '';
+$vision_icon_hover = isset( $args['vision_icon_hover'] ) ? $args['vision_icon_hover'] : get_template_directory_uri() . '/assets/images/vision-fill.svg';
 
 $mission_title = isset( $args['mission_title'] ) ? $args['mission_title'] : 'Our Mission';
 $mission_title_span = isset( $args['mission_title_span'] ) ? $args['mission_title_span'] : '';
 $mission_content = isset( $args['mission_content'] ) ? $args['mission_content'] : 'To deliver exceptional engineering solutions through integrated multidisciplinary expertise, ensuring quality, sustainability, and value for our clients while contributing to the Kingdom\'s development and growth.';
 $mission_icon = isset( $args['mission_icon'] ) ? $args['mission_icon'] : '';
+$mission_icon_hover = isset( $args['mission_icon_hover'] ) ? $args['mission_icon_hover'] : get_template_directory_uri() . '/assets/images/mission-fill.svg';
 
 $section_class = isset( $args['section_class'] ) ? $args['section_class'] : '';
 
@@ -30,7 +32,8 @@ $section_class = isset( $args['section_class'] ) ? $args['section_class'] : '';
 				<div class="mission_vision_item mission_vision_vision" data-aos="fade-up" data-aos-duration="800" data-aos-delay="0">
 					<?php if ( $vision_icon ) : ?>
 						<div class="mission_vision_icon vision-icn-01">
-							<img src="<?php echo esc_url( $vision_icon ); ?>" alt="<?php echo esc_attr( $vision_title ); ?>">
+							<img class="icon-default" src="<?php echo esc_url( $vision_icon ); ?>" alt="<?php echo esc_attr( $vision_title ); ?>">
+							<img class="icon-hover" src="<?php echo esc_url( $vision_icon_hover ); ?>" alt="<?php echo esc_attr( $vision_title ); ?>">
 						</div>
 					<?php endif; ?>
 					
@@ -57,7 +60,8 @@ $section_class = isset( $args['section_class'] ) ? $args['section_class'] : '';
 				<div class="mission_vision_item mission_vision_mission" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
 					<?php if ( $mission_icon ) : ?>
 						<div class="mission_vision_icon mission-icn-01">
-							<img src="<?php echo esc_url( $mission_icon ); ?>" alt="<?php echo esc_attr( $mission_title ); ?>">
+							<img class="icon-default" src="<?php echo esc_url( $mission_icon ); ?>" alt="<?php echo esc_attr( $mission_title ); ?>">
+							<img class="icon-hover" src="<?php echo esc_url( $mission_icon_hover ); ?>" alt="<?php echo esc_attr( $mission_title ); ?>">
 						</div>
 					<?php endif; ?>
 					

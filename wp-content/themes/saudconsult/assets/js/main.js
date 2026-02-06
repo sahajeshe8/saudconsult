@@ -1507,7 +1507,19 @@ var swiper = new Swiper(".mySwiper-clients", {
 		// Get all project cards
 		const allProjects = Array.from(projectsGrid.querySelectorAll('.project_card'));
 		const initialVisible = 12; // Initially showing 12 items
-		const itemsPerLoad = 8; // Load 8 items each time
+		
+		// Function to get items per load based on viewport width
+		const getItemsPerLoad = function() {
+			// Use the most reliable viewport width detection
+			const viewportWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+			
+			if (viewportWidth < 1340) {
+				return 6;
+			} else {
+				return 8;
+			}
+		};
+		
 		let currentVisible = initialVisible; // Initially showing 12 items
 
 		// Hide button if all items are already visible
@@ -1517,7 +1529,8 @@ var swiper = new Swiper(".mySwiper-clients", {
 		}
 
 		loadMoreBtn.addEventListener('click', function() {
-			// Calculate how many items to show (8 items per click)
+			// Calculate how many items to show based on viewport width
+			const itemsPerLoad = getItemsPerLoad();
 			const itemsToShow = Math.min(itemsPerLoad, allProjects.length - currentVisible);
 			
 			// Show next batch of items
@@ -1568,7 +1581,21 @@ var swiper = new Swiper(".mySwiper-clients", {
 
 		const allItems = Array.from(grid.querySelectorAll('.client_item'));
 		const initialVisible = 20; // Show 20 items per view
-		const itemsPerLoad = 8;
+		
+		// Function to get items per load based on viewport width
+		const getItemsPerLoad = function() {
+			// Use the most reliable viewport width detection
+			const viewportWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+			
+			if (viewportWidth >= 1340) {
+				return 7;
+			} else if (viewportWidth >= 946) {
+				return 4;
+			} else {
+				return 8;
+			}
+		};
+		
 		let currentVisible = initialVisible;
 
 		if (allItems.length <= initialVisible) {
@@ -1584,6 +1611,9 @@ var swiper = new Swiper(".mySwiper-clients", {
 		});
 
 		loadMoreBtn.addEventListener('click', function() {
+			const itemsPerLoad = getItemsPerLoad();
+			const viewportWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+			console.log('Load More Clicked - Viewport Width:', viewportWidth, 'Items to Load:', itemsPerLoad);
 			const itemsToShow = Math.min(itemsPerLoad, allItems.length - currentVisible);
 
 			for (let i = currentVisible; i < currentVisible + itemsToShow; i++) {

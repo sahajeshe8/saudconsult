@@ -52,7 +52,7 @@ get_header();
 		'button_text' => '',
 		'button_link' => esc_url( home_url( '' ) ),
 	 
-        'section_class' => 'pt_40IM', //row_reverse  Multiple classes separated by space
+        'section_class' => '', //row_reverse  Multiple classes separated by space
 		'bg_style' => '', // Background style class
 		'image_container_class' => '',
 		'text_container_class' => ''

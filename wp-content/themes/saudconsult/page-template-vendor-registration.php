@@ -34,7 +34,7 @@ get_header();
 								<label class="vendor_form_label">Legal Entity Name *</label>
 								<div class="select-wrapper">
 									<select class="input select-input" name="legal_entity_name" required>
-										<option value="">Select</option>
+										<option value="" disabled selected>Select</option>
 										<option value="entity1">Entity 1</option>
 										<option value="entity2">Entity 2</option>
 									</select>
@@ -45,7 +45,7 @@ get_header();
 								<label class="vendor_form_label">Entity Type *</label>
 								<div class="select-wrapper">
 									<select class="input select-input" name="entity_type" required>
-										<option value="">Select</option>
+										<option value="" disabled selected>Select</option>
 										<option value="llc">Limited Liability Company</option>
 										<option value="joint-stock">Joint Stock Company</option>
 										<option value="partnership">Partnership</option>
@@ -60,7 +60,7 @@ get_header();
 								<label class="vendor_form_label">Years of experience in doing the business *</label>
 								<div class="select-wrapper">
 									<select class="input select-input" name="years_experience" required>
-										<option value="">Select</option>
+										<option value="" disabled selected>Select</option>
 										<option value="0-5">0-5 years</option>
 										<option value="5-10">5-10 years</option>
 										<option value="10-15">10-15 years</option>
@@ -120,7 +120,7 @@ get_header();
 								<label class="vendor_form_label">Does the company Saudi VAT registered? *</label>
 								<div class="select-wrapper">
 									<select class="input select-input" name="vat_registered" required>
-										<option value="">Select</option>
+										<option value="" disabled selected>Select</option>
 										<option value="yes">Yes</option>
 										<option value="no">No</option>
 									</select>
@@ -139,7 +139,7 @@ get_header();
 								<label class="vendor_form_label">Area of expertise for your company (Select all that applied) *</label>
 								<div class="select-wrapper">
 									<select class="input select-input" name="area_expertise[]" multiple required>
-										<option value="">(Select all that applied) *</option>
+										<option value="" disabled selected>(Select all that applied) *</option>
 										<option value="legal-and-law">Legal and Law</option>
 										<option value="engineering-design">Engineering – Design</option>
 										<option value="engineering-supervision">Engineering – Supervision</option>
@@ -175,7 +175,7 @@ get_header();
 								<label class="vendor_form_label">In Which sectors the company contribute in (Select all that applied) *</label>
 								<div class="select-wrapper">
 									<select class="input select-input" name="sectors[]" multiple required>
-										<option value="">(Select all that applied) *</option>
+										<option value="" disabled selected>(Select all that applied) *</option>
 										<option value="defense-and-aviation">Defense and Aviation</option>
 										<option value="heritage-and-culture">Heritage and Culture</option>
 										<option value="landscaping-public-realm">Landscaping/Public realm</option>
@@ -218,7 +218,7 @@ get_header();
 									<label class="vendor_form_label">Name *</label>
 									<div class="select-wrapper">
 										<select class="input select-input" name="contact_name" required>
-											<option value="">Select</option>
+											<option value="" disabled selected>Select</option>
 											<option value="name1">Name 1</option>
 											<option value="name2">Name 2</option>
 										</select>
@@ -229,7 +229,7 @@ get_header();
 									<label class="vendor_form_label">Position *</label>
 									<div class="select-wrapper">
 										<select class="input select-input" name="contact_position" required>
-											<option value="">Select</option>
+											<option value="" disabled selected>Select</option>
 											<option value="position1">Position 1</option>
 											<option value="position2">Position 2</option>
 										</select>
@@ -240,7 +240,7 @@ get_header();
 									<label class="vendor_form_label">Phone *</label>
 									<div class="select-wrapper">
 										<select class="input select-input" name="contact_phone" required>
-											<option value="">Select</option>
+											<option value="" disabled selected>Select</option>
 											<option value="phone1">Phone 1</option>
 											<option value="phone2">Phone 2</option>
 										</select>
@@ -251,7 +251,7 @@ get_header();
 									<label class="vendor_form_label">Email *</label>
 									<div class="select-wrapper">
 										<select class="input select-input" name="contact_email" required>
-											<option value="">Select</option>
+											<option value="" disabled selected>Select</option>
 											<option value="email1">Email 1</option>
 											<option value="email2">Email 2</option>
 										</select>
@@ -340,7 +340,7 @@ get_header();
 									<label class="vendor_form_label">Number of Company Employees *</label>
 									<div class="select-wrapper">
 										<select class="input select-input" name="number_of_employees">
-											<option value="">Select</option>
+											<option value="" disabled selected>Select</option>
 											<option value="1-10">1-10</option>
 											<option value="11-50">11-50</option>
 											<option value="51-200">51-200</option>
@@ -353,13 +353,10 @@ get_header();
 								<li>
 									<label class="vendor_form_label">Company website *</label>
 									<div class="select-wrapper">
-										<select class="input select-input" name="number_of_employees">
-											<option value="">Select</option>
-											<option value="1-10">1-10</option>
-											<option value="11-50">11-50</option>
-											<option value="51-200">51-200</option>
-											<option value="201-500">201-500</option>
-											<option value="500+">500+</option>
+										<select class="input select-input" name="company_website">
+											<option value="" disabled selected>Select</option>
+											<option value="website1">Website 1</option>
+											<option value="website2">Website 2</option>
 										</select>
 										<span class="select-arrow"></span>
 									</div>
@@ -384,13 +381,10 @@ get_header();
 								<li>
 									<label class="vendor_form_label">Project Name *</label>
 									<div class="select-wrapper">
-										<select class="input select-input" name="annual_revenue">
-											<option value="">Select</option>
-											<option value="0-1M">0 - 1M SAR</option>
-											<option value="1M-5M">1M - 5M SAR</option>
-											<option value="5M-10M">5M - 10M SAR</option>
-											<option value="10M-50M">10M - 50M SAR</option>
-											<option value="50M+">50M+ SAR</option>
+										<select class="input select-input" name="project_name">
+											<option value="" disabled selected>Select</option>
+											<option value="project1">Project 1</option>
+											<option value="project2">Project 2</option>
 										</select>
 										<span class="select-arrow"></span>
 									</div>
@@ -398,13 +392,10 @@ get_header();
 								<li>
 									<label class="vendor_form_label">Role at that Project *</label>
 									<div class="select-wrapper">
-										<select class="input select-input" name="annual_revenue">
-											<option value="">Select</option>
-											<option value="0-1M">0 - 1M SAR</option>
-											<option value="1M-5M">1M - 5M SAR</option>
-											<option value="5M-10M">5M - 10M SAR</option>
-											<option value="10M-50M">10M - 50M SAR</option>
-											<option value="50M+">50M+ SAR</option>
+										<select class="input select-input" name="project_role">
+											<option value="" disabled selected>Select</option>
+											<option value="role1">Role 1</option>
+											<option value="role2">Role 2</option>
 										</select>
 										<span class="select-arrow"></span>
 									</div>
@@ -412,13 +403,13 @@ get_header();
 								<li>
 									<label class="vendor_form_label">Year of Completion *</label>
 									<div class="select-wrapper">
-										<select class="input select-input" name="annual_revenue">
-											<option value="">Select</option>
-											<option value="0-1M">0 - 1M SAR</option>
-											<option value="1M-5M">1M - 5M SAR</option>
-											<option value="5M-10M">5M - 10M SAR</option>
-											<option value="10M-50M">10M - 50M SAR</option>
-											<option value="50M+">50M+ SAR</option>
+										<select class="input select-input" name="year_of_completion">
+											<option value="" disabled selected>Select</option>
+											<option value="2020">2020</option>
+											<option value="2021">2021</option>
+											<option value="2022">2022</option>
+											<option value="2023">2023</option>
+											<option value="2024">2024</option>
 										</select>
 										<span class="select-arrow"></span>
 									</div>

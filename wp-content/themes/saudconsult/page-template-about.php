@@ -58,7 +58,7 @@ get_header();
 	$image_text_data = array(
 		'image' => get_template_directory_uri() . '/assets/images/about-img-02.jpg',
 		'image_alt' => 'About Us',
-		'title' => 'A foundational pillar of modern',
+		'title' => 'A foundational pillar of <br>modern',
 		'title_span' => 'Saudi development',
 		'content' => '<p>Saud Consult is not merely an engineering firm; we are a foundational pillar of modern Saudi development. As one of the Kingdom\'s oldest and largest privately owned multidisciplinary consultancies, we offer comprehensive services from feasibility studies and design to construction supervision and project management.</p>',
 		'button_text' => 'Download Company Profile',

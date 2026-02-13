@@ -8,22 +8,24 @@
 		background: rgba(0, 0, 0, 0.6) !important;
 	}
 
-	// Default popup size (initial)
+	// Default popup size (initial) - allow full-size images
 	.fancybox__content {
-		width: 535px !important;
-		height: 658px !important;
+		width: auto !important;
+		// background: #d1d1d1;
 		max-width: calc(100vw - 32px) !important;
 		max-height: calc(100vh - 32px) !important;
 		padding: 0 !important;
-		background: transparent !important;
+		background: #d1d1d1 !important;
 		position: relative !important; // Make it a positioning context for arrows
 	}
 
-	// Ensure media fits inside the fixed ratio container
+	// Ensure images display at full size while maintaining aspect ratio
 	.fancybox__content :is(img, video, iframe) {
-		width: 100% !important;
-		height: 100% !important;
-		object-fit: cover;
+		width: auto !important;
+		height: auto !important;
+		max-width: calc(100vw - 32px) !important;
+		max-height: calc(100vh - 32px) !important;
+		object-fit: contain;
 		display: block;
 		position: relative;
 		z-index: 1; // Ensure iframe is above overlays

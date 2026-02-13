@@ -106,6 +106,8 @@
   }
 
   .mission_vision_content {
+    margin-top: 30px;
+
     color: #5b6773;
     line-height: 1.7;
     @include px-rem(16);
@@ -121,6 +123,10 @@
         margin-bottom: 0;
       }
     }
+
+    @media screen and (max-width: 768px) {
+      margin-top: 15px;
+    } 
   }
 }
 
@@ -129,7 +135,7 @@
     span {
       display: block;
       font-weight: 300;
-      margin-bottom: 30px;
+     
       @media screen and (max-width: 768px) {
         margin-bottom: 15px;
       }

@@ -13,8 +13,8 @@
     }
   }
   .about_sectioncl_02 {
-    width: 34%;
-    padding-top: 130px;
+    width: 46%;
+    // padding-top: 130px;
 
     h5 {
       font-size: 20px;
@@ -73,7 +73,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: url("../images/about-bg.png") no-repeat center center;
+    background: url("../images/about-bg.png") no-repeat 18% center;
 
     z-index: 1;
   }
@@ -106,8 +106,8 @@
   gap: 10px;
   color: #fff;
   font-size: 18px;
-  font-weight: 400;
-  padding-bottom: 40px;
+  font-weight:300;
+  padding-bottom: 30px;
   @media (max-width: 700px) {
     padding-bottom: 0px;
   }
@@ -126,10 +126,12 @@
   li {
     list-style: none;
     width: 25%;
+    height: auto !important;
     padding: 0 0.5%;
     .about_4_cl_blocks_item_01 {
       background: #f5f9ee;
       padding: 11%;
+      height: 100%;
 
       .text_cl_01 {
         margin-bottom: 80px;

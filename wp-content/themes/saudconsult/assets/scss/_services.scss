@@ -1,5 +1,5 @@
 .services_section_01 {
-  align-items: flex-start;
+  align-items: flex-end;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -12,7 +12,7 @@
     }
   }
   .services_section_01_item_02 {
-    width: 33%;
+    width:48%;
     p {
       font-size: 18px;
       margin: 0;
@@ -97,6 +97,7 @@
   // Enable pointer events on buttons
   .btn_style {
     pointer-events: auto; // Allow clicks on buttons
+    min-width: unset;
   }
   h3 {
     margin: 0;
@@ -248,7 +249,7 @@
     font-size: 16px;
     margin-bottom: 0px;
     max-width: 70%;
-
+    @media screen and (max-width: 820px) { max-width: 100%;}
     @media screen and (max-width: 700px) {
       font-size: 14px;
       max-width: 100%;

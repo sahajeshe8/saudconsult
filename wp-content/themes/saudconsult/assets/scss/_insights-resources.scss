@@ -118,7 +118,7 @@
 }
     .latest_news_text_lable{ color: #0D6A37; font-size: 15px; font-weight: 400;}
     .insights_item_content{
-        h4{ margin: 0; font-size: 18px; color: #101922; font-weight:500; line-height: 120%;   margin-bottom:5px;
+        h4{ margin: 0; font-size: 18px; color: #101922; font-weight:500; line-height: 120%;   margin-bottom:12px;
             @media screen and (max-width: 1024px) { font-size: 16px; }
             
         }
@@ -149,10 +149,17 @@
 			width: 100%;
 		}
     }
-
+	
 
 	@media screen and (max-width:700px) {
 		flex-direction: column-reverse;
+	}
+
+	// Avoid column-reverse when inside .mySwiper-insights
+	.mySwiper-insights & {
+		@media screen and (max-width:700px) {
+			flex-direction: column;
+		}
 	}
 }
 

@@ -113,6 +113,10 @@
 							margin-top: 15px;
                             font-size: 14px;
 						}
+
+
+						.events_detail_list_item_icon{ width: 22px; }
+						.events_detail_list_item_text{ width: calc(100% - 35px);}
                     }
 
 					@media screen and (max-width: 768px) {
@@ -209,8 +213,9 @@
 				}
 			}
 		}
+		// margin-top: 80px;
 
-		.date_time_block_event_detail{ border: 1px solid #D3D3D3; margin-bottom: 25px;  padding: 10px; width: 88.5%; margin-top: 80px; padding: 6%;
+		.date_time_block_event_detail{ border: 1px solid #D3D3D3; margin-bottom: 25px;  padding: 10px; width: 88.5%;  margin-top: 5px; padding: 6%;
 			h5{ margin: 0 0px 10px 0px !important; padding: 0;}
 		
 			@media screen and (max-width: 1024px) {
@@ -245,4 +250,4 @@
 
 		.event-map-block{ width: 100%;  aspect-ratio: 346/232; border-radius: 9px;  overflow: hidden;}
 
-		.date_time_block_event_detail_list_item_location{ margin-top: 15px; color: #000000; font-size: 16px; font-weight:300;   display: flex; flex-wrap: wrap; gap: 10px; align-items: center;}
+		.date_time_block_event_detail_list_item_location{ margin-top: 15px; color: #000000; font-size: 16px; font-weight:300;   display: flex;   gap: 10px; align-items: flex-start; line-height: 21px;}

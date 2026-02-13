@@ -22,7 +22,7 @@ get_header();
 			'title' => 'Our Work,',
 			'title_span' => 'Across Industries',
 			'description' => 'Where Our Expertise Makes an Impact.',
-			'button_text' => 'Explore More',
+			'button_text' => 'View All Infrastructure Projects',
 			'button_link' => esc_url( home_url( '/projects' ) ),
 			'section_wrapper_class' => array(),
 			'section_class' => '',

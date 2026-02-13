@@ -192,6 +192,12 @@
    
 var bannerSwiper = new Swiper(".mySwiper_banner", {
 	loop: true,
+	speed: 800,
+	autoplay: {
+		delay: 3000,
+		disableOnInteraction: false,
+		pauseOnMouseEnter: true,
+	},
 	pagination: {
 		el: ".banner-pagination",
 		clickable: true,
@@ -483,16 +489,23 @@ var swiper = new Swiper(".mySwiper-clients", {
 		// Swiper will automatically duplicate slides for infinite loop
 		const canLoop = shouldLoop && slideCount >= 2;
 		
+		// Calculate loopedSlides based on maximum slidesPerView (5 at 1280px breakpoint)
+		// Need at least as many duplicated slides as visible slides for proper bidirectional looping
+		const maxSlidesPerView = 5;
+		const loopedSlidesValue = canLoop ? Math.max(maxSlidesPerView, slideCount) : 0;
+		
 		var swiper = new Swiper(".mySwiper-awards", {
 			slidesPerView: 1,
 			spaceBetween: 30,
 			centeredSlides: true,
 			centeredSlidesBounds: !canLoop, // Disable bounds when looping
 			loop: canLoop, // Enable infinite loop
-			loopAdditionalSlides: 2, // Add extra slides for smoother looping
-			loopedSlides: canLoop ? Math.max(2, slideCount) : 0, // Set to slide count for proper looping
+			loopAdditionalSlides: canLoop ? Math.max(3, Math.ceil(slideCount / 2)) : 0, // Add extra slides for smoother bidirectional looping
+			loopedSlides: loopedSlidesValue, // Set to max slidesPerView or slideCount for proper looping
+			loopPreventsSliding: false, // Allow sliding even when loop might seem stuck
 			slideToClickedSlide: true,
 			watchSlidesProgress: true,
+			watchSlidesVisibility: true, // Watch slide visibility for better loop handling
 			autoplay: canLoop ? {
 				delay: 3000,
 				disableOnInteraction: false,
@@ -511,27 +524,55 @@ var swiper = new Swiper(".mySwiper-clients", {
 					spaceBetween: 5,
 					centeredSlidesBounds: !canLoop,
 					loop: canLoop, // Always loop if enabled
+					loopedSlides: loopedSlidesValue,
 				},
 				768: {
 					slidesPerView: 2,
 					spaceBetween:  5,
 					centeredSlidesBounds: !canLoop,
 					loop: canLoop, // Always loop if enabled
+					loopedSlides: loopedSlidesValue,
 				},
 				1024: {
 					slidesPerView: 3,
 					spaceBetween: 10,
 					centeredSlidesBounds: !canLoop,
 					loop: canLoop, // Always loop if enabled
+					loopedSlides: loopedSlidesValue,
 				},
 				1280: {
 					slidesPerView: 5,
 					spaceBetween: 10,
 					centeredSlidesBounds: !canLoop,
 					loop: canLoop, // Always loop if enabled (Swiper will duplicate slides automatically)
+					loopedSlides: loopedSlidesValue,
 				},
 			},
 		});
+
+		// Ensure loop is properly initialized and updated
+		if (canLoop && swiper) {
+			// Update Swiper after initialization to ensure loop works correctly
+			swiper.on('init', function() {
+				if (swiper.loopedSlides) {
+					swiper.update();
+				}
+			});
+			
+			// Update on resize to maintain loop functionality
+			swiper.on('resize', function() {
+				if (swiper.loopedSlides) {
+					swiper.update();
+				}
+			});
+			
+			// Force update after a short delay to ensure loop is fully initialized
+			setTimeout(function() {
+				if (swiper && swiper.loopedSlides) {
+					swiper.update();
+				}
+			}, 100);
+		}
 
 		// Add click handlers for active state on slides
 		// if (slides.length > 0) {
@@ -1676,8 +1717,18 @@ var swiper = new Swiper(".mySwiper-clients", {
 			return;
 		}
 
+		// Count slides
+		const slides = swiperElement.querySelectorAll('.swiper-slide');
+		const slideCount = slides.length;
+
+		// Hide navigation buttons if slides are less than 6
+		if (slideCount < 6) {
+			nextButton.style.display = 'none';
+			prevButton.style.display = 'none';
+		}
+
 		try {
-			new Swiper(swiperElement, {
+			const swiper = new Swiper(swiperElement, {
 				slidesPerView: 1,
 				spaceBetween: 0,
 				loop: true,
@@ -1713,6 +1764,18 @@ var swiper = new Swiper(".mySwiper-clients", {
 						},
 				},
 			});
+
+			// Handle resize to check if navigation should be shown/hidden
+			swiper.on('resize', function() {
+				if (slideCount < 6) {
+					nextButton.style.display = 'none';
+					prevButton.style.display = 'none';
+				} else {
+					nextButton.style.display = '';
+					prevButton.style.display = '';
+				}
+			});
+
 			console.log('ProjectGallery: Swiper initialized successfully');
 		} catch (error) {
 			console.error('ProjectGallery: Error initializing Swiper', error);
@@ -1765,6 +1828,7 @@ var swiper = new Swiper(".mySwiper-clients", {
 			},
 			Image: {
 				zoom: true,
+				fit: 'contain', // Fit image to container while maintaining aspect ratio
 			},
 			Panzoom: {
 				panOnlyZoomed: false,
@@ -1812,6 +1876,16 @@ var swiper = new Swiper(".mySwiper-clients", {
 					
 					// Check if this is a video (has iframe)
 					const isVideo = content.querySelector('iframe') !== null;
+					
+					// Ensure images display at full size
+					const image = content.querySelector('img');
+					if (image && !isVideo) {
+						image.style.maxWidth = 'none';
+						image.style.maxHeight = 'none';
+						image.style.width = 'auto';
+						image.style.height = 'auto';
+						image.style.objectFit = 'contain';
+					}
 					
 					// Check if buttons already exist to avoid duplicates
 					if (content.querySelector('.fancybox-custom-nav') || content.querySelector('.fancybox-custom-close')) {
@@ -2802,7 +2876,8 @@ var sameMonthEventsSwiper = new Swiper(".same_month_events_swiper", {
 			loginPopupLink.setAttribute('data-fancybox-initialized', 'true');
 			
 			// Initialize Fancybox for the login popups (career + training views)
-			const fancyboxInstance = Fancybox.bind('[data-fancybox="login-popup"], [data-fancybox="login-popup-training"], [data-fancybox="login-popup-training-submit"]', {
+			// Bind to both data-fancybox attributes and href links
+			const fancyboxInstance = Fancybox.bind('[data-fancybox="login-popup"], [data-fancybox="login-popup-training"], [data-fancybox="login-popup-training-submit"], a[href="#login-popup"], a[href="#login-popup-training"], a[href="#login-popup-training-submit"]', {
 				dragToClose: false, // Disable drag to close
 				Toolbar: {
 					display: {
@@ -3465,6 +3540,12 @@ var swiper = new Swiper(".mySwiper-02", {});
 			return; // Elements not found, might not be on this page
 		}
 
+		// Check if ScrollTrigger version is initialized (skip this initialization)
+		const section = mainSwiperEl.closest('.our_journey_section');
+		if (section && section.hasAttribute('data-scrolltrigger-initialized')) {
+			return; // GSAP ScrollTrigger version is active, skip this initialization
+		}
+
 		// Check if Swiper is loaded
 		if (typeof Swiper === 'undefined') {
 			console.warn('OurJourneyGallery: Swiper library is not loaded');
@@ -3687,7 +3768,6 @@ var swiper = new Swiper(".mySwiper-02", {});
 				search: isMultiSelect, // Enable search for multi-select fields with many options
 				searchText: 'Search...',
 				noMatch: 'No matches for "{0}"',
-				prefix: 'sumo_',
 				isClickAwayOk: true,
 				triggerChangeCombined: true,
 				selectAlltext: 'Select All',
@@ -3770,9 +3850,17 @@ var swiper = new Swiper(".mySwiper-02", {});
 				return;
 			}
 			
-			const passwordInput = parentLi.querySelector('input[type="password"]');
+			// Find password input (check both password and text types in case it was already toggled)
+			let passwordInput = parentLi.querySelector('input[type="password"]');
 			if (!passwordInput) {
-				return;
+				// If no password input found, check for text input with password-related attributes
+				const textInput = parentLi.querySelector('input[type="text"]');
+				if (textInput && (textInput.placeholder.toLowerCase().includes('password') || 
+					textInput.name.toLowerCase().includes('password'))) {
+					passwordInput = textInput;
+				} else {
+					return;
+				}
 			}
 
 			// Make the icon clickable
@@ -3789,13 +3877,24 @@ var swiper = new Swiper(".mySwiper-02", {});
 				e.preventDefault();
 				e.stopPropagation();
 				
+				// Get the image element inside the icon span
+				const iconImg = iconSpan.querySelector('img');
+				
 				// Toggle password visibility
 				if (passwordInput.type === 'password') {
 					passwordInput.type = 'text';
-					// Optionally change icon image if you have a "hide" version
-					// For now, we'll just toggle the type
+					// Change icon to eye-slash when password is visible
+					if (iconImg) {
+						iconImg.src = iconImg.src.replace('eye-icn.svg', 'eye-slash-icn.svg');
+						iconImg.setAttribute('alt', 'Hide password');
+					}
 				} else {
 					passwordInput.type = 'password';
+					// Change icon to eye when password is hidden
+					if (iconImg) {
+						iconImg.src = iconImg.src.replace('eye-slash-icn.svg', 'eye-icn.svg');
+						iconImg.setAttribute('alt', 'Show password');
+					}
 				}
 			});
 		});

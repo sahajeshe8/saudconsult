@@ -13,6 +13,10 @@
       aspect-ratio: 160/100;
     }
   }
+
+  .swiper-slide{
+    img{  max-height: 35%; padding: 3%;}
+  }
 }
 
 .partners_section {

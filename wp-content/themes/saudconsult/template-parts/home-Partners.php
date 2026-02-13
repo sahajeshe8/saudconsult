@@ -7,7 +7,7 @@
 
 ?>
 
-<section class="partners_section pt_80 mt_80 pb_80">
+<section class="partners_section pt_80 mt_80 pb_100">
 
 
 

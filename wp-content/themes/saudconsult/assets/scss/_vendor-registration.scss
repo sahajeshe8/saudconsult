@@ -32,7 +32,24 @@
 .vendor_registration_form {
 	width: 100%;
  
- 
+	// Global override for select placeholder font style
+	select.select-input {
+		font-style: normal !important;
+	}
+
+	// SumoSelect placeholder styling
+	.SumoSelect {
+		.CaptionCont {
+			span {
+				font-style: normal !important;
+			}
+		}
+
+		&.open .CaptionCont span {
+			font-style: normal !important;
+		}
+	}
+
 	// Override input styles for dark background
 	.career-form-list-ul {
 		li {
@@ -43,6 +60,7 @@
 
 				&::placeholder {
 					color: #999;
+					font-style: normal;
 				}
 
 				&:focus {
@@ -59,7 +77,39 @@
 				.select-input {
 					background: #fff;
 					color: #333;
-				 border: none;
+					border: none;
+					font-style: normal !important;
+					font-weight: normal !important;
+
+					// Target all possible states to ensure normal font style
+					&:has(option:disabled:checked),
+					&[value=""],
+					&:invalid,
+					&:not([value]),
+					& option:first-child:checked {
+						font-style: normal !important;
+						font-weight: normal !important;
+					}
+
+					option {
+						font-style: normal !important;
+						font-weight: normal !important;
+					}
+
+					option:disabled {
+						font-style: normal !important;
+						font-weight: normal !important;
+					}
+
+					option:checked:disabled {
+						font-style: normal !important;
+						font-weight: normal !important;
+					}
+
+					option:first-child {
+						font-style: normal !important;
+						font-weight: normal !important;
+					}
 
 					&:focus {
 						border-color: #0D6A37;
@@ -67,6 +117,8 @@
 					}
 				}
 			}
+
+			.wpcf7-form-control-wrap{ display: block;}
 		}
 	}
 }
@@ -165,11 +217,28 @@
 	}
 
 	.vendor-attach-btn{ height: 100%;}
+	background: #fff; border-radius: 35px;
+.btn_style{
+	@media screen and (max-width: 700px) {
+		 width: 100%;
+	}
+}
+
+
+
+
+
+.btn_style{
+	@media screen and (max-width: 1024px) {
+		 height: 48px !important;
+	}
+}
+	
 }
 
 // Radio button groups
 .vendor_radio_group {
-	width: 100%;display: flex; align-items: flex-start; gap:6%;
+	width: 100%;display: flex; align-items: center; gap:6%;
 
     .vendor_radio_label{
         margin-bottom: 0;
@@ -212,6 +281,7 @@
 	display: flex;
 	flex-wrap: wrap;
 	gap: 45px;
+	font-size: 18px;
 
 	@media screen and (max-width: 768px) {
 		gap: 15px; margin-top: 7px;
@@ -221,7 +291,7 @@
 		 width: 100%;
 	}
 	.wpcf7-form-control-wrap{
-		display: flex;
+		display: flex !important;
 		flex-wrap: wrap;
 		gap: 45px;
 	}
@@ -270,7 +340,7 @@
 	}
 
 	.vendor_radio_text {
-		font-size: 21px;
+		font-size: 18px;
 		color: #2c2c2c;
 		user-select: none;
 		@media screen and (max-width:1440px) {
@@ -375,4 +445,64 @@
 	@media (max-width: 700px) {
 		h3{@include px-rem(55);}
 	}
+}
+
+.wpcf7-not-valid-tip{ font-size: 12px;}
+ 
+/* Input Error Border */
+.wpcf7-not-valid {
+    border-color: #e74c3c !important;
+}
+
+/* Error Message Text Below Field */
+.wpcf7-not-valid-tip {
+    color: #e74c3c;
+    font-size: 13px;
+    margin-top: 5px;
+    display: block;
+	position: absolute;
+	position: absolute;
+    bottom: -24px;
+}
+
+/* ============================= */
+/* Form Response Messages */
+/* ============================= */
+
+/* Success Message */
+.wpcf7 form.sent .wpcf7-response-output {
+    border: none;
+    background: #eafaf1;
+    color: #27ae60;
+    padding: 15px;
+    border-radius: 6px;
+    margin-top: 20px;
+}
+
+/* General Error Message */
+.wpcf7 form.invalid .wpcf7-response-output,
+.wpcf7 form.failed .wpcf7-response-output,
+.wpcf7 form.aborted .wpcf7-response-output {
+    border: none;
+    background: #fdecea;
+    color: #e74c3c;
+    padding: 15px;
+    border-radius: 6px;
+    margin-top: 20px;
+	font-size: 12px;
+}
+
+/* Spam or Blocked */
+.wpcf7 form.spam .wpcf7-response-output {
+    background: #fff3cd;
+    color: #856404;
+    border-radius: 6px;
+}
+
+/* ============================= */
+/* Loading Spinner */
+/* ============================= */
+
+.wpcf7-spinner {
+    margin-left: 10px;
 }

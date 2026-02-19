@@ -1,0 +1,209 @@
+/*-----------ifza life------------*/
+.content-sec-9 {
+  padding: 120px 0px;
+}
+
+.content-sec-9 h2 {
+  margin-bottom: 60px;
+}
+
+.content-sec-10 h3 {
+  margin-bottom: 45px;
+}
+
+.image-name-listing {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 25px;
+}
+
+.image-name-listing li {
+  width: 15.5%;
+  margin-left: 1.4%;
+}
+
+.image-name-listing li:nth-child(6n+1) {
+  margin-left: 0px;
+}
+
+.image-name-list-image {
+  width: 100%;
+  height: 131px;
+  border: 1px solid #707070;
+  background: #fff;
+  margin-bottom: 10px;
+}
+
+.image-name-listing li h6 {
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 0px;
+  text-transform: unset;
+}
+
+.content-sec-10 {
+  padding-bottom: 140px;
+  position: relative;
+}
+
+.content-sec-10:after {
+  content: "";
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  height: 430px;
+  background: #F3F4F5;
+  z-index: -1;
+}
+
+.page-template-ifza-life .form-sec figure {
+  height: 960px;
+}
+
+.page-template-ifza-life .form-sec figure.brochure-image {
+  width: 431px;
+  height: auto;
+}
+
+.page-template-ifza-life .form-sec figure.brochure-image img {
+  width: auto;
+  height: auto;
+}
+
+.page-template-ifza-life .form-sec figure.brochure-image:before {
+  content: none;
+}
+
+.enquiry-form-inner {
+  display: flex;
+  align-items: center;
+}
+
+.brochure-form-area {
+  width: 50%;
+  margin-left: auto;
+}
+
+.page-template-ifza-life .form-outer-area {
+  width: 100%;
+  max-width: 1300px;
+}
+
+/*-----------Media Queries----------*/
+
+@media only screen and (max-width:1450px) {
+  .content-sec-9 {
+    padding: 75px 0px;
+  }
+
+  .content-sec-10 {
+    padding-bottom: 75px;
+  }
+
+  .page-template-ifza-life .form-sec figure {
+    height: 750px;
+  }
+
+  .content-sec-9 h2 {
+    margin-bottom: 40px;
+  }
+}
+
+@media only screen and (max-width:1366px) {
+  .image-name-listing li {
+    width: 19%;
+    margin-left: 1.25%;
+  }
+
+  .image-name-listing li:nth-child(6n+1) {
+    margin-left: 1.25%;
+  }
+
+  .image-name-listing li:nth-child(5n+1) {
+    margin-left: 0px;
+  }
+
+  .brochure-form-area {
+    width: 55%;
+  }
+}
+
+@media only screen and (max-width:1199px) {
+  .content-sec-9 {
+    padding: 55px 0px;
+  }
+
+  .content-sec-10 {
+    padding-bottom: 55px;
+  }
+}
+
+@media only screen and (max-width:991px) {
+
+  .content-sec-9 h2,
+  .content-sec-10 h3 {
+    margin-bottom: 20px;
+  }
+
+  .image-name-listing li {
+    width: 24%;
+    margin-left: 1.33%;
+  }
+
+  .image-name-listing li:nth-child(5n+1) {
+    margin-left: 1.33%;
+  }
+
+  .image-name-listing li:nth-child(4n+1) {
+    margin-left: 0px;
+  }
+
+  .enquiry-form-inner {
+    flex-wrap: wrap;
+  }
+
+  .brochure-form-area {
+    width: 100%;
+  }
+
+  .page-template-ifza-life .form-sec figure.brochure-image {
+    width: 200px;
+  }
+
+  .page-template-ifza-life .form-sec figure {
+    height: 820px;
+  }
+}
+
+@media only screen and (max-width:767px) {
+  .image-name-listing li {
+    width: 49%;
+  }
+
+  .image-name-listing li:nth-child(4n+1) {
+    margin-left: 2%;
+  }
+
+  .image-name-listing li:nth-child(2n+1) {
+    margin-left: 0;
+  }
+
+  .image-name-list-image {
+    margin-bottom: 6px;
+  }
+
+  .image-name-listing {
+    row-gap: 20px;
+  }
+
+  .content-sec-9 h2 {
+    font-size: 26px;
+    line-height: 32px;
+  }
+
+  .content-sec-10 h3 {
+    font-size: 26px;
+    line-height: 32px;
+  }
+}

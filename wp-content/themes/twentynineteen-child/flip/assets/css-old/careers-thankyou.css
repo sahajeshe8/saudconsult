@@ -1,0 +1,139 @@
+/*-----------Careers------------*/
+.page-template-thankyou-career .header {
+  position: relative;
+  background: #F3F4F5;
+  border-color:#E0E1E2;
+}
+
+.page-template-thankyou-career .header-main-menu li a {
+  color: #000;
+}
+
+.page-template-thankyou-career .header-main-menu li.menu-item-has-children>a:after {
+  border-bottom: 2px solid #BCBCBC;
+  border-right: 2px solid #BCBCBC;
+}
+
+.page-template-thankyou-career .lang-area-select {
+  border-color: #000;
+}
+
+.page-template-thankyou-career .lang-area-select .nice-select span {
+  color: #000;
+}
+
+.page-template-thankyou-career .lang-area-select .nice-select:after {
+  border-top: 6px solid #000;
+}
+
+.page-template-thankyou-career .logo-clr {
+  opacity: 1;
+  visibility: visible;
+  display: block;
+}
+
+.page-template-thankyou-career .logo-white {
+  opacity: 0;
+  visibility: hidden;
+  display: none;
+}
+.banner-box-wrap {
+  padding-top: 55px;
+  background:#F3F4F5;
+  padding-bottom:120px;
+}
+.banner-box {
+  display: flex;
+}
+.left-banner-box {
+  max-width:100%;
+  width:100%;
+  padding-top: 60px;
+}
+
+.left-banner-box h1{
+  margin-bottom: 15px;
+}
+.left-banner-box .h3{
+  margin-bottom: 0px;
+}
+.content-sec{
+  padding:120px 0px 160px;
+}
+.steps-after-submission{
+  display: flex;
+  margin-top: 50px;
+}
+.steps-after-submission li{
+  width:23.5%;
+  margin-left:2%;
+  position: relative;
+  padding-bottom: 25px;
+}
+.steps-after-submission li:after{
+  content: "";
+  position: absolute;
+  bottom: 0px;
+  left:0px;
+  width:100px;
+  height:2px;
+  background: #CDA72C;
+}
+.steps-after-submission li:first-child{
+  margin-left: 0px;
+}
+.steps-after-submission li span{
+  font-size:60px;
+  line-height:60px;
+  font-weight: 200;
+  display:block;
+  margin-bottom:15px;
+}
+.steps-after-submission li h3{
+  line-height: 24px;
+}
+.steps-after-submission li p{
+  margin-bottom: 0px;
+}
+
+@media only screen and (max-width:1450px){
+  .content-sec{
+    padding:75px 0px;
+  }
+  .steps-after-submission li span{
+    font-size:30px;
+    line-height: 30px;
+  }
+  .banner-box-wrap{
+    padding-bottom:75px;
+  }
+}
+@media only screen and (max-width:1199px){
+  .left-banner-box{
+    padding-top: 0px;
+  }
+  .content-sec{
+    padding:55px 0px;
+  }
+  .banner-box-wrap{
+    padding-bottom: 55px;
+  }
+  .steps-after-submission{
+    flex-wrap: wrap;
+    row-gap: 25px;
+    margin-top: 25px;
+  }
+  .steps-after-submission li{
+    width:49%;
+    margin-left:2%;
+  }
+  .steps-after-submission li:nth-child(2n+1){
+    margin-left: 0px;
+  }
+}
+@media only screen and (max-width:767px){
+  .steps-after-submission li{
+    width:100%;
+    margin-left:0px;
+  }
+}

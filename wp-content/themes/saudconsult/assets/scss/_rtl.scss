@@ -1,0 +1,67 @@
+// RTL Styles
+// WordPress automatically adds .rtl class to body via body_class() when is_rtl() is true
+body.rtl {
+	.btn_style {
+		 
+		span{ transform: rotate(180deg);}
+	}
+	
+	// Add your RTL-specific styles here
+	// Example: Flip padding/margin directions, reverse flex directions, etc.
+
+	.menu-arrow{
+		transform: rotate(180deg);
+		
+		&:hover {
+			transform: rotate(180deg) translateX(-4px);
+		}
+	}
+
+	// Submenu arrow rotation in RTL
+	.sub_menu_block_right_block {
+		.list-submenu {
+			li {
+				a {
+					img {
+						transform: rotate(180deg);
+					}
+				}
+			}
+		}
+	}
+	
+
+	.slider_arrow_block{     right: unset; left: 0; flex-direction: row-reverse; }
+
+	// Timeline RTL Styles
+	.timeline_section {
+		.timeline_row_02 {
+			.tileline_ul {
+				li {
+					.timeline_item_content {
+						text-align: right;
+					}
+
+					.timeline_item_content_year {
+						.timeline-dot {
+							left: unset !important;
+							right: -32px !important;
+						}
+					}
+				}
+
+				& > :nth-child(odd) {
+					.timeline_item_content {
+						text-align: left;
+						@media screen and (min-width: 700px) {
+							p {
+								margin-right: auto !important;
+								margin-left:0  !important;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

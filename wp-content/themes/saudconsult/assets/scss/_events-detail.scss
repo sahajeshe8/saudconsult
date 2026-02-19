@@ -99,7 +99,7 @@
 				}
 
                 .events_detail_list{ margin: 0; padding: 0; display: flex; flex-wrap: wrap; width: 100%; gap: 15px; margin-top: 30px;
-                    li{ list-style: none;  display: flex; flex-wrap: wrap; width: auto; gap: 10px; font-size: 17px; font-weight: 300;
+                    li{ list-style: none;   display: flex; flex-wrap: wrap; width: 100%; gap: 10px; font-size: 17px; font-weight: 300;
                         img { display: inline-block;}
 
 						@media screen and (max-width: 768px) {

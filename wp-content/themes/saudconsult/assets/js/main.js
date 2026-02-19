@@ -221,8 +221,8 @@ var bannerSwiper = new Swiper(".mySwiper_banner", {
 			}
 		});
 
-		// Update banner-add sections
-		const bannerAddSections = document.querySelectorAll('.banner-add-section');
+		// Update banner-add sections and inner-banner sections (data attributes on the section itself)
+		const bannerAddSections = document.querySelectorAll('.banner-add-section, .inner_banner_section');
 		bannerAddSections.forEach(function(section) {
 			const desktopBg = section.getAttribute('data-desktop-bg');
 			const mobileBg  = section.getAttribute('data-mobile-bg');
@@ -235,6 +235,17 @@ var bannerSwiper = new Swiper(".mySwiper_banner", {
 					section.style.backgroundPosition = 'center center';
 					section.style.backgroundRepeat = 'no-repeat';
 				}
+			}
+		});
+
+		// Jobs / inner banner: data attributes are on .inner_banner_image (child), not on section
+		const innerBannerImages = document.querySelectorAll('.inner_banner_image[data-desktop-bg]');
+		innerBannerImages.forEach(function(el) {
+			const desktopBg = el.getAttribute('data-desktop-bg');
+			const mobileBg  = el.getAttribute('data-mobile-bg');
+			const targetBg  = isMobile && mobileBg ? mobileBg : (desktopBg || '');
+			if (targetBg) {
+				el.style.backgroundImage = 'url("' + targetBg + '")';
 			}
 		});
 	};
@@ -2656,32 +2667,6 @@ var sameMonthEventsSwiper = new Swiper(".same_month_events_swiper", {
 									signInLink.addEventListener('click', swapToLogin);
 								}
 								
-								// Re-initialize password toggle for new form
-								setTimeout(function() {
-									const formIcons = slide.el.querySelectorAll('.form-icon');
-									formIcons.forEach(function(iconSpan) {
-										const parentLi = iconSpan.closest('li');
-										if (parentLi) {
-											const passwordInput = parentLi.querySelector('input[type="password"]');
-											if (passwordInput && !iconSpan.hasAttribute('data-password-toggle-initialized')) {
-												iconSpan.style.cursor = 'pointer';
-												iconSpan.setAttribute('data-password-toggle-initialized', 'true');
-												
-												iconSpan.addEventListener('click', function(e) {
-													e.preventDefault();
-													e.stopPropagation();
-													
-													if (passwordInput.type === 'password') {
-														passwordInput.type = 'text';
-													} else {
-														passwordInput.type = 'password';
-													}
-												});
-											}
-										}
-									});
-								}, 100);
-								
 								// Focus on first input
 								const firstInput = slide.el.querySelector('.input');
 								if (firstInput) {
@@ -2730,32 +2715,6 @@ var sameMonthEventsSwiper = new Swiper(".same_month_events_swiper", {
 									if (newCreateAccountLink) {
 										newCreateAccountLink.addEventListener('click', swapToSignUp);
 									}
-									
-									// Re-initialize password toggle
-									setTimeout(function() {
-										const formIcons = slide.el.querySelectorAll('.form-icon');
-										formIcons.forEach(function(iconSpan) {
-											const parentLi = iconSpan.closest('li');
-											if (parentLi) {
-												const passwordInput = parentLi.querySelector('input[type="password"]');
-												if (passwordInput && !iconSpan.hasAttribute('data-password-toggle-initialized')) {
-													iconSpan.style.cursor = 'pointer';
-													iconSpan.setAttribute('data-password-toggle-initialized', 'true');
-													
-													iconSpan.addEventListener('click', function(e) {
-														e.preventDefault();
-														e.stopPropagation();
-														
-														if (passwordInput.type === 'password') {
-															passwordInput.type = 'text';
-														} else {
-															passwordInput.type = 'password';
-														}
-													});
-												}
-											}
-										});
-									}, 100);
 								}
 								
 								return false;
@@ -2966,8 +2925,6 @@ var sameMonthEventsSwiper = new Swiper(".same_month_events_swiper", {
 									}
 								}, 100);
 								
-								// Re-initialize password toggle for sign-up form
-								initPasswordToggle(signUpView);
 							};
 							
 							// Function to swap to sign-in view
@@ -2988,34 +2945,6 @@ var sameMonthEventsSwiper = new Swiper(".same_month_events_swiper", {
 									}
 								}, 100);
 								
-								// Re-initialize password toggle for sign-in form
-								initPasswordToggle(signInView);
-							};
-							
-							// Helper function to initialize password toggle
-							const initPasswordToggle = function(container) {
-								const formIcons = container.querySelectorAll('.form-icon');
-								formIcons.forEach(function(iconSpan) {
-									const parentLi = iconSpan.closest('li');
-									if (parentLi) {
-										const passwordInput = parentLi.querySelector('input[type="password"]');
-										if (passwordInput && !iconSpan.hasAttribute('data-password-toggle-initialized')) {
-											iconSpan.style.cursor = 'pointer';
-											iconSpan.setAttribute('data-password-toggle-initialized', 'true');
-											
-											iconSpan.addEventListener('click', function(e) {
-												e.preventDefault();
-												e.stopPropagation();
-												
-												if (passwordInput.type === 'password') {
-													passwordInput.type = 'text';
-												} else {
-													passwordInput.type = 'password';
-												}
-											});
-										}
-									}
-								});
 							};
 							
 							// Add event listeners for swap links
@@ -3033,36 +2962,6 @@ var sameMonthEventsSwiper = new Swiper(".same_month_events_swiper", {
 								newSwapToSignInLink.addEventListener('click', swapToSignIn);
 							}
 							
-							// Initialize password toggle for initial view
-							if (signInView.style.display !== 'none') {
-								initPasswordToggle(signInView);
-							}
-						} else {
-							// Re-initialize password toggle for form icons (for training popups)
-							setTimeout(function() {
-								const formIcons = slide.el.querySelectorAll('.form-icon');
-								formIcons.forEach(function(iconSpan) {
-									const parentLi = iconSpan.closest('li');
-									if (parentLi) {
-										const passwordInput = parentLi.querySelector('input[type="password"]');
-										if (passwordInput && !iconSpan.hasAttribute('data-password-toggle-initialized')) {
-											iconSpan.style.cursor = 'pointer';
-											iconSpan.setAttribute('data-password-toggle-initialized', 'true');
-											
-											iconSpan.addEventListener('click', function(e) {
-												e.preventDefault();
-												e.stopPropagation();
-												
-												if (passwordInput.type === 'password') {
-													passwordInput.type = 'text';
-												} else {
-													passwordInput.type = 'password';
-												}
-											});
-										}
-									}
-								});
-							}, 100);
 						}
 						
 						// Fix mobile scrolling when keyboard opens
@@ -3833,87 +3732,126 @@ var swiper = new Swiper(".mySwiper-02", {});
 	}
 })();
 
-// Password Toggle for Form Icon (Header Popups)
+// Password Toggle for Form Icon (Header Popups, Login, Sign Up)
+// Uses event delegation so it works for Fancybox-cloned popups (e.g. #login-popup-1)
+// and any dynamically shown content - no init timing issues.
 (function() {
-	const initFormIconPasswordToggle = function() {
-		// Find all form-icon elements that are next to password inputs
-		const formIcons = document.querySelectorAll('.form-icon');
-		
-		if (!formIcons.length) {
+	document.addEventListener('click', function(e) {
+		const iconSpan = e.target.closest('.form-icon');
+		if (!iconSpan) return;
+
+		const parentLi = iconSpan.closest('li');
+		if (!parentLi) return;
+
+		let passwordInput = parentLi.querySelector('input[type="password"]');
+		if (!passwordInput) {
+			const textInput = parentLi.querySelector('input[type="text"]');
+			if (textInput && (textInput.placeholder.toLowerCase().includes('password') || textInput.name.toLowerCase().includes('password'))) {
+				passwordInput = textInput;
+			} else {
+				return;
+			}
+		}
+
+		e.preventDefault();
+		e.stopPropagation();
+
+		const iconImg = iconSpan.querySelector('img');
+		if (passwordInput.type === 'password') {
+			passwordInput.type = 'text';
+			if (iconImg) {
+				iconImg.src = iconImg.src.replace('eye-icn.svg', 'eye-slash-icn.svg');
+				iconImg.setAttribute('alt', 'Hide password');
+			}
+		} else {
+			passwordInput.type = 'password';
+			if (iconImg) {
+				iconImg.src = iconImg.src.replace('eye-slash-icn.svg', 'eye-icn.svg');
+				iconImg.setAttribute('alt', 'Show password');
+			}
+		}
+	});
+
+	// Set cursor:pointer for form-icons next to password inputs (runs once on load + on Fancybox open)
+	const setFormIconCursors = function() {
+		document.querySelectorAll('.form-icon').forEach(function(iconSpan) {
+			const parentLi = iconSpan.closest('li');
+			if (parentLi && parentLi.querySelector('input')) {
+				iconSpan.style.cursor = 'pointer';
+			}
+		});
+	};
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', function() {
+			setTimeout(setFormIconCursors, 100);
+		});
+	} else {
+		setTimeout(setFormIconCursors, 100);
+	}
+	if (typeof Fancybox !== 'undefined') {
+		document.addEventListener('fancybox:reveal', function() {
+			setTimeout(setFormIconCursors, 100);
+		});
+	}
+})();
+
+// Logout confirm: show styled modal popup (like Sign In) instead of browser alert
+(function() {
+	var pendingLogoutUrl = '';
+
+	document.addEventListener('click', function(e) {
+		var link = e.target.closest('.js-logout-confirm');
+		if (link && link.href) {
+			e.preventDefault();
+			pendingLogoutUrl = link.href;
+			var popup = document.getElementById('logout-confirm-popup');
+			if (popup && typeof Fancybox !== 'undefined') {
+				Fancybox.show([{ src: '#logout-confirm-popup' }]);
+			} else {
+				window.location.href = pendingLogoutUrl;
+			}
 			return;
 		}
 
-		formIcons.forEach(function(iconSpan) {
-			// Check if this icon is next to a password input
-			const parentLi = iconSpan.closest('li');
-			if (!parentLi) {
-				return;
+		if (e.target.closest('.js-logout-cancel') || e.target.closest('.js-logout-confirm-close')) {
+			e.preventDefault();
+			if (typeof Fancybox !== 'undefined') {
+				Fancybox.close();
 			}
-			
-			// Find password input (check both password and text types in case it was already toggled)
-			let passwordInput = parentLi.querySelector('input[type="password"]');
-			if (!passwordInput) {
-				// If no password input found, check for text input with password-related attributes
-				const textInput = parentLi.querySelector('input[type="text"]');
-				if (textInput && (textInput.placeholder.toLowerCase().includes('password') || 
-					textInput.name.toLowerCase().includes('password'))) {
-					passwordInput = textInput;
-				} else {
-					return;
-				}
+			return;
+		}
+
+		if (e.target.closest('.js-logout-confirm-submit')) {
+			e.preventDefault();
+			if (pendingLogoutUrl) {
+				if (typeof Fancybox !== 'undefined') Fancybox.close();
+				window.location.href = pendingLogoutUrl;
 			}
+		}
+	});
+})();
 
-			// Make the icon clickable
-			iconSpan.style.cursor = 'pointer';
-			
-			// Remove existing listeners by checking if already initialized
-			if (iconSpan.hasAttribute('data-password-toggle-initialized')) {
-				return;
-			}
-			iconSpan.setAttribute('data-password-toggle-initialized', 'true');
-
-			// Add click event listener
-			iconSpan.addEventListener('click', function(e) {
-				e.preventDefault();
-				e.stopPropagation();
-				
-				// Get the image element inside the icon span
-				const iconImg = iconSpan.querySelector('img');
-				
-				// Toggle password visibility
-				if (passwordInput.type === 'password') {
-					passwordInput.type = 'text';
-					// Change icon to eye-slash when password is visible
-					if (iconImg) {
-						iconImg.src = iconImg.src.replace('eye-icn.svg', 'eye-slash-icn.svg');
-						iconImg.setAttribute('alt', 'Hide password');
-					}
-				} else {
-					passwordInput.type = 'password';
-					// Change icon to eye when password is hidden
-					if (iconImg) {
-						iconImg.src = iconImg.src.replace('eye-slash-icn.svg', 'eye-icn.svg');
-						iconImg.setAttribute('alt', 'Show password');
-					}
-				}
-			});
-		});
-	};
-
-	// Initialize when DOM is ready
-	if (document.readyState === 'loading') {
-		document.addEventListener('DOMContentLoaded', function() {
-			setTimeout(initFormIconPasswordToggle, 100);
-		});
-	} else {
-		setTimeout(initFormIconPasswordToggle, 100);
+// Profile saved success message: keep visible 8 seconds then fade out and clean URL
+(function() {
+	function initProfileSavedMsg() {
+		var msg = document.querySelector('.profile-saved-msg');
+		if (!msg || window.location.search.indexOf('profile_saved=') === -1) return;
+		msg.style.transition = 'opacity 0.5s ease';
+		setTimeout(function() {
+			msg.style.opacity = '0';
+			setTimeout(function() {
+				msg.style.display = 'none';
+				var url = new URL(window.location.href);
+				url.searchParams.delete('profile_saved');
+				var clean = url.pathname + (url.search || '') + (url.hash || '');
+				window.history.replaceState(null, '', clean);
+			}, 500);
+		}, 8000);
 	}
-
-	// Re-initialize when Fancybox opens (for dynamically loaded popups)
-	if (typeof Fancybox !== 'undefined') {
-		document.addEventListener('fancybox:reveal', function() {
-			setTimeout(initFormIconPasswordToggle, 100);
-		});
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', initProfileSavedMsg);
+	} else {
+		initProfileSavedMsg();
 	}
 })();
 
@@ -4511,26 +4449,58 @@ document.addEventListener('DOMContentLoaded', function() {
 				const nextButton = document.querySelector('.but_next-aw');
 				const prevButton = document.querySelector('.but_prev-aw');
 
-				// Initialize main swiper with thumbnail control and custom navigation
-				const mainSwiper = new Swiper('.mySwiper-03', {
-					slidesPerView: 1,
-					spaceBetween: 0,
-					thumbs: {
-						swiper: thumbSwiper,
-					},
-					loop: true, // Enable infinite loop
-					loopAdditionalSlides: 1, // Add extra slides for smoother looping
-					loopedSlides: 1, // Number of slides to loop (minimum for 4 slides)
-					effect: 'slide',
-					speed: 300,
-					allowSlidePrev: true,
-					allowSlideNext: true,
-					watchSlidesProgress: true,
-					navigation: {
-						nextEl: nextButton,
-						prevEl: prevButton,
-					},
-				});
+			// Check if mobile view (under 700px)
+			const isMobileView = function() {
+				return window.innerWidth < 700;
+			};
+
+			// Initialize main swiper with thumbnail control and custom navigation
+			const mainSwiper = new Swiper('.mySwiper-03', {
+				slidesPerView: 1,
+				spaceBetween: 0,
+				thumbs: {
+					swiper: thumbSwiper,
+				},
+				loop: true, // Enable infinite loop
+				loopAdditionalSlides: 1, // Add extra slides for smoother looping
+				loopedSlides: 1, // Number of slides to loop (minimum for 4 slides)
+				effect: 'slide',
+				speed: 300,
+				allowSlidePrev: true,
+				allowSlideNext: true,
+				watchSlidesProgress: true,
+				navigation: {
+					nextEl: nextButton,
+					prevEl: prevButton,
+				},
+				// Autoplay only on mobile (under 700px)
+				autoplay: isMobileView() ? {
+					delay: 3000,
+					disableOnInteraction: false,
+					pauseOnMouseEnter: true,
+				} : false,
+			});
+
+			// Handle window resize to enable/disable autoplay
+			let resizeTimeout;
+			window.addEventListener('resize', function() {
+				clearTimeout(resizeTimeout);
+				resizeTimeout = setTimeout(function() {
+					if (mainSwiper && mainSwiper.autoplay) {
+						if (isMobileView()) {
+							// Enable autoplay on mobile
+							if (!mainSwiper.autoplay.running) {
+								mainSwiper.autoplay.start();
+							}
+						} else {
+							// Disable autoplay on desktop
+							if (mainSwiper.autoplay.running) {
+								mainSwiper.autoplay.stop();
+							}
+						}
+					}
+				}, 250);
+			});
 
 				// Wait for main swiper to initialize
 				setTimeout(function() {
@@ -4622,3 +4592,77 @@ document.addEventListener('DOMContentLoaded', function() {
 		console.warn('Awards Gallery: Swiper elements not found');
 	}
 });
+
+
+
+var MySelect;
+
+jQuery(document).ready(function () {
+    MySelect = jQuery('.select-input').SumoSelect({
+        search: true,
+    });
+});
+
+// Re-initialize Sumo Select on dynamically added blocks (Add more education / experience / project).
+// Cloned blocks contain a copy of the SumoSelect wrapper which is not functional; unwrap and re-init.
+(function() {
+	function initSumoInBlock(block) {
+		if (typeof jQuery === 'undefined' || typeof jQuery.fn.SumoSelect === 'undefined') return;
+		if (!block || !block.querySelector) return;
+		// Unwrap any cloned SumoSelect wrappers so we have a plain select again.
+		block.querySelectorAll('.SumoSelect').forEach(function(sumoDiv) {
+			var select = sumoDiv.querySelector('select');
+			if (!select) return;
+			select.classList.remove('SumoUnder');
+			select.removeAttribute('tabindex');
+			var parent = sumoDiv.parentNode;
+			if (parent) {
+				parent.insertBefore(select, sumoDiv);
+				sumoDiv.remove();
+			}
+		});
+		// Initialize SumoSelect on each .select-input in this block that is not already initialized.
+		block.querySelectorAll('select.select-input').forEach(function(select) {
+			if (select.hasAttribute('data-sumo-select-initialized')) return;
+			if (jQuery(select).parent().hasClass('SumoSelect')) return;
+			select.setAttribute('data-sumo-select-initialized', 'true');
+			jQuery(select).SumoSelect({ search: true });
+		});
+	}
+	function onAddedNodes(addedNodes) {
+		for (var i = 0; i < addedNodes.length; i++) {
+			var node = addedNodes[i];
+			if (node.nodeType !== 1 || !node.classList) continue;
+			if (node.classList.contains('js-education-block') || node.classList.contains('js-experience-block') || node.classList.contains('js-project-block')) {
+				initSumoInBlock(node);
+			}
+		}
+	}
+	if (document.body) {
+		var observer = new MutationObserver(function(mutations) {
+			mutations.forEach(function(mutation) {
+				if (mutation.addedNodes && mutation.addedNodes.length) onAddedNodes(mutation.addedNodes);
+			});
+		});
+		observer.observe(document.body, { childList: true, subtree: true });
+	} else {
+		document.addEventListener('DOMContentLoaded', function() {
+			var observer = new MutationObserver(function(mutations) {
+				mutations.forEach(function(mutation) {
+					if (mutation.addedNodes && mutation.addedNodes.length) onAddedNodes(mutation.addedNodes);
+				});
+			});
+			observer.observe(document.body, { childList: true, subtree: true });
+		});
+	}
+})();
+
+// var MySelectS;
+
+// jQuery(document).ready(function () {
+//     MySelectS = jQuery('.select-input-search').SumoSelect({
+//         search: true,          // Enable search box
+//         searchText: 'Search...', // Placeholder text (optional)
+//         noMatch: 'No matches found' // Text when no result (optional)
+//     });
+// });

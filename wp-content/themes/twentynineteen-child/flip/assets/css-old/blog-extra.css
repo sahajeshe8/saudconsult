@@ -1,0 +1,7 @@
+.listing-points ul {
+    margin-bottom: 60px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.banner-menu-search form{ display: contents; }

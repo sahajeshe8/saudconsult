@@ -4,7 +4,7 @@
   flex-wrap: wrap;
   justify-content: space-between;
   .services_section_01_item_01 {
-    width: 50%;
+    width: 60%;
 
     @media screen and (max-width: 820px) {
       width: 100%;
@@ -249,7 +249,7 @@
     font-size: 16px;
     margin-bottom: 0px;
     max-width: 70%;
-    @media screen and (max-width: 820px) { max-width: 100%;}
+    @media screen and (max-width: 1024px) { max-width: 100%;}
     @media screen and (max-width: 700px) {
       font-size: 14px;
       max-width: 100%;

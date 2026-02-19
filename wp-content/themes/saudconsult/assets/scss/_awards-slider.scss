@@ -287,6 +287,11 @@
 		&.swiper-slide-active{
 			.award_item_info{ display: block;}
 		}
+
+
+		@media screen and (max-width: 1440px) {
+			width: 84%;
+		}
 	}
 }
 
@@ -308,7 +313,11 @@
 }
 .slider-block-03{ width:56%; position: relative;
 
-
+.slider_arrow_block{
+	@media screen and (max-width: 700px) {
+	 display: none !important;
+	}
+}
 @media screen and (max-width: 768px) {
 	width: 100%;
 }
@@ -347,7 +356,7 @@
 
 .swiper-slide-inner-img{  width: 50%; 
 @media screen and (max-width: 700px) {
-	width: 100%;
+	width: 100%; margin-bottom: 20px;
 }
 }
 .swiper-slide-inner-txt{  width: 45%;  display: flex; align-items: center; justify-content: center;

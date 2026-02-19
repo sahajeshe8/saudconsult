@@ -87,13 +87,15 @@
 	 justify-content: center;
 	 flex-wrap: wrap;
 	overflow: hidden;
+	aspect-ratio: 1440/700;
 	background: #f1f1f1;
 
 	img {
 		width: 100%;
-		height: auto;
+		height: 100%;
 		display: block;
 		object-fit: cover;
+		// max-width:  700px;
 	}
 
 	@media screen and (max-width: 768px) {
@@ -106,6 +108,8 @@
 			min-height: 600px;
 		}
 	}
+
+	picture{ width: 100%;}
 }
 
 .news_detail_content {
@@ -424,5 +428,5 @@ font-size: 22px; font-weight: 400; margin: 0 0 20px 0;
 }
 
 .news-detail-page{
-	.breadcrumb_section  {padding-top: 0;}
+	.breadcrumb_section  {padding-top: 25px;}
 }

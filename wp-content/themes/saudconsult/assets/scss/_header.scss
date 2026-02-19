@@ -568,7 +568,14 @@
         color: #a9d159;
       }
         > img {
-          -webkit-filter: invert(1);
+          display: block;
+          -webkit-filter: brightness(0) invert(1);
+          filter: brightness(0) invert(1);
+          transform: translateZ(0);
+          -webkit-transform: translateZ(0);
+          will-change: filter;
+          -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
           filter: invert(1);
         }
       }
@@ -583,8 +590,14 @@
 
   .user-login-trigger {
     img {
-      -webkit-filter: invert(1);
-      filter: invert(1);
+      display: block;
+      -webkit-filter: brightness(0) invert(1);
+      filter: brightness(0) invert(1);
+      transform: translateZ(0);
+      -webkit-transform: translateZ(0);
+      will-change: filter;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
     }
   }
 }
@@ -620,4 +633,15 @@
     outline: none;
     box-shadow: none;
   }
+}
+
+
+.black-header{
+
+.menu_right_block{
+  svg{
+    path{ stroke:#000 !important; }
+  }
+}
+
 }

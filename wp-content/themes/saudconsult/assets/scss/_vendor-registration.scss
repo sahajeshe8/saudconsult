@@ -294,6 +294,9 @@
 		display: flex !important;
 		flex-wrap: wrap;
 		gap: 45px;
+		@media screen and (max-width: 1366px) {
+			gap: 15px;
+		}
 	}
 }
 
@@ -447,7 +450,7 @@
 	}
 }
 
-.wpcf7-not-valid-tip{ font-size: 12px;}
+ 
  
 /* Input Error Border */
 .wpcf7-not-valid {
@@ -463,6 +466,7 @@
 	position: absolute;
 	position: absolute;
     bottom: -24px;
+	font-weight:400;
 }
 
 /* ============================= */

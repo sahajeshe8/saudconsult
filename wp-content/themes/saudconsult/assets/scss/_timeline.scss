@@ -69,7 +69,7 @@
 .timeline_item_content_year{ line-height: 100%; display: inline-flex; padding: 0 15px; background: #0D6A37; font-size:24px; color: #fff; border-radius:5px; min-width: 185px; justify-content: center; align-items: center; text-align: center; position: relative;  padding-top: 6px; padding-bottom: 6px; 
 
 
-.timeline-dot{ box-sizing: content-box; position: absolute; left: -32px; width: 16px; height: 16px;  border: solid 5px #fff; background: #000; border-radius: 50%;
+.timeline-dot{ box-sizing: content-box; position: absolute; left: -39px; width: 16px; height: 16px;  border: solid 5px #fff; background: #000; border-radius: 50%;
 
     &.active{ background: #0D6A37; border: solid 5px #8DC540;}
 }

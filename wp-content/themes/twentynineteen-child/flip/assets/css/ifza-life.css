@@ -1,0 +1,344 @@
+/*-----------ifza life------------*/
+.page-template-ifza-life .text-image-list-sec{
+    background:#F1F1F1;
+    padding:120px 0px;
+}
+.page-template-ifza-life .text-image-list-image {
+    height: 420px;
+}
+.page-template-ifza-life .text-image-list-content p{
+    margin-bottom:20px;
+}
+.content-sec-9 {
+  padding: 120px 0px;
+}
+
+.content-sec-9 h2 {
+  margin-bottom: 60px;
+}
+
+.content-sec-10 h3 {
+  margin-bottom: 45px;
+}
+
+.image-name-listing {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 25px;
+}
+
+.image-name-listing li {
+  width: 15.5%;
+  margin-left: 1.4%;
+}
+
+.image-name-listing li:nth-child(6n+1) {
+  margin-left: 0px;
+}
+
+.image-name-list-image {
+  width: 100%;
+  height: 131px;
+  border: 1px solid #707070;
+  background: #fff;
+  margin-bottom: 10px;
+}
+
+.image-name-listing li h6 {
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 0px;
+  text-transform: unset;
+}
+
+.content-sec-10 {
+  padding-bottom: 140px;
+  position: relative;
+}
+
+.content-sec-10:after {
+  content: "";
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  height: 430px;
+  background: #F3F4F5;
+  z-index: -1;
+}
+
+.form-brochure-area{
+    display:flex;
+}
+.page-template-ifza-life .form-sec figure {
+  height: 700px;
+  width:57%;
+}
+.brochure-image-outer{
+    width:43%;
+    height:700px;
+    display:flex;
+    background: #e4e4e4;
+    align-items:center;
+    text-align:center;
+}
+.page-template-ifza-life .brochure-image-outer figure.brochure-image {
+  width:100%;
+  height:650px;
+}
+
+.page-template-ifza-life .brochure-image-outer figure.brochure-image img {
+  width:auto;
+  height:100%;
+  object-fit:cover;
+}
+
+.page-template-ifza-life .form-sec figure.brochure-image:before {
+  content: none;
+}
+
+.enquiry-form-inner {
+  display: flex;
+  align-items: center;
+}
+
+.brochure-form-area {
+  width: 60%;
+  margin: auto;
+}
+
+.page-template-ifza-life .form-outer-area {
+  width: 100%;
+  max-width: 1300px;
+}
+
+/*-----------Media Queries----------*/
+
+@media only screen and (max-width:1450px) {
+  .content-sec-9 {
+    padding:100px 0px;
+  }
+  .page-template-ifza-life .text-image-list-sec{
+    padding: 100px 0px;
+  }
+  .content-sec-10 {
+    padding-bottom: 75px;
+  }
+
+  .content-sec-9 h2 {
+    margin-bottom: 40px;
+  }
+  .brochure-form-area{
+      width:85%;
+  }
+  .page-template-ifza-life .brochure-image-outer figure.brochure-image {
+      width:100%;
+      height:550px;
+    }
+}
+
+@media only screen and (max-width:1366px) {
+  .image-name-listing li {
+    width: 19%;
+    margin-left: 1.25%;
+  }
+
+  .image-name-listing li:nth-child(6n+1) {
+    margin-left: 1.25%;
+  }
+
+  .image-name-listing li:nth-child(5n+1) {
+    margin-left: 0px;
+  }
+
+  .brochure-form-area {
+    width: 100%;
+  }
+}
+@media only screen and (max-width:1280px){
+    .page-template-ifza-life .form-sec figure,
+    .page-template-ifza-life .brochure-image-outer{
+      height:550px;
+  }
+  .page-template-ifza-life .brochure-image-outer figure.brochure-image{
+      height:450px;
+  }
+}
+
+@media only screen and (max-width:1199px) {
+  .page-template-ifza-life .brochure-image-outer{
+      width:40%;
+  }
+  .page-template-ifza-life .form-sec figure{
+      width:60%;
+  }
+  .page-template-ifza-life .form-sec figure,
+  .page-template-ifza-life .brochure-image-outer{
+      height:500px;
+  }
+  .page-template-ifza-life .brochure-image-outer figure.brochure-image{
+      height:400px;
+  }
+}
+
+@media only screen and (max-width:991px) {
+    .content-sec-9,
+    .page-template-ifza-life .text-image-list-sec{
+        padding: 80px 0px;
+    }
+
+  .content-sec-10 {
+    padding-bottom:80px;
+  }
+
+  .content-sec-9 h2,
+  .content-sec-10 h3 {
+    margin-bottom: 20px;
+  }
+
+  .image-name-listing li {
+    width: 24%;
+    margin-left: 1.33%;
+  }
+
+  .image-name-listing li:nth-child(5n+1) {
+    margin-left: 1.33%;
+  }
+
+  .image-name-listing li:nth-child(4n+1) {
+    margin-left: 0px;
+  }
+
+  .enquiry-form-inner {
+    flex-wrap: wrap;
+  }
+
+  .brochure-form-area {
+    width: 100%;
+  }
+  .form-brochure-area{
+      flex-wrap:wrap;
+  }
+  .page-template-ifza-life .brochure-image-outer,
+  .page-template-ifza-life .form-sec figure{
+      width:100%;
+  }
+}
+
+@media only screen and (max-width:767px) {
+  .image-name-listing li {
+    width: 49%;
+  }
+
+  .image-name-listing li:nth-child(4n+1) {
+    margin-left: 2%;
+  }
+
+  .image-name-listing li:nth-child(2n+1) {
+    margin-left: 0;
+  }
+
+  .image-name-list-image {
+    margin-bottom: 6px;
+  }
+
+  .image-name-listing {
+    row-gap: 20px;
+  }
+
+  .content-sec-9 h2 {
+    font-size: 26px;
+    line-height: 32px;
+  }
+
+  .content-sec-10 h3 {
+    font-size: 26px;
+    line-height: 32px;
+  }
+}
+@media only screen and (max-width:480px){
+   .page-template-ifza-life .form-sec figure{
+       height:auto;
+   }
+   .page-template-ifza-life .form-sec figure::before{
+       content:none;
+   }
+   .page-template-ifza-life .form-sec figure picture{
+       display:none;
+   }
+   .page-template-ifza-life .brochure-image-outer{
+       height:245px;
+   }
+   .page-template-ifza-life .brochure-image-outer figure.brochure-image{
+       height:100%;
+   }
+   .page-template-ifza-life .form-sec figure.brochure-image picture{
+        display:block;
+   }
+   .page-template-ifza-life .form-outer-area{
+       position:relative;
+       transform:unset;
+       top:unset;
+       left:unset;
+       padding-top:40px;
+       padding-bottom:60px;
+   }
+   .page-template-ifza-life .form-outer-area h3,
+   .page-template-ifza-life .form-outer-area p{
+       color:#21201F;
+   }
+   .page-template-ifza-life .zf-tempContDiv input[type="text"], 
+   .page-template-ifza-life .zf-tempContDiv textarea, 
+   .page-template-ifza-life .zf-tempContDiv .zf-pdfTextArea{
+       color:#21201F;
+       border-color:#21201F !important;
+   }
+   .page-template-ifza-life .zf-tempContDiv input::placeholder,
+   .page-template-ifza-life .zf-tempContDiv textarea::placeholder {
+        color: #21201F;
+        font-size:16px;
+    }
+    .page-template-ifza-life .zf-tempFrmWrapper.zf-decesion .zf-labelName{
+        color:#21201F;
+    }
+    .page-template-ifza-life .zf-tempContDiv input[type="checkbox"]{
+        border:0px;
+    }
+    .page-template-ifza-life .zf-tempContDiv input[type="checkbox"]:checked::before{
+        border:1px solid #b4b2b3;
+    }
+    .page-template-ifza-life .zf-submitColor{
+        color:#21201F;
+        padding:0px 25px;
+    }
+    .page-template-ifza-life .zf-submitColor .arrow-img{
+        background: url(../images/arrow-blk.svg) no-repeat;
+    }
+    .page-template-ifza-life .zf-submitColor:hover::before{
+        background:#21201F;
+    }
+    .page-template-ifza-life .zf-namelarge .zf-tempContDiv span:first-child{
+        margin-bottom:30px;
+    }
+    .page-template-ifza-life .zf-namelarge .zf-twoType .zf-nameWrapper span{
+        width:100%;
+        margin-left:0px;
+    }
+    .page-template-ifza-life .zf-submitColor:hover{
+        color:#fff;
+    }
+    .page-template-ifza-life .zf-submitColor::before{
+        width:44px;
+        height:44px;
+    }
+    .page-template-ifza-life .form-sec{
+        border:1px solid #e4e4e4;
+        width:93%;
+        margin:0px auto 80px;
+    }
+    .page-template-ifza-life .form-outer-area h3{
+        font-size:28px;
+        line-height:34px;
+    }
+    
+}

@@ -1,0 +1,321 @@
+/*-----------Why Dubai------------*/
+.full-link {
+    position: absolute;
+    top: 0;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+.content-sec-17 .listing-points{
+    margin-bottom:0px;
+}
+.banner-widget-small{
+  position:relative;
+}
+.banner-widget-small:hover .banner-widget-small-content .btn-link{
+  color: #D1A915;
+}
+.banner-widget-small:hover .banner-widget-small-content .btn-link .arrow-img{
+  -webkit-transform: translateX(10px);
+    transform: translateX(10px);
+}
+.why-dubai .banner-widget-small-content{
+    width:40%;
+}
+.why-dubai .banner-widget-small-image{
+    width:60%;
+}
+.content-sec-17 {
+  padding: 120px 0px;
+}
+
+.why-dubai .banner-area-wrap:before {
+  background: rgba(0, 0, 0, 0.10);
+}
+
+.why-dubai .image-left-content-right .listing-points {
+  margin-bottom: 30px;
+  padding-bottom: 0px;
+  display:inline-block;
+}
+
+.content-sec-17-inner {
+  display: flex;
+}
+
+.content-sec-17-left {
+  width: 41%;
+}
+
+.content-sec-17-left h3 {
+  margin-bottom: 60px;
+  line-height: 34px;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.content-sec-17-left h3:after {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 80px;
+  height: 2px;
+  background: #21201F;
+}
+
+.content-sec-17-right {
+  width: 49%;
+  margin-left: auto;
+}
+
+.why-dubai .image-left-content {
+  background: #fff;
+}
+
+.why-dubai .listing-points li {
+  line-height: 22px;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  text-transform: unset;
+  width: 100%;
+  margin-left: 0px;
+}
+
+.why-dubai .listing-points li:before {
+  top: 21px;
+}
+
+.why-dubai .listing-points li:nth-of-type(2) {
+  border-top: 0px;
+}
+
+.numbers-sec {
+  padding: 180px 0px 200px;
+  background: #F1F1F1;
+}
+
+.numbers-sec h2 {
+  margin-bottom: 45px;
+}
+
+.numbers-listing {
+  display: flex;
+  margin-bottom: 0px;
+}
+
+.numbers-listing li {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-bottom: 15px;
+  width: 17%;
+  margin-left: 3.75%;
+}
+
+.numbers-listing li:first-child {
+  margin-left: 0px;
+}
+
+.numbers-listing li:after {
+  content: "";
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 60px;
+  height: 2px;
+  background: #CDA72C;
+}
+
+.numbers-listing li span {
+  font-size: 40px;
+  line-height: 44px;
+  font-weight: 200;
+  font-family: 'TT Firs Neue';
+  text-transform: uppercase;
+  color: #212121;
+  margin-bottom: 5px;
+}
+
+.numbers-listing li span sup {
+  font-size: 22px;
+  line-height: normal;
+}
+
+.numbers-listing li p {
+  margin-bottom: 0px;
+  font-weight: 300;
+  font-family: 'TT Firs Neue';
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.why-dubai .banner-widget-small{
+    overflow:hidden;
+}
+
+/*-----------Media Queries----------*/
+
+@media only screen and (max-width:1450px) {
+
+  .content-sec-17{
+    padding:100px 0px;
+  }
+  .numbers-sec{
+      padding:100px 0px 120px;
+  }    
+  .numbers-listing li span {
+    font-size: 26px;
+    line-height: normal;
+  }
+
+  .numbers-sec h2 {
+    margin-bottom: 20px;
+    font-size: 26px;
+  }
+
+  .numbers-listing li p {
+    font-size: 16px;
+  }
+
+  .content-sec-17-right {
+    width: 50%;
+  }
+  .numbers-listing li span sup{
+    font-size:18px;
+  }
+  .content-sec-17-left{
+      width:43%;
+  }
+
+}
+@media only screen and (max-width:1280px){
+    .numbers-sec{
+     padding:130px 0px;
+  }
+}
+@media only screen and (max-width:1200px) {
+  .content-sec-17-right {
+    width: 52%;
+  }
+
+  .banner-widget-small {
+    padding-top: 45px;
+  }
+       
+  .content-sec-17-left h3 br{
+      display:none;
+  }
+  .image-left-content-right .btn-link{
+      max-width:315px;
+      display:flex;
+  }
+}
+@media only screen and (max-width:1000px) {
+  .content-sec-17-inner {
+    flex-wrap: wrap;
+  }
+
+  .content-sec-17-left {
+    width: 100%;
+    margin-bottom: 50px;
+  }
+
+  .content-sec-17-right {
+    width: 100%;
+  }
+
+  .numbers-listing {
+    flex-wrap: wrap;
+  }
+
+  .numbers-listing li {
+    width: 30%;
+    margin-bottom: 30px;
+  }
+
+  .numbers-listing li:nth-child(4) {
+    margin-left: 0px;
+  }
+
+  .content-sec-17,
+  .numbers-sec {
+    padding:80px 0px;
+  }
+}
+
+@media only screen and (max-width:767px) {
+  .content-sec-17-left {
+    margin-bottom: 40px;
+  }
+
+  .numbers-listing li {
+    width: 100%;
+    margin-left:0px;
+  }
+
+  .numbers-listing li:nth-child(4) {
+    margin-left:0px;
+  }
+
+  .numbers-listing li:nth-child(2n + 1) {
+    margin-left: 0;
+  }
+
+  .banner-widget-small {
+    padding-top: 30px;
+  }
+
+  .content-sec-17-left h3 {
+    margin-bottom: 45px;
+    line-height: 32px;
+  }
+  .why-dubai .banner-widget-small-content{
+      width:100%;
+  }
+  .why-dubai .banner-widget-small-image{
+      width:100%;
+  }
+  .content-sec-17-left h3::after{
+      content:none;
+  }
+  .why-dubai .numbers-listing li p{
+      font-size:16px;
+  }
+  .why-dubai .numbers-listing li span{
+      font-size:26px;
+  }
+  .banner-widget-small-inner {
+      align-items:center;
+	}
+
+}
+@media only screen and (max-width:640px){
+    .why-dubai .banner-widget-small-content{
+        min-width: 300px;
+        max-width: 300px;
+    }
+    .why-dubai .banner-widget-small{
+        padding-top:0px;
+    }
+    .why-dubai .banner-widget-small-image figure{
+	    min-width:250px;
+	    width:250px;
+	}
+}
+@media only screen and (max-width:480px){
+    .why-dubai .banner-widget-small-content {
+      min-width: 270px;
+      max-width: 270px;
+    }
+}
+@media only screen and (max-width:380px){
+    .why-dubai .banner-widget-small-image figure{
+	    min-width:220px;
+	    width:220px;
+	}
+	 .why-dubai .banner-widget-small-content {
+      min-width: 250px;
+      max-width: 250px;
+    }
+}

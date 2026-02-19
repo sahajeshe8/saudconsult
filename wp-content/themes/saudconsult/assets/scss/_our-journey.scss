@@ -46,6 +46,14 @@
 			display: none;
 		}
 	}
+
+	.h3_title_50{
+		br{ 
+			@media screen and (max-width: 1480px) {
+				display: none;
+			}
+		}
+	}
 }
 
 .our_journey_gallery_wrapper {

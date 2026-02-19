@@ -1,0 +1,434 @@
+<?php 
+/**
+* Template Name: Blog Single
+*/?>
+<link href="<?php echo get_template_directory_uri(); ?>/assets/css/blog.css" rel="stylesheet">
+<?php get_header()?>
+
+<main>
+	<section class="banner-two">
+		<div class="container">
+			<div class="banner-menu-search">
+				<nav>
+					<?php
+                    wp_nav_menu( array(
+                        'menu'   => 'Blog Menu',
+                        'container' => 'ul',
+                        'menu_class' => 'banner-main-menu'
+                    ) );
+                    ?>
+				</nav>
+				<div class="banner-search-area">
+					<input type="search" name="" placeholder="Search blogs, guides or media"
+						class="search-area secondary_font">
+					<button type="submit" class="sbt-search-icon">
+						<svg id="Group_405" data-name="Group 405" xmlns="http://www.w3.org/2000/svg">
+							<g id="Ellipse_94" data-name="Ellipse 94" fill="none" stroke="#cda72c"
+								stroke-linecap="round" stroke-width="2">
+								<circle cx="12.5" cy="12.5" r="12.5" stroke="none" />
+								<circle cx="12.5" cy="12.5" r="11.5" fill="none" />
+							</g>
+							<line id="Line_218" data-name="Line 218" y1="10"
+								transform="translate(20.985 20.985) rotate(-45)" fill="none" stroke="#cda72c"
+								stroke-linecap="round" stroke-width="2" />
+						</svg>
+					</button>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="single-top-image-sec">
+		<div class="container">
+			<div class="single-top-image-inner">
+				<div class="single-top-image-heading">
+					<figure>
+						<picture>
+							<source
+								srcset="<?php echo get_template_directory_uri(); ?>/assets/images/single-blog-banner.webp"
+								type="image/webp">
+							<source
+								srcset="<?php echo get_template_directory_uri(); ?>/assets/images/single-blog-banner.jpg"
+								type="image/jpg">
+							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/single-blog-banner.jpg"
+								alt=image>
+						</picture>
+					</figure>
+					<div class="single-top-heading-area">
+						<h1 class="h2">Innovative business ideas for <br>free zones in the uae</h1>
+						<p>In this blog, we’ll explore some of the best business ideas suited for Free Zones in the UAE.
+						</p>
+						<div class="single-date-share">
+							<div class="single-date-area">
+								<time class="article-publish-time secondary_font"><strong>Date published:</strong> Mar
+									22nd, 2023</time>
+								<time class="article-publish-time secondary_font"><strong>Reading Time:</strong> 5
+									min</time>
+							</div>
+							<div class="single-share-area">
+								<span>Share:</span>
+								<ul>
+									<li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
+									<li><a href=""><i class="fa-brands fa-facebook-f"></i></a></li>
+									<li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+									<li><a href="#"><i class="fa-solid fa-envelope"></i></a></li>
+									<li><a href="#"><i class="fa-brands fa-whatsapp"></i></a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="single-widget-listing desktop-view">
+					<h6>Read next</h6>
+					<div class="posts-widget-1 single-posts-widget-1">
+						<article>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+							</p>
+							<a href="<?php echo home_url(); ?>/single-blog/"><i class="fa-solid fa-arrow-right"></i></a>
+						</article>
+						<article>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</p>
+							<a href="<?php echo home_url(); ?>/single-blog/"><i class="fa-solid fa-arrow-right"></i></a>
+						</article>
+						<article>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+							</p>
+							<a href="<?php echo home_url(); ?>/single-blog/"><i class="fa-solid fa-arrow-right"></i></a>
+						</article>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="single-content-widget-sec">
+		<div class="container">
+			<div class="single-content-widget-inner">
+				<div class="single-widget-left">
+					<div class="posts-widget-3">
+						<h6>Download <br>IFZA Official <br>Guides</h6>
+						<ul>
+							<li>
+								<figure>
+									<picture>
+										<source
+											srcset="<?php echo get_template_directory_uri(); ?>/assets/images/dubai-page.webp"
+											type="image/webp">
+										<source
+											srcset="<?php echo get_template_directory_uri(); ?>/assets/images/dubai-page.jpg"
+											type="image/jpg">
+										<img src="<?php echo get_template_directory_uri(); ?>/assets/images/dubai-page.jpg"
+											alt=image>
+									</picture>
+								</figure>
+								<div class="single-guide-content">
+									<h6>IFZA Official Guide: Let's Create Success</h6>
+									<a href="<?php echo home_url(); ?>/single-guide/">Download the guide</a>
+								</div>
+							</li>
+							<li>
+								<figure>
+									<picture>
+										<source
+											srcset="<?php echo get_template_directory_uri(); ?>/assets/images/dubai-page.webp"
+											type="image/webp">
+										<source
+											srcset="<?php echo get_template_directory_uri(); ?>/assets/images/dubai-page.jpg"
+											type="image/jpg">
+										<img src="<?php echo get_template_directory_uri(); ?>/assets/images/dubai-page.jpg"
+											alt=image>
+									</picture>
+								</figure>
+								<div class="single-guide-content">
+									<h6>IFZA Official Guide: Let's Create Success</h6>
+									<a href="<?php echo home_url(); ?>/single-guide/">Download the guide</a>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="single-content-center">
+					<p>Starting a business in the UAE can be an exciting and rewarding venture. The country offers
+						investor-friendly regulations, attractive tax rates, access to a large talent pool, and
+						world-class infrastructure. The UAE is also a dynamic base to reach the nearby markets across
+						the Middle East, Africa, Asia and Europe.</p>
+					<h4><strong>1.</strong>IT Solutions Company</h4>
+					<p>With a growing demand for technology solutions and a business-friendly environment, the UAE
+						presents numerous opportunities for entrepreneurs. The country’s high quality of life also makes
+						it easy for you to attract talented professionals from diverse backgrounds to help build your
+						business. The newly launched Dubai Economic Agenda ‘D33’ aims to accelerate growth by investing
+						in advanced technology, opening endless opportunities for tech talents to thrive.</p>
+					<h4><strong>2.</strong>Human Resources Consultancy Services</h4>
+					<p>Starting a human resources consultancy business presents an excellent opportunity to leverage the
+						fruitful economic environment and the growing presence of multinational companies. There is a
+						high demand for services such as developing recruitment criteria and job descriptions,
+						conducting job interviews, employee training, and performance management, amongst other
+						HR-related activities.</p>
+					<h4><strong>3.</strong>E-Commerce Business</h4>
+					<p>UAE has the highest e-commerce penetration rate in the Middle East and the number is expected to
+						reach $9.2 billion by 2026! With a rapidly growing population of online shoppers and a
+						supportive government, the opportunities here are endless.</p>
+					<p>Business owners can benefit from favorable corporate tax regulations and access to sophisticated
+						logistic networks, digital payment systems, and skilled professionals.</p>
+					<p>Further advantages include ample research and development assistance, and various e-commerce
+						incentives from local governments, which promote the growth of this industry.</p>
+					<h4><strong>4.</strong>Event Management Company</h4>
+					<p>The event management industry is on the rise in the UAE, especially in Dubai. Many are choosing
+						the city as their dream wedding destination. With the recent changes in the civil marriage law,
+						this trend is expected to increase exponentially.</p>
+					<p>It doesn’t stop there; being a business hub, Dubai hosts international business meetings and
+						forums, which require event management services.</p>
+					<h4><strong>5.</strong>Green Building Materials Business</h4>
+					<p>Dubai and the UAE, in general, are advancing steadily toward a greener future by implementing
+						environment-friendly policies in different sectors, including construction. In fact, the country
+						has announced 2023 to be the Year of Sustainability.</p>
+					<p>Choosing to start a green building materials business will not be profitable but also contribute
+						to a higher goal of maintaining a healthy environment for future generations.</p>
+					<h3>Why Choose a Free Zone?</h3>
+					<figure>
+						<picture>
+							<source
+								srcset="<?php echo get_template_directory_uri(); ?>/assets/images/single-detail.webp"
+								type="image/webp">
+							<source srcset="<?php echo get_template_directory_uri(); ?>/assets/images/single-detail.jpg"
+								type="image/jpg">
+							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/single-detail.jpg"
+								alt=image>
+						</picture>
+					</figure>
+					<p>Starting a Free Zone business in the UAE provides many advantages and opportunities for
+						businesses of all sizes. Free Zones are designated areas with unique economic laws, allowing
+						businesses to operate without many of the restrictions that apply to mainland jurisdictions.</p>
+					<p>These zones provide access to modern infrastructure, streamlined business setup processes,
+						one-stop-shop solutions and cost savings.</p>
+					<p>Businesses in Free Zones can benefit from 100% foreign ownership privileges, low tax rates, full
+						repatriation of capital and profits, and access to world-class facilities such as office spaces,
+						warehouses, and storage units.</p>
+					<h4>Seamless Business Setup Process with IFZA</h4>
+					<p>You choose your innovative business idea, and our global network of Professional Partners will
+						facilitate the process of starting a business in Dubai for you, wherever you may be. IFZA is
+						more than just a Free Zone; we are a business community that empowers businesses to grow and
+						achieve new levels of success.</p>
+					<p>Once you apply, the IFZA team will study your business requirements and share a business proposal
+						that includes the following:</p>
+					<ul class="listing-points">
+						<li>Type of license</li>
+						<li>Visa package</li>
+						<li>Business activities</li>
+						<li>Office solutions</li>
+					</ul>
+					<figure>
+						<picture>
+							<source
+								srcset="<?php echo get_template_directory_uri(); ?>/assets/images/detail-img-cap.webp"
+								type="image/webp">
+							<source
+								srcset="<?php echo get_template_directory_uri(); ?>/assets/images/detail-img-cap.jpg"
+								type="image/jpg">
+							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/detail-img-cap.jpg"
+								alt=image>
+						</picture>
+						<figcaption>
+							<a href="#">Contact an IFZA <br>Professional today for <br>more info</a>
+						</figcaption>
+					</figure>
+					<p>IFZA will require the following documents to proceed with your business setup process:</p>
+					<ul class="listing-points">
+						<li>License application form</li>
+						<li>Digital passport photo</li>
+						<li>Passport copy</li>
+						<li>Emirates ID and visa copy</li>
+					</ul>
+					<p>After receiving the documents, the IFZA support team will register your shareholders’ documents
+						on the registration portal.</p>
+					<p>Upon approval, we will issue 2 digital forms to be signed before the issuance of incorporation
+						documents. A soft copy of the license will be sent via email, and you can pick up the original
+						copy from our office.</p>
+					<p>To ensure convenience, you have the option to conduct all the business setup procedures in-person
+						or online.</p>
+					<p>The IFZA team support continues after the license incorporation. We will assist you in a variety
+						of areas, including:</p>
+					<ul class="listing-points">
+						<li>Visa processes</li>
+						<li>License renewals</li>
+						<li>Office solutions</li>
+						<li>corporate bank accounts</li>
+						<li>License amendments</li>
+						<li>Medical insurance coverage</li>
+					</ul>
+				</div>
+				<div class="single-widget-right"></div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="single-widget-listing mobile-view">
+				<h6>Read next</h6>
+				<div class="posts-widget-1 single-posts-widget-1">
+					<article>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
+						<a href="<?php echo home_url(); ?>/single-blog/"><i class="fa-solid fa-arrow-right"></i></a>
+					</article>
+					<article>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</p>
+						<a href="<?php echo home_url(); ?>/single-blog/"><i class="fa-solid fa-arrow-right"></i></a>
+					</article>
+					<article>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
+						<a href="<?php echo home_url(); ?>/single-blog/"><i class="fa-solid fa-arrow-right"></i></a>
+					</article>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<section class="related-posts-sec">
+		<div class="container">
+			<h3>Recent news</h3>
+			<div class="glide" id="related-posts">
+				<div class="glide__track" data-glide-el="track">
+					<ul class="glide__slides">
+						<li class="glide__slide">
+							<figure class="related-post-image">
+								<a href="<?php echo home_url(); ?>/single-blog/">
+									<picture>
+										<source
+											srcset="<?php echo get_template_directory_uri(); ?>/assets/images/article-10.webp"
+											type="image/webp">
+										<source
+											srcset="<?php echo get_template_directory_uri(); ?>/assets/images/article-10.jpg"
+											type="image/jpg">
+										<img src="<?php echo get_template_directory_uri(); ?>/assets/images/article-10.jpg"
+											alt=image>
+									</picture>
+								</a>
+							</figure>
+							<div class="related-post-content">
+								<time class="article-publish-time secondary_font"><strong>Date published:</strong> Mar
+									22<sup>nd</sup>, 2023</time>
+								<h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+									incididunt</h6>
+							</div>
+						</li>
+						<li class="glide__slide">
+							<figure class="related-post-image">
+								<a href="<?php echo home_url(); ?>/single-blog/">
+									<picture>
+										<source
+											srcset="<?php echo get_template_directory_uri(); ?>/assets/images/article-11.webp"
+											type="image/webp">
+										<source
+											srcset="<?php echo get_template_directory_uri(); ?>/assets/images/article-11.jpg"
+											type="image/jpg">
+										<img src="<?php echo get_template_directory_uri(); ?>/assets/images/article-11.jpg"
+											alt=image>
+									</picture>
+								</a>
+							</figure>
+							<div class="related-post-content">
+								<time class="article-publish-time secondary_font"><strong>Date published:</strong> Mar
+									22<sup>nd</sup>, 2023</time>
+								<h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+									incididunt</h6>
+							</div>
+						</li>
+						<li class="glide__slide">
+							<figure class="related-post-image">
+								<a href="<?php echo home_url(); ?>/single-blog/">
+									<picture>
+										<source
+											srcset="<?php echo get_template_directory_uri(); ?>/assets/images/artilce-12.webp"
+											type="image/webp">
+										<source
+											srcset="<?php echo get_template_directory_uri(); ?>/assets/images/artilce-12.jpg"
+											type="image/jpg">
+										<img src="<?php echo get_template_directory_uri(); ?>/assets/images/artilce-12.jpg"
+											alt=image>
+									</picture>
+								</a>
+							</figure>
+							<div class="related-post-content">
+								<time class="article-publish-time secondary_font"><strong>Date published:</strong> Mar
+									22<sup>nd</sup>, 2023</time>
+								<h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+									incididunt</h6>
+							</div>
+						</li>
+						<li class="glide__slide">
+							<figure class="related-post-image">
+								<a href="<?php echo home_url(); ?>/single-blog/">
+									<picture>
+										<source
+											srcset="<?php echo get_template_directory_uri(); ?>/assets/images/article-9.webp"
+											type="image/webp">
+										<source
+											srcset="<?php echo get_template_directory_uri(); ?>/assets/images/article-9.jpg"
+											type="image/jpg">
+										<img src="<?php echo get_template_directory_uri(); ?>/assets/images/article-9.jpg"
+											alt=image>
+									</picture>
+								</a>
+							</figure>
+							<div class="related-post-content">
+								<time class="article-publish-time secondary_font"><strong>Date published:</strong> Mar
+									22<sup>nd</sup>, 2023</time>
+								<h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+									incididunt</h6>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="bottom-banner">
+		<figure>
+			<picture>
+				<source srcset="<?php echo get_template_directory_uri(); ?>/assets/images/how-may-help.webp"
+					type="image/webp">
+				<source srcset="<?php echo get_template_directory_uri(); ?>/assets/images/how-may-help.jpg"
+					type="image/jpg">
+				<img src="<?php echo get_template_directory_uri(); ?>/assets/images/how-may-help.jpg" alt=image>
+			</picture>
+		</figure>
+		<div class="bottom-banner-content">
+			<div class="container">
+				<div class="bottom-banner-inner">
+					<h3 class="h2">How can we help you?</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br>sed do eiusmod tempor incididunt</p>
+					<a href="#">Get in touch<span class="arrow-img"></span></a>
+
+				</div>
+			</div>
+		</div>
+	</section>
+</main>
+<?php get_footer(); ?>
+
+<script type="text/javascript">
+	jQuery(document).ready(function () {
+		new Glide('#related-posts', {
+			type: 'carousel',
+			perView: 4,
+			draggable: true,
+			gap: 25,
+			breakpoints: {
+
+				600: {
+					perView: 2,
+					gap: 10,
+				},
+				1024: {
+					perView: 3,
+					gap: 15,
+				},
+			},
+
+		}).mount(
+
+		);
+
+
+	});
+
+</script>

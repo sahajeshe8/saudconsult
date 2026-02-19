@@ -15,7 +15,7 @@ $about_button_link = get_theme_mod( 'about_button_link', '#' );
 
 ?>
 
-<section class="about_section pt_80 pb_80 height_100vh">
+<section class="about_section pt_80 pb_80  ">
 	<div class="wrap">
 	  <div class="about_section_01">
 		 <div class="about_sectioncl_01" data-aos="fade-up" data-aos-duration="800" data-aos-delay="0">

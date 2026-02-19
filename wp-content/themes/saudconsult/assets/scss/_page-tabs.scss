@@ -9,7 +9,9 @@ border-bottom: solid 1px #cecfd1;
 
 	.page_tabs_container {
 		width: 100%;
-
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
 		@media screen and (max-width: 700px) {
 			overflow-x: auto;
 			overflow-y: hidden;
@@ -46,7 +48,7 @@ border-bottom: solid 1px #cecfd1;
 				flex-wrap: nowrap !important;
 				padding: 0;
 				width: max-content;
-				min-width: 100%;
+				// min-width: 100%;
 				white-space: nowrap;
 			}
 		 

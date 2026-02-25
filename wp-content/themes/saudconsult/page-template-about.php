@@ -41,7 +41,7 @@ get_header();
 		'image_alt' => 'About Us',
 		'title' => 'Pioneering Engineering',
 		'title_span' => 'Excellence Since 1965.',
-		'section_class' => 'about-page-section custom-class another-class third-class', // Multiple classes separated by space
+		'section_class' => 'about-page-section custom-class another-class third-class ovelray_none', // Multiple classes separated by space
 		 
 		'image_container_class' => 'about-image-container',
 		'text_container_class' => 'about-text-container'

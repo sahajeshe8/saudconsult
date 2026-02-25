@@ -31,7 +31,7 @@ body.rtl {
 	}
 	
 
-	.slider_arrow_block{     right: unset; left: 0; flex-direction: row-reverse; }
+	.slider_arrow_block{     right: unset; left: 0; flex-direction: row-reverse;   justify-content: flex-end;}
 
 	// Timeline RTL Styles
 	.timeline_section {
@@ -45,13 +45,13 @@ body.rtl {
 					.timeline_item_content_year {
 						.timeline-dot {
 							left: unset !important;
-							right: -32px !important;
+							right: -39px !important;
 						}
 					}
 				}
 
 				& > :nth-child(odd) {
-					.timeline_item_content {
+					.timeline_item_content {  
 						text-align: left;
 						@media screen and (min-width: 700px) {
 							p {
@@ -60,8 +60,67 @@ body.rtl {
 							}
 						}
 					}
+
+					.timeline_item_content_year {
+						.timeline-dot {
+							right: unset !important;
+							left: -39px !important;
+						}
+					}
 				}
 			}
 		}
 	}
+
+	// Image Text Block RTL Styles
+	.image_image_block_container {
+		ul {
+			margin-left: 0;
+			margin-right: 20px;
+
+			li {
+				padding-left: 0;
+				padding-right: 20px;
+			}
+		}
+	}
+
+	// Header Submenu RTL Styles
+	.sub_menu_block_left_block {
+		padding-right: 0;
+		padding-left: 4%;
+		border-right: none  !important;
+		border-left: 1px solid rgba(255, 255, 255, 0.3);
+	}
+
+
+	.contact_info_text{
+		a{ direction: ltr;}
+	}
+	
+	
+	.wpcf7-form-control-wrap{
+	   
+	 
+		.footer_email_input {
+		   text-align: right;
+		}
+	  }
+	
+
+
+	  .form_input, .form_textarea{ text-align: right; }
+
+
+	  .timeline_row_01 p{ text-align: right; }
+	  .faq_question{text-align: right; }
+
+	  .news_list_content  {
+		.slider_arrow_block { justify-content: center !important;}
+	  }
+
+	  .faq_list{ 
+		padding-right: 0 !important;
+	  }
 }
+

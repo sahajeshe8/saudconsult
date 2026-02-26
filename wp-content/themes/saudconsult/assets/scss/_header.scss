@@ -414,6 +414,10 @@
     .btn_style {
       display: none;
     }
+
+    @media screen and (max-width: 700px) {
+      gap: 8px;
+    }
   }
 
   // When mobile menu is open, ensure header stays at top

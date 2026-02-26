@@ -118,7 +118,7 @@
 				}
 			}
 
-			.wpcf7-form-control-wrap{ display: block;}
+			.wpcf7-form-control-wrap{ display: block; width: 100% ;}
 		}
 	}
 }
@@ -185,6 +185,7 @@
 // Input with button wrapper
 .vendor_input_with_button {
 	display: flex;
+	flex-wrap: wrap;
     position: relative;
 	gap: 15px;
 	align-items: flex-start;
@@ -219,7 +220,7 @@
 	.vendor-attach-btn{ height: 100%;}
 	background: #fff; border-radius: 35px;
 .btn_style{
-	@media screen and (max-width: 700px) {
+	@media screen and (max-width: 768px) {
 		 width: 100%;
 	}
 }
@@ -234,6 +235,8 @@
 	}
 }
 	
+
+
 }
 
 // Radio button groups
@@ -509,4 +512,8 @@
 
 .wpcf7-spinner {
     margin-left: 10px;
+}
+
+.vendor_input_with_button{
+	.wpcf7-not-valid-tip{ width: 100%;}
 }

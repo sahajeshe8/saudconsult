@@ -1051,6 +1051,9 @@ ul {
 
 
 
+
+
+
 }
 
 .job_details_info{
@@ -1082,3 +1085,11 @@ ul {
 
 
 .guest-apply-error{ display: none !important;}
+
+
+
+.career-form-list-ul {
+  li {
+    .input{ border: none !important;}
+  }
+ }

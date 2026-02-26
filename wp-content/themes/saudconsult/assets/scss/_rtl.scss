@@ -1,7 +1,7 @@
 // RTL Styles
 // WordPress automatically adds .rtl class to body via body_class() when is_rtl() is true
 body.rtl {
-	.btn_style {
+	.btn_style:not(.load_more_wrapper .btn_style) {
 		 
 		span{ transform: rotate(180deg);}
 	}
@@ -122,5 +122,89 @@ body.rtl {
 	  .faq_list{ 
 		padding-right: 0 !important;
 	  }
+
+
+	  .vendor_radio_option .vendor_radio_custom{     margin-right:0px;     margin-left: 10px;}
+
+	  .vendor_registration_form_col{
+		.vendor_input_with_button {
+			.input{ border: none !important;}
+		}
+	  }
+
+	  .vendor_input_with_button{
+		.SelectBox{ border: none !important;}
+	  }
+
+	//   .input{ border: none !important;}
+
+	  .select-wrapper{
+		span.wpcf7-form-control-wrap{ width: 100% !important;}
+	  }
+
+	  .career-form-list-ul li .select-wrapper .select-arrow{ right: unset !important; left: 20px!important;}
+	  .wpcf7-not-valid-tip{bottom: unset !important; }
+
+	  #login-popup { direction: rtl !important;}
+
+
+
+	  .subscribe_form{
+
+		.wpcf7-not-valid-tip{
+			bottom: -24px !important;
+		}
+	  }
+
+
+	  .career-form-list-ul {
+		li {
+			.form-icon{ left: 20px  !important; right: unset !important;}
+		}
+	  }
+
+	  .inner_banner_title{
+		text-align: right !important;
+	  }
+
+	  .input{ text-align: right !important;}
+
+
+	  .vendor_input_with_button {
+		.vendor-attach-btn{     left: 0; right: unset;}
+	  }
+
+
+	  .vendor_input_with_button .input{  
+		
+		@media screen and (min-width: 1024px) {		
+			padding-right: 15px !important;     padding-left: 140px !important;
+		}
+	
+	
+	}
+
+
+
+
+
+	  .select-wrapper {
+	 
+  
+		.select-input {
+			padding-right: 0 !important;
+			padding-left: 45px;
+		}}
+
+
+
+		.SumoSelect>.CaptionCont>span{ padding-right: 0px; padding-left: 30px;}
+
+
+
 }
+
+
+
+
 

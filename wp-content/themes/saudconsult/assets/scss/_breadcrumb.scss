@@ -63,7 +63,7 @@
 		gap: 4px;
 
 		&:hover {
-			color: #999;
+			color:#0D6A37;
 		}
 
 		@media screen and (max-width: 768px) {
@@ -141,3 +141,5 @@
 	// }
 }
 
+
+.breadcrumb_home_icon:hover path { fill: #0D6A37 !important;}

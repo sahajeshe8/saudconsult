@@ -221,10 +221,10 @@ body.rtl {
 
 
 
-.footer_row_04_right ul > :nth-child(1){
-	border-right: none !important;
-	border-left: solid 1px #363636;
-}
+// .footer_row_04_right ul > :nth-child(1){
+// 	border-right: none !important;
+// 	border-left: solid 1px #363636;
+// }
 
 .breadcrumb_separator{
 	transform: rotate(180deg);
@@ -298,6 +298,7 @@ body.rtl {
 	.btn_style{
 		span{
 			transform: rotate(-90deg)  !important;
+			img{ transform:  unset !important;}
 		}
 	}
 
@@ -322,8 +323,84 @@ body.rtl {
 
 
 
+.career-form-list-ul {
+	li{
+		.select-wrapper.date-input-wrapper {
+			.date-placeholder{
+				left: unset;
+				right: 5px;
+			}
+		}
+	}
+}
 
 
+
+
+
+.my_jobs_section .my_jobs_table thead tr th:last-child{
+	border-top-right-radius: 0%;
+    border-bottom-right-radius: 0px;
+	border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+
+.my_jobs_section .my_jobs_table thead tr th:first-child {
+    border-top-left-radius: 0%;
+    border-bottom-left-radius: 0px;
+
+	border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+
+
+
+.my_jobs_section .my_jobs_table tbody tr td:last-child {
+     
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+
+	border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+
+
+.my_jobs_section .my_jobs_table tbody tr td:first-child {
+    border-top-left-radius:0px;
+    border-bottom-left-radius: 0px;
+
+	border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+
+.my_profile_content {
+	.but-position{
+		left: 0;
+		right: unset;
+	}
+}
+
+
+.btn_style{
+	span{
+		img{ transform: rotate(180deg) !important;}
+	}
+
+	img{ transform: rotate(180deg) !important;}
+}
+
+
+
+.h3_title_50 {
+	line-height: 47px;
+}
+
+
+.job_details_content ol li, .job_details_content ul li{ text-align: right !important;}
 
 
 }

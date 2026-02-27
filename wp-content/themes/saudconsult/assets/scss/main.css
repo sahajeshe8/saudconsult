@@ -329,7 +329,7 @@
   color: #a9d159;
   font-weight: 600;
 }
-.mobile_menu_item.active a {
+.mobile_menu_item.active > a {
   color: #a9d159;
   font-weight: 600;
 }
@@ -1311,6 +1311,7 @@ div.fancybox__backdrop {
 .password_management_message--success {
   color: #347a00;
   margin-bottom: 10px;
+  text-align: center;
 }
 
 .ovelray_none .image_text_block_container:after {
@@ -7466,7 +7467,7 @@ a,
   }
 }
 .related_jobs_section_content p {
-  font-size: 14px;
+  font-size: 15px;
   color: #444444;
   margin: 0;
   margin-bottom: 25px;
@@ -8333,12 +8334,14 @@ a,
   margin: 0;
   margin-top: 25px;
   padding: 0;
+  padding-left: 15px !important;
+  padding-right: 15px !important;
   margin-bottom: 30px;
 }
 .job_details_content ol li {
   font-size: 16px;
   color: #444444;
-  list-style-position: inside;
+  list-style-position: outside;
   padding-bottom: 5px;
   font-weight: 200;
 }
@@ -8352,6 +8355,8 @@ a,
 }
 .job_details_content ul {
   margin: 0;
+  padding-left: 15px !important;
+  padding-right: 15px !important;
   margin-top: 25px;
   padding: 0;
   margin-bottom: 30px;
@@ -8360,7 +8365,7 @@ a,
   list-style: disc;
   font-size: 16px;
   color: #444444;
-  list-style-position: inside;
+  list-style-position: outside;
   padding-bottom: 5px;
   font-weight: 200;
 }
@@ -9219,7 +9224,7 @@ a,
   gap: 4px;
 }
 .breadcrumb_item .breadcrumb_link:hover {
-  color: #999;
+  color: #0D6A37;
 }
 @media screen and (max-width: 768px) {
   .breadcrumb_item .breadcrumb_link {
@@ -9287,6 +9292,10 @@ a,
   .breadcrumb_item .breadcrumb_separator .breadcrumb_separator_icon {
     width: 4px;
   }
+}
+
+.breadcrumb_home_icon:hover path {
+  fill: #0D6A37 !important;
 }
 
 .why_partner_section {
@@ -10033,6 +10042,10 @@ a,
   color: #A9D159;
 }
 
+.project_info_description p {
+  margin-bottom: 15px !important;
+}
+
 .project_info_block_section {
   padding: 60px 0;
 }
@@ -10170,7 +10183,7 @@ a,
 }
 
 .project_info_value {
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.6;
   color: #101922;
   margin: 0;
@@ -14419,6 +14432,9 @@ a,
     padding-left: 0;
   }
 }
+.license-block .license-content a {
+  color: #000;
+}
 .license-block .license-duration {
   margin-left: auto;
   font-size: 16px;
@@ -15466,10 +15482,6 @@ body.rtl .education-list .education-item .education-header .education-duration {
 body.rtl .service_item_content .btn_style.btn_transparent span, body.rtl .expertise_content_wrapper .btn_style.btn_transparent span {
   transform: rotate(-90deg);
 }
-body.rtl .footer_row_04_right ul > :nth-child(1) {
-  border-right: none !important;
-  border-left: solid 1px #363636;
-}
 body.rtl .breadcrumb_separator {
   transform: rotate(180deg);
 }
@@ -15504,9 +15516,56 @@ body.rtl .bannerContainer .banner-pagination {
 body.rtl .services_section_item_01_content .btn_style span {
   transform: rotate(-90deg) !important;
 }
+body.rtl .services_section_item_01_content .btn_style span img {
+  transform: unset !important;
+}
 body.rtl .h4_title_35 {
   line-height: 135%;
 }
 body.rtl .vendor_radio_options .wpcf7-form-control-wrap {
   gap: 15px;
+}
+body.rtl .career-form-list-ul li .select-wrapper.date-input-wrapper .date-placeholder {
+  left: unset;
+  right: 5px;
+}
+body.rtl .my_jobs_section .my_jobs_table thead tr th:last-child {
+  border-top-right-radius: 0%;
+  border-bottom-right-radius: 0px;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+body.rtl .my_jobs_section .my_jobs_table thead tr th:first-child {
+  border-top-left-radius: 0%;
+  border-bottom-left-radius: 0px;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+body.rtl .my_jobs_section .my_jobs_table tbody tr td:last-child {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+body.rtl .my_jobs_section .my_jobs_table tbody tr td:first-child {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+body.rtl .my_profile_content .but-position {
+  left: 0;
+  right: unset;
+}
+body.rtl .btn_style span img {
+  transform: rotate(180deg) !important;
+}
+body.rtl .btn_style img {
+  transform: rotate(180deg) !important;
+}
+body.rtl .h3_title_50 {
+  line-height: 47px;
+}
+body.rtl .job_details_content ol li, body.rtl .job_details_content ul li {
+  text-align: right !important;
 }/*# sourceMappingURL=main.css.map */

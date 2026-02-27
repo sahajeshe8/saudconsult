@@ -1,0 +1,120 @@
+/**
+ * AboutUsContent Component Styles
+ * 
+ * Styles for the About Us content section with text and background graphics
+ */
+
+.about-us-content-section {
+    padding: 100px 0;
+    background: #ffffff;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-us-content-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    position: relative;
+}
+
+.about-us-text-content {
+    flex: 1;
+    max-width: 530px;
+    z-index: 2;
+}
+
+.about-us-heading {
+    color: var(--darkBlue, #002c5f);
+    font-family: var(--font-bold, "Raleway-Bold", sans-serif);
+    font-size: 55px;
+    font-weight: 700;
+}
+
+.about-us-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+}
+
+.about-us-paragraph {
+    color: #454545;
+    font-family: var(--font-medium, "Raleway-Medium", sans-serif);
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+.about-us-bg-graphics {
+    width: 50%;
+    max-width: 760px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.about-us-bg-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+    .about-us-content-wrapper {
+        gap: 40px;
+    }
+
+    .about-us-heading {
+        font-size: 42px;
+    }
+
+    .about-us-bg-graphics {
+        width: 45%;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-us-content-section {
+        padding: 60px 0;
+    }
+
+    .about-us-content-wrapper {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .about-us-text-content {
+        max-width: 100%;
+    }
+
+    .about-us-heading {
+        font-size: 36px;
+        margin-bottom: 30px;
+    }
+
+    .about-us-bg-graphics {
+        position: relative;
+        right: auto;
+        top: auto;
+        transform: none;
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-us-content-section {
+        padding: 40px 0;
+    }
+
+    .about-us-heading {
+        font-size: 28px;
+    }
+
+    .about-us-paragraph {
+        font-size: 14px;
+    }
+}

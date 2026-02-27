@@ -1,0 +1,12 @@
+/*
+Theme Name: saudconsult
+Description: TasHeel Holding Group WordPress Theme
+Version: 1.0.0
+*/
+
+/* 
+ * Theme Stylesheet
+ * Note: All CSS files are enqueued via functions.php with file_exists checks
+ * to prevent 404 errors. No @import statements needed here.
+ */
+ 

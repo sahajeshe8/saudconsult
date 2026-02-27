@@ -1,0 +1,119 @@
+<?php
+/**
+ * Awards Slider Component Template
+ *
+ * Swiper slider for displaying awards and certifications
+ *
+ * @package tasheel
+ */
+
+// Extract data from args array passed from get_template_part()
+$args = isset( $args ) ? $args : array();
+
+// Set default values or use passed values
+$title         = isset( $args['title'] ) ? $args['title'] : 'Our';
+$title_span    = isset( $args['title_span'] ) ? $args['title_span'] : 'Awards & Certifications';
+$description   = isset( $args['description'] ) ? $args['description'] : '';
+$awards        = isset( $args['awards'] ) ? $args['awards'] : array();
+$section_class = isset( $args['section_class'] ) ? $args['section_class'] : '';
+$loop          = isset( $args['loop'] ) ? $args['loop'] : true; // Default to true for looping
+
+?>
+
+<section class="awards_slider_section pt_100 pb_80 <?php echo esc_attr( $section_class ); ?>">
+	<div class="wrap">
+		<?php if ( $title || $title_span ) : ?>
+			<div class="awards_slider_title_block">
+				<h3 class="h3_title_50">
+					<?php if ( $title ) : ?>
+						<?php echo esc_html( $title ); ?>
+					<?php endif; ?>
+					<?php if ( $title_span ) : ?>
+						<span><?php echo esc_html( $title_span ); ?></span>
+					<?php endif; ?>
+				</h3>
+				<?php if ( $description ) : ?>
+					<p class="awards_slider_description"><?php echo esc_html( $description ); ?></p>
+				<?php endif; ?>
+			</div>
+		<?php endif; ?>
+
+		<?php
+		// Filter only active awards
+		$active_awards = array_filter( $awards, function( $award ) {
+			if ( ! isset( $award['active'] ) ) {
+				return true;
+			}
+			return $award['active'] === true || $award['active'] === 1 || $award['active'] === '1' || $award['active'] === 'true';
+		} );
+		$display_awards = $active_awards;
+		if ( ! empty( $active_awards ) ) {
+			$display_awards = array_merge( $active_awards, $active_awards, $active_awards );
+		}
+		?>
+		<?php if ( ! empty( $display_awards ) ) : ?>
+			<div class="swiper mySwiper-awards" data-loop="<?php echo $loop ? 'true' : 'false'; ?>">
+				<div class="swiper-wrapper">
+					<?php foreach ( $display_awards as $index => $award ) :
+						$image      = isset( $award['image'] ) ? $award['image'] : '';
+						$alt        = isset( $award['alt'] ) ? $award['alt'] : 'Award';
+						$title_text = isset( $award['title'] ) ? $award['title'] : '';
+						$description       = isset( $award['description'] ) ? $award['description'] : '';
+						$link       = isset( $award['link'] ) ? $award['link'] : '';
+						$popup_id   = 'award-popup-' . $index;
+						if ( is_array( $image ) && isset( $image['url'] ) ) {
+							$image = $image['url'];
+						}
+					?>
+						<div class="swiper-slide">
+							<div class="award_item">
+								<?php if ( $link ) : ?>
+
+										<div class="award_item_image">
+											<img src="<?php echo esc_url( $image ); ?>" alt="<?php echo esc_attr( $alt ); ?>">
+											<a href="<?php echo esc_url( $image ); ?>" class="award_popup_trigger" data-fancybox="award-gallery" data-caption="<?php echo esc_attr( $title_text . ( $year ? ' - ' . $year : '' ) ); ?>" style="display: none;"></a>
+											<div class="award_click_overlay" data-award-index="<?php echo esc_attr( $index ); ?>"></div>
+										</div>
+										<?php if ( $title_text || $year ) : ?>
+											<div class="award_item_info">
+												<?php if ( $title_text ) : ?>
+													<h4 class="award_title"><?php echo esc_html( $year ); ?></h4>
+												<?php endif; ?>
+												<?php if ( $description ) : ?>
+													<span class="award_year"><?php echo esc_html( $description ); ?></span>
+												<?php endif; ?>
+											</div>
+										<?php endif; ?>
+
+								<?php else : ?>
+									<div class="award_item_wrapper">
+										<div class="award_item_image">
+											<img src="<?php echo esc_url( $image ); ?>" alt="<?php echo esc_attr( $alt ); ?>">
+											<a href="<?php echo esc_url( $image ); ?>" class="award_popup_trigger" data-fancybox="award-gallery" data-caption="<?php echo esc_attr( $title_text . ( $year ? ' - ' . $year : '' ) ); ?>" style="display: none;"></a>
+											<div class="award_click_overlay" data-award-index="<?php echo esc_attr( $index ); ?>"></div>
+										</div>
+										<?php if ( $title_text || $year ) : ?>
+											<div class="award_item_info">
+												<?php if ( $title_text ) : ?>
+													<h4 class="award_title"><?php echo esc_html( $title_text ); ?></h4>
+												<?php endif; ?>
+												<?php if ( $description ) : ?>
+													<span class="award_year"><?php echo esc_html( $description ); ?></span>
+												<?php endif; ?>
+											</div>
+										<?php endif; ?>
+									</div>
+								<?php endif; ?>
+							</div>
+						</div>
+					<?php endforeach; ?>
+				</div>
+				<!-- <div class="swiper-pagination"></div>
+				<div class="swiper-button-next"></div>
+				<div class="swiper-button-prev"></div> -->
+			</div>
+		<?php endif; ?>
+	</div>
+</section>
+
+

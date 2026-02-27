@@ -1,0 +1,696 @@
+.awards_slider_section {
+	width: 100%;
+	position: relative;
+	background: #fff;
+
+	.wrap {
+		width: 100%;
+	}
+
+	.awards_slider_title_block {
+		margin-bottom: 50px;
+		text-align: center;
+
+		@media screen and (max-width: 768px) {
+			margin-bottom: 30px;
+		}
+
+		.h3_title_50 {
+			margin: 0;
+		}
+
+		.awards_slider_description {
+			margin: 20px auto 0;
+			max-width: 55%;
+			font-size: 16px;
+			line-height: 1.6;
+			color: #666;
+			font-weight: 400;
+
+			@media screen and (max-width: 768px) {
+				font-size: 14px;
+				margin-top: 15px;
+				padding: 0 20px;
+				max-width: 100%;
+			}
+		}
+	}
+
+	.mySwiper-awards {
+		width: 100%;
+		padding-top: 195px;
+		padding-bottom: 195px;
+		// padding: 40px 60px;
+		position: relative;
+
+		@media screen and (max-width: 1024px) {
+			padding: 100px 50px;
+		}
+
+		
+
+		@media screen and (max-width: 768px) {
+			padding: 20px 40px;
+		}
+
+		@media screen and (max-width: 480px) {
+			padding: 15px 30px;
+		}
+
+		.swiper-wrapper {
+			align-items: center;
+		}
+.award_item_image{
+	// img{ opacity: 0.8;}
+
+	position: relative;
+
+	&::after{
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		background: #000;
+		opacity: 0.3;
+		width: 100%;
+		height: 100%;
+	}
+}
+		.swiper-slide {
+			height: auto;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			transition: transform 0.3s ease, scale 0.3s ease, opacity 0.3s ease;
+			transform: scale(1);
+			cursor: pointer;
+			opacity: 0.8;
+			&.swiper-slide-active {
+				img{ opacity: 1 !important;}
+				.award_click_overlay{  display: block;}
+
+				.award_item_image{
+					&::after{
+						opacity: 0;
+					}
+				}
+			}
+
+
+			@media screen and (min-width: 820px) {
+				&.swiper-slide-active {
+					transform: scale(1.2);
+					z-index: 100;
+					opacity: 1;
+	
+					img{ opacity: 1 !important;}
+				}
+
+			}
+
+			@media screen and (min-width: 1200px) {
+			&.swiper-slide-active {
+				transform: scale(1.8);
+				z-index: 100;
+				opacity: 1;
+
+				img{ opacity: 1 !important;}
+			}
+
+			&:hover {
+				opacity: 0.9;
+			}
+	 
+			&.swiper-slide-prev,
+			&.swiper-slide-next {
+				transform: scale(1.2);
+				z-index:50;
+				img{ opacity: 0.8;}
+			}
+		}
+			.award_item {
+				width: 100%;
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+				background: #fff;
+				// border-radius: 8px;
+				overflow: hidden;
+			 
+				transition: all 0.3s ease;
+				cursor: pointer;
+
+			
+
+				.award_item_link {
+					width: 100%;
+					height: 100%;
+					display: flex;
+					flex-direction: column;
+					text-decoration: none;
+					color: inherit;
+				}
+
+				.award_item_wrapper {
+					width: 100%;
+					height: 100%;
+					display: flex;
+					flex-direction: column;
+				}
+
+				.award_item_image {
+					width: 100%;
+					aspect-ratio: 407/576.5;
+					overflow: hidden;
+					// background: #000000;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					position: relative;
+
+					img {
+						width: 100%;
+						height: 100%;
+						object-fit: contain;
+						display: block;
+						 opacity: 0.8;
+						transition: transform 0.3s ease;
+					}
+
+					.award_click_overlay {
+						position: absolute;
+						top: 0;
+						left: 0;
+						width: 100%;
+						height: 100%;
+						cursor: pointer;
+						z-index: 10;
+						background: transparent;
+					}
+				}
+
+				
+				.award_item_info {
+					padding: 7px;
+					background: #fff;
+					text-align: center;
+					display: none;
+					 
+
+					.award_title {
+						transform: scale(0.8);
+						margin: 0 ;
+						font-size: 11px;
+						line-height: 100%;
+						font-weight: 600;
+						color: #333;
+					 
+						@media screen and (max-width: 768px) {
+							font-size: 16px;
+						}
+					}
+
+					.award_year {
+						display: inline-block;
+						font-size: 10px;
+						display: block;
+						line-height: 100%;
+						transform: scale(0.8);
+						color: #000;
+						font-weight: 500;margin-top: 3px;
+					}
+				}
+			}
+		}
+
+		// Swiper Navigation Buttons
+		.swiper-button-next,
+		.swiper-button-prev {
+			width: 50px;
+			height: 50px;
+			background: #fff;
+			border-radius: 50%;
+			box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+			color: #333;
+			transition: all 0.3s ease;
+
+			&:after {
+				font-size: 20px;
+				font-weight: 700;
+			}
+
+			&:hover {
+				background: #f0f0f0;
+				box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+			}
+
+			@media screen and (max-width: 768px) {
+				width: 40px;
+				height: 40px;
+
+				&:after {
+					font-size: 16px;
+				}
+			}
+		}
+
+		.swiper-button-next {
+			right: 0;
+		}
+
+		.swiper-button-prev {
+			left: 0;
+		}
+
+		// Swiper Pagination
+		.swiper-pagination {
+			position: relative;
+			margin-top: 30px;
+			bottom: auto;
+
+			.swiper-pagination-bullet {
+				width: 12px;
+				height: 12px;
+				background: #ccc;
+				opacity: 1;
+				margin: 0 6px;
+				transition: all 0.3s ease;
+
+				&.swiper-pagination-bullet-active {
+					background: #333;
+					width: 30px;
+					border-radius: 6px;
+				}
+			}
+		}
+
+		&.swiper-slide-active{
+			.award_item_info{ display: block;}
+		}
+	}
+}
+
+
+
+.mySwiper-awards{
+.swiper-slide-active{
+
+	.award_item_info{ display: block !important;}
+}
+}
+ 
+.slider-block-01{  width:100%;  display: flex; flex-wrap: wrap; align-items: flex-end;}
+.slider-block-02{ width:26%;  
+@media screen and (max-width: 768px) {
+	width: 100%;
+}
+
+}
+.slider-block-03{ width:56%; position: relative;
+
+
+@media screen and (max-width: 768px) {
+	width: 100%;
+}
+
+.slider_arrow_block{ z-index: 100; bottom: 0; padding-bottom: 0 !important; left: 55%; right: unset !important;}
+
+.slider_arrow_block{ width: 20%; position: absolute; right: 0; margin-left: auto; display: flex; flex-wrap: wrap; gap: 10px; padding-bottom:90px;
+
+    .slider_buttion{ cursor: pointer;  width: 58px; height: 58px; border-radius: 100%; background: #A9D159; display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+        &.but_prev{ transform: rotate(180deg);}
+        &:hover{ background: #000;
+            // img{ 
+            //    -webkit-filter: invert(1);
+            //    filter: invert(1); 
+            // }
+        }
+
+       
+
+        @media screen and (max-width:700px) {  width: 46px; height: 46px; }
+
+		.slider_arrow_block{margin-bottom: 0 !important;}
+    }
+    @media screen and (max-width:700px) {  position: unset !important; width: 100%; margin-top: 20px; padding-bottom:10px; justify-content: flex-end; }
+}
+
+
+@media screen and (max-width: 1024px) {
+	 width:100%;  
+}
+
+.slider_arrow_block{margin-bottom: 0 !important; top: unset;}
+
+
+}
+
+.swiper-slide-inner-img{  width: 50%; 
+@media screen and (max-width: 700px) {
+	width: 100%;
+}
+}
+.swiper-slide-inner-txt{  width: 45%;  display: flex; align-items: center; justify-content: center;
+
+
+	h6{ color: #0d6a37; margin: 0 0 10px 0; font-size: 20px; line-height: 100%;
+		@media screen and (max-width: 700px) {
+			font-size: 16px;
+		}
+	}
+	p{ margin: 0; font-size: 14px; line-height: 150%; font-size: 18px; color: #000; font-weight: 500;
+	
+		@media screen and (max-width: 700px) {
+			font-size: 14px;
+		}
+	}
+
+
+	@media screen and (max-width: 700px) {
+		width: 100%;
+	}
+}
+
+.justify-content-between{ justify-content: space-between ;     align-items: flex-start;}
+
+.award_slider_block_01{ width:43%;  display: flex; flex-wrap: wrap; overflow: hidden;
+
+@media screen and (max-width: 1024px) {
+	width: 100%;  
+}
+
+p{ 
+	font-size: 18px; color: #000;
+
+	@media screen and (max-width: 700px) {
+		font-size: 15px;
+	}
+}
+}
+
+.mb_auto{ margin-bottom: auto;}
+.mt_auto{ margin-top: auto;}
+
+.clients-filter-list{ margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px;
+	li{ 
+
+		a{ font-size: 13px; font-weight: 300; display: inline-flex; border: solid 1px #E0E0E0; border-radius: 50px; padding:10px 11px; height: 44px; align-items: center; text-decoration: none; color: #011334;  line-height: 100%; 
+			 
+		
+		
+		@media (max-width: 820px) {
+			font-size: 14px;
+			padding: 9px 15px;
+			height: 30px;
+		
+		}
+&:hover{ background: rgba(229, 229, 229, 0.5); border-color:  rgba(229, 229, 229, 0.5);}
+		&.active{  background: rgba(229, 229, 229, 0.5); border-color:  rgba(229, 229, 229, 0.5);}
+		}
+	}
+	@media (max-width: 820px) {
+		gap: 5px;
+	}
+}
+
+
+.mySwiper-01 {
+	overflow: visible;
+}
+
+.mySwiper-01 .swiper-wrapper {
+	align-items: flex-end;
+}
+
+.mySwiper-01 .swiper-slide {
+	width: auto;
+	transition: transform 0.3s ease, opacity 0.3s ease;
+	// opacity: 0.6;
+}
+
+.mySwiper-01 .swiper-slide.swiper-slide-thumb-active {
+	 width: 27%;
+	opacity: 1;
+	z-index: 10;
+}
+
+.mySwiper-01 .swiper-slide img {
+	transition: transform 0.3s ease;
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+ 
+
+// Awards Page Custom Navigation Buttons
+.slider_arrow_block {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+	margin-bottom: 20px;
+
+	.slider_buttion {
+		cursor: pointer;
+		width: 58px;
+		height: 58px;
+		border-radius: 100%;
+		background: #A9D159;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		transition: all 0.3s ease;
+
+		&:hover {
+			background: #0D6A37;
+			 
+		}
+
+		&.but_prev-aw {
+			img {
+				transform: rotate(180deg);
+			}
+		}
+
+		img {
+			width: 18px;
+			height: 18px;
+			transition: transform 0.3s ease;
+		}
+
+		@media screen and (max-width: 768px) {
+			width: 45px;
+			height: 45px;
+
+			img {
+				width: 20px;
+				height: 20px;
+			}
+		}
+	}
+}
+
+
+.award-row-02{
+	@media screen and (max-width: 1024px) {
+	 display: none;
+	}
+}
+
+.icon-rotate-01{  
+
+	img{
+		transform: rotate(0deg) !important;
+	}
+}
+.icon-rotate-02{ 
+
+	img{
+		transform: rotate(180deg);
+	}
+}
+
+.award_click_overlay{ position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; background: transparent;}
+ 
+
+.award_click_overlay{ display: none;
+	.award_click_overlay{ display: block;}
+}
+
+// .award_click_overlay{ display: none !important;}
+
+// Awards Slider 2 Section Styles
+.awards_slider_2_section {
+	width: 100%;
+	position: relative;
+	background: #fff;
+
+	.wrap {
+		width: 100%;
+	}
+
+	.awards_slider_2_title_block {
+		margin-bottom: 50px;
+		text-align: center;
+
+		@media screen and (max-width: 768px) {
+			margin-bottom: 30px;
+		}
+
+		.h3_title_50 {
+			margin: 0;
+		}
+	}
+
+	.mySwiper-awards-2 {
+		width: 100%;
+		position: relative;
+
+		.swiper-slide {
+			height: auto;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			.award_item_2 {
+				width: 100%;
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+				background: #fff;
+				border-radius: 8px;
+				overflow: hidden;
+				transition: all 0.3s ease;
+				cursor: pointer;
+
+				.award_item_2_wrapper {
+					width: 100%;
+					height: 100%;
+					display: flex;
+					flex-direction: column;
+				}
+
+				.award_item_2_image {
+					width: 100%;
+					aspect-ratio: 57/86;
+					overflow: hidden;
+					background: #000000;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					position: relative;
+
+					img {
+						width: 100%;
+						height: 100%;
+						object-fit: contain;
+						display: block;
+						transition: transform 0.3s ease;
+					}
+
+					.award_click_overlay {
+						position: absolute;
+						top: 0;
+						left: 0;
+						width: 100%;
+						height: 100%;
+						cursor: pointer;
+						z-index: 10;
+						background: transparent;
+						display: block; // Always visible for slider 2
+					}
+				}
+
+				.award_item_2_info {
+					padding: 7px;
+					background: #fff;
+					text-align: center;
+
+					.award_2_title {
+						margin: 0;
+						font-size: 11px;
+						line-height: 100%;
+						font-weight: 600;
+						color: #333;
+
+						@media screen and (max-width: 768px) {
+							font-size: 16px;
+						}
+					}
+
+					.award_2_year {
+						display: inline-block;
+						font-size: 10px;
+						display: block;
+						line-height: 100%;
+						color: #000;
+						font-weight: 500;
+						margin-top: 3px;
+					}
+				}
+			}
+		}
+
+		// Swiper Navigation Buttons
+		.swiper-button-next,
+		.swiper-button-prev {
+			width: 50px;
+			height: 50px;
+			background: #fff;
+			border-radius: 50%;
+			box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+			color: #333;
+			transition: all 0.3s ease;
+
+			&:after {
+				font-size: 20px;
+				font-weight: 700;
+			}
+
+			&:hover {
+				background: #f0f0f0;
+				box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+			}
+
+			@media screen and (max-width: 768px) {
+				width: 40px;
+				height: 40px;
+
+				&:after {
+					font-size: 16px;
+				}
+			}
+		}
+
+		.swiper-button-next {
+			right: 0;
+		}
+
+		.swiper-button-prev {
+			left: 0;
+		}
+
+		// Swiper Pagination
+		.swiper-pagination {
+			position: relative;
+			margin-top: 30px;
+			bottom: auto;
+
+			.swiper-pagination-bullet {
+				width: 12px;
+				height: 12px;
+				background: #ccc;
+				opacity: 1;
+				margin: 0 6px;
+				transition: all 0.3s ease;
+
+				&.swiper-pagination-bullet-active {
+					background: #333;
+					width: 30px;
+					border-radius: 6px;
+				}
+			}
+		}
+	}
+}
+

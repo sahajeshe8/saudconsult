@@ -1,0 +1,273 @@
+/**
+ * Banner Component Styles
+ * Converted from Banner.module.scss for WordPress
+ */
+
+/* Prevent scrolling during banner animation */
+body.banner-animating,
+html.banner-animating {
+	overflow: hidden;
+	height: 100%;
+	position: fixed;
+	width: 100%;
+}
+
+/* Main banner container */
+.bannerContainer {
+	position: relative;
+	width: 100%;
+	height: 100vh;
+}
+
+.bannerAnimationContainer {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	pointer-events: none;
+}
+
+/* Expanding circle */
+.bannerAnimationContainer .expandingCircle {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 12;
+	pointer-events: none;
+	background-image: radial-gradient(circle, rgba(255, 255, 255, 0) 10%, var(--darkBlue) 50%);
+}
+
+.bannerAnimationContainer .expandingCircle img,
+.bannerAnimationContainer .expandingCircle svg {
+	/* height: 100%;
+	width: 100%; */
+	/* object-fit: cover; */
+	pointer-events: none;
+	object-fit: contain;
+
+	height: 100%;
+	width: auto;
+}
+
+/* Logo container */
+.banner_logo_container {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	height: 100%;
+	width: 100%;
+	pointer-events: none;
+	z-index: 15;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* Logo */
+.banner_logo {
+	width: 380px;
+	pointer-events: all;
+	position: absolute;
+	display: inline-block;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	will-change: transform, scale, opacity;
+	transition: unset !important;
+
+}
+
+.banner_logo img {
+	width: 100%;
+	height: auto;
+	display: block;
+}
+
+/* Banner Content Section */
+.bannerContentSection {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+/* Banner Swiper */
+.bannerSwiper {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+	overflow: hidden;
+}
+
+.bannerSwiper .swiper-wrapper {
+	width: 100%;
+	height: 100%;
+}
+
+.bannerSwiper .swiper-slide {
+	width: 100%;
+	height: 100%;
+}
+
+.bannerSlide {
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+.bannerSlide::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(to bottom,
+			rgba(0, 0, 0, 0) 0%,
+			rgba(0, 0, 0, 0.7) 100%);
+	z-index: 1;
+}
+
+.bannerSlide img {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+}
+
+/* Banner Text Container */
+.bannertext_container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	top: 0;
+	z-index: 10;
+}
+
+.bannertext_block {
+	max-width: 830px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+}
+
+.bannertext_block h1 {
+	color: #ffffff;
+	text-align: center;
+	font-family: var(--font-bold);
+	font-size: calc(70 / 16 * 1rem);
+	font-weight: 700;
+	margin: 0;
+	line-height: 1.2;
+
+}
+
+.bannertext_button {
+	margin-top: 1.5rem;
+
+}
+
+/* Banner Bottom Description */
+.bannerbottom_description {
+	position: absolute;
+	bottom: 60px;
+	left: 0;
+	display: flex;
+	width: 100%;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.bannerbottom_description p {
+	color: #ffffff;
+	max-width: 740px;
+	width: 100%;
+	font-family: var(--font-regular);
+	font-size: 16px;
+	line-height: 1.6;
+	font-weight: 500;
+	margin: 0;
+}
+
+.bannerbottom_buttons {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+}
+
+/* Body classes for animation states */
+/* body.banner_animation_started {
+	overflow: hidden;
+} */
+
+/* body.banner_animation_completed {
+	overflow: auto;
+} */
+
+/* Responsive */
+@media (max-width: 1200px) {
+	.banner_logo_container {
+		width: 94%;
+	}
+}
+
+@media (max-width: 1024px) {
+
+	.bannertext_block h1 {
+		font-size: calc(50 / 16 * 1rem);
+	}
+
+	.bannerbottom_description {
+		flex-direction: column;
+		gap: 1.5rem;
+		align-items: flex-start;
+	}
+}
+
+@media (max-width: 768px) {
+	.banner_logo_container {
+		width: 92%;
+	}
+
+	.bannertext_block h1 {
+		font-size: calc(36 / 16 * 1rem);
+	}
+
+	.banner_logo {
+		width: 250px;
+	}
+
+	.bannerbottom_description {
+		bottom: 30px;
+		padding: 0 1rem;
+	}
+
+	.bannerbottom_description p {
+		font-size: 14px;
+	}
+}
+
+.banner_sec {
+    
+   
+}

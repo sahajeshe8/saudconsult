@@ -1,0 +1,147 @@
+// Breadcrumb Template Part
+.breadcrumb_section {
+	width: 100%;
+    padding-top: 25px;
+	position: relative;
+
+	@media screen and (max-width: 768px) {
+		padding: 15px 0;
+	}
+}
+
+.breadcrumb_list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 12px;
+
+	@media screen and (max-width: 768px) {
+		flex-wrap: nowrap;
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+	}
+
+	@media screen and (max-width: 480px) {
+		gap: 5px;
+	}
+}
+
+.breadcrumb_item {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: flex;
+	align-items: center;
+	gap: 12px;
+
+	@media screen and (max-width: 480px) {
+		gap: 3px;
+	}
+
+	.breadcrumb_home_icon {
+		width: 20px;
+		display: inline-block;
+		vertical-align: middle;
+		object-fit: contain;
+
+		@media screen and (max-width: 480px) {
+			width: 16px;
+		}
+	}
+
+	.breadcrumb_link {
+		color: #666;
+		text-decoration: none;
+		font-size: 14px;
+		font-weight: 300;
+		transition: color 0.3s ease;
+		display: inline-flex;
+		align-items: center;
+		gap: 4px;
+
+		& :hover {
+			color:#0D6A37;
+		}
+
+		@media screen and (max-width: 768px) {
+			font-size: 14px;
+		}
+
+		@media screen and (max-width: 480px) {
+			font-size: 12px;
+		}
+	}
+
+	.breadcrumb_text {
+		color: #0D6A37;
+		font-size: 14px;
+		font-weight:500;
+		display: inline-flex;
+		align-items: center;
+		gap: 4px;
+
+		@media screen and (max-width: 768px) {
+			font-size: 14px;
+			max-width: 200px;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			display: inline-block;
+			
+			// Keep icon visible
+			.breadcrumb_home_icon {
+				display: inline-block;
+				vertical-align: middle;
+				flex-shrink: 0;
+			}
+		}
+
+		@media screen and (max-width: 480px) {
+			font-size: 12px;
+			max-width: 150px;
+		}
+	}
+
+	.breadcrumb_separator {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+
+		.breadcrumb_separator_icon {
+			width: 6px;
+			height: auto;
+			display: block;
+			object-fit: contain;
+		}
+
+		@media screen and (max-width: 768px) {
+			margin-left: 5px;
+
+			.breadcrumb_separator_icon {
+				width: 5px;
+			}
+		}
+
+		@media screen and (max-width: 480px) {
+			margin-left: 4px;
+
+			.breadcrumb_separator_icon {
+				width: 4px;
+			}
+		}
+	}
+
+	// &.active {
+	// 	.breadcrumb_text {
+	// 		color: #A2C856;
+	// 	}
+	// }
+}
+
+
+
+
+.breadcrumb_home_icon :hover path { fill: #0D6A37 !important;}

@@ -1,0 +1,60 @@
+// Main SCSS file
+// Import variables first
+@import 'fonts';
+@import 'variable';
+// Import mixins
+@import 'mixins';
+// Import header styles
+@import 'header';
+// Your custom styles go here
+@import 'comon';
+@import 'base';
+@import 'banner';
+@import 'inner-banner';
+@import 'about';
+@import 'services';
+@import 'projects';
+@import 'leadership';
+@import 'executive-team';
+@import 'partners';
+@import 'banner-add';
+@import 'insights-resources';
+@import 'page-tabs';
+@import 'our-journey';
+@import 'image-text-block';
+@import 'mission-vision';
+@import 'core-values';
+@import 'company-milestones';
+@import 'timeline';
+@import 'latest-openings';
+@import 'why-build-career';
+@import 'what-to-expect';
+@import 'client-list';
+@import 'job-details';
+@import 'terms-conditions';
+@import 'engineering-expertise';
+@import 'breadcrumb';
+@import 'why-partner';
+@import 'project-filter';
+@import 'project-card';
+@import 'project-details';
+@import 'project-info-block';
+@import 'design-scope';
+@import 'project-gallery';
+@import 'fancybox';
+@import 'contact-us';
+@import 'faq';
+@import 'events-detail';
+@import 'brochures-list';
+@import 'gallery';
+@import 'news-page';
+@import 'news-detail';
+@import 'events-page';
+@import 'same-month-events';
+@import 'awards-slider';
+@import 'footer';
+@import 'my-profile';
+@import 'my-jobs';
+@import 'password-management';
+@import 'application-received';
+@import 'vendor-registration';

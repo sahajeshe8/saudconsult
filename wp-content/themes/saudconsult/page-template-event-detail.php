@@ -50,7 +50,9 @@ get_header();
 					 
 				</div>
 				<div class="news_detail_image">
-					<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/event-baner.jpg' ); ?>" alt="Event Detail">
+					<!-- <img src="<?php //echo esc_url( get_template_directory_uri() . '/assets/images/event-baner.jpg' ); ?>" alt="Event Detail"> -->
+					 <video  src="https://saudconsult-stage.e8demo.com/wp-content/uploads/2026/02/Engineering-Day-2025-Exhibition-1.mp4" autoplay muted loop></video>
+					 <!-- <video  src="https://saudconsult-stage.e8demo.com/wp-content/uploads/2026/02/Saudi-International-Rail-Mobility-Live-and-Highways-2025-01-1.mp4" autoplay muted loop></video> -->
 				</div>
 
 		  <div class="news_detail_content">

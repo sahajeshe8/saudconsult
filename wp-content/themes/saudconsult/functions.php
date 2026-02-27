@@ -429,6 +429,11 @@ function tasheel_scripts()
 		if (file_exists($event_map_js_path)) {
 			wp_enqueue_script('event-map-script', get_template_directory_uri() . '/assets/js/EventMap.js', array(), _S_VERSION, true);
 		}
+		// Load EventDetailMedia script for media type detection
+		$event_detail_media_js_path = get_template_directory() . '/assets/js/EventDetailMedia.js';
+		if (file_exists($event_detail_media_js_path)) {
+			wp_enqueue_script('event-detail-media-script', get_template_directory_uri() . '/assets/js/EventDetailMedia.js', array(), _S_VERSION, true);
+		}
 	}
 	// Load Swiper and CompanyServices script on Company Detail pages
 	if ($is_company_detail_page) {

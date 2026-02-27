@@ -694,11 +694,11 @@ div.fancybox__backdrop{   background: rgb(175 175 175 /0.8) !important;}
 
 .opening_block{  height: 100%;}
 
-.js-logout-confirm{
-  @media screen and (max-width: 700px) {
-     margin-top: 10px;
-  }
-}
+// .js-logout-confirm{
+//   @media screen and (max-width: 700px) {
+//      margin-top: 10px;
+//   }
+// }
 
 .password_management_message--success{ color: #347a00; margin-bottom: 10px;}
 
@@ -712,7 +712,7 @@ div.fancybox__backdrop{   background: rgb(175 175 175 /0.8) !important;}
 }
 
 
-.page-template-page-template-about .image_text_block_container:after{ display: none !important; }
+ .no-overlay:after{ display: none !important; }
 
 .banner-add-section{
   .wrap{
@@ -729,9 +729,9 @@ div.fancybox__backdrop{   background: rgb(175 175 175 /0.8) !important;}
 .media-video-vertical { display: flex; justify-content: center; align-items: center; }
 
 .our_journey_section .slider_arrow_block{ display: none; }
+ .wpml-ls-legacy-list-horizontal{ padding-left: 0; padding-right: 0;}
 
-
-.wpml-ls-legacy-list-horizontal a{ color: #fff  ;
+.wpml-ls-legacy-list-horizontal a{ color: #fff  ; padding-left: 0; padding-right: 0;
   @media screen and (max-width: 700px) {
     padding: 5px 2px 6px;
   }
@@ -760,4 +760,48 @@ div.fancybox__backdrop{   background: rgb(175 175 175 /0.8) !important;}
     }
   }
 }
+}
+
+
+
+.vendor_input_with_button{
+.wpcf7-not-valid-tip{
+
+  bottom: -13px;
+}
+
+}
+
+.job_status_badge--accepted{ background: #c6ffc6; }
+.job_status_badge--submitted{ background: #fffab9; }
+
+
+.mob_Show{ display: none;}
+
+.justify-content-center-mobile{ justify-content: space-between;}
+
+.page-tabs-logout-text{
+  @media screen and (max-width: 700px) {
+     display: none;
+  }
+}
+
+.page-tabs-logout{
+  @media screen and (max-width: 700px) {
+    padding: 0; aspect-ratio: 1 / 1
+ }
+}
+
+.page-tabs-logout-icon{
+  svg{ width: 100%; }
+}
+
+.page-tabs-logout-icon{ display: none;
+  @media screen and (max-width: 700px) {
+    display: block;
+ }
+}
+
+.home {
+.partners_section{ margin-top: 0 !important; border-top: none !important; }
 }

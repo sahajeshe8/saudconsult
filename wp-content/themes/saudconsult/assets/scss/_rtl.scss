@@ -1,7 +1,7 @@
 // RTL Styles
 // WordPress automatically adds .rtl class to body via body_class() when is_rtl() is true
 body.rtl {
-	.btn_style:not(.load_more_wrapper .btn_style) {
+	.btn_style:not(.load_more_wrapper .btn_style) :not(.form_submit_wrapper .btn_style span ) {
 		 
 		span{ transform: rotate(180deg);}
 	}
@@ -143,7 +143,7 @@ body.rtl {
 	  }
 
 	  .career-form-list-ul li .select-wrapper .select-arrow{ right: unset !important; left: 20px!important;}
-	  .wpcf7-not-valid-tip{bottom: unset !important; }
+	//   .wpcf7-not-valid-tip{bottom: unset !important; }
 
 	  #login-popup { direction: rtl !important;}
 
@@ -199,6 +199,130 @@ body.rtl {
 
 
 		.SumoSelect>.CaptionCont>span{ padding-right: 0px; padding-left: 30px;}
+
+		.SumoSelect>.optWrapper.multiple>.options li.opt{     padding-right: 35px;     padding-left:0px;}
+
+
+		.SumoSelect .select-all>span, .SumoSelect>.optWrapper.multiple>.options li.opt span{  margin-left:0px; margin-right: -35px;}
+
+
+
+		.education-list .education-item .education-header .education-duration{     right: unset; left: 0;}
+
+
+.service_item_content, .expertise_content_wrapper{
+	.btn_style.btn_transparent{
+		span{ transform: rotate(-90deg);}
+	}
+}
+
+
+
+
+
+
+.footer_row_04_right ul > :nth-child(1){
+	border-right: none !important;
+	border-left: solid 1px #363636;
+}
+
+.breadcrumb_separator{
+	transform: rotate(180deg);
+}
+
+.what_to_expect_section .what_to_expect_header h3, .h3_title_50{      margin-bottom: 20px !important;}
+
+
+.mobile_menu_overlay{
+	background: linear-gradient(83.71deg, rgb(169, 209, 89) 25%, rgb(13, 106, 55) 100%);
+}
+
+
+
+.sub_menu_block_left_block {
+ a{
+	img{
+		transform: rotate(180deg);
+	}
+ }
+}
+
+
+
+
+.banner_slide{
+	.banner_slide_content_02 {
+		h2 {
+			span{ line-height:130%;}
+		}
+	}
+}
+
+
+.bannerContainer {
+	.banner-pagination{
+		left: calc((100vw - 1400px) / 2);
+		right: unset;
+
+
+
+		@media (max-width: 1440px) {
+			right: unset;
+			left: 40px;
+		  }
+	  
+		 
+	   
+	  
+		  @media screen and (max-width: 768px) {
+			right: unset;
+			left: 15px;
+			 
+		  }
+		 
+
+
+
+
+
+
+
+
+
+	}
+}
+
+
+.services_section_item_01_content{
+
+	.btn_style{
+		span{
+			transform: rotate(-90deg)  !important;
+		}
+	}
+
+}
+
+.h4_title_35{
+
+	line-height: 135%;
+}
+
+
+
+
+.vendor_radio_options {
+	.wpcf7-form-control-wrap{
+		gap: 15px;
+	}
+}
+
+
+
+
+
+
+
 
 
 

@@ -103,13 +103,13 @@
   flex-wrap: wrap;
   justify-content: flex-end;
   align-items: center;
-  gap: 20px;
+  gap: 18px;
 
   .btn_style {
     min-width: unset;
   }
   @media (max-width: 1440px) {
-    gap: 15px;
+    gap: 14px;
   }
 }
 
@@ -169,7 +169,7 @@
 }
 
 .list-unstyled li {
-  padding: 0 15px;
+  padding: 0 14px;
 
   @media (max-width: 1300px) {
     padding: 0 8px;

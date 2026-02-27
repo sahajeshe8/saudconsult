@@ -60,6 +60,19 @@
 	@media screen and (min-width: 700px) {
 height: 100vh;
 	}
+
+
+
+.slider_arrow_block{
+	@media screen and (min-width: 1024px) {
+		display: none;
+	}
+}
+
+
+
+
+
 }
 
 

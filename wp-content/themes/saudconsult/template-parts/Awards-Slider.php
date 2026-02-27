@@ -20,7 +20,7 @@ $loop = isset( $args['loop'] ) ? $args['loop'] : true; // Default to true for lo
 
 ?>
 
-<section class="awards_slider_section pt_80 pb_80 <?php echo esc_attr( $section_class ); ?>">
+<section class="awards_slider_section pt_100 pb_80 <?php echo esc_attr( $section_class ); ?>">
 	<div class="wrap">
 		<?php if ( $title || $title_span ) : ?>
 			<div class="awards_slider_title_block">

@@ -78,14 +78,14 @@ $gallery_items = isset( $args['gallery_items'] ) ? $args['gallery_items'] : arra
 
 						<div class="gallery_item normal">
 							<div class="gallery_item_image">
-								<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/gallery-03.jpg' ); ?>" alt="Gallery Image 3 - Conference Stage">
+								<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/gallery-08.jpg' ); ?>" alt="Gallery Image 3 - Conference Stage">
 							</div>
 						</div>
 
 						<!-- Row 2: Mid (Column 1, 2, 3) -->
 						<div class="gallery_item normal">
 							<div class="gallery_item_image">
-								<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/gallery-04.jpg' ); ?>" alt="Gallery Image 4 - Exhibition Booth">
+								<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/gallery-06.jpg' ); ?>" alt="Gallery Image 4 - Exhibition Booth">
 							</div>
 						</div>
 
@@ -97,7 +97,7 @@ $gallery_items = isset( $args['gallery_items'] ) ? $args['gallery_items'] : arra
 
 						<div class="gallery_item normal">
 							<div class="gallery_item_image">
-								<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/gallery-06.jpg' ); ?>" alt="Gallery Image 6 - Architectural Rendering">
+								<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/gallery-03.jpg' ); ?>" alt="Gallery Image 6 - Architectural Rendering">
 							</div>
 						</div>
 
@@ -110,7 +110,7 @@ $gallery_items = isset( $args['gallery_items'] ) ? $args['gallery_items'] : arra
 
 						<div class="gallery_item normal">
 							<div class="gallery_item_image">
-								<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/gallery-08.jpg' ); ?>" alt="Gallery Image 8 - Document Handover">
+								<img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/gallery-04.jpg' ); ?>" alt="Gallery Image 8 - Document Handover">
 							</div>
 						</div>
 

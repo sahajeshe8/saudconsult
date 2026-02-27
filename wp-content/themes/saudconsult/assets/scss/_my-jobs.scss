@@ -1,6 +1,7 @@
 .my_jobs_section {
 	padding-top: 50px !important;
 	padding-bottom: 50px !important;
+	min-height: 800px;
 
 	@media screen and (max-width: 1024px) {
 		padding-top: 40px !important;
@@ -49,7 +50,7 @@
 				overflow: hidden;
 
 				th {
-					padding:25px 25px;
+					padding:25px 17px;
 					text-align: left;
 					font-size: 18px;
 					font-weight: 500;
@@ -80,13 +81,13 @@
 			 
 
 				td {
-					padding: 25px 25px;
+					padding: 25px 17px;
 					font-size: 16px;
 					color: #1d1d1f;
                     font-weight: 300;
 					border: none;
 				 
-
+a{ color:#1d1d1f;}
 					&:first-child {
 					 
 						border-top-left-radius: 12px;
@@ -137,8 +138,8 @@
 			thead {
 				tr {
 					th {
-						padding: 10px 12px;
-						font-size: 14px;
+						padding: 10px 11px;
+						font-size: 13px;
 					}
 				}
 			}
@@ -146,8 +147,8 @@
 			tbody {
 				tr {
 					td {
-						padding: 12px;
-						font-size: 14px;
+						padding: 11px;
+						font-size: 13px;
 					}
 				}
 			}

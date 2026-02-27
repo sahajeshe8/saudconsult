@@ -15,7 +15,7 @@ $about_button_link = get_theme_mod( 'about_button_link', '#' );
 
 ?>
 
-<section class="about_section pt_80 pb_80 height_100vh">
+<section class="about_section pt_80 pb_80  ">
 	<div class="wrap">
 	  <div class="about_section_01">
 		 <div class="about_sectioncl_01" data-aos="fade-up" data-aos-duration="800" data-aos-delay="0">
@@ -43,7 +43,7 @@ $about_button_link = get_theme_mod( 'about_button_link', '#' );
 			<div class="about_4_cl_blocks_item_01">
 				<div class="w_100 text_cl_01">
 					<h3 data-count-target="50" data-count-suffix="+ Years"><span class="count-number">0</span><span class="count-suffix">+ Years</span></h3>
-					<p>Pioneering Excellence</p>
+					<p>Pioneering Excellence </p>
 				</div>
 				<div class="about_4_cl_blocks_item_02">
 					<p>Decades of navigating the market, establishing trust, and delivering landmark projects across the Kingdom.</p>

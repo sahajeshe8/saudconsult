@@ -289,11 +289,13 @@ function tasheel_scripts()
 	$is_company_detail_page = false;
 	$is_tasheel_modern_support_page = false;
 	$is_group_companies_page = false;
+	$is_our_journey_page = false;
 	if (is_page()) {
 		$template = get_page_template_slug();
 		$is_company_detail_page = ($template === 'page-company-detail.php' || $template === 'page-investments-detail.php' || $template === 'page-tasheel-modern-support-services.php');
 		$is_tasheel_modern_support_page = ($template === 'page-tasheel-modern-support-services.php');
 		$is_group_companies_page = ($template === 'page-group-companies.php');
+		$is_our_journey_page = ($template === 'page-template-journey-legacy.php');
 	}
 
 	// Enqueue component styles
@@ -309,6 +311,30 @@ function tasheel_scripts()
 		if (file_exists($scrolltrigger_js_path)) {
 			wp_enqueue_script('gsap-scrolltrigger', get_template_directory_uri() . '/assets/js/ScrollTrigger.min.js', array('gsap'), _S_VERSION, false);
 		}
+	}
+
+	// Enqueue GSAP and ScrollTrigger for Our Journey page
+	if ($is_our_journey_page) {
+		// Enqueue GSAP library (local file)
+		$gsap_js_path = get_template_directory() . '/assets/js/gsap-latest-beta.min.js';
+		if (file_exists($gsap_js_path)) {
+			wp_enqueue_script('gsap', get_template_directory_uri() . '/assets/js/gsap-latest-beta.min.js', array(), _S_VERSION, false);
+		}
+
+		// Enqueue GSAP ScrollTrigger plugin (local file)
+		$scrolltrigger_js_path = get_template_directory() . '/assets/js/ScrollTrigger.min.js';
+		if (file_exists($scrolltrigger_js_path)) {
+			wp_enqueue_script('gsap-scrolltrigger', get_template_directory_uri() . '/assets/js/ScrollTrigger.min.js', array('gsap'), _S_VERSION, false);
+		}
+
+		// Enqueue Our Journey script
+		$our_journey_js_path = get_template_directory() . '/assets/js/OurJourney.js';
+		if (file_exists($our_journey_js_path)) {
+			wp_enqueue_script('our-journey-script', get_template_directory_uri() . '/assets/js/OurJourney.js', array('gsap-scrolltrigger', 'swiper-js'), _S_VERSION, true);
+		}
+	}
+
+	if (is_front_page()) {
 
 		// Enqueue Stack Section script
 		$stack_section_js_path = get_template_directory() . '/assets/js/StackSection.js';
@@ -497,6 +523,12 @@ function tasheel_scripts()
 
 	if (is_singular() && comments_open() && get_option('thread_comments')) {
 		wp_enqueue_script('comment-reply');
+	}
+
+	// Enqueue Sumo Select for Vendor Registration page
+	if (is_page_template('page-template-vendor-registration.php')) {
+		wp_enqueue_style('sumo-select-css', 'https://cdn.jsdelivr.net/npm/sumoselect@3.4.8/sumoselect.min.css', array(), '3.4.8');
+		wp_enqueue_script('sumo-select-js', 'https://cdn.jsdelivr.net/npm/sumoselect@3.4.8/jquery.sumoselect.min.js', array('jquery'), '3.4.8', true);
 	}
 }
 add_action('wp_enqueue_scripts', 'tasheel_scripts');

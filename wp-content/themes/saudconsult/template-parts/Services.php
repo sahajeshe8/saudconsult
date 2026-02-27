@@ -7,7 +7,7 @@
 
 ?>
 
-<section class="services_section pt_80 height_100vh ">
+<section class="services_section pt_80  ">
 	<div class="wrap">
 		<span class="lable_text green_text " data-aos="fade-up" data-aos-duration="800" data-aos-delay="0">
 			<img src="<?php echo get_template_directory_uri(); ?>/assets/images/dot-02.svg" alt="Our Comprehensive Services">

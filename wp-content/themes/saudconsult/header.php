@@ -21,7 +21,8 @@
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<!-- dir="rtl" rtl -->
+<body class=" <?php body_class(); ?>">
 	<?php wp_body_open(); ?>
 	<?php
 	// Determine header classes based on page type
@@ -226,7 +227,7 @@
 <div class="sub_menu_block">
 							 <div class="sub_menu_block_inner">
 								 <div class="sub_menu_block_left_block">
-									 <h3>Company  <a href="<?php echo esc_url( home_url( '/about-us' ) ); ?>"  > <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/company-arrow.svg' ); ?>" alt="Arrow Down"></a></h3>
+									 <h3>Company  <a href="<?php echo esc_url( home_url( '/about-us' ) ); ?>"  > <img class="menu-arrow" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/company-arrow.svg' ); ?>" alt="Arrow Down"></a></h3>
 								
 									<p>
 									Established in 1965 as the first Saudi Engineering Consulting Firm, Saud Consult has been integral to shaping the nation's built environment.
@@ -244,12 +245,12 @@
 											</a>
 										</li>
 										<?php
-										$our_team_url = home_url( '/our-team' );
-										$our_team_active = is_current_menu_item( $our_team_url );
+										$vision_url = home_url( '/vision-mission-values' );
+										$vision_active = is_current_menu_item( $vision_url );
 										?>
-										<li class="<?php echo $our_team_active ? 'active' : ''; ?>">
-										<a href="<?php echo esc_url( $our_team_url ); ?>" class="<?php echo $our_team_active ? 'active' : ''; ?>">
-										Our Team  <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/menu-arrow.svg' ); ?>" alt="Arrow Down">
+										<li class="<?php echo $vision_active ? 'active' : ''; ?>">
+										<a href="<?php echo esc_url( $vision_url ); ?>" class="<?php echo $vision_active ? 'active' : ''; ?>">
+										Vision, Mission & Values <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/menu-arrow.svg' ); ?>" alt="Arrow Down">
 											</a>
 										</li>
 										<?php
@@ -262,6 +263,15 @@
 											</a>
 										</li>
 										<?php
+										$our_team_url = home_url( '/our-team' );
+										$our_team_active = is_current_menu_item( $our_team_url );
+										?>
+										<li class="<?php echo $our_team_active ? 'active' : ''; ?>">
+										<a href="<?php echo esc_url( $our_team_url ); ?>" class="<?php echo $our_team_active ? 'active' : ''; ?>">
+										Our Team  <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/menu-arrow.svg' ); ?>" alt="Arrow Down">
+											</a>
+										</li>
+										<?php
 										$journey_url = home_url( '/our-journey-legacy' );
 										$journey_active = is_current_menu_item( $journey_url );
 										?>
@@ -270,17 +280,6 @@
 										Our Journey & Legacy <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/menu-arrow.svg' ); ?>" alt="Arrow Down">
 											</a>
 										</li>
-
-										<?php
-										$vision_url = home_url( '/vision-mission-values' );
-										$vision_active = is_current_menu_item( $vision_url );
-										?>
-										<li class="<?php echo $vision_active ? 'active' : ''; ?>">
-										<a href="<?php echo esc_url( $vision_url ); ?>" class="<?php echo $vision_active ? 'active' : ''; ?>">
-										Vision, Mission & Values <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/menu-arrow.svg' ); ?>" alt="Arrow Down">
-											</a>
-										</li>
-
 										<?php
 										$milestones_url = home_url( '/company-milestones' );
 										$milestones_active = is_current_menu_item( $milestones_url );
@@ -290,7 +289,6 @@
 										Company Milestones <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/menu-arrow.svg' ); ?>" alt="Arrow Down">
 											</a>
 										</li>
-
 										<?php
 										$awards_url = home_url( '/awards' );
 										$awards_active = is_current_menu_item( $awards_url );
@@ -318,7 +316,7 @@
 							<div class="sub_menu_block">
 							 <div class="sub_menu_block_inner">
 								 <div class="sub_menu_block_left_block">
-									 <h3>Services <a href="<?php echo esc_url( home_url( '/services' ) ); ?>"  > <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/company-arrow.svg' ); ?>" alt="Arrow Down"></a></h3>
+									 <h3>Services <a href="<?php echo esc_url( home_url( '/services' ) ); ?>"  > <img class="menu-arrow" src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/company-arrow.svg' ); ?>" alt="Arrow Down"></a></h3>
 								
 									<p>
 									Our multidisciplinary team is structured to deliver integrated solutions across the following critical sectors, ensuring innovation and efficiency in every design.
@@ -429,7 +427,7 @@
                     </ul>
 
                     <div class="menu_right_block">
-<a href="#login-popup" class="user-login-trigger" data-fancybox="login-popup">
+<a href="#login-popup" class="user-login-trigger" data-fancybox="">
                       <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/user-logon.svg' ); ?>" alt="User Icon">
                     </a>
 
@@ -447,7 +445,7 @@
 
             <div class="mobile_header_actions">
                 <div class="menu_right_block menu_right_block_mobile">
-<a href="#login-popup" class="user-login-trigger" data-fancybox="login-popup">
+<a href="#login-popup" class="user-login-trigger" data-fancybox="">
                       <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/user-logon.svg' ); ?>" alt="User Icon">
                     </a>
 
@@ -581,7 +579,7 @@
 
 	<div class="form-bottom-txt">
 		<h5>Not a registered user yet?</h5>
-		 <p><a href="#job-form-popup" class="text_black" data-fancybox="job-form">Create an account</a>  to apply for our career opportunities.</p> 
+		 <p><a href="#job-form-popup" class="text_black" data-fancybox="job-form" >Create an account</a>  to apply for our career opportunities.</p> 
 		<span class="or_span">or</span><br>
 		<p><a href="<?php echo esc_url( home_url( '/apply-as-a-guest' ) ); ?>" class="text_black">Apply as a Guest</a></p>
 	</div>
@@ -668,7 +666,7 @@
 
 		<div class="form-bottom-txt">
 			<h5>Not a registered user yet?</h5>
-			<p><a href="#" class="text_black swap-to-signup" data-swap-view="signup">Create an account</a> to apply for our career opportunities.</p> 
+			<p><a href="#" class="text_black swap-to-signup" >Create an account</a> to apply for our career opportunities.</p> 
 		</div>
 	</div>
 
@@ -702,7 +700,7 @@
 		</ul>
 
 		<div class="form-bottom-txt">
-			<p>Already a registered user? <a href="#" class="text_black swap-to-signin" data-swap-view="signin">Please sign in</a></p>
+			<p>Already a registered user? <a href="#" class="text_black swap-to-signin"  >Please sign in</a></p>
 		</div>
 	</div>
 </div>

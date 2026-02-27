@@ -1,0 +1,86 @@
+<?php
+/**
+ * One-time migration: copy "About Section Pages" (about_page_sections) content
+ * into "Page Sections (Site-wide)" (page_sections) for all About template pages.
+ *
+ * Run once: visit /wp-admin/?tasheel_migrate_about_to_sitewide=1 (when logged in as Administrator).
+ * Then remove or disable this file.
+ *
+ * @package tasheel
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+/**
+ * Run migration when requested by admin.
+ */
+function tasheel_migrate_about_to_sitewide_run() {
+	if ( ! isset( $_GET['tasheel_migrate_about_to_sitewide'] ) || $_GET['tasheel_migrate_about_to_sitewide'] !== '1' ) {
+		return;
+	}
+	if ( ! current_user_can( 'manage_options' ) ) {
+		return;
+	}
+
+	$done_key = 'tasheel_about_to_sitewide_migrated';
+	if ( get_option( $done_key ) ) {
+		add_action( 'admin_notices', function () {
+			echo '<div class="notice notice-info"><p><strong>Migration already completed.</strong> About content was previously copied to Page Sections (Site-wide). To run again, delete the option <code>tasheel_about_to_sitewide_migrated</code> from wp_options.</p></div>';
+		} );
+		return;
+	}
+
+	if ( ! function_exists( 'get_field' ) || ! function_exists( 'update_field' ) ) {
+		add_action( 'admin_notices', function () {
+			echo '<div class="notice notice-error"><p>ACF is required for this migration.</p></div>';
+		} );
+		return;
+	}
+
+	$templates = function_exists( 'tasheel_about_section_templates' ) ? tasheel_about_section_templates() : array(
+		'page-template-about.php',
+		'page-template-vision-mission-values.php',
+		'page-template-leadership.php',
+		'page-template-our-team.php',
+		'page-template-journey-legacy.php',
+		'page-template-company-milestones.php',
+		'page-template-awards.php',
+	);
+
+	$query = new WP_Query( array(
+		'post_type'      => 'page',
+		'post_status'    => 'any',
+		'posts_per_page' => -1,
+		'fields'         => 'ids',
+		'meta_query'     => array(
+			array(
+				'key'     => '_wp_page_template',
+				'value'   => $templates,
+				'compare' => 'IN',
+			),
+		),
+	) );
+
+	$migrated = 0;
+	$skipped  = 0;
+
+	foreach ( $query->posts as $page_id ) {
+		$about_sections = get_field( 'about_page_sections', $page_id );
+		if ( empty( $about_sections ) || ! is_array( $about_sections ) ) {
+			$skipped++;
+			continue;
+		}
+		update_field( 'page_sections', $about_sections, $page_id );
+		$migrated++;
+	}
+
+	update_option( $done_key, true );
+
+	add_action( 'admin_notices', function () use ( $migrated, $skipped ) {
+		echo '<div class="notice notice-success"><p><strong>Migration complete.</strong> Copied "About Section Pages" → "Page Sections (Site-wide)" on <strong>' . (int) $migrated . '</strong> page(s). Skipped ' . (int) $skipped . ' (no About content). You can now use only the site-wide field. Consider removing this file: <code>inc/acf-migrate-about-to-sitewide.php</code> and the require in functions.php.</p></div>';
+	} );
+}
+
+add_action( 'admin_init', 'tasheel_migrate_about_to_sitewide_run', 20 );

@@ -1,0 +1,279 @@
+/*-----------Ifza Property------------*/
+.page-template-ifza-property .banner-area-wrap p {
+  max-width: 630px;
+}
+
+.sliding-list-sec {
+  padding: 120px 0px;
+}
+
+.sliding-list-sec h2 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.workspace-image-wrap {
+  margin-bottom: 0px;
+  height: 360px;
+}
+
+.workspace-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.workspace-content-wrap {
+  padding: 25px 0px 0px;
+}
+
+.workspace-content-wrap h3 {
+  margin-bottom: 15px;
+}
+
+.workspace-content-wrap p {
+  margin-bottom: 25px;
+  max-width: 340px;
+  min-height: 48px;
+}
+
+.ifza-property .image-bg-text-top figure {
+  height: 770px;
+}
+
+.ifza-property .image-bg-text-top figure figcaption {
+  max-width: 650px;
+}
+
+.content-sec-11 {
+  padding: 140px 0px;
+  background: #F3F4F5;
+}
+
+.content-sec-11-inner h3 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.content-sec-11-inner {
+  margin-bottom: 60px;
+}
+
+.content-sec-11-inner p {
+  max-width: 965px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.place-list {
+  background: #F1F1F1;
+  width: 100%;
+  margin-bottom: 0px;
+}
+
+.place-list li {
+  display: flex;
+  align-items: center;
+}
+
+.place-list-image {
+  margin-bottom: 0px;
+  height: 570px;
+  width: 50%;
+}
+
+.place-list-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.place-list-content {
+  width: 50%;
+  padding: 0px 125px;
+}
+
+.place-list-content h3 {
+  margin-bottom: 15px;
+}
+
+.place-list-content p {
+  margin-bottom: 15px;
+}
+
+.place-list li:nth-child(even) .place-list-content {
+  order: 0;
+}
+
+.place-list li:nth-child(even) .place-list-image {
+  order: 1;
+}
+
+.find-office-wrap {
+  display: flex;
+  height: 680px;
+  background: #21201F;
+}
+
+.find-office-video {
+  width: 50%;
+  overflow: hidden;
+}
+
+.find-office-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.office-video-text {
+  position: absolute;
+  font-size: 1100px;
+  font-family: 'TT Firs Neue';
+  font-weight: bold;
+  transform: translate(-200px, -340px);
+}
+
+.find-office-content {
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+
+.find-office-content-inner {
+  max-width: 585px;
+}
+
+.find-office-content-inner h3 {
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.find-office-content-inner p {
+  color: #fff;
+  margin-bottom: 50px;
+}
+
+.find-office-content-inner .btn-link {
+  color: #fff;
+}
+
+.find-office-content-inner .btn-link .arrow-img {
+  background: url(../images/btn-arrow.png);
+}
+
+.find-office-content-inner .btn-link:hover {
+  color: #000;
+}
+
+.find-office-content-inner .btn-link:hover:before {
+  background: #fff;
+}
+
+.page-template-ifza-property .text-image-repeat-content p {
+  margin-bottom: 15px;
+}
+
+#workspace-slider .glide__arrow {
+  top: unset;
+  bottom: 0px;
+  width: 58px;
+  height: 58px;
+  border: 0px;
+  background: #21201F;
+  float: left;
+  cursor: pointer;
+  margin-top: 10px;
+  display: none;
+}
+
+#workspace-slider .glide__arrow:focus {
+  background: #E0E1E2;
+}
+
+.glide__arrow--right {
+  margin-left: 5px;
+}
+
+#workspace-slider .glide__arrow i {
+  color: #fff;
+}
+
+/*-----------Media Queries----------*/
+
+@media only screen and (max-width:1450px) {
+
+  .sliding-list-sec,
+  .content-sec-11 {
+    padding: 75px 0px;
+  }
+
+  .ifza-property .image-bg-text-top figure {
+    height: 550px;
+  }
+}
+
+@media only screen and (max-width:1280px) {
+  .workspace-image-wrap {
+    height: 300px;
+  }
+
+  #workspace-slider .glide__arrow {
+    display: block;
+  }
+
+  #workspace-slider {
+    padding-bottom: 60px;
+  }
+}
+
+@media only screen and (max-width:767px) {
+
+  .sliding-list-sec,
+  .content-sec-11 {
+    padding: 56px 0px;
+  }
+
+  .workspace-content-wrap p {
+    margin-bottom: 10px;
+    max-width: 100%;
+    min-height: auto;
+  }
+
+  .workspace-content-wrap h3 {
+    margin-bottom: 5px;
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .workspace-content-wrap {
+    padding: 20px 0px 0px;
+  }
+
+  .sliding-list-sec h2 {
+    margin-bottom: 15px;
+  }
+
+  .sliding-list-sec h2 {
+    font-size: 26px;
+    line-height: 30px;
+  }
+
+  .workspace-content-wrap {
+    padding: 15px 0px 0px;
+  }
+
+  .content-sec-11-inner {
+    margin-bottom: 30px;
+  }
+
+  .content-sec-11-inner h3 {
+    font-size: 26px;
+    line-height: 30px;
+    margin-bottom: 10px;
+  }
+
+  .sliding-list-sec {
+    padding-bottom: 20px;
+  }
+}

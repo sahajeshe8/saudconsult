@@ -1,0 +1,411 @@
+// RTL Styles
+// WordPress automatically adds .rtl class to body via body_class() when is_rtl() is true
+body.rtl {
+	.btn_style:not(.load_more_wrapper .btn_style) :not(.form_submit_wrapper .btn_style span ) {
+		 
+		span{ transform: rotate(180deg);}
+	}
+	
+	// Add your RTL-specific styles here
+	// Example: Flip padding/margin directions, reverse flex directions, etc.
+
+	.menu-arrow{
+		transform: rotate(180deg);
+		
+		&:hover {
+			transform: rotate(180deg) translateX(-4px);
+		}
+	}
+
+	// Submenu arrow rotation in RTL
+	.sub_menu_block_right_block {
+		.list-submenu {
+			li {
+				a {
+					img {
+						transform: rotate(180deg);
+					}
+				}
+			}
+		}
+	}
+	
+
+	.slider_arrow_block{     right: unset; left: 0; flex-direction: row-reverse;   justify-content: flex-end;}
+
+	// Timeline RTL Styles
+	.timeline_section {
+		.timeline_row_02 {
+			.tileline_ul {
+				li {
+					.timeline_item_content {
+						text-align: right;
+					}
+
+					.timeline_item_content_year {
+						.timeline-dot {
+							left: unset !important;
+							right: -39px !important;
+						}
+					}
+				}
+
+				& > :nth-child(odd) {
+					.timeline_item_content {  
+						text-align: left;
+						@media screen and (min-width: 700px) {
+							p {
+								margin-right: auto !important;
+								margin-left:0  !important;
+							}
+						}
+					}
+
+					.timeline_item_content_year {
+						.timeline-dot {
+							right: unset !important;
+							left: -39px !important;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	// Image Text Block RTL Styles
+	.image_image_block_container {
+		ul {
+			margin-left: 0;
+			margin-right: 20px;
+
+			li {
+				padding-left: 0;
+				padding-right: 20px;
+			}
+		}
+	}
+
+	// Header Submenu RTL Styles
+	.sub_menu_block_left_block {
+		padding-right: 0;
+		padding-left: 4%;
+		border-right: none  !important;
+		border-left: 1px solid rgba(255, 255, 255, 0.3);
+	}
+
+
+	.contact_info_text{
+		a{ direction: ltr;}
+	}
+	
+	
+	.wpcf7-form-control-wrap{
+	   
+	 
+		.footer_email_input {
+		   text-align: right;
+		}
+	  }
+	
+
+
+	  .form_input, .form_textarea{ text-align: right; }
+
+
+	  .timeline_row_01 p{ text-align: right; }
+	  .faq_question{text-align: right; }
+
+	  .news_list_content  {
+		.slider_arrow_block { justify-content: center !important;}
+	  }
+
+	  .faq_list{ 
+		padding-right: 0 !important;
+	  }
+
+
+	  .vendor_radio_option .vendor_radio_custom{     margin-right:0px;     margin-left: 10px;}
+
+	  .vendor_registration_form_col{
+		.vendor_input_with_button {
+			.input{ border: none !important;}
+		}
+	  }
+
+	  .vendor_input_with_button{
+		.SelectBox{ border: none !important;}
+	  }
+
+	//   .input{ border: none !important;}
+
+	  .select-wrapper{
+		span.wpcf7-form-control-wrap{ width: 100% !important;}
+	  }
+
+	  .career-form-list-ul li .select-wrapper .select-arrow{ right: unset !important; left: 20px!important;}
+	//   .wpcf7-not-valid-tip{bottom: unset !important; }
+
+	  #login-popup { direction: rtl !important;}
+
+
+
+	  .subscribe_form{
+
+		.wpcf7-not-valid-tip{
+			bottom: -24px !important;
+		}
+	  }
+
+
+	  .career-form-list-ul {
+		li {
+			.form-icon{ left: 20px  !important; right: unset !important;}
+		}
+	  }
+
+	  .inner_banner_title{
+		text-align: right !important;
+	  }
+
+	  .input{ text-align: right !important;}
+
+
+	  .vendor_input_with_button {
+		.vendor-attach-btn{     left: 0; right: unset;}
+	  }
+
+
+	  .vendor_input_with_button .input{  
+		
+		@media screen and (min-width: 1024px) {		
+			padding-right: 15px !important;     padding-left: 140px !important;
+		}
+	
+	
+	}
+
+
+
+
+
+	  .select-wrapper {
+	 
+  
+		.select-input {
+			padding-right: 0 !important;
+			padding-left: 45px;
+		}}
+
+
+
+		.SumoSelect>.CaptionCont>span{ padding-right: 0px; padding-left: 30px;}
+
+		.SumoSelect>.optWrapper.multiple>.options li.opt{     padding-right: 35px;     padding-left:0px;}
+
+
+		.SumoSelect .select-all>span, .SumoSelect>.optWrapper.multiple>.options li.opt span{  margin-left:0px; margin-right: -35px;}
+
+
+
+		.education-list .education-item .education-header .education-duration{     right: unset; left: 0;}
+
+
+.service_item_content, .expertise_content_wrapper{
+	.btn_style.btn_transparent{
+		span{ transform: rotate(-90deg);}
+	}
+}
+
+
+
+
+
+
+// .footer_row_04_right ul > :nth-child(1){
+// 	border-right: none !important;
+// 	border-left: solid 1px #363636;
+// }
+
+.breadcrumb_separator{
+	transform: rotate(180deg);
+}
+
+.what_to_expect_section .what_to_expect_header h3, .h3_title_50{      margin-bottom: 20px !important;}
+
+
+.mobile_menu_overlay{
+	background: linear-gradient(83.71deg, rgb(169, 209, 89) 25%, rgb(13, 106, 55) 100%);
+}
+
+
+
+.sub_menu_block_left_block {
+ a{
+	img{
+		transform: rotate(180deg);
+	}
+ }
+}
+
+
+
+
+.banner_slide{
+	.banner_slide_content_02 {
+		h2 {
+			span{ line-height:130%;}
+		}
+	}
+}
+
+
+.bannerContainer {
+	.banner-pagination{
+		left: calc((100vw - 1400px) / 2);
+		right: unset;
+
+
+
+		@media (max-width: 1440px) {
+			right: unset;
+			left: 40px;
+		  }
+	  
+		 
+	   
+	  
+		  @media screen and (max-width: 768px) {
+			right: unset;
+			left: 15px;
+			 
+		  }
+		 
+
+
+
+
+
+
+
+
+
+	}
+}
+
+
+.services_section_item_01_content{
+
+	.btn_style{
+		span{
+			transform: rotate(-90deg)  !important;
+			img{ transform:  unset !important;}
+		}
+	}
+
+}
+
+.h4_title_35{
+
+	line-height: 135%;
+}
+
+
+
+
+.vendor_radio_options {
+	.wpcf7-form-control-wrap{
+		gap: 15px;
+	}
+}
+
+
+
+
+
+
+.career-form-list-ul {
+	li{
+		.select-wrapper.date-input-wrapper {
+			.date-placeholder{
+				left: unset;
+				right: 5px;
+			}
+		}
+	}
+}
+
+
+
+
+
+.my_jobs_section .my_jobs_table thead tr th:last-child{
+	border-top-right-radius: 0%;
+    border-bottom-right-radius: 0px;
+	border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+
+.my_jobs_section .my_jobs_table thead tr th:first-child {
+    border-top-left-radius: 0%;
+    border-bottom-left-radius: 0px;
+
+	border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+
+
+
+.my_jobs_section .my_jobs_table tbody tr td:last-child {
+     
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+
+	border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+
+
+.my_jobs_section .my_jobs_table tbody tr td:first-child {
+    border-top-left-radius:0px;
+    border-bottom-left-radius: 0px;
+
+	border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+
+.my_profile_content {
+	.but-position{
+		left: 0;
+		right: unset;
+	}
+}
+
+
+.btn_style{
+	span{
+		img{ transform: rotate(180deg) !important;}
+	}
+
+	img{ transform: rotate(180deg) !important;}
+}
+
+
+
+.h3_title_50 {
+	line-height: 47px;
+}
+
+
+.job_details_content ol li, .job_details_content ul li{ text-align: right !important;}
+
+
+}
+
+
+
+
+

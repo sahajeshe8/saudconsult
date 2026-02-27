@@ -1,0 +1,313 @@
+.career-search-form {
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+
+	>li {
+		list-style: none;
+		width: 18%;
+
+		.fld-01 {
+			padding-left: 30px;
+			padding-right: 30px;
+		}
+
+		.but-01 {
+			height: 52px;
+			width: 100%;
+
+			@media #{$media-600} {
+				height: 43px;
+			}
+
+		}
+
+		@media #{$media-600} {
+			width: 100% !important;
+			margin-bottom: 20px;
+		}
+
+		@media #{$media-768} {
+			width: 48%;
+			margin-bottom: 15px;
+		}
+
+
+	}
+
+
+	::placeholder {
+		/* Chrome, Firefox, Opera, Safari 10.1+ */
+		color: #545454;
+		opacity: 1;
+		/* Firefox */
+	}
+
+	:-ms-input-placeholder {
+		/* Internet Explorer 10-11 */
+		color: #545454;
+	}
+
+	::-ms-input-placeholder {
+		/* Microsoft Edge */
+		color: #545454;
+	}
+
+
+	& :last-child {
+		@media #{$media-600} {
+			width: 100%;
+		}
+	}
+
+
+	&.search_jobs{
+		li{width: 24%;}
+	}
+
+}
+
+.form-sumo {
+	.SumoSelect .CaptionCont {
+		border: none;
+		-webkit-border-radius: 100px;
+		height: 52px;
+		padding-left: 30px;
+		padding-right: 30px;
+		box-shadow: 0px 11px 12.16px 3.84px rgba(0, 0, 0, 0.04);
+
+		>span {
+			padding-top: 5px;
+			color: #545454;
+		}
+	}
+}
+
+
+.oppaning-block {
+	border-top: solid 1px #f0f0f0;
+}
+
+.opening-ul {
+	margin: 0 -1%;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	padding-top: 30px;
+
+	>li {
+		list-style: none;
+		width: 31%;
+		border-bottom: solid 5px #38405f;
+		padding-bottom: 6px;
+		margin-left: 1%;
+		margin-right: 1%;
+		margin-bottom: 80px;
+
+		h3 {
+			font-size: 16px;
+			color: #000000;
+			margin: 0 0 15px 0;
+
+			span {
+				color: #0974a3;
+				font-size: 12px;
+				display: block;
+				font-weight: 400;
+				margin-bottom: 5px;
+			}
+
+			@media #{$media-820} {
+				font-size: 14px;
+
+			}
+
+			a{ text-decoration: none;}
+		}
+
+		p {
+			font-size: 12px;
+			color: #787878;
+			margin: 0;
+		}
+
+
+		@media #{$media-600} {
+			width: 100%;
+			margin-bottom: 20px;
+		}
+
+		@media #{$media-820} {
+
+			margin-bottom: 30px;
+		}
+
+		@media #{$media-820} {
+			margin-left: 3%;
+			margin-right: 3%;
+			width: 27%;
+		}
+		@media #{$media-600} {
+			width: 94%;
+		}
+	}
+
+	@media #{$media-820} {
+		margin-left: -3%;
+		margin-right: -3%;
+	}
+
+}
+ 
+
+
+
+
+
+
+
+
+.opening-ul.job_listings {
+	margin: 0 -1%;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	padding-top: 30px;
+
+	>li.job_listing {
+		list-style: none;
+		width: 31%;
+		border-bottom: solid 5px #38405f;
+		padding-bottom: 6px;
+		margin-left: 1%;
+		margin-right: 1%;
+		margin-bottom: 80px;
+		a{padding: 0;}
+		h3 {
+			font-size: 16px;
+			color: #000000;
+			margin: 0 0 15px 0;
+
+			span {
+				color: #0974a3;
+				font-size: 12px;
+				display: block;
+				font-weight: 400;
+				margin-bottom: 5px;
+			}
+
+			@media #{$media-820} {
+				font-size: 14px;
+
+			}
+
+			a{ text-decoration: none;}
+		}
+
+		p {
+			font-size: 12px;
+			color: #787878;
+			margin: 0;
+		}
+
+
+		@media #{$media-600} {
+			width: 100%;
+			margin-bottom: 20px;
+		}
+
+		@media #{$media-820} {
+
+			margin-bottom: 30px;
+		}
+
+		@media #{$media-820} {
+			margin-left: 3%;
+			margin-right: 3%;
+			width: 27%;
+		}
+		@media #{$media-600} {
+			width: 94%;
+		}
+	}
+
+	@media #{$media-820} {
+		margin-left: -3%;
+		margin-right: -3%;
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.related-news {
+	li, .news-li {
+		padding-left: 0.8%;
+		padding-right: 0.8%;
+		margin-bottom: 40px;
+
+		.news-block-03 {
+			border: solid 1px #f0f0f0;
+			box-shadow: 0px 8px 12.96px 3.04px rgba(0, 0, 0, 0.03);
+		}
+
+		.news-list-txt {
+			padding: 20px 9% 35px 9%; box-sizing: border-box;
+
+			h3 {
+				font-weight: 400;
+				max-width: unset;
+
+				@media #{$media-600} {
+					font-weight: 500;
+				}
+			}
+
+			.news-discription {
+				margin-top: 17px;
+
+				p {
+					color: #1e1e1e;
+				}
+
+				@media #{$media-600} {
+					margin-top: 8px;
+				}
+			}
+
+			@media #{$media-600} {
+				padding: 20px 3%;
+			}
+
+			> p{ color: #0974a3;}
+		}
+
+
+		@media #{$media-600} {
+			margin-bottom: 10px;
+		}
+    margin-bottom: 10px;
+
+
+
+	}
+
+	li{margin-bottom: 35px;}
+}

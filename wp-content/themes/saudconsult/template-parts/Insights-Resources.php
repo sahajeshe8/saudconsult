@@ -23,7 +23,7 @@ $news_detail_url = $news_detail_page ? get_permalink($news_detail_page->ID) : ho
 
 ?>
 
-<section class="insights_resources_section pt_100 pb_100 <?php echo esc_attr($section_class); ?>">
+<section class="insights_resources_section pt_100 pb_100 mobile_padding <?php echo esc_attr($section_class); ?>">
     <div class="wrap">
         <?php if (!empty($label)): ?>
             <span class="lable_text green_text">
@@ -55,9 +55,12 @@ $news_detail_url = $news_detail_page ? get_permalink($news_detail_page->ID) : ho
                 </span>
             </div>
             <?php if ($show_view_all_button): ?>
-                <div class="view-all-button-wrapper">
+                <div class="view-all-button-wrapper view-all-button-wrapper--top mobile_hide">
                     <a href="<?php echo esc_url($view_all_url); ?>" class="btn_style but_black">
                         View All
+                        <span>
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/buttion-arrow.svg" alt="View All">
+                        </span>
                     </a>
                 </div>
             <?php endif; ?>
@@ -67,7 +70,7 @@ $news_detail_url = $news_detail_page ? get_permalink($news_detail_page->ID) : ho
         </div>
 
 
-        <div class="insights_section_content" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+        <div class="insights_section_content " data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
             <div class="swiper mySwiper-insights">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
@@ -154,6 +157,16 @@ $news_detail_url = $news_detail_page ? get_permalink($news_detail_page->ID) : ho
                 </div>
                 <div class="swiper-pagination"></div>
             </div>
+            <?php if ($show_view_all_button): ?>
+                <div class="view-all-button-wrapper view-all-button-wrapper--bottom mobile_show mt_30">
+                    <a href="<?php echo esc_url($view_all_url); ?>" class="btn_style but_black w_100">
+                        View All
+                        <span>
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/buttion-arrow.svg" alt="View All">
+                        </span>
+                    </a>
+                </div>
+            <?php endif; ?>
         </div>
     </div>
 

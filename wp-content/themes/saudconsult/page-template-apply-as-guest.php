@@ -170,14 +170,15 @@ get_header();
 									<span class="select-arrow"></span>
 								</div>
 							</li>
+							 
 							<li>
 								<div class="select-wrapper date-input-wrapper">
-									<input class="input date-input" type="date" placeholder="End Date *" required>
+									<input class="input date-input" type="date" placeholder="Start Date *" required>
 								</div>
 							</li>
 							<li>
 								<div class="select-wrapper date-input-wrapper">
-									<input class="input date-input" type="date" placeholder="Start Date *" required>
+									<input class="input date-input" type="date" placeholder="End Date *" required>
 								</div>
 							</li>
 							<li>

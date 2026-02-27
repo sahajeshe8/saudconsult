@@ -41,7 +41,7 @@ get_header();
 		'image_alt' => 'About Us',
 		'title' => 'Pioneering Engineering',
 		'title_span' => 'Excellence Since 1965.',
-		'section_class' => 'about-page-section custom-class another-class third-class', // Multiple classes separated by space
+		'section_class' => 'about-page-section custom-class another-class third-class ovelray_none', // Multiple classes separated by space
 		 
 		'image_container_class' => 'about-image-container',
 		'text_container_class' => 'about-text-container'
@@ -58,7 +58,7 @@ get_header();
 	$image_text_data = array(
 		'image' => get_template_directory_uri() . '/assets/images/about-img-02.jpg',
 		'image_alt' => 'About Us',
-		'title' => 'A foundational pillar of modern',
+		'title' => 'A foundational pillar of <br>modern',
 		'title_span' => 'Saudi development',
 		'content' => '<p>Saud Consult is not merely an engineering firm; we are a foundational pillar of modern Saudi development. As one of the Kingdom\'s oldest and largest privately owned multidisciplinary consultancies, we offer comprehensive services from feasibility studies and design to construction supervision and project management.</p>',
 		'button_text' => 'Download Company Profile',

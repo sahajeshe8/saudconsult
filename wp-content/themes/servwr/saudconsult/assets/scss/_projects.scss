@@ -1,0 +1,168 @@
+ 
+ 
+ .projects_grid{ 
+    position: relative;
+    padding-top: 40px;
+
+    @media screen and (max-width: 1200px) {
+        padding-top: 30px;
+    }
+
+    @media screen and (max-width: 700px) {
+        padding-top: 20px;
+    }
+
+ .projects_item{
+    position: relative; z-index: 4; min-height: 95vh; display: flex; flex-wrap: wrap;
+    > h3{ margin: 0; color: #000; font-size: 20px; font-weight: 700; line-height: 100%; margin-bottom: 10px; max-width: 50%;}
+    p{ max-width: 57%;
+    
+       
+    }
+
+    // @media screen and (max-width: 1300px) {
+    //     min-height: 600px;
+    // }
+ 
+ }
+
+ .swiper-slide{ 
+	position: relative;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+
+	.projects_slide_bg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 0;
+		overflow: hidden;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			display: block;
+			transition: all 1s ease;
+			transform: scale(1);
+            object-position: bottom;
+		}
+	}
+
+	&:hover {
+		.projects_slide_bg {
+			img {
+				transform: scale(1.05);
+			}
+		}
+
+		// &::after {
+		// 	opacity: 0.5;
+		// }
+	}
+
+    &::after{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #003417;
+        opacity: 0.5;
+        z-index: 1;
+    }
+
+    h3{ color: #fff; @include px-rem(40); font-weight:500; line-height: 100%; margin-bottom: 10px;
+
+        @media screen and (max-width:700px) { @include px-rem(72); }
+    }
+    p{ color: #fff; font-size: 16px; line-height: 130%; font-weight: 300; margin: 0;}
+
+
+    .projects_item_content_blck_02_list{ margin: 0 -3%; padding: 0;  display: flex; flex-wrap: wrap;  align-items: flex-end;
+        li{ width: 25%; padding-left:3%; padding-right:3%;
+            h3 { @include px-rem(33); font-weight: 700; line-height: 100%; margin-bottom:10px; width: 100%;
+            
+                @media screen and (max-width:700px) { @include px-rem(70); }
+            }
+            h5{ margin: 0; color: #fff; font-weight:300; width: 100%; font-size: 16px;}
+            .project_ul_row{ display: flex; flex-wrap: wrap; border-bottom: solid 2px #fff; padding-bottom:20px; width: 100%;}
+        
+            @media screen and (max-width:700px) { width: 50%; padding-left:1%; padding-right:1%; }
+        }
+    }
+}
+
+
+   .projects_item_content_blck_01{  width: 100%; display: flex; justify-content: space-between; align-items: flex-end; margin-bottom:  auto;
+
+    .btn_style{ margin-top: 40px;}
+
+}
+
+
+.projects_item_content_blck_02{ width: 100%; margin-top: auto;
+
+    @media screen and (max-width: 700px) {
+        display: none;
+    }
+}
+
+
+.projects_grid_inner_navigation{
+
+    @media screen and (max-width: 700px) {
+         position: absolute !important; bottom: 0; left: 0; width: 100%; top: unset !important;
+    }
+
+    .slider_arrow_block{
+
+        @media screen and (max-width: 700px) {
+            justify-content: flex-start;
+            padding-left: 4%;
+            padding-right: 4%;
+        }
+    }
+}
+
+ @media screen and (max-width: 700px) {
+    
+        padding-left: 4%; padding-right: 4%;
+    
+ }
+}
+
+ 
+.slider_arrow_block{ width: 20%; top: 20px; position: absolute; right: 0; margin-left: auto; display: flex; flex-wrap: wrap; gap: 10px; padding-bottom:90px;
+
+    .slider_buttion{ cursor: pointer;  width: 58px; height: 58px; border-radius: 100%; background: #A9D159; display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+        &.but_prev{ transform: rotate(180deg);}
+        &:hover{ background: #fff;
+            // img{ filter: invert(1); }
+        }
+
+       
+
+        @media screen and (max-width:700px) {  width: 46px; height: 46px; }
+    }
+    @media screen and (max-width:700px) {  position: unset !important; width: 100%; margin-top: 20px; padding-bottom:10px; justify-content: flex-end; }
+}
+
+
+.projects_grid_inner_navigation{position: absolute; top: 18%; left: 0; width: 100%;  z-index: 10;
+
+
+    @media screen and (max-width:700px) {  position: unset !important; width: 100%; margin-top: 20px; }
+}
+
+.projects_item_content_blck_01_left{ position: relative; z-index: 100; max-width: 75%;}
+
+.position_unset{ position: unset !important;}
+
+
+
+

@@ -13,6 +13,10 @@
 
 		.insights_section_header_left {
 			width: 50%;
+
+			@media screen and (max-width:700px) {
+				margin-bottom: 0px !important;
+			}
 		}
 
 		.insights_section_header_right {

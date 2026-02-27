@@ -202,7 +202,7 @@ html {
   }
 
   @media screen and (max-width: 700px) {
-    @include px-rem(75);
+    @include px-rem(68);
   }
 }
 
@@ -310,14 +310,14 @@ html {
   }
 
   @media screen and (max-width: 1024px) {
-    @include px-rem(40);
+    @include px-rem(70);
     margin-bottom: 10px;
   }
 
   @media screen and (max-width: 700px) {
-    @include px-rem(82);
+    @include px-rem(88);
     margin-bottom: 10px;
-    line-height: 40px;
+    line-height:40px;
   }
 
   // br{
@@ -336,6 +336,7 @@ html {
   flex-wrap: wrap;
   align-items: flex-end;
   justify-content: space-between;
+ align-items: center;
 
   p {
     margin: 0;
@@ -558,8 +559,8 @@ div.fancybox__backdrop{   background: rgb(175 175 175 /0.8) !important;}
 .error_404_content {
   .btn_style {
     &:hover {
-      background: #0d6a37 !important;
-      border-color: #0d6a37 !important;
+      background: #000000 !important;
+      border-color: #000000 !important;
       color: #fff !important ;
     }
   }
@@ -804,4 +805,8 @@ div.fancybox__backdrop{   background: rgb(175 175 175 /0.8) !important;}
 
 .home {
 .partners_section{ margin-top: 0 !important; border-top: none !important; }
+}
+
+.news_list_section{
+  .h3_title_50{ margin-bottom: 0;}
 }

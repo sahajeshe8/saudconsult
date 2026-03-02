@@ -402,9 +402,13 @@ body.rtl {
 
 .job_details_content ol li, .job_details_content ul li{ text-align: right !important;}
 
-
+.job-form-popup {
+    direction: rtl;
+}
 }
 
+
+// ---
 
 
 

@@ -15597,4 +15597,7 @@ body.rtl .h3_title_50 {
 }
 body.rtl .job_details_content ol li, body.rtl .job_details_content ul li {
   text-align: right !important;
+}
+body.rtl .job-form-popup {
+  direction: rtl;
 }/*# sourceMappingURL=main.css.map */

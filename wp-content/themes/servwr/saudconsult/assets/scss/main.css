@@ -571,7 +571,7 @@
 .black-header .menu_right_block a {
   color: #000;
 }
-.black-header .user-login-trigger img {
+.black-header .user-login-trigger img, .black-header .mobile_header_actions .menu_right_block img {
   filter: invert(1);
 }
 

@@ -730,9 +730,9 @@ div.fancybox__backdrop{   background: rgb(175 175 175 /0.8) !important;}
 .media-video-vertical { display: flex; justify-content: center; align-items: center; }
 
 .our_journey_section .slider_arrow_block{ display: none; }
- .wpml-ls-legacy-list-horizontal{ padding-left: 0; padding-right: 0;}
+ .wpml-ls-legacy-list-horizontal{ padding-left: 0; padding-right: 0; color: #fff;}
 
-.wpml-ls-legacy-list-horizontal a{ color: #fff  ; padding-left: 0; padding-right: 0;
+.wpml-ls-legacy-list-horizontal a{ color: #fff; padding-left: 0; padding-right: 0;
   @media screen and (max-width: 700px) {
     padding: 5px 2px 6px;
   }
@@ -810,3 +810,16 @@ div.fancybox__backdrop{   background: rgb(175 175 175 /0.8) !important;}
 .news_list_section{
   .h3_title_50{ margin-bottom: 0;}
 }
+
+// .vendor_input_with_button{
+// .wpcf7-form-control-wrap{
+//   @media screen and (min-width: 1024px) {
+//     position: absolute;
+//   }
+
+// }}
+
+
+
+.tasheel-reset-password-form form br{ display: none !important; }
+.tasheel-reset-password-form .career-form-list-ul li .form-icon img{     margin-bottom: 26px;}

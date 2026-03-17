@@ -309,6 +309,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+  margin-bottom: 20px;
 }
 
 .mobile_menu_item {
@@ -1357,6 +1358,7 @@ div.fancybox__backdrop {
 .wpml-ls-legacy-list-horizontal {
   padding-left: 0;
   padding-right: 0;
+  color: #fff;
 }
 
 .wpml-ls-legacy-list-horizontal a {
@@ -1444,6 +1446,14 @@ div.fancybox__backdrop {
 
 .news_list_section .h3_title_50 {
   margin-bottom: 0;
+}
+
+.tasheel-reset-password-form form br {
+  display: none !important;
+}
+
+.tasheel-reset-password-form .career-form-list-ul li .form-icon img {
+  margin-bottom: 26px;
 }
 
 * {
@@ -4085,7 +4095,7 @@ a,
     height: 100vh;
   }
 }
-@media screen and (min-width: 1366px) {
+@media screen and (min-width: 1400px) {
   .about_section .wrap {
     display: flex;
     flex-wrap: wrap;
@@ -5795,6 +5805,11 @@ a,
   color: #fff;
   background: #A8D05A;
 }
+@media screen and (max-width: 700px) {
+  .page_tabs_section .page_tabs_container .page_tabs_nav {
+    justify-content: unset;
+  }
+}
 
 .our_journey_section {
   overflow: hidden;
@@ -5841,7 +5856,7 @@ a,
     display: none;
   }
 }
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 1024px) {
   .our_journey_section {
     height: 100vh;
   }
@@ -5976,6 +5991,11 @@ a,
 
 .our_journey_item_image {
   width: 37.5%;
+}
+@media screen and (max-width: 820px) {
+  .our_journey_item_image {
+    width: 43.5%;
+  }
 }
 @media screen and (max-width: 768px) {
   .our_journey_item_image {
@@ -11243,6 +11263,10 @@ a,
   width: 100%;
 }
 
+.contact_us_container .contact_form_list .wpcf7-not-valid-tip {
+  width: 100%;
+}
+
 .form_row_item {
   margin-bottom: 30px;
   list-style: none;
@@ -11382,6 +11406,10 @@ a,
   .contact_form_listP .form_row {
     gap: 20px;
   }
+}
+
+.vendor_input_with_button .input {
+  border: none !important;
 }
 
 .faq_section {
@@ -12777,7 +12805,7 @@ a,
 }
 @media screen and (max-width: 1024px) {
   .related_news_list li {
-    width: 33.333%;
+    width: 50%;
   }
 }
 @media screen and (max-width: 820px) {
@@ -13973,6 +14001,7 @@ a,
 }
 .footer .subscribe_form .btn_style {
   height: 100%;
+  width: 156px;
 }
 @media screen and (max-width: 820px) {
   .footer .subscribe_form {
@@ -15406,9 +15435,20 @@ body.rtl .timeline_section .timeline_row_02 .tileline_ul > :nth-child(odd) .time
     margin-left: 0 !important;
   }
 }
+@media screen and (max-width: 700px) {
+  body.rtl .timeline_section .timeline_row_02 .tileline_ul > :nth-child(odd) .timeline_item_content {
+    text-align: right !important;
+  }
+}
 body.rtl .timeline_section .timeline_row_02 .tileline_ul > :nth-child(odd) .timeline_item_content_year .timeline-dot {
   right: unset !important;
   left: -39px !important;
+}
+@media screen and (max-width: 700px) {
+  body.rtl .timeline_section .timeline_row_02 .tileline_ul > :nth-child(odd) .timeline_item_content_year .timeline-dot {
+    left: unset !important;
+    right: -39px !important;
+  }
 }
 body.rtl .image_image_block_container ul {
   margin-left: 0;
@@ -15593,11 +15633,38 @@ body.rtl .btn_style img {
   transform: rotate(180deg) !important;
 }
 body.rtl .h3_title_50 {
-  line-height: 47px;
+  line-height: 60px;
 }
 body.rtl .job_details_content ol li, body.rtl .job_details_content ul li {
   text-align: right !important;
 }
 body.rtl .job-form-popup {
   direction: rtl;
+}
+body.rtl .vendor_registration_container .career-form-list-ul .wpcf7-not-valid-tip {
+  bottom: -30px !important;
+}
+body.rtl .slider_arrow_block {
+  flex-direction: row-reverse;
+}
+body.rtl .form-close-icon {
+  left: 20px;
+  right: unset !important;
+}
+body.rtl .experience-list .experience-item .experience-header .experience-duration {
+  left: 0;
+  right: unset !important;
+}
+@media screen and (max-width: 700px) {
+  body.rtl .timeline-line {
+    left: unset !important;
+    transform: translateX(0) !important;
+    right: 0;
+    transform: translateX(0);
+  }
+}
+body.rtl .vendor_input_with_button .input {
+  border: none !important;
+  padding-left: 140px !important;
+  padding-right: 20px !important;
 }/*# sourceMappingURL=main.css.map */

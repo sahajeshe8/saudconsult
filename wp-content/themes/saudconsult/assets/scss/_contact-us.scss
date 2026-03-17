@@ -252,7 +252,16 @@
 	margin: 0;
 	padding: 0;
 	width: 100%;
+
+	
 }
+
+
+.contact_us_container{ 
+	.contact_form_list {
+	.wpcf7-not-valid-tip{ width: 100%;}}
+}
+
 
 .form_row_item {
 	margin-bottom: 30px;
@@ -394,4 +403,8 @@
 	}
 }
 
+}
+
+.vendor_input_with_button{
+	.input{ border: none !important;}
 }

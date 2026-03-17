@@ -124,6 +124,11 @@ border-bottom: solid 1px #cecfd1;
 
 				}
 			}
+
+
+			@media screen and (max-width: 700px) {
+				justify-content:  unset  ;
+			}
 		}
  
 	}

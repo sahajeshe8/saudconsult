@@ -59,12 +59,22 @@ body.rtl {
 								margin-left:0  !important;
 							}
 						}
+
+
+						@media screen and (max-width: 700px) {
+							text-align: right !important;
+						}
 					}
 
 					.timeline_item_content_year {
 						.timeline-dot {
 							right: unset !important;
 							left: -39px !important;
+
+							@media screen and (max-width: 700px) {
+								left: unset !important;
+								right: -39px !important;
+							}
 						}
 					}
 				}
@@ -396,7 +406,7 @@ body.rtl {
 
 
 .h3_title_50 {
-	line-height: 47px;
+	line-height: 60px;
 }
 
 
@@ -405,7 +415,54 @@ body.rtl {
 .job-form-popup {
     direction: rtl;
 }
+
+.vendor_registration_container{
+.career-form-list-ul{
+.wpcf7-not-valid-tip{bottom: -30px !important;}
 }
+}
+
+.slider_arrow_block{     flex-direction: row-reverse;}
+
+.form-close-icon{
+	left: 20px;
+	right:  unset !important;
+}
+
+
+
+.experience-list .experience-item .experience-header .experience-duration{
+	left: 0; 
+	right: unset !important;
+}
+
+
+
+
+.timeline-line{ 
+	
+	@media screen and (max-width: 700px) {
+	left: unset !important;
+     transform: translateX(0) !important;
+	 right: 0;
+        transform: translateX(0);
+}
+}
+
+
+
+.vendor_input_with_button{
+	.input{ border: none !important; 
+		padding-left: 140px !important;
+		padding-right: 20px !important;}
+
+	
+}
+
+
+
+}
+
 
 
 

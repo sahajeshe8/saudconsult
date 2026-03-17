@@ -14026,6 +14026,7 @@ a,
 }
 .footer .subscribe_form .btn_style {
   min-width: unset;
+  padding: 0 19px;
 }
 .footer .wpcf7-form-control-wrap {
   width: calc(100% - 156px);
